@@ -1,0 +1,158 @@
+<div class="sidebar">
+  <div class="sidebar-inner-index">
+    <ul class="main-menu">
+      <%- partial('partials/main_menu', { context: 'sidebar' }) %>
+    </ul>
+  </div>
+</div>
+
+
+<div id="hero">
+  <div class="inner">
+    <h1>FIBOS 开发者社区</h1>
+    <p class="introduce">
+      FIBOS 是一个创造和发展区块链应用生态的平台，让您轻松创建属于自己的价值网络，帮助开发者和创业者一步进入区块链世界
+    </p>
+    <p class="start">
+      <a class="button white" href="<%- url_for("/guide/installation/installation.html") %>">快速入门</a>
+      <a class="button gray has-icon" href="https://github.com/fibosio" target="_blank">
+        <%- partial('icons/github-dark') %>
+        GITHUB</a>
+    </p>
+  </div>
+</div>
+</div>
+
+<div id="highlights">
+  <div class="inner">
+    <div class="point">
+      <h2>新手入门</h2>
+      <ul>
+        <li>
+          <a href="<%- url_for("/guide/introduction/introduction.html") %>">简介</a>
+        </li>
+        <li>
+          <a href="<%- url_for("/guide/installation/installation.html") %>">安装</a>
+        </li>
+        <li>
+          <a href="<%- url_for("/guide/start/start.html") %>">入门</a>
+        </li>
+        <li>
+          <a href="<%- url_for("/guide/tutorials/instructions.html") %>">教程</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="point">
+      <h2>进阶指南</h2>
+      <ul>
+        <li>
+          <a href="<%- url_for("/guide/node/abouttestnet.html") %>">节点编程</a>
+        </li>
+        <li>
+          <a href="<%- url_for("/guide/fibos.js/situation.html") %>">Fibos.js</a>
+        </li>
+        <li>
+          <a href="<%- url_for("/guide/contract/whatisabi.html") %>">智能合约</a>
+        <li>
+          <a href="<%- url_for("/guide/economic/eos2fibos.html") %>">Token 合约</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+
+    <div class="point">
+      <h2>技术手册</h2>
+      <ul>
+        <li>
+          <a href="<%- url_for("/api/smartcontract/index.html") %>">JS 合约 API</a>
+        </li>
+        <li>
+          <a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a>
+        </li>
+        <li>
+          <a href="https://github.com/FIBOSIO/fibos.js" target="_blank">FIBOS.JS</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div id="footer">
+  <div class="social-icon">
+    <div>
+      <p>
+        <img class="downicon" src="<%- url_for("/images/downlogo.png") %>" alt="Developer logo">
+      </p>
+      <p class="foot-text">FIBOS 开发者社区</p>
+    </div>
+    <div>
+      <p class="foot-contact">联系我们</p>
+      <ul>
+        <li>
+          <a href="javascript:void(0)" class="qrcode">
+            <img class="hero-logo" src="<%- url_for("/images/Shape.png") %>">
+            <img class="qrcodeImg" src="<%- url_for("/images/qrcode.jpeg") %>">
+          </a>
+        </li>
+        <li>
+          <a href="https://weibo.com/u/6563835901?" target="_blank">
+            <img class="hero-logo" src="<%- url_for("/images/wbcopy.png") %>">
+          </a>
+        </li>
+        <li>
+          <a href="https://t.me/FIBOSDEV" target="_blank">
+            <img class="hero-logo" src="<%- url_for("/images/telegram.png") %>">
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/FIBOSIO" target="_blank">
+            <img class="hero-logo" src="<%- url_for("/images/github.png") %>">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="Copyright">
+    <p>
+      Copyright © 2018 - 2019 <a href="https://fibos.io/" target="_blank">FIBOS.IO</a> All Rights Reserved
+    </p>
+  </div>
+
+</div>
+
+
+<script>
+  (function () {
+    var topScrolled = false
+    var sponsors = document.getElementById('highlights')
+    var sponsorTop = sponsors.offsetTop
+    var sponsorActive = false
+
+    window.addEventListener('resize', function () {
+      sponsorTop = sponsors.offsetTop
+    })
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 165 && !topScrolled) {
+        topScrolled = true
+        document.getElementById('mobile-bar').classList.remove('top')
+      } else if (window.pageYOffset <= 165 && topScrolled) {
+        topScrolled = false
+        document.getElementById('mobile-bar').classList.add('top')
+      }
+      if (window.pageYOffset > sponsorTop - 100) {
+        if (!sponsorActive) {
+          sponsorActive = true
+          sponsors.classList.add('active')
+        }
+      } else {
+        if (sponsorActive) {
+          sponsorActive = false
+          sponsors.classList.remove('active')
+        }
+      }
+    })
+  })()
+</script>

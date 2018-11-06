@@ -1,0 +1,15 @@
+<li class="nav-dropdown-container learn">
+  <a class="nav-link<%- page.path.match(/\/(tutorials(?!\/team.html$)|installation|start|introduction|economic|contract|node|fibos.js)(\/|$)/) ? ' current' : '' %>">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="<%- url_for("/guide/introduction/introduction.html") %>" class="nav-link<%- page.path.match(/\/introduction(\/|$)/) ? ' current' : '' %>">简介</a></li>
+      <li><a href="<%- url_for("/guide/installation/installation.html") %>" class="nav-link<%- page.path.match(/\/installation(\/|$)/) ? ' current' : '' %>">安装</a></li>
+      <li><a href="<%- url_for("/guide/start/start.html") %>" class="nav-link<%- page.path.match(/\/start(\/|$)/) ? ' current' : '' %>">入门</a></li>
+      <li><a href="<%- url_for("/guide/tutorials/instructions.html") %>" class="nav-link<%- page.path.match(/\/tutorials(\/|$)/) ? ' current' : '' %> tutorials">教程</a></li>
+      <li><a href="<%- url_for("/guide/node/abouttestnet.html") %>" class="nav-link<%- page.path.match(/\/node(\/|$)/) ? ' current' : '' %>">节点编程</a></li>
+      <li><a href="<%- url_for("/guide/fibos.js/situation.html") %>" class="nav-link<%- page.path.match(/\/fibos.js(\/|$)/) ? ' current' : '' %>">Fibos.js</a></li>
+      <li><a href="<%- url_for("/guide/contract/whatisabi.html") %>" class="nav-link<%- page.path.match(/\/contract(\/|$)/) ? ' current' : '' %>">智能合约</a></li>
+      <li><a href="<%- url_for("/guide/economic/eos2fibos.html") %>" class="nav-link<%- page.path.match(/\/economic(\/|$)/) ? ' current' : '' %>">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
