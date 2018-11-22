@@ -15,7 +15,6 @@ FIBOS 主网部分 RPC  http 地址如下所示:
 | 俄勒冈州 | http://api.bitze.site         |
 | 旧金山   | http://api.fibos.icu          |
 | 伦敦     | http://api.fibosutility.com   |
-| 新加坡   | http://fibos.smr123.com       |
 
 FIBOS 主网部分 RPC  https 地址如下所示:
 
@@ -26,7 +25,6 @@ FIBOS 主网部分 RPC  https 地址如下所示:
 | 俄勒冈州 | https://api.bitze.site         |
 | 旧金山   | https://api.fibos.icu          |
 | 伦敦     | https://api.fibosutility.com   |
-| 新加坡   | https://fibos.smr123.com       |
 
 ##  P2P 列表
 
@@ -39,4 +37,3 @@ FIBOS 主网部分 P2P 地址如下所示:
 | 俄勒冈州 | seed.bitze.site:9870         |
 | 旧金山 | seed.fibos.icu:9870 |
 | 伦敦     | p2p.fibosutility.com:9870 |
-| 新加坡 | fibos.smr123.com:7890 |

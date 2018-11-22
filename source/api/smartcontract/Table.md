@@ -6,18 +6,6 @@ order: 9
 # 对象 Table
 multi index table 对象
 
-## 继承关系
-```dot
-digraph {
-    node [fontname="Helvetica,sans-Serif", fontsize=10, shape="record", style="filled", fillcolor="white"];
-
-    object [tooltip="object", URL="object.md", label="{object|toString()\ltoJSON()\l}"];
-    Table [tooltip="Table", fillcolor="lightgray", id="me", label="{Table|name\lcode\lscope\lindexes\l|emplace()\lfind()\lget_primary_key()\llowerbound()\lupperbound()\l}"];
-
-    object -> Table [dir=back];
-}
-```
-
 ## 成员属性
         
 ### name
