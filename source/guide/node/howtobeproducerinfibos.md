@@ -4,7 +4,7 @@ type: tutorials
 order: 103
 ---
 
-UTC 时间 2018 年 8 月 28 日 0 时，FIBOS 主网上线成功。新加坡、首尔、东京、加拿大、弗吉尼亚五大节点接入成功，均已成功出块。
+UTC 时间 2018 年 8 月 28 日 0 时，FIBOS 主网上线成功。首尔、东京、加拿大、伦敦、弗吉尼亚五大节点接入成功，均已成功出块。
 
 主网上线以后引起了强烈反响，那么如何加入 FIBOS 注册成为一个 BP 节点呢？本文将带你详细了解如何成为一个 BP ，进行投票以及领取工资。
 
@@ -18,7 +18,6 @@ UTC 时间 2018 年 8 月 28 日 0 时，FIBOS 主网上线成功。新加坡、
 
 | 位置     | RPC 地址                    |
 | -------- | --------------------------- |
-| 新加坡   | http://se-rpc.fibos.io:8870 |
 | 首尔     | http://sl-rpc.fibos.io:8870 |
 | 东京     | http://to-rpc.fibos.io:8870 |
 | 加拿大   | http://ca-rpc.fibos.io:8870 |
@@ -101,7 +100,7 @@ var a = ctx.delegatebwSync({
 
   **方法说明:**
 
-  使用  `delegatebwSync`  方法抵押 EOS 获取 NET 和 CPU 资源，用来投票。
+  使用  `delegatebwSync`  方法抵押 FO 获取 NET 和 CPU 资源，用来投票。
 
   **实例:**
 
@@ -180,13 +179,16 @@ var fibos = FIBOS({
     }
 })
 var ctx = fibos.contractSync('eosio');
+ 
+var fibosnodes = ['fibosbpnodec','fibosbpnodeb','fibosbpnodea'];
+fibosnodes.sort()；
 
-var a = ctx.voteproducerSync('fibostest123', '', 'fibosbpnode1');
+var a = ctx.voteproducerSync('fibostest123', '', fibosnodes);
 ```
 
 **实例说明:**
 
-上述代码的含义为 `fibostest123` 这个用户给 `fibosbpnode1`  投票 ,中间空着的参数为代理，不填表示直接给 BP 投票，填入则是通过代理给 BP 投票。
+上述代码的含义为 `fibostest123` 这个用户给 `fibosbpnodea, fibosbpnodeb, fibosbpnodec`  投票，投票节点列表需要由开发者自己按照字母序排序，一次性最多可以给30个 BP 投票。中间空着的参数为代理，不填表示直接给 BP 投票，填入则是通过代理给 BP 投票。
 
 
 

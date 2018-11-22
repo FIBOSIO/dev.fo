@@ -1,12 +1,12 @@
 ---
-title: bc_crypto
+title: crypto
 type: jscontract
 order: 5
 ---
-# 模块 bc_crypto
+# 模块 crypto
 加密算法模块
 
-bc_crypto 模块是 FIBOS 中的加密模块，支持 SHA1 、SHA256 、SHA 512等加密算法，在 js 合约中可以直接使用。
+crypto 模块是 FIBOS 中的加密模块，支持 SHA1 、SHA256 、SHA 512等加密算法，在 js 合约中可以直接使用。
 
 ## 静态函数
 
@@ -14,7 +14,7 @@ bc_crypto 模块是 FIBOS 中的加密模块，支持 SHA1 、SHA256 、SHA 512�
 **从给定的 hash 和签名中恢复公钥**
 
 ```JavaScript
-static String bc_crypto.recover_key(String digest,
+static String crypto.recover_key(String digest,
     String signature);
 ```
 
@@ -40,7 +40,7 @@ exports.hi1 = sig => {
 **创建一个 SHA1 信息摘要运算对象**
 
 ```JavaScript
-static String bc_crypto.sha1(Buffer data);
+static String crypto.sha1(Buffer data);
 ```
 
 调用参数:
@@ -63,7 +63,7 @@ exports.hi = v => {
 **创建一个 SHA256 信息摘要运算对象**
 
 ```JavaScript
-static String bc_crypto.sha256(Buffer data);
+static String crypto.sha256(Buffer data);
 ```
 
 调用参数:
@@ -86,7 +86,7 @@ exports.hi = v => {
 **创建一个 SHA512 信息摘要运算对象**
 
 ```JavaScript
-static String bc_crypto.sha512(Buffer data);
+static String crypto.sha512(Buffer data);
 ```
 
 调用参数:
@@ -109,7 +109,7 @@ exports.hi = v => {
 **创建一个 RIPEMD160 信息摘要运算对象**
 
 ```JavaScript
-static String bc_crypto.ripemd160(Buffer data);
+static String crypto.ripemd160(Buffer data);
 ```
 
 调用参数:

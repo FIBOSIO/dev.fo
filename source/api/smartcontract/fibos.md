@@ -3,39 +3,39 @@ title: fibos
 type: jscontract
 order: 8
 ---
-# 模块 fibos
 
+# 模块 fibos
 fibos 实例对象
 
 使用方法：
 
-```
+```JavaScript
 var fibos = require('fibos')
 ```
 
 ## 静态函数
-
+        
 ### load
-
 **加载系统 plugin**
 
-```
+```JavaScript
 static fibos.load(String name,
     Object cfg = {});
 ```
 
 调用参数:
+* name: String, 系统 plugin 名
+* cfg: Object, 提供给系统 plugin 的配置，[可选]
 
-- name: String, 系统 plugin 名
-- cfg: Object, 提供给系统 plugin 的配置，[可选]
-
-------
-
+--------------------------
 **加载配置**
 
-```
+```JavaScript
 static fibos.load(Object cfgs);
 ```
+
+调用参数:
+* cfgs: Object, 配置对象
 
 ------
 
@@ -92,7 +92,7 @@ static fibos.load(Object cfgs);
 | max-clients               | 允许连接客户端的最大数量         | 25                          | 0: 无限制                                                    |
 | connection-cleanup-period | 清除不可用链接周期               | 30(s)                       | -                                                            |
 | network-version-match     | 是否需要相同版本的网络           | false                       | -                                                            |
-| peer-log-format           | 节点日志格式化                   | ["${name}" ${_ip}:${_port}] | -                                                          |
+| peer-log-format           | 节点日志格式化                   | ["${name}" ${_ip}:${_port}] |                   -                                           |
 
 ------
 
@@ -102,10 +102,10 @@ static fibos.load(Object cfgs);
 
 | api                   | 请求 | 含义                     | 参数                          | 参考请求                                                     |
 | --------------------- | ---- | ------------------------ | ----------------------------- | ------------------------------------------------------------ |
-| /v1/chain/get_info    | GET  | 获取与节点相关的最新信息 | -                             | curl <http://127.0.0.1:8888/v1/chain/get_info>               |
-| /v1/chain/get_block   | POST | 获取一个块的信息         | block_num_or_id: 区块高度或id | curl <http://127.0.0.1:8888/v1/chain/get_block> -X POST -d '{"block_num_or_id":1}' |
-| /v1/chain/get_account | POST | 获取账户的信息           | account_name:账户名称    |     curl <http://127.0.0.1:8888/v1/chain/get_account> -X POST -d '{"account_name":"eosio"}' |
-| /v1/chain/get_code    | POST | 获取智能合约代码         | account_name:合约名称         | curl <http://127.0.0.1:8888/v1/chain/get_code> -X POST -d    |
+| get_info    | GET  | 获取与节点相关的最新信息 | -                             | curl <http://127.0.0.1:8888/v1/chain/get_info>               |
+| get_block   | POST | 获取一个块的信息         | block_num_or_id: 区块高度或id | curl <http://127.0.0.1:8888/v1/chain/get_block> -X POST -d '{"block_num_or_id":1}' |
+| get_account | POST | 获取账户的信息           | account_name:账户名称         | curl<http://127.0.0.1:8888/v1/chain/get_account> -X POST -d '{"account_name":"eosio"}' |
+| get_code    | POST | 获取智能合约代码         | account_name:合约名称         | curl <http://127.0.0.1:8888/v1/chain/get_code> -X POST -d    |
 
 ------
 
@@ -130,93 +130,41 @@ static fibos.load(Object cfgs);
 | bnet-follow-irreversible | 是否只接受从其他端点的不可逆的块                             | false        |        |
 | bnet-threads             | 用于处理网络消息的线程数                                     |              |        |
 | bnet-connect             | 其他节点的远程端点连接; 根据需要使用多个bnet-connect选项来组成网络 |              |        |
-| bnet-no-trx              | 这个peer请求其他节点没有pending的transactions                | false        |    |
+| bnet-no-trx              | 这个peer请求其他节点没有pending的transactions                | false        |    false    |
 
-------
-
+--------------------------
 ### start
-
 **启动 fibos**
 
-```
+```JavaScript
 static fibos.start();
-```
-
-------
-
-### stop
-
-**停止 fibos**
-
-```
-static fibos.stop();
-```
-
-## 静态属性
-
-### data_dir
-
-**String, fibos 的数据存放目录**
-
-```
-static String fibos.data_dir;
-```
-
-------
-
-### config_dir
-
-**String, fibos 的配置存放目录**
-
-```
-static String fibos.config_dir;
-```
-
-------
-
-### pubkey_prefix
-
-**String, fibos 公钥前缀**
-
-```
-static String fibos.pubkey_prefix;
-```
-
-------
-
-### enableJSContract
-
-**Boolean, 查询和设置 JavaScript 智能合约状态，为 True 时支持 JavaScript 智能合约**
-
-```
-static Boolean fibos.enableJSContract;
 ```
 
 ### 实例
 
 #### bp节点
 
-```
+```JavaScript
 var fibos = require('fibos');
 var fs = require("fs");
 var isInit = false;
 
 var producername = '';
-var p2p_peer_address =["p2p-mainnet.fibos123.com:9977",
-  "seed.fibos.rocks:10100",
-  "p2p.foshenzhenbp:9877",
-  "p2p.eoschina.me:10300",
-  "p2p.mainnet.fibos.me:80",
-  "fibos-node.slowmist.io:9870",
-"se-p2p.fibos.io:9870",
-  "sl-p2p.fibos.io:9870",
-  "to-p2p.fibos.io:9870",
-  "ca-p2p.fibos.io:9870",
-  "ln-p2p.fibos.io:9870",
-  "va-p2p.fibos.io:9870"];
+var p2p_peer_address = ["p2p-mainnet.fibos123.com:9977",
+    "seed.fibos.rocks:10100",
+    "p2p.foshenzhenbp:9877",
+    "p2p.eoschina.me:10300",
+    "p2p.mainnet.fibos.me:80",
+    "fibos-node.slowmist.io:9870",
+    "se-p2p.fibos.io:9870",
+    "sl-p2p.fibos.io:9870",
+    "to-p2p.fibos.io:9870",
+    "ca-p2p.fibos.io:9870",
+    "ln-p2p.fibos.io:9870",
+    "va-p2p.fibos.io:9870"
+];
 
 console.notice("start FIBOS producer nodes");
-
 
 fibos.config_dir = "./";
 fibos.data_dir = "/blockData";
@@ -224,21 +172,20 @@ fibos.data_dir = "/blockData";
 console.notice("config_dir:", fibos.config_dir);
 console.notice("data_dir:", fibos.data_dir);
 
-
 fibos.load("net", {
-	"p2p-peer-address": p2p_peer_address,
-	"p2p-listen-endpoint": "0.0.0.0:9870"
+    "p2p-peer-address": p2p_peer_address,
+    "p2p-listen-endpoint": "0.0.0.0:9870"
 });
 
 fibos.load("producer", {
-	'producer-name': producername,
-	'enable-stale-production': true,
-	'private-key': JSON.stringify(active_publickey, active_privateKey]
+    'producer-name': producername,
+    'enable-stale-production': true,
+    'private-key': [active_publickey, active_privateKey]
 });
-fibos.load("chain",{
-	// "contracts-console": true,
-	'chain-state-db-size-mb': 8 * 1024,
-	'genesis-json': 'genesis.json'
+fibos.load("chain", {
+    // "contracts-console": true,
+    'chain-state-db-size-mb': 8 * 1024,
+    'genesis-json': 'genesis.json'
 });
 //禁止js合约
 fibos.enableJSContract = false;
@@ -246,27 +193,26 @@ fibos.enableJSContract = false;
 fibos.start();
 ```
 
-
-
 #### 同步节点
 
-```
+```JavaScript
 var fibos = require('fibos');
 var fs = require("fs");
 
 var producername = '';
 var p2p_peer_address = ["p2p-mainnet.fibos123.com:9977",
-  "seed.fibos.rocks:10100",
-  "p2p.foshenzhenbp:9877",
-  "p2p.eoschina.me:10300",
-  "p2p.mainnet.fibos.me:80",
-  "fibos-node.slowmist.io:9870",
-"se-p2p.fibos.io:9870",
-  "sl-p2p.fibos.io:9870",
-  "to-p2p.fibos.io:9870",
-  "ca-p2p.fibos.io:9870",
-  "ln-p2p.fibos.io:9870",
-  "va-p2p.fibos.io:9870"];
+    "seed.fibos.rocks:10100",
+    "p2p.foshenzhenbp:9877",
+    "p2p.eoschina.me:10300",
+    "p2p.mainnet.fibos.me:80",
+    "fibos-node.slowmist.io:9870",
+    "se-p2p.fibos.io:9870",
+    "sl-p2p.fibos.io:9870",
+    "to-p2p.fibos.io:9870",
+    "ca-p2p.fibos.io:9870",
+    "ln-p2p.fibos.io:9870",
+    "va-p2p.fibos.io:9870"
+];
 
 console.notice("start FIBOS ABI nodes");
 
@@ -276,22 +222,21 @@ fibos.data_dir = "/blockData";
 console.notice("config_dir:", fibos.config_dir);
 console.notice("data_dir:", fibos.data_dir);
 
-
 fibos.load("http", {
-	"http-server-address": "0.0.0.0:8870",
-	"access-control-allow-origin": "*"
+    "http-server-address": "0.0.0.0:8870",
+    "access-control-allow-origin": "*"
 });
 
 fibos.load("net", {
-	"p2p-peer-address": p2p_peer_address,
-	"p2p-listen-endpoint": "0.0.0.0:9870"
+    "p2p-peer-address": p2p_peer_address,
+    "p2p-listen-endpoint": "0.0.0.0:9870"
 });
 
 fibos.load("producer");
 
 fibos.load("chain", {
-	'chain-state-db-size-mb': 8 * 1024,
-	'genesis-json': 'genesis.json'
+    'chain-state-db-size-mb': 8 * 1024,
+    'genesis-json': 'genesis.json'
 });
 fibos.load("chain_api");
 fibos.load("history");
@@ -302,25 +247,26 @@ fibos.enableJSContract = false;
 fibos.start();
 ```
 
-##### 支持mangodb 
+##### 支持mangodb
 
-```
+```JavaScript
 var fibos = require('fibos');
 var fs = require("fs");
 
 var producername = '';
 var p2p_peer_address = ["p2p-mainnet.fibos123.com:9977",
-  "seed.fibos.rocks:10100",
-  "p2p.foshenzhenbp:9877",
-  "p2p.eoschina.me:10300",
-  "p2p.mainnet.fibos.me:80",
-  "fibos-node.slowmist.io:9870",
-"se-p2p.fibos.io:9870",
-  "sl-p2p.fibos.io:9870",
-  "to-p2p.fibos.io:9870",
-  "ca-p2p.fibos.io:9870",
-  "ln-p2p.fibos.io:9870",
-  "va-p2p.fibos.io:9870"];
+    "seed.fibos.rocks:10100",
+    "p2p.foshenzhenbp:9877",
+    "p2p.eoschina.me:10300",
+    "p2p.mainnet.fibos.me:80",
+    "fibos-node.slowmist.io:9870",
+    "se-p2p.fibos.io:9870",
+    "sl-p2p.fibos.io:9870",
+    "to-p2p.fibos.io:9870",
+    "ca-p2p.fibos.io:9870",
+    "ln-p2p.fibos.io:9870",
+    "va-p2p.fibos.io:9870"
+];
 
 console.notice("start FIBOS ABI nodes");
 
@@ -330,22 +276,21 @@ fibos.data_dir = "/blockData";
 console.notice("config_dir:", fibos.config_dir);
 console.notice("data_dir:", fibos.data_dir);
 
-
 fibos.load("http", {
-	"http-server-address": "0.0.0.0:8870",
-	"access-control-allow-origin": "*"
+    "http-server-address": "0.0.0.0:8870",
+    "access-control-allow-origin": "*"
 });
 
 fibos.load("net", {
-	"p2p-peer-address": p2p_peer_address,
-	"p2p-listen-endpoint": "0.0.0.0:9870"
+    "p2p-peer-address": p2p_peer_address,
+    "p2p-listen-endpoint": "0.0.0.0:9870"
 });
 
 fibos.load("producer");
 
 fibos.load("chain", {
-	'chain-state-db-size-mb': 8 * 1024,
-	'genesis-json': 'genesis.json'
+    'chain-state-db-size-mb': 8 * 1024,
+    'genesis-json': 'genesis.json'
 });
 fibos.load("chain_api");
 fibos.load("history");
@@ -360,7 +305,7 @@ fibos.start();
 
 #### genesis.json 文件
 
-```
+```JavaScript
 {
     "initial_timestamp": "2018-08-28T00:00:00.000",
     "initial_key": "FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
@@ -385,5 +330,54 @@ fibos.start();
     },
     "initial_chain_id": "6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a"
 }
+```
+
+--------------------------
+### stop
+**停止 fibos**
+
+```JavaScript
+static fibos.stop();
+```
+
+## 静态属性
+        
+### data_dir
+**String, fibos 的数据存放目录**
+
+```JavaScript
+static String fibos.data_dir;
+```
+
+--------------------------
+### config_dir
+**String, fibos 的配置存放目录**
+
+```JavaScript
+static String fibos.config_dir;
+```
+
+--------------------------
+### core_symbol
+**String, fibos 主 token 名称**
+
+```JavaScript
+static String fibos.core_symbol;
+```
+
+--------------------------
+### pubkey_prefix
+**String, fibos 公钥前缀**
+
+```JavaScript
+static String fibos.pubkey_prefix;
+```
+
+--------------------------
+### enableJSContract
+**Boolean, 查询和设置 JavaScript 智能合约状态，为 True 时支持 JavaScript 智能合约**
+
+```JavaScript
+static Boolean fibos.enableJSContract;
 ```
 
