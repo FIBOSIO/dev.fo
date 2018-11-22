@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    发行和销毁通证 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="发行和销毁通证 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="发行和销毁通证 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link current">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link current">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/introduction/introduction.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/installation/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/start/start.html" class="sidebar-link">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/abouttestnet.html" class="sidebar-link">TestNet 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/jointestnet.html" class="sidebar-link">加入到 TestNet 网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/bp.html" class="sidebar-link">rpc 及 p2p 列表(持续更新)</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/howtobeproducerinfibos.html" class="sidebar-link">成为主网 bp 节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/fibosmongodb.html" class="sidebar-link">mongoDB 富查询</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/emitter.html" class="sidebar-link">Emitter 插件使用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Fibos.js</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/situation.html" class="sidebar-link">Fibos.js 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/createaccountnotfree.html" class="sidebar-link">在 FIBOS 中创建账号</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getinfosync.html" class="sidebar-link">获取 FIBOS 相关信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getaccountsync.html" class="sidebar-link">获取指定账号信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getblocksync.html" class="sidebar-link">获取指定区块信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getproducerssync.html" class="sidebar-link">获取当前节点列表信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/whatisabi.html" class="sidebar-link">编写 ABI 接口</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/crudoperations.html" class="sidebar-link">模块 DB 中的 crud 操作</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/fibosauth.html" class="sidebar-link">FIBOS 权限系统</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约之间的相互调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/recipientclass.html" class="sidebar-link">FIBOS 中的 recipient</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fibos.html" class="sidebar-link">从 EOS 跨链转账到 FIBOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/fibos2eos.html" class="sidebar-link">从 FIBOS 跨链转账到 EOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fo.html" class="sidebar-link">EOS 与 FO 通证相互兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtoexchangetokeninfibos.html" class="sidebar-link">智能通证互兑</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtocreatetokeninfibos.html" class="sidebar-link current">发行和销毁通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtouselock.html" class="sidebar-link">锁仓和解锁功能</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtousecontractaccount.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>发行和销毁通证</h1>
+  
+  
+    <blockquote>
+<p>学习本文档前，你需要对 FIBOS 和 fibos.js 有一定的了解。假如你对 FIBOS 和 fibos.js 不了解，请参阅 <a href="../start/start.html">快速入门</a> 。</p>
+</blockquote>
+<p>相比于在 EOS 上发行通证的复杂性和高成本，在 FIBOS 上发行通证只需要两步:</p>
+<p>1.拥有 FIBOS 账号</p>
+<p>2.发行通证</p>
+<h2 id="拥有-FIBOS-账号"><a href="#拥有-FIBOS-账号" class="headerlink" title="拥有 FIBOS 账号"></a>拥有 FIBOS 账号</h2><p>由于9.4日之后，FIBOS 官网关闭了免费注册 FIBOS 的通道，现在有两种方式可以获得 FIBOS 账号：</p>
+<p>1.<a href="http://wallet.fo/" target="_blank" rel="noopener">下载 FO 钱包</a> 免费注册 FIBOS 账号</p>
+<p>2.参考<a href="../fibos.js/createaccountnotfree.html">在 FIBOS 中创建账号</a> 一文，让已经拥有 FIBOS 账号的朋友替你注册一个 。</p>
+<h2 id="发行通证"><a href="#发行通证" class="headerlink" title="发行通证"></a>发行通证</h2><p>发行通证调用 token 合约中的 <code>excreate</code> 接口，方法和参数名解释如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::excreate(</span><br><span class="line">  account_name issuer, <span class="comment">// 通证发行账号</span></span><br><span class="line">  asset maximum_supply, <span class="comment">// 最大可发行通证数量</span></span><br><span class="line">  double connector_weight, <span class="comment">// 连接器权重</span></span><br><span class="line">  asset maximum_exchange, <span class="comment">// 最大可兑换(流通)的通证数量</span></span><br><span class="line">  asset reserve_supply, <span class="comment">// 未流通通证数量</span></span><br><span class="line">  asset reserve_connector_balance <span class="comment">// 未流通通证保证金数量</span></span><br><span class="line">  time_point_sec expiration <span class="comment">// 项目方预设的项目锁仓期</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>在 FIBOS 上你可以发行两种通证，一种是传统通证，一种智能通证。两种通证的不同点在于智能通证可以通过 bancor 协议进行兑换。如果还不了解什么是 bancor 协议的同学，可以参考 <a href="https://github.com/FIBOSIO/bancor" target="_blank" rel="noopener">bancor 协议中文白皮书</a> 一文。</p>
+<h4 id="发行普通通证"><a href="#发行普通通证" class="headerlink" title="发行普通通证"></a>发行普通通证</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(name, <span class="string">'90000000000.0000 DDD'</span>, <span class="number">0.15</span>, <span class="string">'10000000000.0000 DDD'</span>, <span class="string">'3000000000.0000 DDD'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>, &#123;</span><br><span class="line">  authorization: name</span><br><span class="line">&#125;); <span class="comment">//expiration需大于等于当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(r)</span><br></pre></td></tr></table></figure>
+<h5 id="查询发行的通证"><a href="#查询发行的通证" class="headerlink" title="查询发行的通证"></a>查询发行的通证</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'fibostest123'</span>, <span class="string">'stats'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>通过调用查询通证的方法，可以查询到我们已经发行的通证。</p>
+<h5 id="增发普通通证"><a href="#增发普通通证" class="headerlink" title="增发普通通证"></a>增发普通通证</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exissueSync(name, <span class="string">'1000000.0000 ABC@fibostest123'</span>, <span class="string">'issue to fibostest123'</span>, &#123;</span><br><span class="line">  authorization: name</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong> : 只有普通通证可以进行增发操作，智能通证不支持增发！</p>
+<h4 id="发行智能通证"><a href="#发行智能通证" class="headerlink" title="发行智能通证"></a>发行智能通证</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(name, <span class="string">'100000000000.0000 AAA'</span>,  <span class="number">0.15</span>,<span class="string">'10000000000.0000 AAA'</span>, <span class="string">'3000000000.0000 AAA'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>, &#123;</span><br><span class="line">    authorization: name</span><br><span class="line">&#125;);  <span class="comment">//expiration需大于等于当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>观察发行传统通证和创建智能通证的代码，我们不难发现，当一个通证的连接器权重（CW）值为0时，它就是传统通证。而对于智能通证来说，它必须要有对应的 cw（0-1之间）和 max_exchange。以及根据 bancor 协议计算出 reserve_supply 和 reserve_connector_balance。</p>
+<h4 id="FO-通证兑换智能通证"><a href="#FO-通证兑换智能通证" class="headerlink" title="FO 通证兑换智能通证"></a>FO 通证兑换智能通证</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span></span><br><span class="line"><span class="keyword">let</span> result = ctx.exchangeSync(name, <span class="string">'1.0000 FO@eosio'</span>, <span class="string">`0.0000 AAA@fibostest123`</span>, <span class="string">'exchange FO to AAA'</span>, &#123;</span><br><span class="line">    authorization: name</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h5 id="查询兑换的智能通证"><a href="#查询兑换的智能通证" class="headerlink" title="查询兑换的智能通证"></a>查询兑换的智能通证</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> rs = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'fibostest123'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<h4 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">var</span> r = ctx.extransferSync(<span class="string">'fibostest123'</span>, <span class="string">'fibostest321'</span>, <span class="string">'10.0000 ADC@fibostest123'</span>, <span class="string">'trasnfer to fibostest321'</span>, &#123;</span><br><span class="line">  authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>转账的目标账户必须要在 FIBOS 中存在，且转账的最大数量不能超过你的余额，精度也要与转账的 Token 精度一致。</p>
+<h3 id="销毁通证"><a href="#销毁通证" class="headerlink" title="销毁通证"></a>销毁通证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exdestroySync(<span class="string">`0.0000 AAA@fibostest123`</span>, &#123;<span class="attr">authorization</span>: <span class="string">'fibostest123'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>当不再需要该通证时，调用 <code>exdestroySync</code> 方法来销毁通证。</p>
+<p><strong>注意</strong>：销毁通证需要<strong>流通量为0</strong>的时候才可以销毁，也就是说通证发行方需要收回市场上所有流通的通证后才能销毁通证。</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

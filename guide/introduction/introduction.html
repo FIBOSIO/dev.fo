@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    介绍 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="介绍 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="介绍 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link current">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link current">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/introduction/introduction.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/introduction/introduction.html" class="sidebar-link current">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/installation/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/start/start.html" class="sidebar-link">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/abouttestnet.html" class="sidebar-link">TestNet 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/jointestnet.html" class="sidebar-link">加入到 TestNet 网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/bp.html" class="sidebar-link">rpc 及 p2p 列表(持续更新)</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/howtobeproducerinfibos.html" class="sidebar-link">成为主网 bp 节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/fibosmongodb.html" class="sidebar-link">mongoDB 富查询</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/emitter.html" class="sidebar-link">Emitter 插件使用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Fibos.js</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/situation.html" class="sidebar-link">Fibos.js 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/createaccountnotfree.html" class="sidebar-link">在 FIBOS 中创建账号</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getinfosync.html" class="sidebar-link">获取 FIBOS 相关信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getaccountsync.html" class="sidebar-link">获取指定账号信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getblocksync.html" class="sidebar-link">获取指定区块信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getproducerssync.html" class="sidebar-link">获取当前节点列表信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/whatisabi.html" class="sidebar-link">编写 ABI 接口</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/crudoperations.html" class="sidebar-link">模块 DB 中的 crud 操作</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/fibosauth.html" class="sidebar-link">FIBOS 权限系统</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约之间的相互调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/recipientclass.html" class="sidebar-link">FIBOS 中的 recipient</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fibos.html" class="sidebar-link">从 EOS 跨链转账到 FIBOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/fibos2eos.html" class="sidebar-link">从 FIBOS 跨链转账到 EOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fo.html" class="sidebar-link">EOS 与 FO 通证相互兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtoexchangetokeninfibos.html" class="sidebar-link">智能通证互兑</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtocreatetokeninfibos.html" class="sidebar-link">发行和销毁通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtouselock.html" class="sidebar-link">锁仓和解锁功能</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtousecontractaccount.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>介绍</h1>
+  
+  
+    <h2 id="FIBOS-简介"><a href="#FIBOS-简介" class="headerlink" title="FIBOS 简介"></a>FIBOS 简介</h2><ul>
+<li>FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台，它使得 EOS 提供可编程性，并允许使用 JavaScript 编写智能合约。</li>
+<li>JavaScript 开发 + BANCOR 协议智能通证 + 开发者服务，FIBOS 平台实现了快速开发、快速部署和稳定且流动的通证体系，帮助开发者一步进入区块链时代。</li>
+</ul>
+<h2 id="为什么要创造-FIBOS"><a href="#为什么要创造-FIBOS" class="headerlink" title="为什么要创造 FIBOS"></a>为什么要创造 FIBOS</h2><h3 id="1-目前-EOS-的环境部署困难"><a href="#1-目前-EOS-的环境部署困难" class="headerlink" title="1. 目前 EOS 的环境部署困难"></a>1. 目前 EOS 的环境部署困难</h3><p>EOS 的编译环境依赖性强，编译过程时常遇到很多问题，对于普通一个开发者来说，大多数面对 <code>CMake</code> 的情况是束手无策的。</p>
+<p>而 FIBOS 提供一套预编译开发环境，开发者可以快速实现部署，把更多的时间用在编写智能合约上。</p>
+<h3 id="2-开发门槛高"><a href="#2-开发门槛高" class="headerlink" title="2. 开发门槛高"></a>2. 开发门槛高</h3><p>编写 EOS 智能合约需要掌握 C++ 语言，这对于一名开发者来说学习成本非常高，并且我们认为正确的写出编译合约的 <code>CMAKELISTS.TXT</code> 才是刚刚开始！</p>
+<p>而对于 FIBOS 来说，开发者可以使用 JavaScript 脚本语言进行编写智能合约，而这门语言学习成本很低。</p>
+<p>对于一名开发者来说，如果一件事情简单容易，我们认为他们会更容易接受，并渴望了解 FIBOS。</p>
+<h3 id="3-测试套件原始"><a href="#3-测试套件原始" class="headerlink" title="3. 测试套件原始"></a>3. 测试套件原始</h3><p>EOS 的测试用例编写也必须使用 C++，高难度的语言学习，高难度的编译，使得测试这件事在 EOS 上面变得复杂、困难。</p>
+<p>FIBOS 集成 FIBJS 服务端开发平台，拥有成熟的测试套件，在 FIBOS 平台上编写的用例，开发者可以使用 JavaScript 编写测试用例，这一切看起来非常的灵活、轻松！</p>
+<h3 id="4-EOS-迭代周期长"><a href="#4-EOS-迭代周期长" class="headerlink" title="4. EOS 迭代周期长"></a>4. EOS 迭代周期长</h3><p>一个 EOS 智能合约要想成功部署发布，需要经过编写、编译、部署、测试、调试、修复，漫长的等待过程。</p>
+<p>FIBOS 支持本地合约模式，随时修改随时测试，结合一些 IDE 工具可以做到一键研发测试。</p>
+<h3 id="5-开发生态原始"><a href="#5-开发生态原始" class="headerlink" title="5. 开发生态原始"></a>5. 开发生态原始</h3><p>EOS 使用 C++ 参与编写研发，并不能做到 NPM 这样的生态环境，而 FIBOS 支持 NPM 包管理，与庞大的 NPM 生态紧密连接。</p>
+<h3 id="6-部署发布合约成本高"><a href="#6-部署发布合约成本高" class="headerlink" title="6. 部署发布合约成本高"></a>6. 部署发布合约成本高</h3><p>EOS 编写合约需要让 C++ 代码编译到 WASM，而 WASM 编译文件非常庞大，让发布部署运行合约成本非常高昂。</p>
+<p>FIBOS 编写的合约可以通过打包脚本，压缩文件极大的降低部署发布成本。</p>
+<h3 id="7-合约不可审计"><a href="#7-合约不可审计" class="headerlink" title="7. 合约不可审计"></a>7. 合约不可审计</h3><p>EOS 合约编译成 WASM 后，对审计阅读合约代码带来了极大的困难，开发者无法评估合约的安全性。</p>
+<p>FIBOS 的合约使用 JavaScript 编写并且全部开源，方便社区审计，迅速形成共识。</p>
+<h2 id="FIBOS-社区"><a href="#FIBOS-社区" class="headerlink" title="FIBOS 社区"></a>FIBOS 社区</h2><p>开发者可以通过如下途径讨论和研究 FIBOS：</p>
+<ul>
+<li>website: <a href="https://fibos.io/" target="_blank" rel="noopener">https://fibos.io</a></li>
+<li>telegram: <a href="https://t.me/FIBOSIO" target="_blank" rel="noopener">https://t.me/FIBOSIO</a></li>
+<li>twitter: <a href="https://twitter.com/fibos_io" target="_blank" rel="noopener">https://twitter.com/fibos_io</a></li>
+<li>medium: <a href="https://medium.com/@fibosio" target="_blank" rel="noopener">https://medium.com/@fibosio</a></li>
+<li>issue: <a href="https://github.com/fibosio/fibos/issues" target="_blank" rel="noopener">https://github.com/fibosio/fibos/issues</a></li>
+</ul>
+<h2 id="开始体验"><a href="#开始体验" class="headerlink" title="开始体验"></a>开始体验</h2><p>准备好开始一场愉快的开发经历了吗？那么，从安装开始吧。</p>
+<p>👉 【<a href="../installation/installation.html">安装运行环境</a>】</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    获取当前节点列表信息 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="获取当前节点列表信息 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="获取当前节点列表信息 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link current">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link current">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/fibos.js/getproducerssync.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/introduction/introduction.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/installation/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/start/start.html" class="sidebar-link">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/abouttestnet.html" class="sidebar-link">TestNet 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/jointestnet.html" class="sidebar-link">加入到 TestNet 网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/bp.html" class="sidebar-link">rpc 及 p2p 列表(持续更新)</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/howtobeproducerinfibos.html" class="sidebar-link">成为主网 bp 节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/fibosmongodb.html" class="sidebar-link">mongoDB 富查询</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/emitter.html" class="sidebar-link">Emitter 插件使用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Fibos.js</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/situation.html" class="sidebar-link">Fibos.js 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/createaccountnotfree.html" class="sidebar-link">在 FIBOS 中创建账号</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getinfosync.html" class="sidebar-link">获取 FIBOS 相关信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getaccountsync.html" class="sidebar-link">获取指定账号信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getblocksync.html" class="sidebar-link">获取指定区块信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getproducerssync.html" class="sidebar-link current">获取当前节点列表信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/whatisabi.html" class="sidebar-link">编写 ABI 接口</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/crudoperations.html" class="sidebar-link">模块 DB 中的 crud 操作</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/fibosauth.html" class="sidebar-link">FIBOS 权限系统</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约之间的相互调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/recipientclass.html" class="sidebar-link">FIBOS 中的 recipient</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fibos.html" class="sidebar-link">从 EOS 跨链转账到 FIBOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/fibos2eos.html" class="sidebar-link">从 FIBOS 跨链转账到 EOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fo.html" class="sidebar-link">EOS 与 FO 通证相互兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtoexchangetokeninfibos.html" class="sidebar-link">智能通证互兑</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtocreatetokeninfibos.html" class="sidebar-link">发行和销毁通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtouselock.html" class="sidebar-link">锁仓和解锁功能</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtousecontractaccount.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>获取当前节点列表信息</h1>
+  
+  
+    <p><strong>作者：痛饮狂歌</strong></p>
+<hr>
+<p>今天，我们介绍 getProducersSync 方法，此方法用于返回当前 BP 节点列表信息。BP 指区块生产者（Block Producer）。</p>
+<p>文件 get_producers1.js 代码清单：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOSJS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主网 RPC 地址</span></span><br><span class="line"><span class="keyword">const</span> MAINNET_RPC_ADDRESS = <span class="string">'http://se-rpc.fibos.io:8870'</span>;</span><br><span class="line"><span class="comment">// FIBOS 链ID</span></span><br><span class="line"><span class="keyword">const</span> FIBOS_CHAINID =</span><br><span class="line">  <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  chainId: FIBOS_CHAINID,</span><br><span class="line">  httpEndpoint: MAINNET_RPC_ADDRESS</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fibos = FIBOSJS(config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取 BP 节点列表</span></span><br><span class="line"><span class="built_in">console</span>.log(fibos.getProducersSync(<span class="literal">true</span>, <span class="string">''</span>, <span class="number">5</span>));</span><br></pre></td></tr></table></figure>
+<p>调用 getProducersSync 方法时可指定 3 个参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>json</td>
+<td>布尔型</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>lower_bound</td>
+<td>字符串型</td>
+<td></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>无符号整数</td>
+<td><code>50</code></td>
+</tr>
+</tbody>
+</table>
+<p>运行该文件，输出结果如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  'rows': [</span><br><span class="line">    &#123;</span><br><span class="line">      'owner': 'fibosmoziben',</span><br><span class="line">      'total_votes': '367632706444448448.00000000000000000',</span><br><span class="line">      'producer_key': 'FO72kzUjpkrpRXwq36iMovXbAXNU59buUQfUoTxe8pEDMhp2G8cD',</span><br><span class="line">      'is_active': 1,</span><br><span class="line">      'url': 'http://www.mocapital.top/',</span><br><span class="line">      'unpaid_blocks': 20976,</span><br><span class="line">      'last_claim_time': '1536284750000000',</span><br><span class="line">      'location': 1</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      'owner': 'plasmatfibos',</span><br><span class="line">      'total_votes': '346268768760910784.00000000000000000',</span><br><span class="line">      'producer_key': 'FO8Tt6fYBFYiyUjTsuinLgL5nxhAAa3sx5vVTkC1FUx3xvas2WSZ',</span><br><span class="line">      'is_active': 1,</span><br><span class="line">      'url': 'https://www.fiboso.com',</span><br><span class="line">      'unpaid_blocks': 84,</span><br><span class="line">      'last_claim_time': '1536504215000000',</span><br><span class="line">      'location': 1</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      'owner': 'fibos123comm',</span><br><span class="line">      'total_votes': '343270297819766144.00000000000000000',</span><br><span class="line">      'producer_key': 'FO6MzV92DgYjwDa7K3rtc28dPhGt2Gy8oUoHjESUq4gBx63v8num',</span><br><span class="line">      'is_active': 1,</span><br><span class="line">      'url': 'https://www.fibos123.com',</span><br><span class="line">      'unpaid_blocks': 7523,</span><br><span class="line">      'last_claim_time': '1536426172500000',</span><br><span class="line">      'location': 1</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      'owner': 'shaoshaoshao',</span><br><span class="line">      'total_votes': '336672249083071040.00000000000000000',</span><br><span class="line">      'producer_key': 'FO6ruGiSvfspqBiUkx9REjsJKZon6AsUcUPv9kDFfWRHgeUsYXya',</span><br><span class="line">      'is_active': 1,</span><br><span class="line">      'url': 'http://shuimeiren.io',</span><br><span class="line">      'unpaid_blocks': 2136,</span><br><span class="line">      'last_claim_time': '1536482668000000',</span><br><span class="line">      'location': 1</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      'owner': 'chaindoctor1',</span><br><span class="line">      'total_votes': '328642388640282368.00000000000000000',</span><br><span class="line">      'producer_key': 'FO5jnYK8XU226Mis57TQni7Et8LEjzjr165f3143pPQdA6bKQgEq',</span><br><span class="line">      'is_active': 1,</span><br><span class="line">      'url': 'http://www.fodoctor.com',</span><br><span class="line">      'unpaid_blocks': 9423,</span><br><span class="line">      'last_claim_time': '1536406122500000',</span><br><span class="line">      'location': 1</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  'total_producer_vote_weight': '7896774536012429312.00000000000000000',</span><br><span class="line">  'more': 'fibscandotio'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，getProducersSync 方法会返回指定数目的 BP 节点，以及总投票权重值、下一个区块生产者等信息：</p>
+<ul>
+<li><p><strong>owner</strong></p>
+<p>拥有者</p>
+</li>
+<li><p><strong>total_votes</strong></p>
+<p>投票数</p>
+</li>
+<li><p><strong>producer_key</strong></p>
+<p>区块生产者公钥</p>
+</li>
+<li><p><strong>is_active</strong></p>
+<p>是否活动的</p>
+</li>
+<li><p><strong>url</strong></p>
+<p>网址</p>
+</li>
+<li><p><strong>unpaid_blocks</strong></p>
+<p>尚未领取奖励的区块</p>
+</li>
+<li><p><strong>last_claim_time</strong></p>
+<p>最近认领奖励时间</p>
+</li>
+<li><p><strong>location</strong></p>
+<p>位置</p>
+</li>
+<li><p><strong>total_producer_vote_weight</strong></p>
+<p>总投票权重值</p>
+</li>
+<li><p><strong>more</strong></p>
+<p>下一个区块生产者，下次请求时可用它作为 lower_bound 参数的值</p>
+</li>
+</ul>
+<hr>
+<p>getProducersSync 方法对应的请求路径为 <code>/v1/chain/get_producers</code>，我们来看下如何直接访问对应的 API 接口网址来获取区块信息：</p>
+<p>文件 get_producers2.js 代码清单：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主网 RPC 地址</span></span><br><span class="line"><span class="keyword">const</span> MAINNET_RPC_ADDRESS = <span class="string">'http://se-rpc.fibos.io:8870'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url = MAINNET_RPC_ADDRESS + <span class="string">'/v1/chain/get_producers'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> client = <span class="keyword">new</span> HTTP.Client();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取 BP 节点列表</span></span><br><span class="line"><span class="built_in">console</span>.log(client.post(url, &#123;</span><br><span class="line">  json: &#123;</span><br><span class="line">    json: <span class="literal">true</span>,</span><br><span class="line">    lower_bound: <span class="string">'fibscandotio'</span>,</span><br><span class="line">    limit: <span class="number">5</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;).json());</span><br></pre></td></tr></table></figure>
+<p>运行 get_producers2.js 文件，可看到输出结果是从 fibscandotio 开始的 5 个 BP 节点。</p>
+<h3 id="其它环境或语言中获取节点信息："><a href="#其它环境或语言中获取节点信息：" class="headerlink" title="其它环境或语言中获取节点信息："></a>其它环境或语言中获取节点信息：</h3><p>在 Node.js 或 浏览器中用 axios 查询：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> params = <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">json</span>: <span class="literal">true</span>, <span class="attr">lower_bound</span>: <span class="string">'fibscandotio'</span>, <span class="attr">limit</span>: <span class="number">5</span>&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">'http://se-rpc.fibos.io:8870/v1/chain/get_producers'</span>, params)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response.data);</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>PHP 中查询：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MAINNET_RPC_ADDRESS = <span class="string">'http://se-rpc.fibos.io:8870'</span>;</span><br><span class="line"></span><br><span class="line">$url = MAINNET_RPC_ADDRESS . <span class="string">'/v1/chain/get_producers'</span>;</span><br><span class="line"></span><br><span class="line">$params = [</span><br><span class="line">  <span class="string">'json'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">  <span class="string">'lower_bound'</span> =&gt; <span class="string">'fibscandotio'</span>,</span><br><span class="line">  <span class="string">'limit'</span> =&gt; <span class="number">5</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">$options = [</span><br><span class="line">  <span class="string">'http'</span> =&gt; [</span><br><span class="line">    <span class="string">'method'</span>  =&gt; <span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'header'</span>  =&gt; <span class="string">'Content-type: application/json'</span>,</span><br><span class="line">    <span class="string">'content'</span> =&gt; json_encode($params)</span><br><span class="line">  ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">$context  = stream_context_create($options);</span><br><span class="line"></span><br><span class="line">$result = file_get_contents($url, <span class="keyword">false</span>, $context);</span><br><span class="line"></span><br><span class="line">print_r(json_decode($result, <span class="keyword">true</span>));</span><br></pre></td></tr></table></figure>
+<p>需注意的是，如果我们对 json 参数传值 false （默认值 ）时，输出的节点信息是不可读的二进制字符串：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  'rows': [</span><br><span class="line">	'30d5719f4a4c8f5b4bbfadfe5f68944300031a2b5cb185e7df91a697044fcf970d2045a3a060a693aadd7d5cffd23619b42c0119687474703a2f2f7777772e6d6f6361706974616c2e746f702f88530000802fcc2a3e7505000100',</span><br><span class="line">    '80e9712b1b894dac071e87546f3993430003d6e8c4cd12860e68ee0300c783c22db4e0f42a6a7919b77880f875a29cdfe729011668747470733a2f2f7777772e6669626f736f2e636f6dec010000c053ee43717505000100',</span><br><span class="line">    '20254543044c8f5b3f67a70fef0e93430002c224b52e80c24c1fcc65d8d7ad75038aea46fc7941a8317b368be8e3c61e5fa2011868747470733a2f2f7777772e6669626f733132332e636f6def1e000020483c185f7505000100',</span><br><span class="line">    '404dc3d4344c4dc3f2c1ea7f2bb19243000303c98d08c62a26d5784722d0551b7e93d83d0b94595b63f1041ecd7ed9d741df0114687474703a2f2f736875696d656972656e2e696ff00900000033a13f6c7505000100',</span><br><span class="line">    '102ecd88a6e94c43dc28840b4a3e924300026feeefa6507f1f50e981e5ce2a4b0eb6ac257526d381ecd0d9dd22d16a4f8bd60117687474703a2f2f7777772e666f646f63746f722e636f6d20010000e06d74ba717505000100'</span><br><span class="line">  ],</span><br><span class="line">  'total_producer_vote_weight': '7913539848809700352.00000000000000000',</span><br><span class="line">  'more': 'fibscandotio'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

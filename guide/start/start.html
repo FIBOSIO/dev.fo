@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    快速入门 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="快速入门 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="快速入门 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link current">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/start/start.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link current">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/node/abouttestnet.html" class="nav-link">节点编程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS 合约 API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/start/start.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/start/start.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/introduction/introduction.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/installation/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/start/start.html" class="sidebar-link current">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/tutorials/usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/abouttestnet.html" class="sidebar-link">TestNet 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/jointestnet.html" class="sidebar-link">加入到 TestNet 网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/bp.html" class="sidebar-link">rpc 及 p2p 列表(持续更新)</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/howtobeproducerinfibos.html" class="sidebar-link">成为主网 bp 节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/fibosmongodb.html" class="sidebar-link">mongoDB 富查询</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/node/emitter.html" class="sidebar-link">Emitter 插件使用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Fibos.js</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/situation.html" class="sidebar-link">Fibos.js 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/createaccountnotfree.html" class="sidebar-link">在 FIBOS 中创建账号</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getinfosync.html" class="sidebar-link">获取 FIBOS 相关信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getaccountsync.html" class="sidebar-link">获取指定账号信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getblocksync.html" class="sidebar-link">获取指定区块信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/fibos.js/getproducerssync.html" class="sidebar-link">获取当前节点列表信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/whatisabi.html" class="sidebar-link">编写 ABI 接口</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/crudoperations.html" class="sidebar-link">模块 DB 中的 crud 操作</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/fibosauth.html" class="sidebar-link">FIBOS 权限系统</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约之间的相互调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/contract/recipientclass.html" class="sidebar-link">FIBOS 中的 recipient</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fibos.html" class="sidebar-link">从 EOS 跨链转账到 FIBOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/fibos2eos.html" class="sidebar-link">从 FIBOS 跨链转账到 EOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/eos2fo.html" class="sidebar-link">EOS 与 FO 通证相互兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtoexchangetokeninfibos.html" class="sidebar-link">智能通证互兑</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtocreatetokeninfibos.html" class="sidebar-link">发行和销毁通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtouselock.html" class="sidebar-link">锁仓和解锁功能</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="/guide/economic/howtousecontractaccount.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>快速入门</h1>
+  
+  
+    <p>搭建一个 FIBOS 开发环境需要安装 fibos 和 fibos.js，安装过程请参考 【<a href="../installation/installation.html">快速安装</a>】 章节。 </p>
+<p>本章节示例代码的目录结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos/</span><br><span class="line">├── fibos_client</span><br><span class="line">│   ├── call.js  //调用合约接口脚本文件</span><br><span class="line">│   ├── initClient.js  //FIBOS连接文件</span><br><span class="line">│   ├── deploy.js  //加载、发布合约脚本文件</span><br><span class="line">│   ├── hello</span><br><span class="line">│   │   ├── hello.abi  //合约abi文件</span><br><span class="line">│   │   └── hello.js  //合约代码文件</span><br><span class="line">│   └── package.json</span><br><span class="line">└── start_fibos</span><br><span class="line">    └── node.js</span><br></pre></td></tr></table></figure>
+<p>本章节示例代码地址：<a href="https://github.com/FIBOSIO/samples" target="_blank" rel="noopener">https://github.com/FIBOSIO/samples</a>  下<code>basic</code>文件夹示例。</p>
+<h2 id="启动节点"><a href="#启动节点" class="headerlink" title="启动节点"></a>启动节点</h2><p><strong>环境配置脚本</strong></p>
+<p>创建 <code>start_fibos</code> 文件夹，保存如下代码至 <code>node.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'chain'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'history_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">    <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">    <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">    <span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8888'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'net'</span>, &#123;</span><br><span class="line">    <span class="string">'p2p-listen-endpoint'</span>: <span class="string">'0.0.0.0:9876'</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.config_dir = <span class="string">'fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'fibos_data_dir/'</span>;</span><br><span class="line">fibos.enableJSContract = <span class="literal">true</span>;</span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<p>运行 FIBOS 开发环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos$ fibos start_fibos/node.js</span><br></pre></td></tr></table></figure>
+<p>运行结果日志（部分）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line">2018-07-30T03:29:01.004 thread-1   producer_plugin.cpp:1194      produce_block        ] Produced block 00000002e091c956... #2 @ 2018-07-30T03:29:01.000 signed by eosio [trxs: 0, lib: 0, confirmed: 0]</span><br></pre></td></tr></table></figure>
+<p>如果你看到了以上的消息，说明运行成功，<code>fibos</code> 已经开始区块生产。</p>
+<h2 id="JavaScript-合约代码"><a href="#JavaScript-合约代码" class="headerlink" title="JavaScript 合约代码"></a>JavaScript 合约代码</h2><blockquote>
+<p>注意：需新建窗口，保证 node.js 节点正常运行</p>
+</blockquote>
+<p>创建文件夹 <code>fibos_client</code>，保存如下代码至 <code>hello/hello.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">user</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'in contract:'</span>, user);</span><br></pre></td></tr></table></figure>
+<h2 id="合约-ABI-文件"><a href="#合约-ABI-文件" class="headerlink" title="合约 ABI 文件"></a>合约 ABI 文件</h2><p>保存如下代码至 <code>hello/hello.abi</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;eosio::abi/1.0&quot;,</span><br><span class="line">    &quot;structs&quot;: [&#123;</span><br><span class="line">        &quot;name&quot;: &quot;player&quot;,</span><br><span class="line">        &quot;base&quot;: &quot;&quot;,</span><br><span class="line">        &quot;fields&quot;: [&#123;</span><br><span class="line">            &quot;name&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;string&quot;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            &quot;name&quot;: &quot;age&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;int64&quot;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">        &quot;base&quot;: &quot;&quot;,</span><br><span class="line">        &quot;fields&quot;: [&#123;</span><br><span class="line">            &quot;name&quot;: &quot;user&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;name&quot;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;],</span><br><span class="line">    &quot;actions&quot;: [&#123;</span><br><span class="line">        &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">        &quot;type&quot;: &quot;hi&quot;,</span><br><span class="line">        &quot;ricardian_contract&quot;: &quot;&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="连接-FIBOS-节点"><a href="#连接-FIBOS-节点" class="headerlink" title="连接 FIBOS 节点"></a>连接 FIBOS 节点</h2><p>在文件夹<code>fibos_client</code>下，新建 <code>initClient.js</code>，保存如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initClient</span>(<span class="params">_keyProvider</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> FIBOS(&#123;</span><br><span class="line">        chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">        keyProvider: _keyProvider, </span><br><span class="line">        httpEndpoint: <span class="string">'http://127.0.0.1:8888'</span>,</span><br><span class="line">        logger: &#123;</span><br><span class="line">            log: <span class="literal">null</span>,</span><br><span class="line">            error: <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = initClient;</span><br></pre></td></tr></table></figure>
+<h2 id="加载、发布合约脚本"><a href="#加载、发布合约脚本" class="headerlink" title="加载、发布合约脚本"></a>加载、发布合约脚本</h2><p>在文件夹<code>fibos_client</code>下，新建 <code>deploy.js</code>，保存如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'./initClient.js'</span>)</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    <span class="string">'public-key'</span>: <span class="string">'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV'</span>,</span><br><span class="line">    <span class="string">'private-key'</span>: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span>,</span><br><span class="line">    <span class="string">'contractName'</span>: <span class="string">'hello'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new FIBOS client</span></span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(config[<span class="string">'private-key'</span>]);</span><br><span class="line"><span class="comment">// create account hello</span></span><br><span class="line">fibos.newaccountSync(&#123;</span><br><span class="line">    creator: <span class="string">'eosio'</span>,</span><br><span class="line">    name: <span class="string">'hello'</span>,</span><br><span class="line">    owner: config[<span class="string">'public-key'</span>],</span><br><span class="line">    active: config[<span class="string">'public-key'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//setcode</span></span><br><span class="line"><span class="keyword">var</span> js_code = fs.readTextFile(<span class="string">'./hello/hello.js'</span>);</span><br><span class="line">fibos.setcodeSync(config[<span class="string">'contractName'</span>], <span class="number">0</span>, <span class="number">0</span>, fibos.compileCode(js_code));</span><br><span class="line"></span><br><span class="line"><span class="comment">//getcode</span></span><br><span class="line"><span class="keyword">var</span> code = fibos.getCodeSync(config[<span class="string">'contractName'</span>], <span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'code:'</span>, code);</span><br><span class="line"></span><br><span class="line"><span class="comment">//setabi</span></span><br><span class="line"><span class="keyword">var</span> abi = <span class="built_in">JSON</span>.parse(fs.readTextFile(<span class="string">'./hello/hello.abi'</span>));</span><br><span class="line">fibos.setabiSync(config[<span class="string">'contractName'</span>], abi);</span><br></pre></td></tr></table></figure>
+<p>运行脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos$ fibos fibos_client/deploy.js</span><br></pre></td></tr></table></figure>
+<p>输出结果（部分）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">code: &#123;</span><br><span class="line">  &quot;account_name&quot;: &quot;hello&quot;,</span><br><span class="line">  &quot;code_hash&quot;: &quot;383a12daacaf124eea9afc529822d990853b5b99570401b8394534b746ea3977&quot;,</span><br><span class="line">  &quot;wast&quot;: &quot;&quot;,</span><br><span class="line">  &quot;wasm&quot;: &quot;504b03042d00000008002cadfe4c6a9400a2360000003900000008001400696e6465782e6a7301001000000000000000000000000000000000004bad28c82f2a29d6cbc854b055282d4e2d52b0b55348cecf2bcecf49d54b2d2aca2fd250cfcc0389941425269758a9eb8055695a0300504b010200001400000008002cadfe4c6a9400a23600000039000000080000000000000001000000000000000000696e6465782e6a73504b0506000000000100010036000000700000000000&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>备注：<code>wasm</code> 是一个低层级的、轻便式的字节码,它致力于实现接近原生的执行速度。</p>
+<h2 id="调用合约"><a href="#调用合约" class="headerlink" title="调用合约"></a>调用合约</h2><p>使用 fibos.js 中的 API 去调用合约。</p>
+<p>在文件夹<code>fibos_client</code>下，新建 <code>call.js</code>，保存如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'./initClient.js'</span>)</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    <span class="string">'public-key'</span>: <span class="string">'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV'</span>,</span><br><span class="line">    <span class="string">'private-key'</span>: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span>,</span><br><span class="line">    <span class="string">'contractName'</span>: <span class="string">'hello'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new FIBOS client</span></span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(config[<span class="string">'private-key'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//call abi</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(config[<span class="string">'contractName'</span>]);</span><br><span class="line"><span class="keyword">let</span> i = ctx.hiSync(<span class="string">'hello'</span>, &#123;</span><br><span class="line">    authorization: config[<span class="string">'contractName'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br></pre></td></tr></table></figure>
+<p>执行脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos$ fibos fibos_client/call.js</span><br></pre></td></tr></table></figure>
+<p>控制台打印结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;broadcast&quot;: true,</span><br><span class="line">  &quot;transaction&quot;: &#123;</span><br><span class="line">    &quot;compression&quot;: &quot;none&quot;,</span><br><span class="line">    &quot;transaction&quot;: &#123;</span><br><span class="line">      &quot;expiration&quot;: &quot;2018-10-29T09:54:38&quot;,</span><br><span class="line">      &quot;ref_block_num&quot;: 45,</span><br><span class="line">      &quot;ref_block_prefix&quot;: 552314262,</span><br><span class="line">      &quot;max_net_usage_words&quot;: 0,</span><br><span class="line">      &quot;max_cpu_usage_ms&quot;: 0,</span><br><span class="line">      &quot;delay_sec&quot;: 0,</span><br><span class="line">      &quot;context_free_actions&quot;: [],</span><br><span class="line">      &quot;actions&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;account&quot;: &quot;hello&quot;,</span><br><span class="line">          &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;authorization&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;actor&quot;: &quot;hello&quot;,</span><br><span class="line">              &quot;permission&quot;: &quot;active&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          &quot;data&quot;: &quot;00000000001aa36a&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      &quot;transaction_extensions&quot;: []</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;signatures&quot;: [</span><br><span class="line">      &quot;SIG_K1_JxKj8whii1gosSY6S5b3JcNxZ7x7xTUFkWg3fsjpiQ3K8eTfY6N8van5PqoUFYGJVRGNzdxapWLc6NAcieJgPCh8e8hkDA&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;transaction_id&quot;: &quot;5d7262907ab645168f6a1fdd1e17988ca7f50a07d2ef6bb90f5891a6c2cb8bb9&quot;,</span><br><span class="line">  &quot;processed&quot;: &#123;</span><br><span class="line">    &quot;id&quot;: &quot;5d7262907ab645168f6a1fdd1e17988ca7f50a07d2ef6bb90f5891a6c2cb8bb9&quot;,</span><br><span class="line">    &quot;block_num&quot;: 47,</span><br><span class="line">    &quot;block_time&quot;: &quot;2018-10-29T09:53:39.000&quot;,</span><br><span class="line">    &quot;producer_block_id&quot;: null,</span><br><span class="line">    &quot;receipt&quot;: &#123;</span><br><span class="line">      &quot;status&quot;: &quot;executed&quot;,</span><br><span class="line">      &quot;cpu_usage_us&quot;: 3510,</span><br><span class="line">      &quot;net_usage_words&quot;: 13</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;elapsed&quot;: 7273,</span><br><span class="line">    &quot;net_usage&quot;: 104,</span><br><span class="line">    &quot;scheduled&quot;: false,</span><br><span class="line">    &quot;action_traces&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;receipt&quot;: &#123;</span><br><span class="line">          &quot;receiver&quot;: &quot;hello&quot;,</span><br><span class="line">          &quot;act_digest&quot;: &quot;35c685a9391997dfe62291f39ead19cde36bbfb29f411deb9019592ed6be5b4f&quot;,</span><br><span class="line">          &quot;global_sequence&quot;: 50,</span><br><span class="line">          &quot;recv_sequence&quot;: 1,</span><br><span class="line">          &quot;auth_sequence&quot;: [</span><br><span class="line">            [</span><br><span class="line">              &quot;hello&quot;,</span><br><span class="line">              3</span><br><span class="line">            ]</span><br><span class="line">          ],</span><br><span class="line">          &quot;code_sequence&quot;: 1,</span><br><span class="line">          &quot;abi_sequence&quot;: 1</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;act&quot;: &#123;</span><br><span class="line">          &quot;account&quot;: &quot;hello&quot;,</span><br><span class="line">          &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;authorization&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;actor&quot;: &quot;hello&quot;,</span><br><span class="line">              &quot;permission&quot;: &quot;active&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          &quot;data&quot;: &#123;</span><br><span class="line">            &quot;user&quot;: &quot;hello&quot;</span><br><span class="line">          &#125;,</span><br><span class="line">          &quot;hex_data&quot;: &quot;00000000001aa36a&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;context_free&quot;: false,</span><br><span class="line">        &quot;elapsed&quot;: 7011,</span><br><span class="line">        &quot;cpu_usage&quot;: 0,</span><br><span class="line">        &quot;console&quot;: &quot;in contract: hello\n&quot;,</span><br><span class="line">        &quot;total_cpu_usage&quot;: 0,</span><br><span class="line">        &quot;trx_id&quot;: &quot;5d7262907ab645168f6a1fdd1e17988ca7f50a07d2ef6bb90f5891a6c2cb8bb9&quot;,</span><br><span class="line">        &quot;block_num&quot;: 47,</span><br><span class="line">        &quot;block_time&quot;: &quot;2018-10-29T09:53:39.000&quot;,</span><br><span class="line">        &quot;producer_block_id&quot;: null,</span><br><span class="line">        &quot;account_ram_deltas&quot;: [],</span><br><span class="line">        &quot;inline_traces&quot;: []</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;except&quot;: null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时在 FIBOS 节点服务控制台显示 <code>trxs:1</code> 显示结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018-8-30T14:28:22.005 thread-1   producer_plugin.cpp:1196      produce_block        ] Produced block 00000e57c573a33b... #3671 @ 2018-07-30T14:28:22.000 signed by eosio [trxs: 1, lib: 3670, confirmed: 0]</span><br></pre></td></tr></table></figure></p>
+<p>本章带领大家快速了解以及发布了一个简单的 JavaScript 合约，下面为大家准备了一个示例可以在【<a href="../tutorials/instructions.html">教程</a>】章节中查阅。</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>
