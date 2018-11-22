@@ -1,6 +1,6 @@
 ---
 title: fibos
-type: jscontract
+type: manual
 order: 8
 ---
 

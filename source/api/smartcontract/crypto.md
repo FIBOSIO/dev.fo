@@ -1,6 +1,6 @@
 ---
 title: crypto
-type: jscontract
+type: manual
 order: 5
 ---
 # 模块 crypto

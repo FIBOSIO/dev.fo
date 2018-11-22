@@ -1,6 +1,6 @@
 ---
 title: DBIterator
-type: jscontract
+type: manual
 order: 7
 ---
 # 对象 DBIterator

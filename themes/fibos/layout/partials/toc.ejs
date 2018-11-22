@@ -18,9 +18,24 @@
         <li><h3>Token 合约</h3></li>
       <% } %>
     <% } %>
-    <% if (type === 'jscontract') { %>
+    <% if (type === 'manual') { %>
       <% if (fileName === 'index') { %>
-        <li><h3>JS 合约</h3></li>
+        <li><h3>JS contract</h3></li>
+      <% } %>
+      <% if (fileName === 'nodeIndex') { %>
+        <li><h3>fibos node</h3></li>
+      <% } %>
+      <% if (fileName === 'eosioIndex') { %>
+        <li><h3>eosio contract</h3></li>
+      <% } %>
+      <% if (fileName === 'tokenIndex') { %>
+        <li><h3>eosio.token contract</h3></li>
+      <% } %>
+      <% if (fileName === 'fibosIndex') { %>
+        <li><h3>fibos.js</h3></li>
+      <% } %>
+      <% if (fileName === 'rpcIndex') { %>
+        <li><h3>RPC API</h3></li>
       <% } %>
     <% } %>
     <li>

@@ -1,6 +1,6 @@
 ---
 title: trans
-type: jscontract
+type: manual
 order: 10
 ---
 # 模块 trans

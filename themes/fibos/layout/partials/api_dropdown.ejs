@@ -2,8 +2,12 @@
     <a class="nav-link<%- page.path.match(/\/(smartcontract)(\/|$)/) ? ' current' : '' %>">技术手册</a><span class="arrow"></span>
     <ul class="nav-dropdown">
       <li><ul>
-        <li><a href="<%- url_for("/api/smartcontract/index.html") %>" class="nav-link<%- page.path.match(/\/smartcontract(\/|$)/) ? ' current' : '' %>">JS 合约 API</a></li>
-        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+        <li><a href="<%- url_for("/api/smartcontract/index.html") %>" class="nav-link<%- page.path.match(/\/smartcontract(\/|$)/) ? ' current' : '' %>">JS contract</a></li>
+        <li><a href="<%- url_for("/api/fibos-node/nodeIndex.html") %>" class="nav-link<%- page.path.match(/\/fibos-node(\/|$)/) ? ' current' : '' %>">fibos node</a></li>
+        <li><a href="<%- url_for("/api/eosio-contract/eosioIndex.html") %>" class="nav-link<%- page.path.match(/\/eosio-contract(\/|$)/) ? ' current' : '' %>">eosio contract</a></li>
+        <li><a href="<%- url_for("/api/token/tokenIndex.html") %>" class="nav-link<%- page.path.match(/\/token(\/|$)/) ? ' current' : '' %>">eosio.token contract</a></li>
+        <li><a href="<%- url_for("/api/fibos.js/fibosIndex.html") %>" class="nav-link<%- page.path.match(/\/fibos.js(\/|$)/) ? ' current' : '' %>">fibos.js</a></li>
+        <li><a href="<%- url_for("/api/RPC/rpcIndex.html") %>" class="nav-link<%- page.path.match(/\/RPC(\/|$)/) ? ' current' : '' %>">RPC API</a></li>
       </ul></li>
     </ul>
   </li>
