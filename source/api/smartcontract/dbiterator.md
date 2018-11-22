@@ -4,16 +4,6 @@ type: jscontract
 order: 7
 ---
 # 对象 DBIterator
-```dot
-digraph {
-    node [fontname="Helvetica,sans-Serif", fontsize=10, shape="record", style="filled", fillcolor="white"];
-
-    object [tooltip="object", URL="object.md", label="{object|toString()\ltoJSON()\l}"];
-    DBIterator [tooltip="DBIterator", fillcolor="lightgray", id="me", label="{DBIterator|data\l|is_begin()\lis_end()\lnext()\lprevious()\lremove()\lupdate()\l}"];
-
-    object -> DBIterator [dir=back];
-}
-```
 
 ## 成员属性
 
