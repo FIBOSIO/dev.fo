@@ -76,7 +76,9 @@ fibos$ mongod
 ```javascript
 var fibos = require('fibos');
 
-fibos.load('http');
+fibos.load('http',{
+    'http-server-address': '0.0.0.0:8888'
+});
 fibos.load('chain', {
     'contracts-console': true,
     'delete-all-blocks': true,

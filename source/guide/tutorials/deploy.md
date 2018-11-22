@@ -77,9 +77,9 @@ const wasm = fibosClient.compileCode(jsCode);
 fibosClient.setcodeSync(config.contract.name, 0, 0, wasm);
 ```
 
-### 获取 wasm 文件
+### 获取 js 文件
 
-使用 `getCodeSync()` 方法可以读取到 js 合约编译出来的 wasm 文件，用户可以将改文件反编译成 js 文件，与项目方提供的 js 合约文件对比，看看是否一致。
+使用 `getCodeSync()` 方法可以读取到 js 文件，与项目方提供的 js 合约文件对比，看看是否一致。
 
 以下代码保存至 `scripts/deploy.js` ：
 

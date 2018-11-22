@@ -1,9 +1,9 @@
 ---
-title: bc_console
+title: console
 type: jscontract
 order: 4
 ---
-# 模块 bc_console
+# 模块 console
 
 控制台访问对象
 
@@ -15,7 +15,7 @@ order: 4
 **记录普通日志信息，与 info 等同**
 
 ```JavaScript
-static bc_console.log(String fmt,
+static console.log(String fmt,
     ...args);
 ```
 
@@ -37,7 +37,7 @@ exports.hi = v => {
 **记录普通日志信息，与 info 等同**
 
 ```JavaScript
-static bc_console.log(...args);
+static console.log(...args);
 ```
 
 调用参数:
@@ -56,7 +56,7 @@ exports.hi = v => {
 **记录调试日志信息**
 
 ```JavaScript
-static bc_console.debug(String fmt,
+static console.debug(String fmt,
     ...args);
 ```
 
@@ -76,7 +76,7 @@ exports.hi = v => {
 **记录调试日志信息**
 
 ```JavaScript
-static bc_console.debug(...args);
+static console.debug(...args);
 ```
 
 调用参数:
@@ -95,7 +95,7 @@ exports.hi = v => {
 **记录普通日志信息，与 log 等同**
 
 ```JavaScript
-static bc_console.info(String fmt,
+static console.info(String fmt,
     ...args);
 ```
 
@@ -115,7 +115,7 @@ exports.hi = v => {
 **记录普通日志信息，与 log 等同**
 
 ```JavaScript
-static bc_console.info(...args);
+static console.info(...args);
 ```
 
 调用参数:
@@ -134,7 +134,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static bc_console.notice(String fmt,
+static console.notice(String fmt,
     ...args);
 ```
 
@@ -154,7 +154,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static bc_console.notice(...args);
+static console.notice(...args);
 ```
 
 调用参数:
@@ -173,7 +173,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static bc_console.warn(String fmt,
+static console.warn(String fmt,
     ...args);
 ```
 
@@ -193,7 +193,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static bc_console.warn(...args);
+static console.warn(...args);
 ```
 
 调用参数:
@@ -212,7 +212,7 @@ exports.hi = v => {
 **记录错误日志信息**
 
 ```JavaScript
-static bc_console.error(String fmt,
+static console.error(String fmt,
     ...args);
 ```
 
@@ -232,7 +232,7 @@ exports.hi = v => {
 **记录错误日志信息**
 
 ```JavaScript
-static bc_console.error(...args);
+static console.error(...args);
 ```
 
 调用参数:
@@ -251,7 +251,7 @@ exports.hi = v => {
 **记录关键错误日志信息**
 
 ```JavaScript
-static bc_console.crit(String fmt,
+static console.crit(String fmt,
     ...args);
 ```
 
@@ -271,7 +271,7 @@ exports.hi = v => {
 **记录关键错误日志信息**
 
 ```JavaScript
-static bc_console.crit(...args);
+static console.crit(...args);
 ```
 
 调用参数:
@@ -290,7 +290,7 @@ exports.hi = v => {
 **记录警报错误日志信息**
 
 ```JavaScript
-static bc_console.alert(String fmt,
+static console.alert(String fmt,
     ...args);
 ```
 
@@ -310,7 +310,7 @@ exports.hi = v => {
 **记录警报错误日志信息**
 
 ```JavaScript
-static bc_console.alert(...args);
+static console.alert(...args);
 ```
 
 调用参数:
@@ -329,7 +329,7 @@ exports.hi = v => {
 **用 JSON 格式输出对象**
 
 ```JavaScript
-static bc_console.dir(Value obj);
+static console.dir(Value obj);
 ```
 
 调用参数:
@@ -347,7 +347,7 @@ exports.hi = v => {
 **输出当前调用堆栈**
 
 ```JavaScript
-static bc_console.trace(String label = "trace");
+static console.trace(String label = "trace");
 ```
 
 调用参数:
@@ -360,7 +360,7 @@ static bc_console.trace(String label = "trace");
 **断言测试，如果测试值为假，则报错**
 
 ```JavaScript
-static bc_console.assert(Value value,
+static console.assert(Value value,
     String msg = "");
 ```
 
@@ -374,7 +374,7 @@ static bc_console.assert(Value value,
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.FATAL = 0;
+const console.FATAL = 0;
 ```
 
 --------------------------
@@ -382,7 +382,7 @@ const bc_console.FATAL = 0;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.ALERT = 1;
+const console.ALERT = 1;
 ```
 
 --------------------------
@@ -390,7 +390,7 @@ const bc_console.ALERT = 1;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.CRIT = 2;
+const console.CRIT = 2;
 ```
 
 --------------------------
@@ -398,7 +398,7 @@ const bc_console.CRIT = 2;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.ERROR = 3;
+const console.ERROR = 3;
 ```
 
 --------------------------
@@ -406,7 +406,7 @@ const bc_console.ERROR = 3;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.WARN = 4;
+const console.WARN = 4;
 ```
 
 --------------------------
@@ -414,7 +414,7 @@ const bc_console.WARN = 4;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.NOTICE = 5;
+const console.NOTICE = 5;
 ```
 
 --------------------------
@@ -422,7 +422,7 @@ const bc_console.NOTICE = 5;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.INFO = 6;
+const console.INFO = 6;
 ```
 
 --------------------------
@@ -430,7 +430,7 @@ const bc_console.INFO = 6;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.DEBUG = 7;
+const console.DEBUG = 7;
 ```
 
 --------------------------
@@ -438,7 +438,7 @@ const bc_console.DEBUG = 7;
 **loglevel 仅用于输出，信息输出后不换行，file 和 syslog 不保存此级别信息**
 
 ```JavaScript
-const bc_console.PRINT = 9;
+const console.PRINT = 9;
 ```
 
 --------------------------
@@ -446,6 +446,6 @@ const bc_console.PRINT = 9;
 **loglevel 级别常量**
 
 ```JavaScript
-const bc_console.NOTSET = 10;
+const console.NOTSET = 10;
 ```
 

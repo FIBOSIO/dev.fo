@@ -38,11 +38,11 @@ fibosClient.getTableRows(
 fibosClient.contract(config.contract.name)
 ```
 
-以插入数据为例，调用合约中暴露的 emplace 方法，并传入 id、text、completed 三个参数。并将 authorization 配置为合约调用者的账户。
+以插入数据为例，调用合约中暴露的 emplacetodo 方法，并传入 id、text、completed 三个参数。并将 authorization 配置为合约调用者的账户。
 
 ```js
  fibosClient.contract(config.contract.name).then((contract) => {
-      contract.emplace(
+      contract.emplacetodo(
         {
           id: todo_id,
           text,

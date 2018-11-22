@@ -38,11 +38,20 @@ chainID : '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'
 
 ## TestNet Seed 列表
 
+### HTTP 列表
 
-| BP Name  | BP IP  | HTTP port | P2P port |
-|:-------------: |:---------------:| :-------------:| :-------------:|
-| gulou      | <http://testnet.fibos.fo> |       8870 | 9870 |
-| xuanwu      | <http://testnet2.fibos.fo> |       8870 | 9870 |
+| BP IP  | HTTP port |
+|:---------------:| :-------------:|
+| http://testnet.fibos.fo |       8870 |
+| http://testnet2.fibos.fo|       8870 |
+| http://testnet.fibos.fo |         80 |
+| http://history-testnet.fibos.fo|      80 |
+
+### P2P 列表
+| BP IP  | P2P port |
+|:---------------:| :-------------:|
+| p2p-testnet.fibos.fo |  9870 |
+| p2p-testnet-02.fibos.fo        |  9870 |
 
 ## 如何在 FIBOS TestNet 上进行测试？
 
