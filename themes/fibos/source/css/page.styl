@@ -21,9 +21,9 @@
 .content
   position: relative
   padding: 2.2em 0
-  max-width: 820px
+  max-width: 800px
   margin: 0 auto
-  padding-left: 150px
+  padding-left: 260px
   &.api
     > a:first-of-type > h2
       margin-top: 0
@@ -193,11 +193,16 @@
 
 @media screen and (min-width: 1590px)
   #header
-    background-color: #ffffff
+    background-color: #ffffff 
+
+@media screen and (max-width: 1050px)
+  #nav
+    li
+      margin: 0 1.3em
 
 @media screen and (max-width: 1300px)
   .content.with-sidebar
-    margin-left: 290px
+    margin-left: 80px
   #ad
     z-index: 1
     position: relative

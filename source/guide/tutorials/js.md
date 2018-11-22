@@ -27,7 +27,7 @@ exports.emplacetodo = (id, text, completed) => {
 };
 ```
 
-内部的 todos.emplace(action.account,{text,completed,id}) 是 fibos.js 中的向 table 中添加信息方法。
+内部的 todos.emplace(action.account,{text,completed,id}) 是 fibos.js 向 table 中添加信息的方法。
 
 **emplace 函数描述：**
 

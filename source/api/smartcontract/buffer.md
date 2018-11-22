@@ -1,9 +1,9 @@
 ---
-title: bc_buffer
+title: buffer
 type: jscontract
 order: 3
 ---
-# 对象 bc_buffer
+# 对象 buffer
 二进制数据缓存对象，用于 io 读写的数据处理
 
 Buffer 对象为全局基础类，在任何时候都可以直接以 new Buffer(...) 创建：
@@ -12,20 +12,8 @@ Buffer 对象为全局基础类，在任何时候都可以直接以 new Buffer(.
 var buf = new Buffer();
 ```
 
-## 继承关系
-```dot
-digraph {
-    node [fontname="Helvetica,sans-Serif", fontsize=10, shape="record", style="filled", fillcolor="white"];
-
-    object [tooltip="object", URL="object.md", label="{object|toString()\ltoJSON()\l}"];
-    bc_buffer [tooltip="bc_buffer", fillcolor="lightgray", id="me", label="{bc_buffer|isBuffer()\lfrom()\lconcat()\lalloc()\lallocUnsafe()\lallocUnsafeSlow()\lisEncoding()\l|length\l|Buffer()\lresize()\lappend()\lwrite()\lfill()\lindexOf()\lcompare()\lcopy()\lslice()\ljoin()\lreverse()\lequals()\lhex()\lbase64()\lkeys()\lvalues()\lentries()\ltoArray()\ltoString()\ltoJSON()\l}"];
-
-    object -> bc_buffer [dir=back];
-}
-```
-
 ## 静态函数
-        
+     
 ### isBuffer
 **检测给定的变量是否是 Buffer 对象**
 

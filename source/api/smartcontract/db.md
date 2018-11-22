@@ -1,9 +1,9 @@
 ---
-title: bc_db
+title: db
 type: jscontract
 order: 6
 ---
-# 模块 bc_db
+# 模块 db
 db 对象
 
 数据库访问对象
@@ -17,7 +17,7 @@ FIBOS 中 js 智能合约操作链数据库是很常见的应用场景，一个[
 **访问指定数据库表**
 
 ```JavaScript
-static bc_db.table(String scope,
+static db.table(String scope,
     String code,
     String indexes);
 ```
