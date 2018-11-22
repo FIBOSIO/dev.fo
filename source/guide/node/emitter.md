@@ -114,7 +114,7 @@ fibos.start();
 例如：
 
 * **sqlite**
-* **mongodb**
+* <del>**mongodb**</del> 注意emitter 不支持 mongodb， 因为支持了 eos 的 mongodb 插件, FIBJS 禁用了 mongodb 插件。
 * **leveldb**
 * **Redis**
 
