@@ -44,7 +44,7 @@ void token::excreate(
 ...
 let name = 'fibostest123';
 let ctx = fibos.contractSync('eosio.token');
-let r = ctx.excreateSync(name, '90000000000.0000 DDD', 0.15, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', {
+let r = ctx.excreateSync(name, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', {
   authorization: name
 }); //expiration需大于等于当前时间
 console.log(r)
