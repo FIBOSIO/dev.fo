@@ -1,6 +1,6 @@
 ---
 title: console
-type: jscontract
+type: manual
 order: 4
 ---
 # 模块 console

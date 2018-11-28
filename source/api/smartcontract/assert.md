@@ -1,6 +1,6 @@
 ---
 title: assert
-type: jscontract
+type: manual
 order: 2
 ---
 # 模块 assert
