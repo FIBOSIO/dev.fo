@@ -191,7 +191,7 @@ Config 是 Tracker 全局属性，可以使用该属性快速修改配置，如�
 
 示例：
 
-```
+```javascript
 const Tracker = require("fibos-tracker");
 
 Tracker.Config.DBconnString = "mysql://root:123456@127.0.0.1/fibos_chain";
