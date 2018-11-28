@@ -8,7 +8,9 @@ order: 7
 ## 成员属性
 
 ### data
-**Object, 查询当前数据，返回所有数据对象，每个数据是一个新的 DBIterator 对象**
+**查询当前数据，返回所有数据对象，每个数据是一个新的 DBIterator 对象**
+
+**类型：Object**
 
 ```JavaScript
 readonly Object DBIterator.data;

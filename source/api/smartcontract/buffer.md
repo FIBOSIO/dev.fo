@@ -18,7 +18,7 @@ var buf = new Buffer();
 **检测给定的变量是否是 Buffer 对象**
 
 ```JavaScript
-static Boolean Buffer.isBuffer(Value v);
+Buffer.isBuffer(v);
 ```
 
 调用参数:
@@ -43,9 +43,7 @@ exports.hi = v => {
 **通过其他 Buffer 创建 Buffer 对象**
 
 ```JavaScript
-static Buffer Buffer.from(Buffer buffer,
-    Integer byteOffset = 0,
-    Integer length = -1);
+Buffer.from(buffer,byteOffset,length);   
 ```
 
 调用参数:
@@ -69,9 +67,7 @@ exports.hi = v => {
 **通过字符串创建 Buffer 对象**
 
 ```JavaScript
-static Buffer Buffer.from(String str,
-    Integer byteOffset = 0,
-    Integer length = -1);
+Buffer.from(str,byteOffset,length);
 ```
 
 调用参数:
@@ -95,8 +91,7 @@ exports.hi = v => {
 **通过字符串创建 Buffer 对象**
 
 ```JavaScript
-static Buffer Buffer.from(String str,
-    String codec = "utf8");
+Buffer.from(str,codec);
 ```
 
 调用参数:
@@ -120,8 +115,7 @@ exports.hi = v => {
 **拼接多个缓存区中的数据**
 
 ```JavaScript
-static Buffer Buffer.concat(Array buflist,
-    Integer cutLength = -1);
+Buffer.concat(buflist,cutLength);
 ```
 
 调用参数:
@@ -165,9 +159,7 @@ exports.hi = v => {
 **分配一个指定长度的新缓存区。如果大小为0，将创建一个零长度的缓存区。**
 
 ```JavaScript
-static Buffer Buffer.alloc(Integer size,
-    Integer fill = 0,
-    String codec = "utf8");
+Buffer.alloc(size,fill,codec);
 ```
 
 调用参数:
@@ -191,9 +183,7 @@ exports.hi = v => {
 **分配一个指定长度的新缓存区。如果大小为0，将创建一个零长度的缓存区。**
 
 ```JavaScript
-static Buffer Buffer.alloc(Integer size,
-    String fill = "",
-    String codec = "utf8");
+Buffer Buffer.alloc(size,fill,codec);
 ```
 
 调用参数:
@@ -219,9 +209,7 @@ exports.hi = v => {
 **分配一个指定长度的新缓存区。如果大小为0，将创建一个零长度的缓存区。**
 
 ```JavaScript
-static Buffer Buffer.alloc(Integer size,
-    Buffer fill,
-    String codec = "utf8");
+Buffer.alloc(size,fill,codec);
 ```
 
 调用参数:
@@ -248,7 +236,7 @@ exports.hi = v => {
 **分配一个指定长度的新缓存区。如果大小为0，将创建一个零长度的缓存区。**
 
 ```JavaScript
-static Buffer Buffer.allocUnsafe(Integer size);
+Buffer.allocUnsafe(size);
 ```
 
 调用参数:
@@ -271,7 +259,7 @@ exports.hi = v => {
 **分配一个指定长度的新缓存区。如果大小为0，将创建一个零长度的缓存区。**
 
 ```JavaScript
-static Buffer Buffer.allocUnsafeSlow(Integer size);
+Buffer.allocUnsafeSlow(size);
 ```
 
 调用参数:
@@ -294,7 +282,7 @@ exports.hi = v => {
 **检测编码格式是否被支持**
 
 ```JavaScript
-static Boolean Buffer.isEncoding(String codec);
+Buffer.isEncoding(codec);
 ```
 
 调用参数:

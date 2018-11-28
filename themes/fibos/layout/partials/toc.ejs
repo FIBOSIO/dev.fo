@@ -18,11 +18,11 @@
         <li><h3>Token 合约</h3></li>
       <% } %>
     <% } %>
-    <% if (type === 'manual') { %>
+    <!-- <% if (type === 'manual') { %>
       <% if (fileName === 'index') { %>
         <li><h3>JS contract</h3></li>
       <% } %>
-      <!-- <% if (fileName === 'nodeIndex') { %>
+      <% if (fileName === 'nodeIndex') { %>
         <li><h3>fibos node</h3></li>
       <% } %>
       <% if (fileName === 'eosioIndex') { %>
@@ -33,11 +33,11 @@
       <% } %>
       <% if (fileName === 'fibosIndex') { %>
         <li><h3>fibos.js</h3></li>
-      <% } %> -->
+      <% } %>
       <% if (fileName === 'rpcapi') { %>
         <li><h3>RPC API</h3></li>
       <% } %>
-    <% } %>
+    <% } %> -->
     <li>
       <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
     </li>

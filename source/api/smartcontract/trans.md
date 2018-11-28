@@ -11,11 +11,8 @@ trans 模块提供了两种函数间调用的方法，其中 send_inline 方法�
 ### send_inline
 **向特定帐号发送 inline [action](index.html)**
 
-```
-static trans.send_inline(String account,
-    String name,
-    Object args,
-    Array authorization = []);
+```javascript
+trans.send_inline(account,name,args,authorization);
 ```
 
 调用参数:
@@ -56,10 +53,8 @@ exports.hi2 = (user, friend) => {
 ### send_context_free_inline
 **向特定帐号发送 context_free inline [action](index.html)**
 
-```
-static trans.send_context_free_inline(String account,
-    String name,
-    Object args);
+```javascript
+trans.send_context_free_inline(account,name,args):
 ```
 
 调用参数:

@@ -15,8 +15,7 @@ order: 4
 **记录普通日志信息，与 info 等同**
 
 ```JavaScript
-static console.log(String fmt,
-    ...args);
+console.log(fmt,...args);
 ```
 
 调用参数:
@@ -37,7 +36,7 @@ exports.hi = v => {
 **记录普通日志信息，与 info 等同**
 
 ```JavaScript
-static console.log(...args);
+console.log(...args);
 ```
 
 调用参数:
@@ -56,7 +55,7 @@ exports.hi = v => {
 **记录调试日志信息**
 
 ```JavaScript
-static console.debug(String fmt,
+console.debug(String fmt,
     ...args);
 ```
 
@@ -76,7 +75,7 @@ exports.hi = v => {
 **记录调试日志信息**
 
 ```JavaScript
-static console.debug(...args);
+console.debug(...args);
 ```
 
 调用参数:
@@ -95,8 +94,7 @@ exports.hi = v => {
 **记录普通日志信息，与 log 等同**
 
 ```JavaScript
-static console.info(String fmt,
-    ...args);
+console.info(fmt,...args);
 ```
 
 调用参数:
@@ -115,7 +113,7 @@ exports.hi = v => {
 **记录普通日志信息，与 log 等同**
 
 ```JavaScript
-static console.info(...args);
+console.info(...args);
 ```
 
 调用参数:
@@ -154,7 +152,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static console.notice(...args);
+console.notice(...args);
 ```
 
 调用参数:
@@ -173,7 +171,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static console.warn(String fmt,
+console.warn(String fmt,
     ...args);
 ```
 
@@ -193,7 +191,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static console.warn(...args);
+console.warn(...args);
 ```
 
 调用参数:
@@ -212,8 +210,7 @@ exports.hi = v => {
 **记录错误日志信息**
 
 ```JavaScript
-static console.error(String fmt,
-    ...args);
+console.error(fmt,...args);
 ```
 
 调用参数:
@@ -232,7 +229,7 @@ exports.hi = v => {
 **记录错误日志信息**
 
 ```JavaScript
-static console.error(...args);
+console.error(...args);
 ```
 
 调用参数:
@@ -251,8 +248,7 @@ exports.hi = v => {
 **记录关键错误日志信息**
 
 ```JavaScript
-static console.crit(String fmt,
-    ...args);
+console.crit(fmt,...args);
 ```
 
 调用参数:
@@ -271,7 +267,7 @@ exports.hi = v => {
 **记录关键错误日志信息**
 
 ```JavaScript
-static console.crit(...args);
+console.crit(...args);
 ```
 
 调用参数:
@@ -290,8 +286,7 @@ exports.hi = v => {
 **记录警报错误日志信息**
 
 ```JavaScript
-static console.alert(String fmt,
-    ...args);
+console.alert(fmt,...args);
 ```
 
 调用参数:
@@ -310,7 +305,7 @@ exports.hi = v => {
 **记录警报错误日志信息**
 
 ```JavaScript
-static console.alert(...args);
+console.alert(...args);
 ```
 
 调用参数:
@@ -329,7 +324,7 @@ exports.hi = v => {
 **用 JSON 格式输出对象**
 
 ```JavaScript
-static console.dir(Value obj);
+console.dir(obj);
 ```
 
 调用参数:
@@ -347,7 +342,7 @@ exports.hi = v => {
 **输出当前调用堆栈**
 
 ```JavaScript
-static console.trace(String label = "trace");
+console.trace(label);
 ```
 
 调用参数:
@@ -360,8 +355,7 @@ static console.trace(String label = "trace");
 **断言测试，如果测试值为假，则报错**
 
 ```JavaScript
-static console.assert(Value value,
-    String msg = "");
+console.assert(value,msg);
 ```
 
 调用参数:

@@ -9,7 +9,9 @@ multi index table 对象
 ## 成员属性
         
 ### name
-**String, table 名**
+**table 名**
+
+**类型：String**
 
 ```JavaScript
 readonly String Table.name;
@@ -17,7 +19,9 @@ readonly String Table.name;
 
 --------------------------
 ### code
-**String, 指向合约发布者的名称**
+**指向合约发布者的名称**
+
+**类型：String**
 
 ```JavaScript
 readonly String Table.code;
@@ -25,7 +29,9 @@ readonly String Table.code;
 
 --------------------------
 ### scope
-**String, table 中数据所属的 account_name**
+**table 中数据所属的 account_name**
+
+**类型：String**
 
 ```JavaScript
 readonly String Table.scope;
@@ -33,7 +39,9 @@ readonly String Table.scope;
 
 --------------------------
 ### indexes
-**Object, 查询当前索引，返回所有索引对象，每个索引是一个新的 Table 对象**
+**查询当前索引，返回所有索引对象，每个索引是一个新的 Table 对象**
+
+**类型：Object**
 
 ```JavaScript
 readonly Object Table.indexes;

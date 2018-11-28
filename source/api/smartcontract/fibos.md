@@ -19,8 +19,7 @@ var fibos = require('fibos')
 **加载系统 plugin**
 
 ```JavaScript
-static fibos.load(String name,
-    Object cfg = {});
+fibos.load(name,cfg);
 ```
 
 调用参数:
@@ -31,7 +30,7 @@ static fibos.load(String name,
 **加载配置**
 
 ```JavaScript
-static fibos.load(Object cfgs);
+fibos.load(cfgs);
 ```
 
 调用参数:
@@ -137,7 +136,7 @@ static fibos.load(Object cfgs);
 **启动 fibos**
 
 ```JavaScript
-static fibos.start();
+fibos.start();
 ```
 
 ### 实例
@@ -337,47 +336,52 @@ fibos.start();
 **停止 fibos**
 
 ```JavaScript
-static fibos.stop();
+fibos.stop();
 ```
 
 ## 静态属性
         
 ### data_dir
-**String, fibos 的数据存放目录**
+**fibos 的数据存放目录**
 
 ```JavaScript
-static String fibos.data_dir;
+fibos.data_dir;
 ```
+**类型：String**
 
 --------------------------
 ### config_dir
-**String, fibos 的配置存放目录**
+**fibos 的配置存放目录**
 
 ```JavaScript
-static String fibos.config_dir;
+fibos.config_dir;
 ```
+**类型：String**
 
 --------------------------
 ### core_symbol
-**String, fibos 主 token 名称**
+**fibos 主 token 名称**
 
 ```JavaScript
-static String fibos.core_symbol;
+fibos.core_symbol;
 ```
+**类型：String**
 
 --------------------------
 ### pubkey_prefix
-**String, fibos 公钥前缀**
+**fibos 公钥前缀**
 
 ```JavaScript
-static String fibos.pubkey_prefix;
+fibos.pubkey_prefix;
 ```
+**类型：String**
 
 --------------------------
 ### enableJSContract
-**Boolean, 查询和设置 JavaScript 智能合约状态，为 True 时支持 JavaScript 智能合约**
+**查询和设置 JavaScript 智能合约状态，为 True 时支持 JavaScript 智能合约**
 
 ```JavaScript
-static Boolean fibos.enableJSContract;
+fibos.enableJSContract;
 ```
+**类型：Boolean**
 

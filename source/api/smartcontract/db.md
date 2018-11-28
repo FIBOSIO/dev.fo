@@ -17,9 +17,7 @@ FIBOS 中 js 智能合约操作链数据库是很常见的应用场景，一个[
 **访问指定数据库表**
 
 ```JavaScript
-static db.table(String scope,
-    String code,
-    String indexes);
+db.table(scope,code,indexes);
 ```
 
 调用参数:

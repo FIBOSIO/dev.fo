@@ -1,8 +1,10 @@
 ---
-title: RPC 介绍
-type: manual
+title: 
+type: rpc
 order: 250
 ---
+# RPC API
+
 ## CHAIN
 
 ### get_info
