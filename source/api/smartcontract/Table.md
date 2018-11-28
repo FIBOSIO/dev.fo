@@ -14,7 +14,7 @@ multi index table 对象
 **类型：String**
 
 ```JavaScript
-readonly String Table.name;
+Table.name;
 ```
 
 --------------------------
@@ -24,7 +24,7 @@ readonly String Table.name;
 **类型：String**
 
 ```JavaScript
-readonly String Table.code;
+Table.code;
 ```
 
 --------------------------
@@ -34,7 +34,7 @@ readonly String Table.code;
 **类型：String**
 
 ```JavaScript
-readonly String Table.scope;
+Table.scope;
 ```
 
 --------------------------
@@ -44,7 +44,7 @@ readonly String Table.scope;
 **类型：Object**
 
 ```JavaScript
-readonly Object Table.indexes;
+Table.indexes;
 ```
 
 ## 成员函数
@@ -53,8 +53,7 @@ readonly Object Table.indexes;
 **向 table 存入新数据**
 
 ```JavaScript
-Table.emplace(String payer,
-    Object val);
+Table.emplace(payer,val);
 ```
 
 调用参数:
@@ -80,7 +79,7 @@ exports.hi = v => {
 **从 table 查找数据**
 
 ```JavaScript
-DBIterator Table.find(Value id);
+DBIterator Table.find(id);
 ```
 
 调用参数:
@@ -100,7 +99,7 @@ exports.hi = v => {
 **生成自增主键**
 
 ```JavaScript
-Value Table.get_primary_key();
+Table.get_primary_key();
 ```
 
 实例:
@@ -117,7 +116,7 @@ exports.hi = v => {
 **从 table 查找小于参数结果**
 
 ```JavaScript
-DBIterator Table.lowerbound(Value id);
+DBIterator Table.lowerbound(id);
 ```
 
 调用参数:
@@ -138,7 +137,7 @@ exports.hi1 = v => {
 **从 table 查找大于参数结果**
 
 ```JavaScript
-DBIterator Table.upperbound(Value id);
+DBIterator Table.upperbound(id);
 ```
 
 调用参数:
@@ -158,8 +157,10 @@ exports.hi1 = v => {
 ### toString
 **返回对象的字符串表示，一般返回 "[Native Object]"，对象可以根据自己的特性重新实现**
 
+**类型：String**
+
 ```JavaScript
-String Table.toString();
+Table.toString();
 ```
 
 返回结果:
@@ -170,7 +171,7 @@ String Table.toString();
 **返回对象的 JSON 格式表示，一般返回对象定义的可读属性集合**
 
 ```JavaScript
-Value Table.toJSON(String key = "");
+Table.toJSON(key);
 ```
 
 调用参数:
