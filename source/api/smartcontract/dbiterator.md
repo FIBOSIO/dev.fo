@@ -13,7 +13,16 @@ order: 7
 **类型：Object**
 
 ```JavaScript
-readonly Object DBIterator.data;
+DBIterator.data;
+```
+
+实例：
+```JavaScript
+exports.hi1 = v => {
+    var players = db.players(action.account, action.account);
+    var itr = players.find(v);
+    console.log(itr.data);
+}；
 ```
 
 ## 成员函数
@@ -21,8 +30,10 @@ readonly Object DBIterator.data;
 ### is_begin
 **判断数据是否为首数据**
 
+**类型：Boolean**
+
 ```JavaScript
-Boolean DBIterator.is_begin();
+DBIterator.is_begin();
 ```
 
 实例:
@@ -39,8 +50,10 @@ exports.hi1 = v => {
 ### is_end
 **判断数据是否为尾数据**
 
+**类型：Boolean**
+
 ```JavaScript
-Boolean DBIterator.is_end();
+DBIterator.is_end();
 ```
 
 实例:
@@ -58,7 +71,7 @@ exports.hi1 = v => {
 **获取下一个数据**
 
 ```JavaScript
-DBIterator DBIterator.next();
+DBIterator.next();
 ```
 
 实例:

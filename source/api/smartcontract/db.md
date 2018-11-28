@@ -23,7 +23,7 @@ db.table(scope,code,indexes);
 调用参数:
 * scope: String, 指向合约发布者的名称
 * code: String, table 中数据所属的 account_name
-* indexes: String, 索引
+* indexes: object, 索引
 
 使用 db 模块首先我们需要在 abi 文件中定义数据表的表名、表结构和主键等信息，如下所示：
 ```
