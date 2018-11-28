@@ -1,0 +1,815 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    加入节点网络 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="加入节点网络 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="加入节点网络 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/guide/node/instruction.html" class="nav-link current">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
+        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
+        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
+      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/economic/eos2fibos.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/guide/node/instruction.html" class="nav-link current">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
+        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
+        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/node/join-nodes-net.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/introduction/introduction.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/installation/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/start/start.html" class="sidebar-link">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials/usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Fibos.js</h3></li>
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/fibos.js/situation.html" class="sidebar-link">Fibos.js 介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/fibos.js/createaccountnotfree.html" class="sidebar-link">在 FIBOS 中创建账号</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/fibos.js/getinfosync.html" class="sidebar-link">获取 FIBOS 相关信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/fibos.js/getaccountsync.html" class="sidebar-link">获取指定账号信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/fibos.js/getblocksync.html" class="sidebar-link">获取指定区块信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/fibos.js/getproducerssync.html" class="sidebar-link">获取当前节点列表信息</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/contract/whatisabi.html" class="sidebar-link">编写 ABI 接口</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/contract/crudoperations.html" class="sidebar-link">模块 DB 中的 crud 操作</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/contract/fibosauth.html" class="sidebar-link">FIBOS 权限系统</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约之间的相互调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/contract/recipientclass.html" class="sidebar-link">FIBOS 中的 recipient</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/eos2fibos.html" class="sidebar-link">从 EOS 跨链转账到 FIBOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/fibos2eos.html" class="sidebar-link">从 FIBOS 跨链转账到 EOS</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/eos2fo.html" class="sidebar-link">EOS 与 FO 通证相互兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/howtoexchangetokeninfibos.html" class="sidebar-link">智能通证互兑</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/howtocreatetokeninfibos.html" class="sidebar-link">发行和销毁通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/howtouselock.html" class="sidebar-link">锁仓和解锁功能</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/economic/howtousecontractaccount.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node/instruction.html" class="sidebar-link">节点介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node/join-nodes-net.html" class="sidebar-link current">加入节点网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node/node-data-persistence.html" class="sidebar-link">节点数据持久化</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>加入节点网络</h1>
+  
+  
+    <p>上一章中，我们介绍了 FIBOS 的节点网络。这一章中，我们将加入其中，成为一个节点，亲身体会区块链网络的魅力。</p>
+<h2 id="fibos-nodes"><a href="#fibos-nodes" class="headerlink" title="fibos-nodes"></a>fibos-nodes</h2><p>fibos-nodes 是由 FIBOS 社区提供的一款快速启动 FIBOS 主网节点的脚本工具，他能帮助开发者快速启动三种不同类型的节点。</p>
+<p>项目地址：<a href="https://github.com/FIBOS-Community/fibos-nodes" target="_blank" rel="noopener">https://github.com/FIBOS-Community/fibos-nodes</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/FIBOS-Community/fibos-nodes.git</span><br><span class="line">cd fibos-nodes</span><br></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fibos bp.js   // 快速启动一个bp节点</span><br><span class="line"></span><br><span class="line">fibos full.js // 快速启动一个全节点</span><br><span class="line"></span><br><span class="line">fibos seed.js // 快速启动一个同步节点</span><br></pre></td></tr></table></figure>
+<p>默认数据，配置存储位置 /blockData/data</p>
+<h3 id="全节点数据同步"><a href="#全节点数据同步" class="headerlink" title="全节点数据同步"></a>全节点数据同步</h3><p>全节点区块数据同步耗时长，FIBOS 社区提供最新镜像启动服务，极大缩短区块同步时间。</p>
+<p>服务地址：<a href="http://ghost.bp.fo/" target="_blank" rel="noopener">http://ghost.bp.fo/</a></p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><ol>
+<li><p>下载数据：</p>
+<p>访问 <a href="http://ghost.bp.fo/ghost/" target="_blank" rel="noopener">http://ghost.bp.fo/ghost/</a> 选择想要同步的数据包文件，直接点击下载</p>
+<p>或者获取文件URL，使用 wget 命令进行下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weget http://ghost.bp.fo/ghost/data_15600397.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvSf data.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改快速启动脚本配置文件 config.json ：</p>
+<p>将 data_dir 参数指向刚刚数据文件解压的 fibos-data 目录即可。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"data_dir": "fibos-data/",</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动全节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos full.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="手动加入-FIBOS-节点网络"><a href="#手动加入-FIBOS-节点网络" class="headerlink" title="手动加入 FIBOS 节点网络"></a>手动加入 FIBOS 节点网络</h2><p>如果你不使用 fibos-nodes 这个工具进行节点启动的话，你也可以自行编写启动脚本，加入到节点网络中来。</p>
+<p>加入 FIBOS 网络配置需要涉及几个关键信息：</p>
+<h4 id="获得节点网络的-chainId"><a href="#获得节点网络的-chainId" class="headerlink" title="获得节点网络的 chainId"></a>获得节点网络的 chainId</h4><p>TestNet：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chainId : &apos;68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a&apos;</span><br></pre></td></tr></table></figure>
+<p>FIBOS 主网：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chainId : &apos;6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="提供-P2P-监听的地址以及端口"><a href="#提供-P2P-监听的地址以及端口" class="headerlink" title="提供 P2P 监听的地址以及端口"></a>提供 P2P 监听的地址以及端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;p2p-listen-endpoint&apos; : &apos;0.0.0.0:9870&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="区块数据同步的目标节点信息"><a href="#区块数据同步的目标节点信息" class="headerlink" title="区块数据同步的目标节点信息"></a>区块数据同步的目标节点信息</h4><p>区块数据同步必须先从已经在运行的超级节点中同步数据。</p>
+<p>目前 TestNet BP 节点由 FIBOS 基金会提供，p2p 地址为 p2p-testnet.fibos.fo:9870 和 p2p-testnet-02.fibos.fo:9870</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;p2p-peer-address&apos; : [&apos;p2p-testnet.fibos.fo:9870&apos;,&apos;p2p-testnet-02.fibos.fo:9870&apos;]</span><br></pre></td></tr></table></figure>
+<p>FIBOS 主网的超级节点已全部被社区节点取代，具体的 BP 节点信息，请访问 <a href="https://www.fibos123.com/#!/bp" target="_blank" rel="noopener">https://www.fibos123.com/#!/bp</a> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;p2p-peer-address&apos; : [&apos;p2p.mainnet.fibos.me:80&apos;,&apos;seed-mainnet.fibscan.io:9103&apos;]</span><br></pre></td></tr></table></figure>
+<p>注意：示例中给出的 FIBOS 主网 BP P2P 地址，会发生变动，请时刻关注。</p>
+<h4 id="genesis-json-文件"><a href="#genesis-json-文件" class="headerlink" title="genesis.json 文件"></a>genesis.json 文件</h4><p>TestNet：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"initial_timestamp"</span>: <span class="string">"2018-08-01T00:00:00.000"</span>,</span><br><span class="line">    <span class="attr">"initial_key"</span>: <span class="string">"FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"</span>,</span><br><span class="line">    <span class="attr">"initial_configuration"</span>: &#123;</span><br><span class="line">        <span class="attr">"max_block_net_usage"</span>: <span class="number">1048576</span>,</span><br><span class="line">        <span class="attr">"target_block_net_usage_pct"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">"max_transaction_net_usage"</span>: <span class="number">524288</span>,</span><br><span class="line">        <span class="attr">"base_per_transaction_net_usage"</span>: <span class="number">12</span>,</span><br><span class="line">        <span class="attr">"net_usage_leeway"</span>: <span class="number">500</span>,</span><br><span class="line">        <span class="attr">"context_free_discount_net_usage_num"</span>: <span class="number">20</span>,</span><br><span class="line">        <span class="attr">"context_free_discount_net_usage_den"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">"max_block_cpu_usage"</span>: <span class="number">200000</span>,</span><br><span class="line">        <span class="attr">"target_block_cpu_usage_pct"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">"max_transaction_cpu_usage"</span>: <span class="number">150000</span>,</span><br><span class="line">        <span class="attr">"min_transaction_cpu_usage"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">"max_transaction_lifetime"</span>: <span class="number">3600</span>,</span><br><span class="line">        <span class="attr">"deferred_trx_expiration_window"</span>: <span class="number">600</span>,</span><br><span class="line">        <span class="attr">"max_transaction_delay"</span>: <span class="number">3888000</span>,</span><br><span class="line">        <span class="attr">"max_inline_action_size"</span>: <span class="number">4096</span>,</span><br><span class="line">        <span class="attr">"max_inline_action_depth"</span>: <span class="number">4</span>,</span><br><span class="line">        <span class="attr">"max_authority_depth"</span>: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"initial_chain_id"</span>:<span class="string">"68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>FIBOS 主网：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"initial_timestamp"</span>: <span class="string">"2018-08-01T00:00:00.000"</span>,</span><br><span class="line">    <span class="string">"initial_key"</span>: <span class="string">"FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"</span>,</span><br><span class="line">    <span class="string">"initial_configuration"</span>: &#123;</span><br><span class="line">        <span class="string">"max_block_net_usage"</span>: <span class="number">1048576</span>,</span><br><span class="line">        <span class="string">"target_block_net_usage_pct"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="string">"max_transaction_net_usage"</span>: <span class="number">524288</span>,</span><br><span class="line">        <span class="string">"base_per_transaction_net_usage"</span>: <span class="number">12</span>,</span><br><span class="line">        <span class="string">"net_usage_leeway"</span>: <span class="number">500</span>,</span><br><span class="line">        <span class="string">"context_free_discount_net_usage_num"</span>: <span class="number">20</span>,</span><br><span class="line">        <span class="string">"context_free_discount_net_usage_den"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="string">"max_block_cpu_usage"</span>: <span class="number">200000</span>,</span><br><span class="line">        <span class="string">"target_block_cpu_usage_pct"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="string">"max_transaction_cpu_usage"</span>: <span class="number">150000</span>,</span><br><span class="line">        <span class="string">"min_transaction_cpu_usage"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="string">"max_transaction_lifetime"</span>: <span class="number">3600</span>,</span><br><span class="line">        <span class="string">"deferred_trx_expiration_window"</span>: <span class="number">600</span>,</span><br><span class="line">        <span class="string">"max_transaction_delay"</span>: <span class="number">3888000</span>,</span><br><span class="line">        <span class="string">"max_inline_action_size"</span>: <span class="number">4096</span>,</span><br><span class="line">        <span class="string">"max_inline_action_depth"</span>: <span class="number">4</span>,</span><br><span class="line">        <span class="string">"max_authority_depth"</span>: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"initial_chain_id"</span>:<span class="string">"6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何成为一个同步节点"><a href="#如何成为一个同步节点" class="headerlink" title="如何成为一个同步节点"></a>如何成为一个同步节点</h3><p>如果节点仅仅作为同步 FIBOS 区块数据，非常简单。以下代码保存至 <code>sync_node.js</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.config_dir = <span class="string">'sync_data_Dir'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'sync_data_Dir'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.notice(<span class="string">'config_dir:'</span>, fibos.config_dir);</span><br><span class="line"><span class="built_in">console</span>.notice(<span class="string">'data_dir:'</span>, fibos.data_dir);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">	<span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8870'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'net'</span>, &#123;</span><br><span class="line">	<span class="string">'p2p-listen-endpoint'</span>: <span class="string">'0.0.0.0:9870'</span>,</span><br><span class="line">	<span class="string">'p2p-peer-address'</span>: [<span class="string">'p2p.mainnet.fibos.me:80'</span>,<span class="string">'seed-mainnet.fibscan.io:9103'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'producer'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain'</span>,&#123;</span><br><span class="line">	<span class="string">'genesis-json'</span>:<span class="string">'genesis.json'</span>,</span><br><span class="line">	<span class="string">'delete-all-block'</span>:<span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line"></span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<p>上述代码中，<code>net</code> 模块中的 <code>p2p-peer-address</code> 是一个可变值，请注意修改。</p>
+<p>运行同步节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos sync_node.js</span><br></pre></td></tr></table></figure>
+<h2 id="如何成为一个-BP-节点"><a href="#如何成为一个-BP-节点" class="headerlink" title="如何成为一个 BP 节点"></a>如何成为一个 BP 节点</h2><p>(* BP 区块生产者)</p>
+<blockquote>
+<p>重要提示：使用 Producer 身份发起注册申请，最好 producer key 不要和 active key 一样！</p>
+</blockquote>
+<p>如果节点需要申请注册成为 FIBOS 主网的区块生产者，需要涉及到 3 个方面：</p>
+<ul>
+<li>配置 Producer 信息启动 FIBOS 节点服务</li>
+<li>使用 Producer 身份发起注册申请</li>
+<li>发起投票使得成为 Producer</li>
+</ul>
+<h3 id="配置-Producer-信息启动-FIBOS-节点服务"><a href="#配置-Producer-信息启动-FIBOS-节点服务" class="headerlink" title="配置 Producer 信息启动 FIBOS 节点服务"></a>配置 Producer 信息启动 FIBOS 节点服务</h3><p>只有投票数量达到一定的数量，FIBOS 节点才会真正的成为 Producer，拥有生产区块的权限，其他情况仅仅作为同步区块数据的身份存在。</p>
+<p>以下代码实现了配置一个 Producer，保存代码至 <code>producer_node.js</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">	<span class="string">'producer-name'</span>: <span class="string">'producer-name'</span>,</span><br><span class="line">	<span class="string">'public-key'</span>: <span class="string">'producer public key'</span>,</span><br><span class="line">	<span class="string">'private-key'</span>: <span class="string">'producer private key'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.notice(<span class="string">'正在启动FIBOS name:'</span>, config[<span class="string">'producer-name'</span>]);</span><br><span class="line">fibos.config_dir = config[<span class="string">'producer-name'</span>] + <span class="string">'_Dir'</span>;</span><br><span class="line">fibos.data_dir = config[<span class="string">'producer-name'</span>] + <span class="string">'_Dir'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.notice(<span class="string">'config_dir:'</span>, fibos.config_dir);</span><br><span class="line"><span class="built_in">console</span>.notice(<span class="string">'data_dir:'</span>, fibos.data_dir);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (fs.exists(fibos.data_dir) || fs.exists(fibos.config_dir)) &#123;</span><br><span class="line">	<span class="built_in">console</span>.warn(<span class="string">'data_dir or config_dir is exists'</span>);</span><br><span class="line">	process.exit(<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">	<span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8870'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'net'</span>, &#123;</span><br><span class="line">	<span class="string">'p2p-listen-endpoint'</span>: <span class="string">'0.0.0.0:9870'</span>,</span><br><span class="line">	<span class="string">'p2p-peer-address'</span>: [<span class="string">'p2p.mainnet.fibos.me:80'</span>,<span class="string">'seed-mainnet.fibscan.io:9103'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">	<span class="string">'producer-name'</span>: config[<span class="string">'producer-name'</span>],</span><br><span class="line">	<span class="string">'enable-stale-production'</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="string">'private-key'</span>: <span class="built_in">JSON</span>.stringify([config[<span class="string">'public-key'</span>], config[<span class="string">'private-key'</span>]])</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'chain'</span>,&#123;</span><br><span class="line">	<span class="string">'genesis-json'</span>:<span class="string">'genesis.json'</span>,</span><br><span class="line">	<span class="string">'delete-all-block'</span>:<span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line"></span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<p>上述代码中可变配置说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">	<span class="string">'producer-name'</span>: <span class="string">'producer-name'</span>, <span class="comment">// producer 名称</span></span><br><span class="line">	<span class="string">'public-key'</span>: <span class="string">'producer public key'</span>, <span class="comment">// producer 公钥</span></span><br><span class="line">	<span class="string">'private-key'</span>: <span class="string">'producer private key'</span> <span class="comment">// producer 私钥</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>运行 Producer 节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos producer_node.js</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Producer-身份发起注册申请"><a href="#使用-Producer-身份发起注册申请" class="headerlink" title="使用 Producer 身份发起注册申请"></a>使用 Producer 身份发起注册申请</h3><p><strong>调用方法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化一个 fibos 客户端</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"><span class="keyword">var</span> a = ctx.regproducerSync(<span class="string">'prducerName'</span>, <span class="string">'publickey'</span>, <span class="string">'url'</span>, <span class="string">'location'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>方法说明：</strong></p>
+<p>使用 fibos.js 客户端 调用 eosio 合约发起注册 BP 操作</p>
+<p><strong>实例：</strong></p>
+<p>以下代码保存至 <code>register_bp.js</code> :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">    priKey: <span class="string">'producer privateKey'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://ca-rpc.fibos.io:8870'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    location: <span class="number">1</span>,</span><br><span class="line">    url: <span class="string">'http://producer-name.io'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> publicKey = <span class="string">''</span>; <span class="comment">// producer publicKey</span></span><br><span class="line"><span class="keyword">var</span> producerName = <span class="string">''</span>; <span class="comment">// producer name</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"><span class="keyword">var</span> a = ctx.regproducerSync(producerName, publicKey, config.url, config.location);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p><strong>实例说明:</strong></p>
+<p>实例操作中，配置好 FIBOS MainNet 和 FIBOS RPC 地址 和 FIBOS 私钥后，便初始化了一个 FIBOS 客户端，通过调用 <code>regproducerSync</code> 方法，传入四个参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>producerName</td>
+<td>区块生产者账户名</td>
+</tr>
+<tr>
+<td>publicKey</td>
+<td>区块生产者公钥</td>
+</tr>
+<tr>
+<td>url</td>
+<td>区块生产者宣传网站</td>
+</tr>
+<tr>
+<td>location</td>
+<td>区块生产者服务器位置地区代码</td>
+</tr>
+</tbody>
+</table>
+<h3 id="获取投票数成为-Producer"><a href="#获取投票数成为-Producer" class="headerlink" title="获取投票数成为 Producer"></a>获取投票数成为 Producer</h3><p>成为 BP 需要获得一定数量的投票数，你可以让别人给你投票，也可以自己给自己投票。投票需要抵押 FO 获取资源，下面教会大家如何抵押资源以及进行投票。</p>
+<h4 id="抵押资源"><a href="#抵押资源" class="headerlink" title="抵押资源"></a>抵押资源</h4><p><strong>调用方法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一个 fibos 客户端</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"><span class="keyword">var</span> a = ctx.delegatebwSync(&#123;</span><br><span class="line">	<span class="keyword">from</span>: <span class="string">'buyer_name'</span>,</span><br><span class="line">	receiver: <span class="string">'recevier_name'</span>,</span><br><span class="line">	stake_net_quantity: <span class="string">'quality'</span>,</span><br><span class="line">	stake_cpu_quantity: <span class="string">'quality'</span>,</span><br><span class="line">	transfer: <span class="number">0</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>方法说明：</strong></p>
+<p>使用  <code>delegatebwSync</code>  方法抵押 FO 获取 NET 和 CPU 资源，用来投票。</p>
+<p><strong>实例：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">    priKey: <span class="string">'privateKey'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://ca-rpc.fibos.io:8870'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line">ctx.delegatebwSync(&#123;</span><br><span class="line">	<span class="keyword">from</span>: <span class="string">'fibos account'</span>, <span class="comment">// 抵押资源者账号</span></span><br><span class="line">	receiver: <span class="string">'fibos account'</span>, <span class="comment">// 资源接收者账号</span></span><br><span class="line">	stake_net_quantity: <span class="string">'1.0000 FO'</span>,</span><br><span class="line">	stake_cpu_quantity: <span class="string">'1.0000 FO'</span>,</span><br><span class="line">	transfer: <span class="number">0</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>实例说明:</strong></p>
+<p>配置了 FIBOS 主网的 chainId 和 Http 服务地址后，便初始化了一个 FIBOS 客户端。调用  <code>delegatebwSync</code> 方法，抵押 FO 获取资源。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>抵押资源者</td>
+</tr>
+<tr>
+<td>receiver</td>
+<td>资源接收者</td>
+</tr>
+<tr>
+<td>stake_net_quantity</td>
+<td>获取 Net 抵押的 FO 数量</td>
+</tr>
+<tr>
+<td>stake_cpu_quantity</td>
+<td>获取 CPU 抵押的 FO 数量</td>
+</tr>
+<tr>
+<td>transfer</td>
+<td>0 : 表示使用自己的资源为他人抵押；1 : 表示赠送资源给他人并抵押。注意：自己为自己抵押资源的时候，只能填 0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="进行投票"><a href="#进行投票" class="headerlink" title="进行投票"></a>进行投票</h4><p><strong>调用方法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一个 fibos 客户端</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"><span class="keyword">var</span> a = ctx.voteproducerSync(<span class="string">'voter'</span>, <span class="string">'proxy'</span>, <span class="string">'producers'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>方法说明：</strong></p>
+<p> 使用 <code>voteproducerSync</code> 方法，来给 BP 进行投票。</p>
+<p><strong>实例：</strong></p>
+<p>以下保存代码至 <code>vote_bp.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">    priKey: <span class="string">'privateKey'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://ca-rpc.fibos.io:8870'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> fibosnodes = [<span class="string">'fibosbpnodec'</span>,<span class="string">'fibosbpnodeb'</span>,<span class="string">'fibosbpnodea'</span>]; <span class="comment">// 具体账号数据请开发者根据实际情况自行填写</span></span><br><span class="line">fibosnodes.sort()；</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = ctx.voteproducerSync(<span class="string">'fibostest123'</span>, <span class="string">''</span>, fibosnodes); <span class="comment">// 具体账号数据请开发者根据实际情况自行填写</span></span><br></pre></td></tr></table></figure>
+<p><strong>实例说明：</strong></p>
+<p>上述代码的含义为 <code>fibostest123</code> 这个用户给 <code>fibosbpnodea, fibosbpnodeb, fibosbpnodec</code>  投票，投票节点列表需要由开发者自己按照字母序排序，一次性最多可以给30个 BP 投票。中间空着的参数为代理，不填表示直接给 BP 投票，填入则是通过代理给 BP 投票。</p>
+<p>执行投票:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos vote_bp.js</span><br></pre></td></tr></table></figure>
+<p>注意：投票结束后，排名必须在 TOP 21 前才可以被选为区块生产者 BP。</p>
+<h3 id="领取奖励"><a href="#领取奖励" class="headerlink" title="领取奖励"></a>领取奖励</h3><p>成为 BP 并成功出块后，会获得相应的奖励，可以调用下面的接口来领取奖励：</p>
+<p><strong>调用方法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一个 fibos 客户端</span></span><br><span class="line"><span class="keyword">var</span> a = fibos.claimrewardsSync(<span class="string">'producer'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>方法说明：</strong></p>
+<p> 使用 <code>claimrewardsSync</code> 方法，来领取 BP 奖励。</p>
+<p><strong>实例：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">    priKey: <span class="string">'producer_privateKey'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://ca-rpc.fibos.io:8870'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> a = fibos.claimrewardsSync(<span class="string">'fibosbpnode1'</span>) <span class="comment">// 具体账号数据请开发者根据实际情况自行填写</span></span><br></pre></td></tr></table></figure>
+<p><strong>实例说明：</strong></p>
+<p>上述代码为  <code>fibosbpnode1</code>  领取了自己出块获得的奖励！</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>
