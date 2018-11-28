@@ -7,7 +7,7 @@ order: 250
 
 ### get_info
 
-Returns an object containing various details about the blockchain.
+返回包含区块链的各种详细信息的对象。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/get_info
@@ -44,7 +44,7 @@ curl --request POST \
 
 ### get_block
 
-Returns an object containing various details about a specific block on the blockchain.
+返回一个对象，其中包含有关区块链上特定块的各种详细信息。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/get_block
@@ -57,9 +57,9 @@ curl --request POST \
   --data '{"block_num_or_id": id}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter           | type   | description                              |          |
+| 参数                | 类型   | 描述                                     |          |
 | ------------------- | ------ | ---------------------------------------- | -------- |
 | **block_num_or_id** | string | Provide a `block number` or a `block id` | REQUIRED |
 
@@ -89,6 +89,8 @@ curl --request POST \
 
 ### get_block_header_state
 
+获取可逆区块头状态。
+
 ```
 POST http://127.0.0.1:8888/v1/chain/get_block_header_state
 ```
@@ -101,9 +103,9 @@ curl --request POST \
   --data '{"block_num_or_id": id}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter           | type   | description                              |      |
+| 参数                | 类型   | 描述                                     |      |
 | ------------------- | ------ | ---------------------------------------- | ---- |
 | **block_num_or_id** | string | Provide a `block number` or a `block id` | /    |
 
@@ -111,7 +113,7 @@ curl --request POST \
 
 ### get_account
 
-Returns an object containing various details about a specific account on the blockchain.
+返回一个对象，其中包含有关区块链上特定帐户的各种详细信息。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/get_account
@@ -125,9 +127,9 @@ curl --request POST \
   --data '{"account_name": name}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter        | type   | description             |          |
+| 参数             | 类型   | 描述                    |          |
 | ---------------- | ------ | ----------------------- | -------- |
 | **account_name** | string | Provide an account name | REQUIRED |
 
@@ -204,6 +206,8 @@ curl --request POST \
 
 ### get_abi
 
+获取账户的 abi 数据。
+
 ```
 POST http://127.0.0.1:8888/v1/chain/get_abi
 ```
@@ -215,9 +219,9 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/chain/get_abi
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter        | type   | description                         |      |
+| 参数             | 类型   | 描述                                |      |
 | ---------------- | ------ | ----------------------------------- | ---- |
 | **account_name** | string | name of account to retrieve ABI for | /    |
 
@@ -275,6 +279,8 @@ curl --request POST \
 
 ### get_raw_code_and_abi
 
+获取账户的原始 code 和 abi 数据。
+
 ```
 POST http://127.0.0.1:8888/v1/chain/get_raw_code_and_abi
 ```
@@ -283,13 +289,13 @@ POST http://127.0.0.1:8888/v1/chain/get_raw_code_and_abi
 
 ```
 curl --request POST \
-  --url http://127.0.0.1:8888/v1/chain/get_raw_code_and_abi
-  --data '{"account_name": name}'
+  --url http://127.0.0.1:8888/v1/chain/get_raw_code_and_abi \
+  --data '{"account_name":name}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter        | type   | description                          |      |
+| 参数             | 类型   | 描述                                 |      |
 | ---------------- | ------ | ------------------------------------ | ---- |
 | **account_name** | string | Account name to get code and abi for | /    |
 
@@ -307,7 +313,7 @@ curl --request POST \
 
 ### get_table_rows
 
-Returns an object containing rows from the specified table.
+返回包含指定表中行的对象。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/get_table_rows
@@ -321,28 +327,26 @@ curl --request POST \
   --data '{"scope":account_name,"code":smart_contract_name,"table":table_name,"json":true or false}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters      | type   | description                     |          |
-| --------------- | ------ | ------------------------------- | -------- |
-| **scope**       | string | Provide the account name        | REQUIRED |
-| **code**        | string | Provide the smart contract name | REQUIRED |
-| **table**       | string | Provide the table name          | REQUIRED |
-| **json**        | string | Provide true or false           | REQUIRED |
-| **lower_bound** | int32  | Provide the lower bound         | /        |
-| **upper_bound** | int32  | Provide the upper bound         | /        |
-| **limit**       | int32  | Provide the limit               | /        |
+| 参数            | 类型    | 描述                            |          |
+| --------------- | ------- | ------------------------------- | -------- |
+| **scope**       | string  | Provide the account name        | REQUIRED |
+| **code**        | string  | Provide the smart contract name | REQUIRED |
+| **table**       | string  | Provide the table name          | REQUIRED |
+| **json**        | boolean | return result in JSON format    | REQUIRED |
+| **lower_bound** | int32   | Provide the lower bound         | /        |
+| **upper_bound** | int32   | Provide the upper bound         | /        |
+| **limit**       | int32   | Provide the limit               | /        |
 
 执行结果：
 
 ```
 {
-  "rows": [
-    {
-      "account": "account",
-      "balance": 1000
-    }
-  ],
+  "rows": [{
+    "key": "account",
+    "balance": 1000
+    }],
   "more": false
 }
 ```
@@ -351,7 +355,7 @@ curl --request POST \
 
 ### abi_json_to_bin
 
-Serializes json to binary hex. The resulting binary hex is usually used for the data field in push_transaction.
+将 json 序列化为二进制十六进制。 生成的二进制十六进制通常用于 push_transaction 中的数据字段。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/abi_json_to_bin
@@ -365,9 +369,9 @@ curl --request POST \
   --data '{"code":account_name,"action":action_arguments,"args":arguments}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters | type   | description                  |      |
+| 参数       | 类型   | 描述                         |      |
 | ---------- | ------ | ---------------------------- | ---- |
 | **code**   | string | Provide the account name     | /    |
 | **action** | string | Provide the action arguments | /    |
@@ -378,8 +382,6 @@ curl --request POST \
 ```
 {
   "binargs": "000000008093dd74000000000094dd74e803000000000000",
-  "required_scope": [],
-  "required_auth": []
 }
 ```
 
@@ -387,7 +389,7 @@ curl --request POST \
 
 ### abi_bin_to_json
 
-Serializes binary hex to json.
+将二进制十六进制序列化为 json 格式。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/abi_bin_to_json
@@ -401,9 +403,9 @@ curl --request POST \
   --data '{"code":account_name,"action":action_name,"binargs":binary arguments}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters  | type   | description                             |          |
+| 参数        | 类型   | 描述                                    |          |
 | ----------- | ------ | --------------------------------------- | -------- |
 | **code**    | string | Provide the smart contract account name | REQUIRED |
 | **action**  | string | Provide the action name                 | REQUIRED |
@@ -417,9 +419,7 @@ curl --request POST \
     "from": "initb",
     "to": "initc",
     "quantity": 1000
-  },
-  "required_scope": [],
-  "required_auth": []
+  }
 }
 ```
 
@@ -427,7 +427,7 @@ curl --request POST \
 
 ### get_required_keys
 
-Returns the required keys needed to sign a transaction.
+返回签署事务所需的密钥。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/get_required_keys
@@ -441,9 +441,9 @@ curl --request POST \
   --data '{"transaction":transaction_object,"action":available_keys}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters         | type             | description                    |          |
+| 参数               | 类型             | 描述                           |          |
 | ------------------ | ---------------- | ------------------------------ | -------- |
 | **transaction**    | json             | Provide the transaction object | REQUIRED |
 | **available_keys** | array of strings | Provide the available keys     | REQUIRED |
@@ -496,6 +496,8 @@ curl --request POST \
 
 ### get_currency_stats
 
+获取某种资产的详情。
+
 ```
 POST http://127.0.0.1:8888/v1/chain/get_currency_stats
 ```
@@ -504,12 +506,13 @@ POST http://127.0.0.1:8888/v1/chain/get_currency_stats
 
 ```
 curl --request POST \
-  --url http://127.0.0.1:8888/v1/chain/get_currency_stats
+  --url http://127.0.0.1:8888/v1/chain/get_currency_stats \
+  --data '{"code":"eosio.token","symbol":"EOS"}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters | type   | description                          |      |
+| 参数       | 类型   | 描述                                 |      |
 | ---------- | ------ | ------------------------------------ | ---- |
 | **code**   | string |                                      | /    |
 | **symbol** | string | currency symbol to get the stats for | /    |
@@ -517,6 +520,8 @@ curl --request POST \
 
 
 ### get_producers
+
+获取生产者信息。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/get_producers
@@ -529,9 +534,9 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/chain/get_producers
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters      | type    | description                           |      |
+| 参数            | 类型    | 描述                                  |      |
 | --------------- | ------- | ------------------------------------- | ---- |
 | **limit**       | string  | total number of producers to retrieve | /    |
 | **lower_bound** | string  |                                       | /    |
@@ -540,6 +545,8 @@ curl --request POST \
 
 
 ### push_block
+
+推送区块。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/push_block
@@ -552,28 +559,28 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/chain/push_block
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters             | type             | description |      |
-| ---------------------- | ---------------- | ----------- | ---- |
-| **timestamp**          | date-time        |             | /    |
-| **producer**           | string           |             | /    |
-| **confirmed**          | int32            |             | /    |
-| **previous**           | string           |             | /    |
-| **transaction_mroot**  | string           |             | /    |
-| **action_mroot**       | int32            |             | /    |
-| **version**            | string           |             | /    |
-| **new_producers**      | array of strings |             | /    |
-| **header_extensions**  | array of strings |             | /    |
-| **producer_signature** | string           |             | /    |
-| **transactions**       | array            |             | /    |
-| **block_extensions**   | array of strings |             | /    |
+| 参数                   | 类型             | 描述 |      |
+| ---------------------- | ---------------- | ---- | ---- |
+| **timestamp**          | date-time        |      | /    |
+| **producer**           | string           |      | /    |
+| **confirmed**          | int32            |      | /    |
+| **previous**           | string           |      | /    |
+| **transaction_mroot**  | string           |      | /    |
+| **action_mroot**       | int32            |      | /    |
+| **version**            | string           |      | /    |
+| **new_producers**      | array of strings |      | /    |
+| **header_extensions**  | array of strings |      | /    |
+| **producer_signature** | string           |      | /    |
+| **transactions**       | array            |      | /    |
+| **block_extensions**   | array of strings |      | /    |
 
 
 
 ### push_transaction
 
-This method expects a transaction in JSON format and will attempt to apply it to the blockchain.
+此方法需要JSON格式的事务，并尝试将其应用于区块链。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/push_transaction
@@ -586,9 +593,9 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/chain/push_transaction
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters                   | type             | description                                           |      |
+| 参数                         | 类型             | 描述                                                  |      |
 | ---------------------------- | ---------------- | ----------------------------------------------------- | ---- |
 | **signatures**               | array of strings | array of signatures required to authorize transaction | /    |
 | **compression**              | string           | compression used, usually false                       | /    |
@@ -607,13 +614,13 @@ curl --request POST \
 
 **Note**
 
-The ref_block_num and ref_block_prefix here are provided as a result of /v1/chain/get_block of the last_irreversible_block. The last_irreversible_block can be found by calling /v1/chain/get_info. You also need to use /v1/wallet/sign_transaction to get the right signature.
+这里的`ref_block_num`和`ref_block_prefix`是`last_irreversible_block`的`/ v1 / chain / get_block`的结果。 可以通过调用`/ v1 / chain / get_info`找到`last_irreversible_block`。 您还需要使用`/ v1 / wallet / sign_transaction`来获取正确的签名。
 
 
 
 ### push_transactions
 
-This method expects a transactions in JSON format and will attempt to apply it to the blockchain. This method push multiple transactions at once.
+此方法需要JSON格式的事务，并尝试将其应用于区块链。 此方法一次推送多个事务。
 
 ```
 POST http://127.0.0.1:8888/v1/chain/push_transaction
@@ -627,11 +634,11 @@ curl --request POST \
   --data '{"body":transaction}'
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter | type | description                                    |          |
-| --------- | ---- | ---------------------------------------------- | -------- |
-| **body**  | json | Provide the authorizations for the transaction | REQUIRED |
+| 参数     | 类型 | 描述                                           |          |
+| -------- | ---- | ---------------------------------------------- | -------- |
+| **body** | json | Provide the authorizations for the transaction | REQUIRED |
 
 执行结果：
 
@@ -645,13 +652,17 @@ curl --request POST \
 
 **Note**
 
-The ref_block_num and ref_block_prefix here are provided as a result of /v1/chain/get_block of the last_irreversible_block. The last_irreversible_block can be found by calling /v1/chain/get_info. You also need to use /v1/wallet/sign_transaction to get the right signature.
+这里的`ref_block_num`和`ref_block_prefix`是`last_irreversible_block`的`/ v1 / chain / get_block`的结果。 可以通过调用`/ v1 / chain / get_info`找到`last_irreversible_block`。 您还需要使用`/ v1 / wallet / sign_transaction`来获取正确的签名。
 
 
 
 ## HISTORY
 
+> 注意：需要启用 history-api 插件
+
 ### get_key_accounts
+
+根据公钥查询账户。
 
 ```
 POST http://127.0.0.1:8888/v1/history/get_key_accounts
@@ -664,36 +675,17 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/history/get_key_accounts
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter      | type  |      |
+| 参数           | 类型  |      |
 | -------------- | ----- | ---- |
 | **public_key** | int32 | /    |
 
 
 
-### get_controlled_accounts
-
-```
-POST http://127.0.0.1:8888/v1/history/get_controlled_accounts
-```
-
-示例：
-
-```
-curl --request POST \
-  --url http://127.0.0.1:8888/v1/history/get_controlled_accounts
-```
-
-**BODY PARAMS**
-
-| parameter               | type   |      |
-| ----------------------- | ------ | ---- |
-| **controlling_account** | string | /    |
-
-
-
 ## NET
+
+> 注意：需要启用 net 插件
 
 ### connect
 
@@ -708,7 +700,7 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/net/connect
 ```
 
-**BODY PARAMS**
+**参数**
 
 string
 
@@ -728,7 +720,7 @@ curl --request POST \
   --data '""'
 ```
 
-**BODY PARAMS**
+**参数**
 
 string
 
@@ -765,6 +757,8 @@ curl --request POST \
 
 
 ## PRODUCER
+
+> 需要启用 producer 插件
 
 ### pause
 
@@ -839,9 +833,9 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/producer/update_runtime_options
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameters                     | type  |      |
+| 参数                           | 类型  |      |
 | ------------------------------ | ----- | ---- |
 | **max_transaction_time**       | int32 | /    |
 | **max_irreversible_block_age** | int32 | /    |
@@ -853,8 +847,6 @@ curl --request POST \
 
 
 ### get_greylist
-
-Returns producer greylist
 
 ```
 POST http://127.0.0.1:8888/v1/producer/get_greylist
@@ -888,9 +880,9 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/producer/add_greylist_accounts
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter    | type             | description                 |      |
+| 参数         | 类型             | 描述                        |      |
 | ------------ | ---------------- | --------------------------- | ---- |
 | **accounts** | array of strings | Accounts to add to greylist | /    |
 
@@ -909,9 +901,9 @@ curl --request POST \
   --url http://127.0.0.1:8888/v1/producer/remove_greylist_accounts
 ```
 
-**BODY PARAMS**
+**主体参数**
 
-| parameter    | type             | description                 |      |
+| 参数         | 类型             | 描述                        |      |
 | ------------ | ---------------- | --------------------------- | ---- |
 | **accounts** | array of strings | Accounts to add to greylist | /    |
 
@@ -920,22 +912,14 @@ curl --request POST \
 ### get_whitelist_blacklist
 
 ```
-POST http://127.0.0.1:8888/v1/producer
+POST http://127.0.0.1:8888/v1/producer/get_whitelist_blacklist
 ```
 
 示例：
 
 ```
 curl --request POST \
-  --url http://127.0.0.1:8888/v1/producer
-```
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-```javascript
-$.get('http://yoursite.com/test/' + id, function(data) {
-    console.log(data);
-})
+  --url http://127.0.0.1:8888/v1/producer/get_whitelist_blacklist
 ```
 
 
@@ -943,23 +927,17 @@ $.get('http://yoursite.com/test/' + id, function(data) {
 ### set_whitelist_blacklist
 
 ```
-POST http://127.0.0.1:8888/v1/producer
+POST http://127.0.0.1:8888/v1/producer/set_whitelist_blacklist
 ```
 
 示例：
 
 ```
 curl --request POST \
-  --url http://127.0.0.1:8888/v1/producer
+  --url http://127.0.0.1:8888/v1/producer/set_whitelist_blacklist
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-```javascript
-$.get('http://yoursite.com/test/' + id, function(data) {
-    console.log(data);
-});
-```
 
 
 

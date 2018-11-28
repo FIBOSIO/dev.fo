@@ -464,6 +464,8 @@ const client = FIBOS({
 
 ## exchange
 
+通证兑换
+
 | name         | type   | description     |
 | ------------ | ------ | --------------- |
 | **owner**    | string | account_name    |
@@ -675,6 +677,8 @@ const client = FIBOS({
 
 
 ## exlocktrans
+
+锁仓转账
 
 | name              | type      | description    |
 | ----------------- | --------- | -------------- |
