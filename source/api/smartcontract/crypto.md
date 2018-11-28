@@ -14,8 +14,7 @@ crypto 模块是 FIBOS 中的加密模块，支持 SHA1 、SHA256 、SHA 512等�
 **从给定的 hash 和签名中恢复公钥**
 
 ```JavaScript
-static String crypto.recover_key(String digest,
-    String signature);
+crypto.recover_key(digest,signature);
 ```
 
 调用参数:
@@ -40,7 +39,7 @@ exports.hi1 = sig => {
 **创建一个 SHA1 信息摘要运算对象**
 
 ```JavaScript
-static String crypto.sha1(Buffer data);
+crypto.sha1(data);
 ```
 
 调用参数:
@@ -63,7 +62,7 @@ exports.hi = v => {
 **创建一个 SHA256 信息摘要运算对象**
 
 ```JavaScript
-static String crypto.sha256(Buffer data);
+crypto.sha256(data);
 ```
 
 调用参数:
@@ -86,7 +85,7 @@ exports.hi = v => {
 **创建一个 SHA512 信息摘要运算对象**
 
 ```JavaScript
-static String crypto.sha512(Buffer data);
+crypto.sha512(data);
 ```
 
 调用参数:
@@ -109,7 +108,7 @@ exports.hi = v => {
 **创建一个 RIPEMD160 信息摘要运算对象**
 
 ```JavaScript
-static String crypto.ripemd160(Buffer data);
+crypto.ripemd160(data);
 ```
 
 调用参数:

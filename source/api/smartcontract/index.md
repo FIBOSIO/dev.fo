@@ -3,7 +3,6 @@ title: action
 type: manual
 order: 1
 ---
-
 # 模块 action
 action 对象
 
@@ -20,7 +19,7 @@ fibos.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
 **判断账户是否存在**
 
 ```JavaScript
-static Boolean action.is_account(String name);
+action.is_account(name);
 ```
 
 调用参数:
@@ -43,7 +42,7 @@ exports.hi = v => {
 **action 执行成后，名为 name 的账号是否会收到通知**
 
 ```JavaScript
-static Boolean action.has_recipient(String name);
+action.has_recipient(name);
 ```
 
 调用参数:
@@ -66,7 +65,7 @@ exports.hi = v => {
 **向通知列表增加特定账号**
 
 ```JavaScript
-static action.require_recipient(String name);
+action.require_recipient(name);
 ```
 
 调用参数:
@@ -85,7 +84,7 @@ exports.hi = v => {
 **验证 action 是否需要特定账户的授权**
 
 ```JavaScript
-static Boolean action.has_auth(String name);
+action.has_auth(name);
 ```
 
 调用参数:
@@ -98,7 +97,8 @@ static Boolean action.has_auth(String name);
 
 ```JavaScript
 exports.hi = v => {
-    if (action.has_auth(account)) console.notice("action be authed")
+    if (action.has_auth(account));
+    console.notice("action be authed");
 };
 ```
 
@@ -107,8 +107,7 @@ exports.hi = v => {
 **向 action 的授权列表中添加特定账户及对应的权限，若添加失败则会抛出异常**
 
 ```JavaScript
-static action.require_auth(String name,
-    String permission = "");
+action.require_auth(name, permission);
 ```
 
 调用参数:
@@ -119,18 +118,18 @@ static action.require_auth(String name,
 
 ```JavaScript
 exports.hi = v => {
-    if (action.require_auth(account)) console.notice("auth success")
+    if (action.require_auth(account));
+    console.notice("auth success");
 };
 ```
 
 ## 静态属性
         
 ### name
-**String, action 名称**
+**action 名称**
 
-```JavaScript
-static readonly String action.name;
-```
+**类型：String**
+
 
 实例：
 
@@ -142,11 +141,10 @@ exports.hi = v => {
 
 --------------------------
 ### account
-**String, action 发送者的账户名**
+**action 发送者的账户名**
 
-```JavaScript
-static readonly String action.account;
-```
+**类型：String**
+
 
 实例：
 
@@ -158,11 +156,9 @@ exports.hi = v => {
 
 --------------------------
 ### receiver
-**String, action 接收者**
+**action 接收者**
 
-```JavaScript
-static readonly String action.receiver;
-```
+**类型：String**
 
 实例：
 
@@ -174,11 +170,10 @@ exports.hi = v => {
 
 --------------------------
 ### publication_time
-**Long, 返回从1970年1月1日0时0分0秒（UTC，即协调世界时）距离出块时间的毫秒数。**
+**返回从1970年1月1日0时0分0秒（UTC，即协调世界时）距离出块时间的毫秒数。**
 
-```JavaScript
-static readonly Long action.publication_time;
-```
+**类型：Number**
+
 
 实例：
 
@@ -190,11 +185,10 @@ exports.hi = v => {
 
 --------------------------
 ### authorization
-**Array, 执行该 action 需要得到数组中所有账户的授权**
+**执行该 action 需要得到数组中所有账户的授权**
 
-```JavaScript
-static readonly Array action.authorization;
-```
+**类型：Array**
+
 
 实例：
 
