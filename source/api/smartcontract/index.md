@@ -1,6 +1,6 @@
 ---
 title: action
-type: jscontract
+type: manual
 order: 1
 ---
 

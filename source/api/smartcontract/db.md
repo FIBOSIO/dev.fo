@@ -1,6 +1,6 @@
 ---
 title: db
-type: jscontract
+type: manual
 order: 6
 ---
 # 模块 db

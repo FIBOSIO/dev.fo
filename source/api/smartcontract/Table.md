@@ -1,6 +1,6 @@
 ---
 title: table
-type: jscontract
+type: manual
 order: 9
 ---
 # 对象 Table

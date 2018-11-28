@@ -1,6 +1,6 @@
 ---
 title: buffer
-type: jscontract
+type: manual
 order: 3
 ---
 # 对象 buffer
