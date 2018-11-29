@@ -12,12 +12,12 @@ order: 150
 
 #### 参数
 
-| name         | type   | description  |
-| ------------ | ------ | ------------ |
-| **from**     | string | account_name |
-| **to**       | string | account_name |
-| **quantity** | string | asset        |
-| **memo**     | string | /            |
+| name         | type   | description      |
+| ------------ | ------ | ---------------- |
+| **from**     | string | 转出方           |
+| **to**       | string | 转入方           |
+| **quantity** | string | 数量：1.0000 EOS |
+| **memo**     | string | 备注             |
 
 ####  示例
 
@@ -60,11 +60,11 @@ const client = FIBOS({
 
 #### 参数
 
-| name         | type   | description  |
-| ------------ | ------ | ------------ |
-| **to**       | string | account_name |
-| **quantity** | string | asset        |
-| **memo**     | string | /            |
+| name         | type   | description     |
+| ------------ | ------ | --------------- |
+| **to**       | string | 转入方          |
+| **quantity** | string | 数量：1.0000 FO |
+| **memo**     | string | 备注            |
 
 ####  示例
 
@@ -107,7 +107,7 @@ const client = FIBOS({
 | name         | type   | description |
 | ------------ | ------ | ----------- |
 | **quantity** | string | asset       |
-| **memo**     | string | /           |
+| **memo**     | string | 备注        |
 
 #### 示例
 
@@ -147,8 +147,8 @@ const client = FIBOS({
 
 | name               | type   | description  |
 | ------------------ | ------ | ------------ |
-| **issuer**         | string | account_name |
-| **maximum_supply** | string | asset        |
+| **issuer**         | string | 发行人       |
+| **maximum_supply** | string | 最大发行数量 |
 
 #### 示例
 
@@ -231,10 +231,10 @@ const client = FIBOS({
 
 | name         | type   | description    |
 | ------------ | ------ | -------------- |
-| **from**     | string | account_name   |
-| **to**       | string | account_name   |
+| **from**     | string | 转出方         |
+| **to**       | string | 转入方         |
 | **quantity** | json   | extended_asset |
-| **memo**     | string | /              |
+| **memo**     | string | 备注           |
 
 #### 示例
 
@@ -256,7 +256,7 @@ const client = FIBOS({
       from: "dicefobetone",
       to: "zhangjingrui",
       quantity: {"quantity":"1.5076 FO","contract":"eosio"},
-      memo: "4<66 你中奖啦！【欢迎来玩FO骰子：https://dice.fobet.one/】"
+      memo: "4<66 你中奖啦！"
     },{
       authorization: '私钥对应的账号'
     });
@@ -276,9 +276,9 @@ const client = FIBOS({
 
 | name         | type   | description    |
 | ------------ | ------ | -------------- |
-| **to**       | string | account_name   |
+| **to**       | string | 转入方         |
 | **quantity** | json   | extended_asset |
-| **memo**     | string | /              |
+| **memo**     | string | 备注           |
 
 #### 示例
 
@@ -320,9 +320,9 @@ const client = FIBOS({
 
 | name         | type   | description    |
 | ------------ | ------ | -------------- |
-| **from**     | string | account_name   |
+| **from**     | string | 转出方         |
 | **quantity** | json   | extended_asset |
-| **memo**     | string | /              |
+| **memo**     | string | 备注           |
 
 #### 示例
 
@@ -497,7 +497,7 @@ const client = FIBOS({
 | **owner**    | string | account_name    |
 | **quantity** | json   | extended_asset  |
 | **tosym**    | json   | extended_symbol |
-| **memo**     | string | /               |
+| **memo**     | string | 备注            |
 
 #### 示例
 
@@ -519,7 +519,7 @@ const client = FIBOS({
       owner: "dicefobetone",
       quantity: {"quantity":"0.0130 FO","contract":"eosio"},
       tosym: {"sym":"4,BET","contract":"dicefobetone"},
-      memo: "看到没？我回购了，BET兑FO价格又上涨一点点，你丫手里BET又值钱一点点，欧耶～【欢迎来玩FO骰子：https://dice.fobet.one/】"
+      memo: "看到没？我回购了，BET兑FO价格又上涨一点点，你丫手里BET又值钱一点点"
     },{
       authorization: '私钥对应的账号'
     });
@@ -747,7 +747,7 @@ const client = FIBOS({
       quantity: {"quantity":"0.0008 BET","contract":"dicefobetone"},
       expiration: "1970-01-01T00:00:00",
       expiration_to: "2018-12-02T01:00:00",
-      memo: "记得每周日09:00后自己去钱包解锁哟，解锁后，可以去砸盘换FO【欢迎来玩FO骰子：https://dice.fobet.one/】"
+      memo: "记得每周日09:00后自己去钱包解锁哟，解锁后，可以去砸盘换FO"
     },{
       authorization: '私钥对应的账号'
     });
