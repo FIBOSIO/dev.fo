@@ -6,7 +6,7 @@ order: 1
 # 模块 action
 action 对象
 
- 使用方法：在 [fibos](fibos.html) 的 js 合约中使用
+ 使用方法：在 [fibos](../fibos/index.html) 的 js 合约中使用
 
 ```JavaScript
 var js_code = `exports.hi = v => console.error(action.is_account(action.account), action.is_account("notexists"));`;
