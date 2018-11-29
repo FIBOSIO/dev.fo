@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -629,20 +629,20 @@
 <h2 id="配置-HTTP-服务"><a href="#配置-HTTP-服务" class="headerlink" title="配置 HTTP 服务"></a>配置 HTTP 服务</h2><p>http 插件</p>
 <p>如：http-server-address 用于配置本地服务地址，默认值为127.0.0.1:8888。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">   <span class="string">'http-server-address'</span>:<span class="string">'0.0.0.0:8888'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>具体 http 配置信息请参考 <a href="../../api/smartcontract/fibos.html#http插件">http 插件</a></strong></p>
+<p><strong>具体 http 配置信息请参考 <a href="../../api/fibos/index.html#http插件">http 插件</a></strong></p>
 <h2 id="配置区块信息"><a href="#配置区块信息" class="headerlink" title="配置区块信息"></a>配置区块信息</h2><p>chain 插件</p>
 <p>如：delete-all-blocks 用于确定是否删除所有状态数据和区块数据，默认值为 false。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">'chain'</span>,&#123;</span><br><span class="line">   <span class="string">'delete-all-blocks'</span>:<span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>具体 chain 配置信息请参考 <a href="../../api/smartcontract/fibos.html#chain插件">chain 插件</a></strong></p>
+<p><strong>具体 chain 配置信息请参考 <a href="../../api/fibos/index.html#chain插件">chain 插件</a></strong></p>
 <h2 id="获取-P2P-信息"><a href="#获取-P2P-信息" class="headerlink" title="获取 P2P 信息"></a>获取 P2P 信息</h2><p>net 插件</p>
 <p>p2p-listen-endpoint 用于监听 p2p 链接的地址和端口，默认值为：0.0.0.0:9876。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">'net'</span>,&#123;</span><br><span class="line">   <span class="string">'p2p-listen-endpoint'</span>:<span class="string">'0.0.0.0:9876'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><strong>具体 net 配置信息请参考 <a href="../../api/smartcontract/fibos.html#net插件">net 插件</a></strong></p>
+<p><strong>具体 net 配置信息请参考 <a href="../../api/fibos/index.html#net插件">net 插件</a></strong></p>
 <h2 id="控制区块生产的信息"><a href="#控制区块生产的信息" class="headerlink" title="控制区块生产的信息"></a>控制区块生产的信息</h2><p>producer 插件</p>
 <p>producer-name：控制节点出块的账户名。</p>
 <p>enable-stale-production：启用产生区块,即使区块是静止的。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">   <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">   <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>具体 producer 配置信息请参考 <a href="../../api/smartcontract/fibos.html#producer插件">producer 插件</a></strong></p>
+<p><strong>具体 producer 配置信息请参考 <a href="../../api/fibos/index.html#producer插件">producer 插件</a></strong></p>
 <h2 id="修改及查看-FIBOS-配置以及数据目录"><a href="#修改及查看-FIBOS-配置以及数据目录" class="headerlink" title="修改及查看 FIBOS 配置以及数据目录"></a>修改及查看 FIBOS 配置以及数据目录</h2><p>fibos.data_dir：fibos 的数据存放目录。</p>
 <p>fibos.config_dir：fibos 的配置存放目录。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fibos.config_dir = <span class="string">'fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'fibos_data_dir/'</span>;</span><br></pre></td></tr></table></figure>
@@ -664,7 +664,7 @@
 <li>设置 FIBOS 服务启动时重置环境数据</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">'chain'</span>, &#123;</span><br><span class="line">    <span class="string">'delete-all-blocks'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><a href="../../api/smartcontract/fibos.html">更多插件请点击这里</a></p>
+<p><a href="../../api/index/fibos.html">更多插件请点击这里</a></p>
 <h2 id="节点代码实例"><a href="#节点代码实例" class="headerlink" title="节点代码实例"></a>节点代码实例</h2><p>下面代码存为 start_fibos/node.js，用来启动一个本地 FIBOS 节点。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">   <span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8888'</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'chain'</span>, &#123;</span><br><span class="line">   <span class="string">'delete-all-blocks'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'net'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line"><span class="comment">// fibos.load('history_api');</span></span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">   <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">   <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.config_dir = <span class="string">'start_fibos/fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'start_fibos/fibos_data_dir/'</span>;</span><br><span class="line">fibos.enableJSContract = <span class="literal">true</span>;</span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
 <blockquote>

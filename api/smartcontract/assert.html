@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -302,20 +302,6 @@
       
      -->
     <li>
-      <a href="/api/smartcontract/fibos.html" class="sidebar-link">fibos</a>
-    </li>
-  
-    
-    
-    <!-- 
-      
-      
-      
-      
-      
-      
-     -->
-    <li>
       <a href="/api/smartcontract/Table.html" class="sidebar-link">table</a>
     </li>
   
@@ -353,13 +339,12 @@
 <p>引用方法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="静态函数"><a href="#静态函数" class="headerlink" title="静态函数"></a>静态函数</h2><h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><p><strong>测试数值为真，为假则断言失败</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.Function(actual,,msg);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.Function(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
 <ul>
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="ok"><a href="#ok" class="headerlink" title="ok"></a>ok</h3><p><strong>测试数值为真，为假则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.ok(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -367,7 +352,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notOk"><a href="#notOk" class="headerlink" title="notOk"></a>notOk</h3><p><strong>测试数值为假，为真则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notOk(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -375,7 +359,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="equal"><a href="#equal" class="headerlink" title="equal"></a>equal</h3><p><strong>测试数值等于预期值，不相等则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.equal(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -384,7 +367,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notEqual"><a href="#notEqual" class="headerlink" title="notEqual"></a>notEqual</h3><p><strong>测试数值不等于预期值，相等则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notEqual(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -393,7 +375,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="strictEqual"><a href="#strictEqual" class="headerlink" title="strictEqual"></a>strictEqual</h3><p><strong>测试数值严格等于预期值，不相等则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.strictEqual(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -402,7 +383,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notStrictEqual"><a href="#notStrictEqual" class="headerlink" title="notStrictEqual"></a>notStrictEqual</h3><p><strong>测试数值不严格等于预期值，相等则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notStrictEqual(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -411,7 +391,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="deepEqual"><a href="#deepEqual" class="headerlink" title="deepEqual"></a>deepEqual</h3><p><strong>测试数值深度等于预期值，不相等则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.deepEqual(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -420,7 +399,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notDeepEqual"><a href="#notDeepEqual" class="headerlink" title="notDeepEqual"></a>notDeepEqual</h3><p><strong>测试数值不深度等于预期值，相等则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notDeepEqual(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -429,7 +407,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="closeTo"><a href="#closeTo" class="headerlink" title="closeTo"></a>closeTo</h3><p><strong>测试数值近似等于预期值，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.closeTo(actual,expected,delta,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -439,7 +416,6 @@
 <li>delta: Value, 近似的小数精度</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notCloseTo"><a href="#notCloseTo" class="headerlink" title="notCloseTo"></a>notCloseTo</h3><p><strong>测试数值不近似等于预期值，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notCloseTo(actual,expected,delta,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -449,7 +425,6 @@
 <li>delta: Value, 近似的小数精度</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="lessThan"><a href="#lessThan" class="headerlink" title="lessThan"></a>lessThan</h3><p><strong>测试数值小于预期值，大于或等于则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.lessThan(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -458,7 +433,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notLessThan"><a href="#notLessThan" class="headerlink" title="notLessThan"></a>notLessThan</h3><p><strong>测试数值不小于预期值，小于则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notLessThan(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -467,7 +441,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="greaterThan"><a href="#greaterThan" class="headerlink" title="greaterThan"></a>greaterThan</h3><p><strong>测试数值大于预期值，小于或等于则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.greaterThan(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -476,7 +449,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notGreaterThan"><a href="#notGreaterThan" class="headerlink" title="notGreaterThan"></a>notGreaterThan</h3><p><strong>测试数值不大于预期值，大于则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notGreaterThan(actual,expected,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -485,7 +457,6 @@
 <li>expected: Value, 预期的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="exist"><a href="#exist" class="headerlink" title="exist"></a>exist</h3><p><strong>测试变量存在，为假则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.exist(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -493,7 +464,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notExist"><a href="#notExist" class="headerlink" title="notExist"></a>notExist</h3><p><strong>测试变量不存在，为真则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notExist(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -501,7 +471,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isTrue"><a href="#isTrue" class="headerlink" title="isTrue"></a>isTrue</h3><p><strong>测试数值为布尔值真，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isTrue(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -509,7 +478,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotTrue"><a href="#isNotTrue" class="headerlink" title="isNotTrue"></a>isNotTrue</h3><p><strong>测试数值不为布尔值真，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotTrue(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -517,7 +485,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isFalse"><a href="#isFalse" class="headerlink" title="isFalse"></a>isFalse</h3><p><strong>测试数值为布尔值假，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isFalse(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -525,7 +492,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotFalse"><a href="#isNotFalse" class="headerlink" title="isNotFalse"></a>isNotFalse</h3><p><strong>测试数值不为布尔值假，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotFalse(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -533,7 +499,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNull"><a href="#isNull" class="headerlink" title="isNull"></a>isNull</h3><p><strong>测试数值为 Null，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNull(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -541,7 +506,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotNull"><a href="#isNotNull" class="headerlink" title="isNotNull"></a>isNotNull</h3><p><strong>测试数值不为 Null，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotNull(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -549,7 +513,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isUndefined"><a href="#isUndefined" class="headerlink" title="isUndefined"></a>isUndefined</h3><p><strong>测试数值为 undefined，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isUndefined(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -557,7 +520,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isDefined"><a href="#isDefined" class="headerlink" title="isDefined"></a>isDefined</h3><p><strong>测试数值不为 undefined，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isDefined(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -565,7 +527,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isFunction"><a href="#isFunction" class="headerlink" title="isFunction"></a>isFunction</h3><p><strong>测试数值为函数，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isFunction(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -573,7 +534,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotFunction"><a href="#isNotFunction" class="headerlink" title="isNotFunction"></a>isNotFunction</h3><p><strong>测试数值不为函数，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotFunction(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -581,7 +541,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isObject"><a href="#isObject" class="headerlink" title="isObject"></a>isObject</h3><p><strong>测试数值为对象，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isObject(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -589,7 +548,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotObject"><a href="#isNotObject" class="headerlink" title="isNotObject"></a>isNotObject</h3><p><strong>测试数值不为对象，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotObject(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -597,7 +555,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isArray"><a href="#isArray" class="headerlink" title="isArray"></a>isArray</h3><p><strong>测试数值为数组，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isArray(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -605,7 +562,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotArray"><a href="#isNotArray" class="headerlink" title="isNotArray"></a>isNotArray</h3><p><strong>测试数值不为数组，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotArray(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -613,7 +569,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isString"><a href="#isString" class="headerlink" title="isString"></a>isString</h3><p><strong>测试数值为字符串，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isString(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -621,7 +576,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotString"><a href="#isNotString" class="headerlink" title="isNotString"></a>isNotString</h3><p><strong>测试数值不为字符串，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotString(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -629,7 +583,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNumber"><a href="#isNumber" class="headerlink" title="isNumber"></a>isNumber</h3><p><strong>测试数值为数字，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNumber(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -637,7 +590,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotNumber"><a href="#isNotNumber" class="headerlink" title="isNotNumber"></a>isNotNumber</h3><p><strong>测试数值不为数字，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotNumber(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -645,7 +597,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isBoolean"><a href="#isBoolean" class="headerlink" title="isBoolean"></a>isBoolean</h3><p><strong>测试数值为布尔，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isBoolean(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -653,7 +604,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="isNotBoolean"><a href="#isNotBoolean" class="headerlink" title="isNotBoolean"></a>isNotBoolean</h3><p><strong>测试数值不为布尔，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.isNotBoolean(actual,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -661,7 +611,6 @@
 <li>actual: Value, 要测试的数值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="typeOf"><a href="#typeOf" class="headerlink" title="typeOf"></a>typeOf</h3><p><strong>测试数值为给定类型，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.typeOf(actual,type,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -670,7 +619,6 @@
 <li>type: String, 指定的类型</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notTypeOf"><a href="#notTypeOf" class="headerlink" title="notTypeOf"></a>notTypeOf</h3><p><strong>测试数值不为给定类型，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notTypeOf(actual,type,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -679,7 +627,6 @@
 <li>type: String, 指定的类型</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="property"><a href="#property" class="headerlink" title="property"></a>property</h3><p><strong>测试对象中包含指定属性，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.property(object,prop,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -688,7 +635,6 @@
 <li>prop: Value, 要测试的属性</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notProperty"><a href="#notProperty" class="headerlink" title="notProperty"></a>notProperty</h3><p><strong>测试对象中不包含指定属性，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notProperty(object,prop,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -697,7 +643,6 @@
 <li>prop: Value, 要测试的属性</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="deepProperty"><a href="#deepProperty" class="headerlink" title="deepProperty"></a>deepProperty</h3><p><strong>深度测试对象中包含指定属性，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.deepProperty(object,prop,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -706,7 +651,6 @@
 <li>prop: Value, 要测试的属性，以“.”分割</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="notDeepProperty"><a href="#notDeepProperty" class="headerlink" title="notDeepProperty"></a>notDeepProperty</h3><p><strong>深度测试对象中不包含指定属性，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.notDeepProperty(object,prop,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -715,7 +659,6 @@
 <li>prop: Value, 要测试的属性，以“.”分割</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="propertyVal"><a href="#propertyVal" class="headerlink" title="propertyVal"></a>propertyVal</h3><p><strong>测试对象中指定属性的值为给定值，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.propertyVal(object,prop,value,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -725,7 +668,6 @@
 <li>value: Value, 给定的值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="propertyNotVal"><a href="#propertyNotVal" class="headerlink" title="propertyNotVal"></a>propertyNotVal</h3><p><strong>测试对象中指定属性的值不为给定值，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.propertyNotVal(object,prop,value,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -735,7 +677,6 @@
 <li>value: Value, 给定的值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="deepPropertyVal"><a href="#deepPropertyVal" class="headerlink" title="deepPropertyVal"></a>deepPropertyVal</h3><p><strong>深度测试对象中指定属性的值为给定值，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.deepPropertyVal(object,prop,value,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -745,7 +686,6 @@
 <li>value: Value, 给定的值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="deepPropertyNotVal"><a href="#deepPropertyNotVal" class="headerlink" title="deepPropertyNotVal"></a>deepPropertyNotVal</h3><p><strong>深度测试对象中指定属性的值不为给定值，否则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.deepPropertyNotVal(object,prop,value,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -755,7 +695,6 @@
 <li>value: Value, 给定的值</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h3><p><strong>测试给定的代码会抛出错误，未抛出则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.throws(<span class="built_in">Function</span> block,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -763,7 +702,6 @@
 <li>block: Function, 指定测试的代码，以函数形式给出</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="doesNotThrow"><a href="#doesNotThrow" class="headerlink" title="doesNotThrow"></a>doesNotThrow</h3><p><strong>测试给定的代码不会抛出错误，抛出则断言失败</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.doesNotThrow(<span class="built_in">Function</span> block,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -771,7 +709,6 @@
 <li>block: Function, 指定测试的代码，以函数形式给出</li>
 <li>msg: String, 断言失败时的提示信息</li>
 </ul>
-<hr>
 <h3 id="ifError"><a href="#ifError" class="headerlink" title="ifError"></a>ifError</h3><p><strong>如果参数为真，则抛出</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert.ifError(object);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>

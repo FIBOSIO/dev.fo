@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -302,20 +302,6 @@
       
      -->
     <li>
-      <a href="/api/smartcontract/fibos.html" class="sidebar-link">fibos</a>
-    </li>
-  
-    
-    
-    <!-- 
-      
-      
-      
-      
-      
-      
-     -->
-    <li>
       <a href="/api/smartcontract/Table.html" class="sidebar-link">table</a>
     </li>
   
@@ -364,7 +350,6 @@
 </ul>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">sig</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> r = crypto.sha256(<span class="string">'I am alive'</span>);</span><br><span class="line">    <span class="keyword">var</span> s = crypto.recover_key(r, sig);</span><br><span class="line">    <span class="built_in">console</span>.notice(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="sha1"><a href="#sha1" class="headerlink" title="sha1"></a>sha1</h3><p><strong>创建一个 SHA1 信息摘要运算对象</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crypto.sha1(data);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -377,7 +362,6 @@
 </ul>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> r = crypto.sha1(<span class="string">"abcdefg"</span>);</span><br><span class="line">    <span class="built_in">console</span>.error(r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="sha256"><a href="#sha256" class="headerlink" title="sha256"></a>sha256</h3><p><strong>创建一个 SHA256 信息摘要运算对象</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crypto.sha256(data);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -390,7 +374,6 @@
 </ul>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> r = crypto.sha256(<span class="string">"abcdefg"</span>);</span><br><span class="line">    <span class="built_in">console</span>.error(r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="sha512"><a href="#sha512" class="headerlink" title="sha512"></a>sha512</h3><p><strong>创建一个 SHA512 信息摘要运算对象</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crypto.sha512(data);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -403,7 +386,6 @@
 </ul>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> r = crypto.sha512(<span class="string">"abcdefg"</span>);</span><br><span class="line">    <span class="built_in">console</span>.error(r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="ripemd160"><a href="#ripemd160" class="headerlink" title="ripemd160"></a>ripemd160</h3><p><strong>创建一个 RIPEMD160 信息摘要运算对象</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crypto.ripemd160(data);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>

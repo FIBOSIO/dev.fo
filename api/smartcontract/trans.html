@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -302,20 +302,6 @@
       
      -->
     <li>
-      <a href="/api/smartcontract/fibos.html" class="sidebar-link">fibos</a>
-    </li>
-  
-    
-    
-    <!-- 
-      
-      
-      
-      
-      
-      
-     -->
-    <li>
       <a href="/api/smartcontract/Table.html" class="sidebar-link">table</a>
     </li>
   
@@ -361,7 +347,6 @@
 </ul>
 <p><strong>实例</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hi acction</span></span><br><span class="line">exports.hi =&gt; (user) &#123;</span><br><span class="line">  <span class="comment">// 触发hi2 action</span></span><br><span class="line">  trans.send_inline(</span><br><span class="line">    <span class="string">"test"</span>, </span><br><span class="line">    <span class="string">"hi2"</span>, </span><br><span class="line">    &#123;</span><br><span class="line">      user:<span class="string">"user1"</span>, </span><br><span class="line">      friend:<span class="string">"user2"</span></span><br><span class="line">    &#125;, </span><br><span class="line">    [&#123;</span><br><span class="line">      <span class="string">"actor"</span>: <span class="string">"$&#123;name&#125;"</span>, </span><br><span class="line">      <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">  &#125;])</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// hi2 action</span></span><br><span class="line">exports.hi2 = <span class="function">(<span class="params">user, friend</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(user, friend);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="send-context-free-inline"><a href="#send-context-free-inline" class="headerlink" title="send_context_free_inline"></a>send_context_free_inline</h3><p><strong>向特定帐号发送 context_free inline <a href="index.html">action</a></strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trans.send_context_free_inline(account,name,args):</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>

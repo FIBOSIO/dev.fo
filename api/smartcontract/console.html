@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -302,20 +302,6 @@
       
      -->
     <li>
-      <a href="/api/smartcontract/fibos.html" class="sidebar-link">fibos</a>
-    </li>
-  
-    
-    
-    <!-- 
-      
-      
-      
-      
-      
-      
-     -->
-    <li>
       <a href="/api/smartcontract/Table.html" class="sidebar-link">table</a>
     </li>
   
@@ -361,7 +347,6 @@
 <p>实例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello :%s'</span>, <span class="string">"FIBOS"</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录一般等级的日志信息。通常用于输出非错误性提示信息。</p>
-<hr>
 <p><strong>记录普通日志信息，与 info 等同</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -370,9 +355,8 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录一般等级的日志信息。通常用于输出非错误性提示信息。</p>
-<hr>
 <h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p><strong>记录调试日志信息</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.debug(<span class="built_in">String</span> fmt,</span><br><span class="line">    ...args);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.debug(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
 <ul>
 <li>fmt: String, 格式化字符串</li>
@@ -380,7 +364,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.debug(<span class="string">'warn %s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录调试日志信息。通常用于输出调试信息。不重要。</p>
-<hr>
 <p><strong>记录调试日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.debug(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -389,7 +372,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.debug(<span class="string">'warn FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录调试日志信息。通常用于输出调试信息。不重要。</p>
-<hr>
 <h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><p><strong>记录普通日志信息，与 log 等同</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.info(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -399,7 +381,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">'hello :%s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录一般等级的日志信息。通常用于输出非错误性提示信息。</p>
-<hr>
 <p><strong>记录普通日志信息，与 log 等同</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.info(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -408,9 +389,8 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录一般等级的日志信息。通常用于输出非错误性提示信息。</p>
-<hr>
 <h3 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h3><p><strong>记录警告日志信息</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">console</span>.notice(<span class="built_in">String</span> fmt,</span><br><span class="line">    ...args);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.notice(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
 <ul>
 <li>fmt: String, 格式化字符串</li>
@@ -418,7 +398,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(<span class="string">'hello :%s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录警告日志信息。通常用于输出提示性调试信息。一般重要。</p>
-<hr>
 <p><strong>记录警告日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.notice(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -427,9 +406,8 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录警告日志信息。通常用于输出提示性调试信息。一般重要。</p>
-<hr>
 <h3 id="warn"><a href="#warn" class="headerlink" title="warn"></a>warn</h3><p><strong>记录警告日志信息</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.warn(<span class="built_in">String</span> fmt,</span><br><span class="line">    ...args);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.warn(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
 <ul>
 <li>fmt: String, 格式化字符串</li>
@@ -437,7 +415,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">'hello :%s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录警告日志信息。通常用于输出警告性调试信息。重要。</p>
-<hr>
 <p><strong>记录警告日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.warn(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -446,7 +423,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录警告日志信息。通常用于输出警告性调试信息。重要。</p>
-<hr>
 <h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><p><strong>记录错误日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.error(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -456,7 +432,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'hello %s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录用于错误日志信息。通常用于输出错误信息。非常重要。系统的出错信息也会以此等级记录。</p>
-<hr>
 <p><strong>记录错误日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.error(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -465,7 +440,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录用于错误日志信息。通常用于输出错误信息。非常重要。系统的出错信息也会以此等级记录。</p>
-<hr>
 <h3 id="crit"><a href="#crit" class="headerlink" title="crit"></a>crit</h3><p><strong>记录关键错误日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.crit(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -475,7 +449,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.crit(<span class="string">'hello %s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录用于关键错误日志信息。通常用于输出关键错误信息。非常重要。</p>
-<hr>
 <p><strong>记录关键错误日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.crit(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -484,7 +457,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.crit(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录用于关键错误日志信息。通常用于输出关键错误信息。非常重要。</p>
-<hr>
 <h3 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h3><p><strong>记录警报错误日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.alert(fmt,...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -494,7 +466,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.alert(<span class="string">'hello %s'</span>, <span class="string">'FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录用于警报错误日志信息。通常用于输出警报错误信息。非常重要。为最高级别信息。</p>
-<hr>
 <p><strong>记录警报错误日志信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.alert(...args);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -503,7 +474,6 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.alert(<span class="string">'hello FIBOS'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>记录用于警报错误日志信息。通常用于输出警报错误信息。非常重要。为最高级别信息。</p>
-<hr>
 <h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h3><p><strong>用 JSON 格式输出对象</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(obj);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -511,7 +481,6 @@
 <li>obj: Value, 给定要显示的对象</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line">    <span class="built_in">console</span>.dir(a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="trace"><a href="#trace" class="headerlink" title="trace"></a>trace</h3><p><strong>输出当前调用堆栈</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.trace(label);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -519,7 +488,6 @@
 <li>label: String, 标题，缺省为空字符串。</li>
 </ul>
 <p>通过日志输出当前调用堆栈。</p>
-<hr>
 <h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p><strong>断言测试，如果测试值为假，则报错</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.assert(value,msg);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -529,31 +497,22 @@
 </ul>
 <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="FATAL"><a href="#FATAL" class="headerlink" title="FATAL"></a>FATAL</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.FATAL = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="ALERT"><a href="#ALERT" class="headerlink" title="ALERT"></a>ALERT</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.ALERT = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="CRIT"><a href="#CRIT" class="headerlink" title="CRIT"></a>CRIT</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.CRIT = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="ERROR"><a href="#ERROR" class="headerlink" title="ERROR"></a>ERROR</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.ERROR = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="WARN"><a href="#WARN" class="headerlink" title="WARN"></a>WARN</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.WARN = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="NOTICE"><a href="#NOTICE" class="headerlink" title="NOTICE"></a>NOTICE</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.NOTICE = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="INFO"><a href="#INFO" class="headerlink" title="INFO"></a>INFO</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.INFO = <span class="number">6</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.DEBUG = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="PRINT"><a href="#PRINT" class="headerlink" title="PRINT"></a>PRINT</h3><p><strong>loglevel 仅用于输出，信息输出后不换行，file 和 syslog 不保存此级别信息</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.PRINT = <span class="number">9</span>;</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="NOTSET"><a href="#NOTSET" class="headerlink" title="NOTSET"></a>NOTSET</h3><p><strong>loglevel 级别常量</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">console</span>.NOTSET = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 

@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
-        <!-- <li><a href="/api/fibos-node/nodeIndex.html" class="nav-link">fibos node</a></li>
-        <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li>
-        <li><a href="/api/fibos.js/fibosIndex.html" class="nav-link">fibos.js</a></li> -->
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
+        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
+        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -302,20 +302,6 @@
       
      -->
     <li>
-      <a href="/api/smartcontract/fibos.html" class="sidebar-link">fibos</a>
-    </li>
-  
-    
-    
-    <!-- 
-      
-      
-      
-      
-      
-      
-     -->
-    <li>
       <a href="/api/smartcontract/Table.html" class="sidebar-link">table</a>
     </li>
   
@@ -358,28 +344,23 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.is_begin();</span><br></pre></td></tr></table></figure>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(v);</span><br><span class="line">    <span class="built_in">console</span>.log(itr.is_begin());</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="is-end"><a href="#is-end" class="headerlink" title="is_end"></a>is_end</h3><p><strong>判断数据是否为尾数据</strong></p>
 <p><strong>类型：Boolean</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.is_end();</span><br></pre></td></tr></table></figure>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(v);</span><br><span class="line">    <span class="built_in">console</span>.log(itr.is_end());</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="next"><a href="#next" class="headerlink" title="next"></a>next</h3><p><strong>获取下一个数据</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.next();</span><br></pre></td></tr></table></figure>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(v);</span><br><span class="line">    <span class="keyword">var</span> itr1 = itr.next();</span><br><span class="line">    <span class="built_in">console</span>.log(itr1.toJSON());</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="previous"><a href="#previous" class="headerlink" title="previous"></a>previous</h3><p><strong>获取上一个数据</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator DBIterator.previous();</span><br></pre></td></tr></table></figure>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(v);</span><br><span class="line">    <span class="keyword">var</span> itr1 = itr.next();</span><br><span class="line">    <span class="keyword">var</span> itr2 = itr1.previous();</span><br><span class="line">    <span class="built_in">console</span>.log(itr2.toJSON());</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h3><p><strong>删除数据</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.remove();</span><br></pre></td></tr></table></figure>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(v);</span><br><span class="line">    itr.remove();</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><p><strong>更新数据</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.update(payer);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
@@ -388,14 +369,12 @@
 </ul>
 <p>实例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi1 = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(v);</span><br><span class="line">    itr.data.age = <span class="number">18</span>;</span><br><span class="line">    itr.update(action.account);</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<hr>
 <h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h3><p><strong>返回对象的字符串表示，一般返回 “[Native Object]”，对象可以根据自己的特性重新实现</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.toString();</span><br></pre></td></tr></table></figure>
 <p>返回结果:</p>
 <ul>
 <li>String, 返回对象的字符串表示</li>
 </ul>
-<hr>
 <h3 id="toJSON"><a href="#toJSON" class="headerlink" title="toJSON"></a>toJSON</h3><p><strong>返回对象的 JSON 格式表示，一般返回对象定义的可读属性集合</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBIterator.toJSON(key);</span><br></pre></td></tr></table></figure>
 <p>调用参数:</p>
