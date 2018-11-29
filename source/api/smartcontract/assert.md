@@ -18,7 +18,7 @@ var assert = require('assert');
 **测试数值为真，为假则断言失败**
 
 ```JavaScript
-assert.Function(actual,,msg);
+assert.Function(actual,msg);
 ```
 
 调用参数:

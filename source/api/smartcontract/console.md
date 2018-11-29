@@ -55,8 +55,7 @@ exports.hi = v => {
 **记录调试日志信息**
 
 ```JavaScript
-console.debug(String fmt,
-    ...args);
+console.debug(fmt,...args);
 ```
 
 调用参数:
@@ -132,8 +131,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-static console.notice(String fmt,
-    ...args);
+console.notice(fmt,...args);
 ```
 
 调用参数:
@@ -171,8 +169,7 @@ exports.hi = v => {
 **记录警告日志信息**
 
 ```JavaScript
-console.warn(String fmt,
-    ...args);
+console.warn(fmt,...args);
 ```
 
 调用参数:
