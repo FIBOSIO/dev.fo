@@ -89,7 +89,7 @@ exports.hi = v => {
 
 ## 成员函数
 
-emplace
+### emplace
 
 **向 table 存入新数据**
 
