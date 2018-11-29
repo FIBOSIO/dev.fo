@@ -53,20 +53,18 @@ chainID : '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'
 
 (默认账户送 10 EOS 通证)
 
-### TestNet Seed 列表
+HTTP 列表
 
-#### HTTP 列表
-
-|              BP IP              | HTTP port |
+|              URL              | HTTP port |
 | :-----------------------------: | :-------: |
 |     http://testnet.fibos.fo     |   8870    |
 |    http://testnet2.fibos.fo     |   8870    |
 |     http://testnet.fibos.fo     |    80     |
 | http://history-testnet.fibos.fo |    80     |
 
-### P2P 列表
+P2P 列表
 
-|          BP IP          | P2P port |
+|          URL          | P2P port |
 | :---------------------: | :------: |
 |  p2p-testnet.fibos.fo   |   9870   |
 | p2p-testnet-02.fibos.fo |   9870   |
@@ -75,11 +73,11 @@ chainID : '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'
 
 UTC 时间 2018 年 8 月 28 日 0 时，FIBOS 主网上线成功。首尔、东京、加拿大、伦敦、弗吉尼亚五大节点接入成功，均已成功出块。
 
-#### FIBOS RPC 列表
+FIBOS RPC 列表
 
 FIBOS 主网部分 RPC  http 地址如下所示:
 
-| 位置     | RPC 地址 (http)               |
+| 位置     | URL(http)               |
 | -------- | ----------------------------- |
 | 东京     | http://api.fibos.me           |
 | 香港     | http://rpc-mainnet.fibscan.io |
@@ -89,7 +87,7 @@ FIBOS 主网部分 RPC  http 地址如下所示:
 
 FIBOS 主网部分 RPC  https 地址如下所示:
 
-| 位置     | RPC 地址 (https)               |
+| 位置     | URL(https)               |
 | -------- | ------------------------------ |
 | 东京     | https://api.fibos.me           |
 | 香港     | https://rpc-mainnet.fibscan.io |
@@ -97,11 +95,11 @@ FIBOS 主网部分 RPC  https 地址如下所示:
 | 旧金山   | https://api.fibos.icu          |
 | 伦敦     | https://api.fibosutility.com   |
 
-#### P2P 列表
+P2P 列表
 
 FIBOS 主网部分 P2P 地址如下所示:
 
-| 位置     | P2P 地址                     |
+| 位置     | URL(P2P)                     |
 | -------- | ---------------------------- |
 | 东京     | p2p.mainnet.fibos.me:80      |
 | 香港     | seed-mainnet.fibscan.io:9103 |
