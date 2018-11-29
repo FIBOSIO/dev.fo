@@ -1,6 +1,6 @@
 ---
 title: fibos
-type: manual
+type: fibos
 order: 8
 ---
 
@@ -26,7 +26,7 @@ fibos.load(name,cfg);
 * name: String, 系统 plugin 名
 * cfg: Object, 提供给系统 plugin 的配置，[可选]
 
---------------------------
+
 **加载配置**
 
 ```JavaScript
@@ -36,7 +36,7 @@ fibos.load(cfgs);
 调用参数:
 * cfgs: Object, 配置对象
 
-------
+
 
 **参数详解**
 
@@ -51,7 +51,7 @@ fibos.load(cfgs);
 | http-validate-host          | 验证Http请求host                                | true             |        |
 | access-control-allow-origin | 对每个请求返回特殊的Access-Control-Allow-Origin | -                | *      |
 
-------
+
 
 ### chain 插件
 
@@ -76,7 +76,7 @@ fibos.load(cfgs);
 | contracts-console            | 是否打印合约输出                                             | false       | -      |
 | read-mode                    | mode database contains changes done up to the head block plus changes made by transactions not yet included to the blockchain mode database contains changes done up to the current head block. | speculative | -      |
 
-------
+
 
 ### net 插件
 
@@ -93,7 +93,7 @@ fibos.load(cfgs);
 | network-version-match     | 是否需要相同版本的网络           | false                       | -                                                            |
 | peer-log-format           | 节点日志格式化                   | ["${name}" ${_ip}:${_port}] |                   -                                           |
 
-------
+
 
 ### chain_api 插件
 
@@ -106,7 +106,7 @@ fibos.load(cfgs);
 | get_account | POST | 获取账户的信息           | account_name:账户名称         | curl<http://127.0.0.1:8888/v1/chain/get_account> -X POST -d '{"account_name":"eosio"}' |
 | get_code    | POST | 获取智能合约代码         | account_name:合约名称         | curl <http://127.0.0.1:8888/v1/chain/get_code> -X POST -d    |
 
-------
+
 
 ### producer 插件
 
@@ -119,7 +119,7 @@ fibos.load(cfgs);
 | producer-name              | 控制节点出块的账户名          |        | eosio(可多参) |
 | private-key                | 签名程序的公钥、私钥          |        | (可多参数)    |
 
-------
+
 
 ### bnet 插件
 
@@ -131,7 +131,7 @@ fibos.load(cfgs);
 | bnet-connect             | 其他节点的远程端点连接; 根据需要使用多个bnet-connect选项来组成网络 |              |        |
 | bnet-no-trx              | 这个peer请求其他节点没有pending的transactions                | false        |    false    |
 
---------------------------
+
 ### start
 **启动 fibos**
 
@@ -331,7 +331,7 @@ fibos.start();
 }
 ```
 
---------------------------
+
 ### stop
 **停止 fibos**
 
@@ -349,7 +349,7 @@ fibos.data_dir;
 ```
 **类型：String**
 
---------------------------
+
 ### config_dir
 **fibos 的配置存放目录**
 
@@ -358,7 +358,7 @@ fibos.config_dir;
 ```
 **类型：String**
 
---------------------------
+
 ### core_symbol
 **fibos 主 token 名称**
 
@@ -367,7 +367,7 @@ fibos.core_symbol;
 ```
 **类型：String**
 
---------------------------
+
 ### pubkey_prefix
 **fibos 公钥前缀**
 
@@ -376,7 +376,7 @@ fibos.pubkey_prefix;
 ```
 **类型：String**
 
---------------------------
+
 ### enableJSContract
 **查询和设置 JavaScript 智能合约状态，为 True 时支持 JavaScript 智能合约**
 

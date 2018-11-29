@@ -14,7 +14,7 @@ fibos.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
 ```
 
 ## 静态函数
-        
+
 ### is_account
 **判断账户是否存在**
 
@@ -37,7 +37,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### has_recipient
 **action 执行成后，名为 name 的账号是否会收到通知**
 
@@ -60,7 +60,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### require_recipient
 **向通知列表增加特定账号**
 
@@ -77,10 +77,16 @@ action.require_recipient(name);
 exports.hi = v => {
     action.require_recipient(action.receiver);
 };
+
+exports.on_hi = v => {
+    console.log(action.receiver, action.account , v)
+};
 ```
 
---------------------------
+备注：一个合约向另一个合约发送的通知消息就是合约收到的消息，包括 code、action 和参数。 
+
 ### has_auth
+
 **验证 action 是否需要特定账户的授权**
 
 ```JavaScript
@@ -102,7 +108,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### require_auth
 **向 action 的授权列表中添加特定账户及对应的权限，若添加失败则会抛出异常**
 
@@ -124,7 +130,7 @@ exports.hi = v => {
 ```
 
 ## 静态属性
-        
+
 ### name
 **action 名称**
 
@@ -139,7 +145,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### account
 **action 发送者的账户名**
 
@@ -154,7 +160,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### receiver
 **action 接收者**
 
@@ -168,7 +174,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### publication_time
 **返回从1970年1月1日0时0分0秒（UTC，即协调世界时）距离出块时间的毫秒数。**
 
@@ -183,7 +189,7 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
 ### authorization
 **执行该 action 需要得到数组中所有账户的授权**
 

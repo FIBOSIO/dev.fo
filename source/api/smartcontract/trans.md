@@ -49,7 +49,7 @@ exports.hi2 = (user, friend) => {
 
 
 
---------------------------
+
 ### send_context_free_inline
 **向特定帐号发送 context_free inline [action](index.html)**
 
