@@ -1,6 +1,6 @@
 ---
 title: fibos
-type: manual
+type: fibos
 order: 8
 ---
 
