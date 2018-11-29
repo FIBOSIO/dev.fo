@@ -161,3 +161,20 @@ let r = ctx.exdestroySync(`0.0000 AAA@fibostest123`, {authorization: 'fibostest1
 当不再需要该通证时，调用 `exdestroySync` 方法来销毁通证。
 
 **注意**：销毁通证需要**流通量为0**的时候才可以销毁，也就是说通证发行方需要收回市场上所有流通的通证后才能销毁通证。
+
+### 分红
+
+FIBOS 的 token 经济模型中为通证发行方提供了向社区中通证持有者进行分红的方法，发行方可通过填入一定数量的保证金进行分红，社区中的通证持有者将会在兑换过程中享受这部分保证金的红利。发行方执行分红的具体操作为：
+
+```js
+//初始化 fibos 客户端
+...
+
+let ctx = fibos.contractSync('eosio.token');
+let r = ctx.exshareSync(`10000.0000 FO@eosio`, `0.0000 AAA@fibostest321`, `share 10000.0000 FO to token holders`,{
+    authorization: 'fibostest123'
+}); // 第一个参数为填入保证金的数量，第二个参数为参与分红的智能通证，第三个参数为备注
+```
+
+
+
