@@ -14,7 +14,7 @@ fibos.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
 ```
 
 ## 静态函数
-        
+
 ### is_account
 **判断账户是否存在**
 
@@ -77,10 +77,16 @@ action.require_recipient(name);
 exports.hi = v => {
     action.require_recipient(action.receiver);
 };
+
+exports.on_hi = v => {
+    console.log(action.receiver, action.account , v)
+};
 ```
 
+备注：一个合约向另一个合约发送的通知消息就是合约收到的消息，包括 code、action 和参数。 
 
 ### has_auth
+
 **验证 action 是否需要特定账户的授权**
 
 ```JavaScript
@@ -124,7 +130,7 @@ exports.hi = v => {
 ```
 
 ## 静态属性
-        
+
 ### name
 **action 名称**
 

@@ -13,9 +13,6 @@ multi index table 对象
 
 **类型：String**
 
-```JavaScript
-Table.name;
-```
 
 实例：
 
@@ -34,9 +31,6 @@ exports.hi = v => {
 
 **类型：String**
 
-```JavaScript
-Table.code;
-```
 
 实例：
 
@@ -55,9 +49,6 @@ exports.hi = v => {
 
 **类型：String**
 
-```JavaScript
-Table.scope;
-```
 
 ```javascript
 exports.hi = v => {
@@ -74,9 +65,6 @@ exports.hi = v => {
 
 **类型：Object**
 
-```JavaScript
-Table.indexes;
-```
 
 ```javascript
 exports.hi = v => {
@@ -122,11 +110,14 @@ exports.hi = v => {
 **从 table 查找数据**
 
 ```JavaScript
-DBIterator Table.find(id);
+Table.find(id);
 ```
 
 调用参数:
 * id: Value, 查询的参数
+
+返回结果：
+* DBIterator
 
 实例:
 
@@ -163,11 +154,14 @@ exports.hi = v => {
 **从 table 查找小于参数结果**
 
 ```JavaScript
-DBIterator Table.lowerbound(id);
+Table.lowerbound(id);
 ```
 
 调用参数:
 * id: Value, 查询的参数
+
+返回结果：
+* [DBIterator](dbiterator.html)，返回一个数据库迭代器
 
 实例:
 
@@ -186,11 +180,14 @@ exports.hi1 = v => {
 **从 table 查找大于参数结果**
 
 ```JavaScript
-DBIterator Table.upperbound(id);
+Table.upperbound(id);
 ```
 
 调用参数:
 * id: Value, 查询的参数
+
+返回结果：
+* [DBIterator](dbiterator.html)，返回一个数据库迭代器
 
 实例:
 
@@ -208,14 +205,23 @@ exports.hi1 = v => {
 
 **返回对象的字符串表示，一般返回 "[Native Object]"，对象可以根据自己的特性重新实现**
 
-**类型：String**
-
 ```JavaScript
 Table.toString();
 ```
 
 返回结果:
 * String, 返回对象的字符串表示
+
+实例：
+
+```javascript
+exports.hi1 = v => {
+    var players = db.players1(action.account, action.account);
+    console.log(players.toString());
+};
+```
+
+
 
 
 
@@ -232,4 +238,15 @@ Table.toJSON(key);
 
 返回结果:
 * Value, 返回包含可 JSON 序列化的值
+
+实例：
+
+```javascript
+exports.hi1 = key => {
+    var players = db.players1(action.account, action.account);
+    console.log(players.toJSON(key));
+};
+```
+
+
 
