@@ -112,7 +112,7 @@ fibos.stop();
 
 >  注意：系统 plugin 请配合 fibos.load 实例方法进行使用
 
-#### http 插件
+### http 插件
 
 启用 FIBOS 节点上所有的 RPC API
 
@@ -127,7 +127,7 @@ fibos.stop();
 | http-validate-host          | 验证 Http 请求 host                              | true             |        |
 | access-control-allow-origin | 对每个请求返回特殊的 Access-Control-Allow-Origin | -                | *      |
 
-#### chain 插件
+### chain 插件
 
 是 FIBOS 节点上处理和聚合链数据所需的核心插件
 
@@ -151,7 +151,7 @@ fibos.stop();
 | contracts-console            | 是否打印合约输出                                             | false       | -                                                            |
 | read-mode                    | mode database contains changes done up to the head block plus changes made by transactions not yet included to the blockchain mode database contains changes done up to the current head block. | speculative | -                                                            |
 
-#### net 插件
+### net 插件
 
 组成一个网络
 
@@ -170,7 +170,7 @@ fibos.stop();
 | network-version-match     | 是否需要相同版本的网络           | false                       | -                                                            |
 | peer-log-format           | 节点日志格式化                   | ["${name}" ${_ip}:${_port}] | -                                                            |
 
-#### chain_api 插件
+### chain_api 插件
 
 将 chain_plugin 的功能公开到由 http_plugin 管理的 RPC API 接口上
 
@@ -188,7 +188,7 @@ fibos.stop();
 | get_account | POST | 获取账户的信息           |
 | get_code    | POST | 获取智能合约代码         |
 
-#### producer 插件
+### producer 插件
 
 加载出块节点所需要的功能
 
@@ -203,7 +203,7 @@ fibos.stop();
 | producer-name              | 控制节点出块的账户名          |        | eosio(可多参) |
 | private-key                | 签名程序的公钥、私钥          |        | (可多参数)    |
 
-#### bnet 插件
+### bnet 插件
 
 提供了一个 P2P 协议，使用非常简单的算法持久同步两个区块链
 
