@@ -7,7 +7,7 @@ order: 9
 multi index table 对象
 
 ## 成员属性
-        
+
 ### name
 **table 名**
 
@@ -17,8 +17,19 @@ multi index table 对象
 Table.name;
 ```
 
---------------------------
+实例：
+
+```javascript
+exports.hi = v => {
+    var players = db.players(action.account, action.account); 
+    console.log(players.name);
+};
+```
+
+
+
 ### code
+
 **指向合约发布者的名称**
 
 **类型：String**
@@ -27,8 +38,19 @@ Table.name;
 Table.code;
 ```
 
---------------------------
+实例：
+
+```javascript
+exports.hi = v => {
+    var players = db.players(action.account, action.account); 
+    console.log(players.code);
+};
+```
+
+
+
 ### scope
+
 **table 中数据所属的 account_name**
 
 **类型：String**
@@ -37,8 +59,17 @@ Table.code;
 Table.scope;
 ```
 
---------------------------
+```javascript
+exports.hi = v => {
+    var players = db.players(action.account, action.account); 
+    console.log(players.scope);
+};
+```
+
+
+
 ### indexes
+
 **查询当前索引，返回所有索引对象，每个索引是一个新的 Table 对象**
 
 **类型：Object**
@@ -47,9 +78,19 @@ Table.scope;
 Table.indexes;
 ```
 
+```javascript
+exports.hi = v => {
+    var players = db.players(action.account, action.account); 
+    console.log(players.indexes);
+};
+```
+
+
+
 ## 成员函数
-        
-### emplace
+
+emplace
+
 **向 table 存入新数据**
 
 ```JavaScript
@@ -74,8 +115,10 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
+
 ### find
+
 **从 table 查找数据**
 
 ```JavaScript
@@ -94,8 +137,10 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
+
 ### get_primary_key
+
 **生成自增主键**
 
 ```JavaScript
@@ -111,8 +156,10 @@ exports.hi = v => {
 };
 ```
 
---------------------------
+
+
 ### lowerbound
+
 **从 table 查找小于参数结果**
 
 ```JavaScript
@@ -132,8 +179,10 @@ exports.hi1 = v => {
 };
 ```
 
---------------------------
+
+
 ### upperbound
+
 **从 table 查找大于参数结果**
 
 ```JavaScript
@@ -153,8 +202,10 @@ exports.hi1 = v => {
 };
 ```
 
---------------------------
+
+
 ### toString
+
 **返回对象的字符串表示，一般返回 "[Native Object]"，对象可以根据自己的特性重新实现**
 
 **类型：String**
@@ -166,8 +217,10 @@ Table.toString();
 返回结果:
 * String, 返回对象的字符串表示
 
---------------------------
+
+
 ### toJSON
+
 **返回对象的 JSON 格式表示，一般返回对象定义的可读属性集合**
 
 ```JavaScript
