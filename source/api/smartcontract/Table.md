@@ -117,7 +117,7 @@ Table.find(id);
 * id: Value, 查询的参数
 
 返回结果：
-* DBIterator
+* [DBIterator](dbiterator.html)，返回一个数据库迭代器
 
 实例:
 
