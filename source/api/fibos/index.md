@@ -5,7 +5,7 @@ order: 1
 
 ---
 
-# fibos 模块
+# FIBOS 模块
 
 fibos 实例对象
 
@@ -24,7 +24,7 @@ fibos 的数据存放目录
 类型：String
 
 ```JavaScript
-fibos.data_dir = '/blockData';
+fibos.data_dir = './fibos_data_dir';
 ```
 
 ### config_dir
@@ -34,7 +34,7 @@ fibos 的配置存放目录
 类型：String
 
 ```JavaScript
-fibos.config_dir = './';
+fibos.config_dir = './fibos_config_dir';
 ```
 
 ### core_symbol
@@ -238,8 +238,8 @@ var p2p_peer_address = [
 
 console.notice("start FIBOS producer nodes");
 
-fibos.config_dir = "./";
-fibos.data_dir = "/blockData";
+fibos.config_dir = "./fibos_config_dir";
+fibos.data_dir = "./fibos_data_dir";
 
 console.notice("config_dir:", fibos.config_dir);
 console.notice("data_dir:", fibos.data_dir);
@@ -283,8 +283,8 @@ var p2p_peer_address = [
 
 console.notice("start FIBOS ABI nodes");
 
-fibos.config_dir = "./";
-fibos.data_dir = "/blockData";
+fibos.config_dir = "./fibos_config_dir";
+fibos.data_dir = "./fibos_data_dir";
 
 console.notice("config_dir:", fibos.config_dir);
 console.notice("data_dir:", fibos.data_dir);

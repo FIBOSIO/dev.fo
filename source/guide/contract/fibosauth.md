@@ -91,7 +91,7 @@ fibos node.js
 
 保存下面的代码到工作目录 `account.js`:
 
-```
+```javascript
 var FIBOS = require('fibos.js');
 
 var config = {
@@ -204,7 +204,7 @@ fibos account.js
 
 简单分析一下执行的脚本：
 
-```
+```javascript
 fibos.newaccountSync({
     creator: 'eosio',
     name: name,
@@ -262,7 +262,7 @@ active 权限同上面的解释,我们把这种只有一个所属公钥的账户
 
 我们来尝试更改一下账户 hellofibos 的 active 权限，保存代码至工作目录 `power.js`:
 
-```
+```javascript
 var FIBOS = require('fibos.js');
 
 //账户 hellofibos 的公私钥对
@@ -413,7 +413,7 @@ fibos power.js
 
 让我们先来实现一个简单的合约，保存代码至工作目录 `code.js`:
 
-```
+```javascript
 var FIBOS = require('fibos.js');
 
 var fibos = FIBOS({
@@ -488,7 +488,7 @@ action 对象对于权限控制非常重要，请继续阅读。
 
 让我们写一个调用合约脚本，查看 action 对象是一个什么？保存代码至工作目录 `call.js`:
 
-```
+```javascript
 var FIBOS = require('fibos.js');
 
 //合约所属账户 hellocode 的公私钥对
@@ -555,7 +555,7 @@ fibos call.js
 
 首先我们先来更新一下合约，保存代码 `updatecode.js`:
 
-```
+```javascript
 var FIBOS = require('fibos.js');
 
 //合约所属账户 hellocode 的公私钥对
@@ -587,7 +587,7 @@ fibos updatecode.js
 
 保存以下代码到工作目录 `call2.js`:
 
-```
+```javascript
 var FIBOS = require('fibos.js');
 
 //合约所属账户 hellocode 的公私钥对
