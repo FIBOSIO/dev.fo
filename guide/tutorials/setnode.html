@@ -81,10 +81,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
-        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
-        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
         <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li> -->
+        <!-- <li><a href="/api/token/index.html" class="nav-link">Token Contract</a></li> -->
+        <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -151,10 +151,10 @@
     <ul class="nav-dropdown">
       <li><ul>
         <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
-        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li>
-        <li><a href="/api/token/tokenIndex.html" class="nav-link">eosio.token contract</a></li> -->
-        <!-- <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li> -->
         <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <!-- <li><a href="/api/eosio-contract/eosioIndex.html" class="nav-link">eosio contract</a></li> -->
+        <!-- <li><a href="/api/token/index.html" class="nav-link">Token Contract</a></li> -->
+        <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
         <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
         <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li>
       </ul></li>
@@ -664,7 +664,7 @@
 <li>设置 FIBOS 服务启动时重置环境数据</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">'chain'</span>, &#123;</span><br><span class="line">    <span class="string">'delete-all-blocks'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><a href="../../api/index/fibos.html">更多插件请点击这里</a></p>
+<p><a href="../../api/fibos/index.html">更多插件请点击这里</a></p>
 <h2 id="节点代码实例"><a href="#节点代码实例" class="headerlink" title="节点代码实例"></a>节点代码实例</h2><p>下面代码存为 start_fibos/node.js，用来启动一个本地 FIBOS 节点。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">   <span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8888'</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'chain'</span>, &#123;</span><br><span class="line">   <span class="string">'delete-all-blocks'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'net'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line"><span class="comment">// fibos.load('history_api');</span></span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">   <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">   <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.config_dir = <span class="string">'start_fibos/fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'start_fibos/fibos_data_dir/'</span>;</span><br><span class="line">fibos.enableJSContract = <span class="literal">true</span>;</span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
 <blockquote>
