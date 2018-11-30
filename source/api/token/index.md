@@ -1,0 +1,926 @@
+---
+title: 
+type: token
+order: 1
+---
+
+# Token Contract
+
+## transfer
+
+转账
+
+#### 参数
+
+| name         | type   | description |
+| ------------ | ------ | ----------- |
+| **from**     | string | 通证转出方  |
+| **to**       | string | 通证转入方  |
+| **quantity** | string | 通证数量    |
+| **memo**     | string | 附言        |
+
+####  示例
+
+fibos.js 环境下：
+
+```javascript
+
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.transferSync('fibforjeremy', 'fiboscouncil', '20.3375 EOS', 'eosforjeremy', {
+  authorization: '私钥对应的账号'
+});
+console.log(r);
+
+```
+
+浏览器环境下：
+
+```javascript
+
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.transfer({
+      from: 'fibforjeremy',
+      to: 'fiboscouncil',
+      quantity: '20.3375 EOS',
+      memo: 'eosforjeremy'
+    },{
+        authorization: '私钥对应的账号'
+    })
+})
+```
+
+
+
+## extransfer
+
+转账
+
+#### 参数
+
+| name         | type   | description |
+| ------------ | ------ | ----------- |
+| **from**     | string | 通证转出方  |
+| **to**       | string | 通证转入方  |
+| **quantity** | string | 通证数量    |
+| **memo**     | string | 附言        |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.extransferSync('dicefobetone', 'zhangjingrui', '10.0000 FO@eosio', 'trasnfer to zhangjingrui', {
+  authorization: '私钥对应的账号'
+});
+console.log(r);
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.extransfer({
+      from: 'dicefobetone',
+      to: 'zhangjingrui',
+      quantity: '10.0000 FO@eosio',
+      memo: 'trasnfer to zhangjingrui'
+    },{
+        authorization: '私钥对应的账号'
+    })
+})
+```
+
+
+
+## exissue
+
+增发通证
+
+#### 参数
+
+| name         | type   | description |
+| ------------ | ------ | ----------- |
+| **to**       | string | 通证转入方  |
+| **quantity** | string | 通证数量    |
+| **memo**     | string | 附言        |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.exissueSync('dogfallchina', '10.0000 TAO@dogfallchina', 'issue to fibostest123', {
+  authorization: '私钥对应的账号'
+});
+console.log(r);
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.exissue({
+      to: 'dogfallchina',
+      quantity: '10.0000 TAO@dogfallchina',
+      memo: 'issue to fibostest123'
+    },{
+        authorization: '私钥对应的账号'
+    })
+})
+```
+
+
+
+## exretire
+
+销毁流通通证
+
+#### 参数
+
+| name         | type   | description |
+| ------------ | ------ | ----------- |
+| **from**     | string | 通证转出方  |
+| **quantity** | string | 通证数量    |
+| **memo**     | string | 附言        |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.exretireSync('createtest11', '10.0000 FO@eosio', 'issue tokens for producer pay and savings', {
+  authorization: '私钥对应的账号'
+});
+console.log(r);
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+client.contract('eosio.token').then((contract)=>{
+    contract.exretire({
+      from: 'createtest11',
+      quantity: '10.0000 FO@eosio',
+      memo: 'issue tokens for producer pay and savings'
+    },{
+        authorization: '私钥对应的账号'
+    })
+})
+```
+
+
+
+## excreate
+
+发行通证
+
+#### 参数
+
+| name                          | type      | description                |
+| ----------------------------- | --------- | -------------------------- |
+| **issuer**                    | string    | 通证发行账号               |
+| **maximum_supply**            | string    | 最大可发行通证数量         |
+| **connector_weight**          | float64   | 连接器权重                 |
+| **maximum_exchange**          | string    | 最大可兑换(流通)的通证数量 |
+| **reserve_supply**            | string    | 未流通通证数量             |
+| **reserve_connector_balance** | string    | 未流通通证保证金数量       |
+| **expiration**                | date-time | 项目方预设的项目锁仓期     |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+let r = ctx.excreateSync('dogfallchina', '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', {
+  authorization: '私钥对应的账号'
+}); //expiration需大于等于当前时间
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.excreate({
+      issuer: 'dogfallchina',
+      maximum_supply: '90000000000.0000 DDD',
+      connector_weight: 0,
+      maximum_exchange: '10000000000.0000 DDD',
+      reserve_supply: '3000000000.0000 DDD',
+      reserve_connector_balance: '90000.0000 FO',
+      expiration: '2018-10-29T18:54:00'
+    },{
+        authorization: '私钥对应的账号'
+    })
+})
+```
+
+
+
+## exclose
+
+回收内存
+
+#### 参数
+
+| name       | type   | description  |
+| ---------- | ------ | ------------ |
+| **owner**  | string | 通证拥有者   |
+| **symbol** | string | 通证目标类型 |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+
+let ctx = client.contractSync('eosio.token');
+
+let r = ctx.excloseSync('dreamheartlx', '4,ZC@lixunlixunli', {
+  authorization: '私钥对应的账号'
+}); 
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.exclose({
+      owner: "dreamheartlx",
+      symbol: '4,ZC@lixunlixunli'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## exdestroy
+
+销毁通证
+
+#### 参数
+
+| name       | type   | description  |
+| ---------- | ------ | ------------ |
+| **symbol** | string | 通证目标类型 |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+let r = ctx.exdestroySync('8,QE@dreamheartlx', {
+  authorization: '私钥对应的账号'
+}); 
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.exdestroy({
+      symbol: '8,QE@dreamheartlx'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## exchange
+
+通证兑换
+
+#### 参数
+
+| name         | type   | description      |
+| ------------ | ------ | ---------------- |
+| **owner**    | string | 兑换账号         |
+| **quantity** | string | 兑换通证数量     |
+| **tosym**    | string | 兑换通证目标类型 |
+| **memo**     | string | 兑换备注信息     |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.exchangeSync('dicefobetone', '0.0130 FO@eosio', '0.0000 FO@eosio', 'exchange FO to EOS', {
+    authorization: '私钥对应的账号'
+});
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.exchange({
+      owner: 'dicefobetone',
+      quantity: '0.0130 FO@eosio',
+      tosym: '0.0000 FO@eosio',
+      memo: 'exchange FO to EOS'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## ctxrecharge
+
+合约子钱包 — 充值
+
+#### 参数
+
+| name         | type   | description  |
+| ------------ | ------ | ------------ |
+| **owner**    | string | 账户拥有者   |
+| **quantity** | string | 充值通证数量 |
+| **memo**     | string | 附言         |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.ctxrechargeSync('dreamheartlx', '100.0000 QQQ@dreamheartlx','ctxrecharge', {
+    authorization: '私钥对应的账号'
+});
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.ctxrecharge({
+      owner: 'dreamheartlx',
+      quantity: '100.0000 QQQ@dreamheartlx',
+      memo: 'ctxrecharge'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## ctxextract
+
+合约子钱包 — 提现
+
+#### 参数
+
+| name         | type   | description  |
+| ------------ | ------ | ------------ |
+| **owner**    | string | 账户拥有者   |
+| **quantity** | string | 提现通证数量 |
+| **memo**     | string | 附言         |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.ctxextractSync('lixunlixunli', '0.000100 LIU@lixunlixunli','ctxextract', {
+    authorization: '私钥对应的账号'
+});
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.ctxextract({
+      owner: 'lixunlixunli',
+      quantity: '0.000100 LIU@lixunlixunli',
+      memo: 'ctxextract'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## ctxtransfer
+
+合约子钱包 — 转账
+
+#### 参数
+
+| name         | type   | description |
+| ------------ | ------ | ----------- |
+| **from**     | string | 通证转出方  |
+| **to**       | string | 通证转入方  |
+| **quantity** | string | 通证数量    |
+| **memo**     | string | 附言        |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+var r = ctx.ctxtransferSync('lixunlixunli','dreamheartlx','1.0000 ZX@lixunlixunli','ctxtransfer', {
+    authorization: '私钥对应的账号'
+});
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.ctxtransfer({
+      from: 'lixunlixunli',
+      to: 'dreamheartlx',
+      quantity: '1.0000 ZX@lixunlixunli',
+      memo: 'ctxtransfer'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## exunlock
+
+解锁
+
+#### 参数
+
+| name           | type      | description |
+| -------------- | --------- | ----------- |
+| **owner**      | string    | 通证持有者  |
+| **quantity**   | string    | 解锁数量    |
+| **expiration** | date-time | 锁仓期      |
+| **memo**       | string    | 附言        |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+
+const FIBOS = require('fibos.js');
+require('ssl').loadRootCerts();
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+let r = ctx.exunlockSync('fibostest123', '100.0000 ADC@nmslwsndhjyz', '2018-11-25T01:00:00', 'unlock 100.0000 ADC', {
+    authorization: '私钥对应的账号'
+})
+console.log(r);
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.exunlock({
+      owner: 'fibostest123',
+      quantity: '100.0000 ADC@nmslwsndhjyz',
+      expiration: '2018-11-25T01:00:00',
+      memo: 'unlock 100.0000 ADC'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## exlocktrans
+
+锁仓转账
+
+#### 参数
+
+| name              | type      | description    |
+| ----------------- | --------- | -------------- |
+| **from**          | string    | 通证转出方     |
+| **to**            | string    | 通证转入方     |
+| **quantity**      | string    | 通证数量       |
+| **expiration**    | date-time | 待转出锁仓时间 |
+| **expiration_to** | date-time | 待转入锁仓时间 |
+| **memo**          | string    | 附言           |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+let r = ctx.exlocktransSync('nmslwsndhjyz', 'fibostest123', '10000.0000 BBB@5hzuyqumr3l5', '2018-10-29T18:54:00', '2018-10-29T18:54:00', 'transfer 1000  ABC@uepgdzfhucin', {
+    authorization: '私钥对应的账号'
+}); //expiration_to必须大于等于expiration
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.exlocktrans({
+      from: 'nmslwsndhjyz',
+      to: 'fibostest123',
+      quantity: '10000.0000 BBB@5hzuyqumr3l5',
+      expiration: '2018-10-29T18:54:00',
+      expiration_to: '2018-10-29T18:54:00',
+      memo: 'transfer 1000  ABC@uepgdzfhucin'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## receipt
+
+凭据
+
+#### 参数
+
+| name    | type   | description  |
+| ------- | ------ | ------------ |
+| **in**  | string | 转入通证凭据 |
+| **out** | string | 转出通证凭据 |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+let r = ctx.receiptSync('11555.0000 FO@eosio', '20.3375 EOS@eosio', {
+    authorization: '私钥对应的账号'
+}); 
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.receipt({
+      in: '11555.0000 FO@eosio',
+      out: '20.3375 EOS@eosio'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+
+
+
+## snapshot
+
+快照
+
+#### 参数
+
+| name                          | type    | description          |
+| ----------------------------- | ------- | -------------------- |
+| **contract**                  | string  | 发币持有者           |
+| **max_supply**                | string  | 最大可发行通证数量   |
+| **cw**                        | float64 | cw 值                |
+| **max_exchange**              | string  | 最大兑换通证数量     |
+| **supply**                    | string  | 可发行通证数量       |
+| **reserve_supply**            | string  | 锁仓通证数量         |
+| **connector_balance**         | string  | 保证金数量           |
+| **reserve_connector_balance** | string  | 未流通通证保证金数量 |
+
+#### 示例
+
+fibos.js 环境下：
+
+```javascript
+
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+let ctx = fibos_client.contractSync('eosio.token');
+
+let r = ctx.snapshotSync('eosio','100000000000.0000 FO', '0.10948151574745998','10025528533.6595 FO','361950483.2024 FO', '5025476157.1198 FO','488116.9226 EOS','550000.0000 EOS',{
+    authorization: '私钥对应的账号'
+}); 
+console.log(r)
+```
+
+浏览器环境下：
+
+```javascript
+const FIBOS = require('fibos.js');
+
+const fibos_client = FIBOS({
+  // fibos 主网 chainId
+  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  keyProvider: '你的私钥',
+  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+});
+
+fibos_client.contract('eosio.token').then((contract)=>{
+    contract.snapshot({
+      contract: 'eosio',
+      max_supply: '100000000000.0000 FO',
+      cw: '0.10948151574745998',
+      max_exchange: '10025528533.6595 FO',
+      supply: '361950483.2024 FO',
+      reserve_supply: '5025476157.1198 FO',
+      connector_balance: '488116.9226 EOS',
+      reserve_connector_balance: '550000.0000 EOS'
+    },{
+        authorization: '私钥对应的账号'
+    })
+});
+```
+

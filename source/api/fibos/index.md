@@ -5,7 +5,7 @@ order: 1
 
 ---
 
-# fibos 模块
+# FIBOS 模块
 
 fibos 实例对象
 

@@ -131,7 +131,7 @@ fibos.load('chain', {
 });
 ```
 
-[更多插件请点击这里](../../api/index/fibos.html)
+[更多插件请点击这里](../../api/fibos/index.html)
 
 
 ## 节点代码实例
