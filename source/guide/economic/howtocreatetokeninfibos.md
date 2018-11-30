@@ -85,7 +85,7 @@ console.log(r);
 ...
 let name = 'fibostest123';
 let ctx = fibos.contractSync('eosio.token');
-let r = ctx.excreateSync(name, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', {
+let r = ctx.excreateSync(name, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, {
     authorization: name
 });  //expiration需大于等于当前时间
 console.log(r);
