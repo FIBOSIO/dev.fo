@@ -952,7 +952,7 @@ fibos_client.delegatebw({
 });
 ```
 
-# Token Contract
+## Token Contract
 
 在 FIBOS 中有两种通证：经典通证和智能通证
 
