@@ -31,8 +31,10 @@ void token::excreate(
   double connector_weight, // 连接器权重
   asset maximum_exchange, // 最大可兑换(流通)的通证数量
   asset reserve_supply, // 未流通通证数量
-  asset reserve_connector_balance // 未流通通证保证金数量
-  time_point_sec expiration // 项目方预设的项目锁仓期
+  asset reserve_connector_balance, // 未流通通证保证金数量
+  time_point_sec expiration, // 项目方预设的项目锁仓期
+  double buy_fee, // 项目方预设通证兑入手续费
+  double sell_fee // 项目方预设通证兑出手续费
 )
 ```
 
@@ -92,7 +94,28 @@ console.log(r);
 
 观察发行传统通证和创建智能通证的代码，我们不难发现，当一个通证的连接器权重（CW）值为0时，它就是传统通证。而对于智能通证来说，它必须要有对应的 cw（0-1之间）和 max_exchange。以及根据 bancor 协议计算出 reserve_supply 和 reserve_connector_balance。
 
+#### 开启智能通证的兑换
+
+刚刚创建完成的智能通证并不能立刻进行兑换，需要通证的创建者调用开仓操作之后才能开启兑换，具体API和操作如下：
+
+```js
+//初始化 fibos 客户端
+...
+let name = 'fibostest123';
+let ctx = fibos.contractSync('eosio.token');
+let r = ctx.setpositionSync('0.0000 AAA@fibostest123', 1, 'set postion state to true', {
+    authorization: name
+}); // 第二个参数为 1 表示开仓，0 表示关仓
+console.log(r);
+```
+
+经过开仓操作的智能通证就可以开放兑换了。
+
+请注意，这里的开仓/关仓状态仅仅影响智能通证的兑入，不影响智能通证的兑出功能。如果智能通证为关仓状态，仍然可以将智能通证兑换成保证金或者其他状态为开仓的智能通证，但是并不能将保证金兑换成为该智能通证了。
+
 #### FO 通证兑换智能通证
+
+状态为开仓的智能通证就可以进行兑换了，具体操作如下：
 
 ```javascript
 //初始化 fibos 客户端
@@ -138,3 +161,20 @@ let r = ctx.exdestroySync(`0.0000 AAA@fibostest123`, {authorization: 'fibostest1
 当不再需要该通证时，调用 `exdestroySync` 方法来销毁通证。
 
 **注意**：销毁通证需要**流通量为0**的时候才可以销毁，也就是说通证发行方需要收回市场上所有流通的通证后才能销毁通证。
+
+### 分红
+
+FIBOS 的 token 经济模型中为通证发行方提供了向社区中通证持有者进行分红的方法，发行方可通过填入一定数量的保证金进行分红，社区中的通证持有者将会在兑换过程中享受这部分保证金的红利。发行方执行分红的具体操作为：
+
+```js
+//初始化 fibos 客户端
+...
+
+let ctx = fibos.contractSync('eosio.token');
+let r = ctx.exshareSync(`10000.0000 FO@eosio`, `0.0000 AAA@fibostest321`, `share 10000.0000 FO to token holders`,{
+    authorization: 'fibostest123'
+}); // 第一个参数为填入保证金的数量，第二个参数为参与分红的智能通证，第三个参数为备注
+```
+
+
+
