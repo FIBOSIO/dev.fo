@@ -819,23 +819,24 @@ fibos_client.newaccount({
 同步:
 
 ```js
-fibos_client.creator: "Creator Name", //创建者的账户名
+fibos_client.newaccountSync({
+    creator: "Creator Name", //创建者的账户名
     name: "Account Name", //被创建者的账户名
     owner: "Owner Key", //被创建者账户 owner 权限公钥
-    active: "Active Key" //被创建者 active 权限公钥  
-});
+    active: "Active Key" //被创建者 active 权限公钥
+});  
 ```
 
 异步:
 
 ```js
-fibos_client.newaccountSync({
+fibos_client.newaccount({
     creator: "Creator name", //创建者的账户名
     name: "Account Name", //被创建者的账户名
     owner: "Owner Key", //被创建者账户 owner 权限公钥
     active: "Active Key" //被创建者 active 权限公钥
-}).then(newAccount=>{
-    console.log(newAccount);
+}).then(newaccount => {
+    console.log(newaccount);
 });
 ```
 
