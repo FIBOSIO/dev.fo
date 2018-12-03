@@ -227,7 +227,7 @@ httpServer.run();
 
 #### tracker.emitter
 
-FIBOS emitter 插件，配合 FIBOS 的 action 插件使用。
+配合 FIBOS 的 action 插件使用。
 
 示例：
 
