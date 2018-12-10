@@ -8,7 +8,7 @@ subtitle:
 description: FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台
 keywords:
 author: FIBOS
-language: zh-CN
+language: [jp,zh-cn,en-us]
 timezone: Asia/Shanghai
 
 # URL
@@ -26,6 +26,9 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
+i18n:
+  type: [page, post, zh-cn, en-us]
+  generator: [index, archive, category, tag]
 skip_render:
 
 # Writing

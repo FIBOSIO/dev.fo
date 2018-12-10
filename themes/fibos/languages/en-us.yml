@@ -1,0 +1,23 @@
+index:
+  title: DeveloperCommunity
+
+menu:
+  home: Home
+  guidelines: Guidelines
+  api: API
+  community: BBS
+  languages: English
+  language: 简体中文
+
+submenu:
+  introduction: Introduction
+  installation: installation
+  start: start
+  tutorials: tutorials
+  node: node
+  fibos: fibos.js
+  contract: contract
+  economic: Token Economic
+
+api:
+  contract: JS Contract

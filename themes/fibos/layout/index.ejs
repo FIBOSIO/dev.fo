@@ -14,7 +14,7 @@
       FIBOS 是一个创造和发展区块链应用生态的平台，让您轻松创建属于自己的价值网络，帮助开发者和创业者一步进入区块链世界
     </p>
     <p class="start">
-      <a class="button white" href="<%- url_for("/guide/installation/installation.html") %>">快速入门</a>
+      <a class="button white" href="<%- url_for_lang("/guide/installation/installation.html") %>">快速入门</a>
       <a class="button gray has-icon" href="https://github.com/fibosio" target="_blank">
         <%- partial('icons/github-dark') %>
         GITHUB</a>
@@ -29,16 +29,16 @@
       <h2>新手入门</h2>
       <ul>
         <li>
-          <a href="<%- url_for("/guide/introduction/introduction.html") %>">简介</a>
+          <a href="<%- url_for_lang("/guide/introduction/introduction.html") %>">简介</a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/installation/installation.html") %>">安装</a>
+          <a href="<%- url_for_lang("/guide/installation/installation.html") %>">安装</a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/start/start.html") %>">入门</a>
+          <a href="<%- url_for_lang("/guide/start/start.html") %>">入门</a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/tutorials/instructions.html") %>">教程</a>
+          <a href="<%- url_for_lang("/guide/tutorials/instructions.html") %>">教程</a>
         </li>
       </ul>
     </div>
@@ -47,16 +47,16 @@
       <h2>进阶指南</h2>
       <ul>
         <li>
-          <a href="<%- url_for("/guide/fibos.js/situation.html") %>">Fibos.js</a>
+          <a href="<%- url_for_lang("/guide/fibos.js/situation.html") %>">Fibos.js</a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/contract/whatisabi.html") %>">智能合约</a>
+          <a href="<%- url_for_lang("/guide/contract/whatisabi.html") %>">智能合约</a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/economic/eos2fibos.html") %>">Token 合约</a>
+          <a href="<%- url_for_lang("/guide/economic/eos2fibos.html") %>">Token 合约</a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/node/instruction.html") %>">节点编程</a>
+          <a href="<%- url_for_lang("/guide/node/instruction.html") %>">节点编程</a>
         </li>
       </ul>
     </div>
@@ -65,16 +65,22 @@
       <h2>技术手册</h2>
       <ul>
         <li>
-          <a href="<%- url_for("/api/smartcontract/index.html") %>">JS 合约 API</a>
+          <a href="<%- url_for_lang("/api/smartcontract/index.html") %>">JS 合约 API</a>
         </li>
         <li>
-          <a href="<%- url_for("/api/rpc/index.html") %>">RPC API</a>
+            <a href="<%- url_for_lang("/api/fibos/index.html") %>">FIBOS 节点</a>
         </li>
         <li>
-          <a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a>
+          <a href="<%- url_for_lang("/api/eosiocontract/index.html") %>">System 合约</a>
         </li>
         <li>
-          <a href="https://github.com/FIBOSIO/fibos.js" target="_blank">FIBOS.JS</a>
+            <a href="<%- url_for_lang("/api/token/index.html") %>">Token 合约</a>
+        </li>
+        <li>
+            <a href="<%- url_for_lang("/api/fibosjs/index.html") %>">FIBOS.JS</a>
+        </li>
+        <li>
+          <a href="<%- url_for_lang("/api/rpc/index.html") %>">RPC API</a>
         </li>
       </ul>
     </div>

@@ -6,14 +6,26 @@
     <div class="list">
       <% if (type !== 'search') { %>
         <h2>
-            <% titles = {
-              tutorials: '开发指南',
-              manual: 'JS Contract',
-              contract:'Eosio Contract',
-              token: 'Eosio.token Contract',
-              rpc: 'RPC API'
+            <% titles = { 
+              tutorials: page.lang == 'zh-cn'?'开发指南':'Guidelines',
+              manual:'JS Contract',
+              fibos: 'FIBOS Node', 
+              contract: 'System Contract',
+              token: 'Token Contract',
+              fibosjs: 'FIBOS.JS',
+              rpc:'RPC API'
             } %>
             <%- titles[type] %>
+            <!-- <% titles = {
+              tutorials: '开发指南',
+              manual:'JS Contract',
+              fibos: 'FIBOS Node', 
+              contract: 'System Contract',
+              token: 'Token Contract',
+              fibosjs: 'FIBOS.JS',
+              rpc:'RPC API'
+            } %>
+            <%- titles[type] %> -->
           </h2>
         <%- partial('partials/toc', { type: type }) %>
       <% } %>

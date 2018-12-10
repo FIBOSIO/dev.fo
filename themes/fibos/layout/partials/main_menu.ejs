@@ -4,7 +4,7 @@
   </form>
 </li> -->
 <li>
-  <a href="<%- url_for("/") %>" class="nav-link contribute">首页</a>
+  <a href="<%- url_for_lang("/") %>" class="nav-link contribute"><%= __('menu.home') %></a>
 </li>
 <%- partial('partials/learn_dropdown') %>
 <%- partial('partials/api_dropdown') %>
@@ -12,9 +12,9 @@
   <a href="<%- url_for("/api/technology/index.html") %>" class="nav-link team<%- page.path.match(/\/(technology)(\/|$)/) ? ' current' : '' %>">技术手册</a>
 </li> -->
 <li>
-  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank"><%= __('menu.community') %></a>
 </li>
 <li>
   <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
 </li>
-<!-- <%- partial('partials/language_dropdown') %> -->
+<%- partial('partials/language_dropdown') %>

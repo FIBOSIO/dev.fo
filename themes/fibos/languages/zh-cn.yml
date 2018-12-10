@@ -1,0 +1,25 @@
+index:
+  title: 开发者社区
+
+menu:
+  home: 主页
+  guidelines: 开发指南
+  api: 技术手册
+  community: 社区
+  languages: 简体中文
+  language: /images/zh.png
+
+submenu:
+  introduction: 简介
+  installation: 安装
+  start: 入门
+  tutorials: 教程
+  node: 节点编程
+  fibos: fibos.js
+  contract: 智能合约
+  economic: Token 合约
+  
+
+
+api:
+  contract: JS 合约
