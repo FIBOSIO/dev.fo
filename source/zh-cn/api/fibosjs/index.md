@@ -86,7 +86,7 @@ fibos_client.getInfo().then(getInfo => {
 
 * **last_irreversible_block_num: **number 不可逆区块高度
 
-* **last_irreversible_block_i: **string 不可逆区块地址
+* **last_irreversible_block_id: **string 不可逆区块地址
 
 * **head_block_id: **string 当前区块地址
 
@@ -1041,14 +1041,14 @@ ctx.exchange('Owner Account', '1.0000 VO@fibostest123', '0.0000 FO@eosio', memo,
 调用 token 合约中的 `excreate` 接口来进行通证的发行
 
 ```js
-ctx.excreate(issure, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee,sell_fee,{
+ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee,sell_fee,{
   authorization: 'author_name'
 }); 
 ```
 
 #### 方法参数
 
-* **issure:** string  通证发行账号
+* **issuer:** string  通证发行账号
 * **maximum_supply:** assert  最大可发行通证数量
 * **connector_weight:** number  连接器权重
 * **maximum_exchange:** assert  最大可兑换(流通)的通证数量
@@ -1067,7 +1067,7 @@ ctx.excreate(issure, maximum_supply, connector_weight, maximum_exchange, reserve
 ```javascript
 //初始化 fibos 客户端
 ...
-let r = ctx.excreateSync(issure, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0{ //手续费自定义,目前为0
+let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0{ //手续费自定义,目前为0
   authorization: name  //授权
 }); //expiration 需大于等于当前时间
 console.log(r)
@@ -1078,7 +1078,7 @@ console.log(r)
 ```js
 //初始化 fibos 客户端
 ...
-ctx.excreate(issure, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
+ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
   authorization: name  //授权
 }).then(r=>{
     console.log(r);
@@ -1092,7 +1092,7 @@ ctx.excreate(issure, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000
 ```javascript
 //初始化 fibos 客户端
 ...
-let r = ctx.excreateSync(issure, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
+let r = ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
     authorization: name //授权
 });  //expiration 需大于等于当前时间
 console.log(r);
@@ -1103,7 +1103,7 @@ console.log(r);
 ```js
 //初始化 fibos 客户端
 ...
-ctx.excreateSync(issure, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
+ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
     authorization: name //授权
 }).then(r=>{
     console.log(r);
@@ -1115,14 +1115,14 @@ ctx.excreateSync(issure, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', 
 增发通证
 
 ```js
-ctx.exissue(issure, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, {
+ctx.exissue(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, {
   authorization: 'author_name'
 });
 ```
 
 #### 参数
 
-* **issure:** string  通证发行账号
+* **issuer:** string  通证发行账号
 * **maximum_supply:** assert  最大可发行通证数量
 * **connector_weight:** number  连接器权重
 * **maximum_exchange:** assert  最大可兑换(流通)的通证数量
@@ -1277,7 +1277,7 @@ ctx.exunlock('fibostest123', '100.0000 ADC@nmslwsndhjyz', 1537960501, 'unlock 10
 
 ### ctxrecharge
 
-合约自钱包充值操作
+合约子钱包充值操作
 
 ```js
 ctx.ctxrecharge(owner, quantity, memo, {
