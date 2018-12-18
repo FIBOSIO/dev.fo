@@ -6,8 +6,7 @@ menu:
   guidelines: 开发指南
   api: 技术手册
   community: 社区
-  languages: 简体中文
-  language: /images/zh.png
+  language: 简体中文
 
 submenu:
   introduction: 简介
@@ -23,3 +22,17 @@ submenu:
 
 api:
   contract: JS 合约
+
+main:
+  title: FIBOS 开发者社区
+  text: FIBOS 是一个创造和发展区块链应用生态的平台，让您轻松创建属于自己的价值网络，帮助开发者和创业者一步进入区块链世界
+  button: 快速入门
+
+active:
+  start: 新手入门
+  advanced: 进阶指南
+  api: 技术手册
+
+footer:
+  contact: 联系我们
+  text: FIBOS 开发者社区

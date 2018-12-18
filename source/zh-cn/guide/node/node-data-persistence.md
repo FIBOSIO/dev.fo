@@ -242,7 +242,7 @@ tracker.emitter(fibos);
 
 | params | type       | desc |
 | ------ | ---------- | ---- |
-| fibos  | fibos 对象 |      |
+| fibos  | fibos 对象 | /    |
 
 #### tracker.diagram
 
