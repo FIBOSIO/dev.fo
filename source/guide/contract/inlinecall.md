@@ -1,5 +1,5 @@
 ---
-title: 合约之间的相互调用
+title: 合约内调用
 type: tutorials
 order: 203
 ---
@@ -90,7 +90,7 @@ var r = ctx.hiSync(account, 'fibos', `100.0000 AAA@fibostest123`, 'test inline c
 
 * 编写合约 abi
 
-  > 如果你对如何编写abi文档不太了解，请参阅 [编写abi文档](../contract/whatisabi.html)
+  > 如果你对如何编写abi文档不太了解，请参阅 [编写abi文档](../contract/ABI.html)
 
   abi 代码中，我们声明了一个名为`hi`的action，然后在 `hi` 的 action 中定义了四个参数: `from` 、 `to` 、 `quantity` 、 `memo` ，编写好 abi 文件后，调用了 `setabiSync` 的方法将abi部署。
 

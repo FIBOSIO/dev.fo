@@ -1,5 +1,5 @@
 ---
-title: FIBOS 权限系统
+title: 权限系统
 type: tutorials
 order: 202
 ---

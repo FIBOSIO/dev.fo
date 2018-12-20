@@ -1,7 +1,7 @@
 ---
 title: 合约子钱包
 type: tutorials
-order: 256
+order: 253
 ---
 
 > 学习本文档前，你需要对 FIBOS 和 fibos.js 有一定的了解。假如你对 FIBOS 和 fibos.js 不了解，请参阅 [快速入门](../start/start.html) 。
@@ -24,7 +24,7 @@ order: 256
 
 ## 合约子钱包的三种用法
 
-前提条件：用户 `nmslwsndhjyz` 发行了一个合约，以及精度为四位小数，名字叫做 `ADC` 的智能通证。用户 `tteesstt1122` 通过 [兑换](./howtoexchangetokeninfibos.html) 持有 1000  个 `ADC` 流通通证。
+前提条件：用户 `nmslwsndhjyz` 发行了一个合约，以及精度为四位小数，名字叫做 `ADC` 的智能通证。用户 `tteesstt1122` 通过 [兑换](./exchange.html) 持有 1000  个 `ADC` 流通通证。
 
 ### 充值
 
