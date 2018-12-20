@@ -1,5 +1,5 @@
 ---
-title: 编写 ABI 接口
+title:  ABI 文件
 type: tutorials
 order: 200
 ---

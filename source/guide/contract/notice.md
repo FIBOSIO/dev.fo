@@ -1,5 +1,5 @@
 ---
-title: FIBOS 中的 recipient
+title: 通知机制
 type: tutorials
 order: 204
 ---
