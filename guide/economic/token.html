@@ -5,19 +5,19 @@
 
 <head>
   <title>
-    发行和销毁通证 — FIBOS 开发者社区</title>
+    通证 — FIBOS 开发者社区</title>
   <meta charset="utf-8">
   <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="发行和销毁通证 — Dev.fo">
+  <meta property="og:title" content="通证 — Dev.fo">
   <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
   <meta property="og:image" content="https://dev.fo//images/downlogo.png">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="发行和销毁通证 — Dev.fo">
+  <meta name="twitter:title" content="通证 — Dev.fo">
   <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
   <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
 
@@ -68,9 +68,9 @@
       <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
-      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/economic/eos2fibos.html" class="nav-link current">Token 合约</a></li>
+      <li><a href="/guide/contract/ABI.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system/account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/economic/transfer.html" class="nav-link current">Token 合约</a></li>
       <li><a href="/guide/node/instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
   </ul>
@@ -102,13 +102,13 @@
 <!-- <li class="nav-dropdown-container language">
   <a class="nav-link">中文</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://jp.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://ru.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://kr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
  -->
@@ -138,9 +138,9 @@
       <li><a href="/guide/installation/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials/instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/fibos.js/situation.html" class="nav-link">Fibos.js</a></li>
-      <li><a href="/guide/contract/whatisabi.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/economic/eos2fibos.html" class="nav-link current">Token 合约</a></li>
+      <li><a href="/guide/contract/ABI.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system/account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/economic/transfer.html" class="nav-link current">Token 合约</a></li>
       <li><a href="/guide/node/instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
   </ul>
@@ -172,13 +172,13 @@
 <!-- <li class="nav-dropdown-container language">
   <a class="nav-link">中文</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://jp.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://ru.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://kr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/guide/economic/howtocreatetokeninfibos.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/economic/token.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
  -->
@@ -328,86 +328,6 @@
       
       
       
-        <li><h3>Fibos.js</h3></li>
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/fibos.js/situation.html" class="sidebar-link">Fibos.js 介绍</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/fibos.js/createaccountnotfree.html" class="sidebar-link">在 FIBOS 中创建账号</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/fibos.js/getinfosync.html" class="sidebar-link">获取 FIBOS 相关信息</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/fibos.js/getaccountsync.html" class="sidebar-link">获取指定账号信息</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/fibos.js/getblocksync.html" class="sidebar-link">获取指定区块信息</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/fibos.js/getproducerssync.html" class="sidebar-link">获取当前节点列表信息</a>
-    </li>
-  
-    
-    
-      
-      
-      
       
         <li><h3>智能合约</h3></li>
       
@@ -415,7 +335,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/contract/whatisabi.html" class="sidebar-link">编写 ABI 接口</a>
+      <a href="/guide/contract/ABI.html" class="sidebar-link">ABI 文件</a>
     </li>
   
     
@@ -428,7 +348,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/contract/crudoperations.html" class="sidebar-link">模块 DB 中的 crud 操作</a>
+      <a href="/guide/contract/database.html" class="sidebar-link">数据库</a>
     </li>
   
     
@@ -441,7 +361,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/contract/fibosauth.html" class="sidebar-link">FIBOS 权限系统</a>
+      <a href="/guide/contract/fibosauth.html" class="sidebar-link">权限系统</a>
     </li>
   
     
@@ -454,7 +374,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约之间的相互调用</a>
+      <a href="/guide/contract/inlinecall.html" class="sidebar-link">合约内调用</a>
     </li>
   
     
@@ -467,7 +387,35 @@
     
     <!--  -->
     <li>
-      <a href="/guide/contract/recipientclass.html" class="sidebar-link">FIBOS 中的 recipient</a>
+      <a href="/guide/contract/notice.html" class="sidebar-link">通知机制</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>系统合约</h3></li>
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system/account.html" class="sidebar-link">账户</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system/permission.html" class="sidebar-link">权限</a>
     </li>
   
     
@@ -482,7 +430,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/economic/eos2fibos.html" class="sidebar-link">从 EOS 跨链转账到 FIBOS</a>
+      <a href="/guide/economic/transfer.html" class="sidebar-link">转账</a>
     </li>
   
     
@@ -495,7 +443,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/economic/fibos2eos.html" class="sidebar-link">从 FIBOS 跨链转账到 EOS</a>
+      <a href="/guide/economic/exchange.html" class="sidebar-link">兑换</a>
     </li>
   
     
@@ -508,7 +456,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/economic/eos2fo.html" class="sidebar-link">EOS 与 FO 通证相互兑换</a>
+      <a href="/guide/economic/token.html" class="sidebar-link current">通证</a>
     </li>
   
     
@@ -521,46 +469,7 @@
     
     <!--  -->
     <li>
-      <a href="/guide/economic/howtoexchangetokeninfibos.html" class="sidebar-link">智能通证互兑</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/economic/howtocreatetokeninfibos.html" class="sidebar-link current">发行和销毁通证</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/economic/howtouselock.html" class="sidebar-link">锁仓和解锁功能</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-    
-    <!--  -->
-    <li>
-      <a href="/guide/economic/howtousecontractaccount.html" class="sidebar-link">合约子钱包</a>
+      <a href="/guide/economic/wallet.html" class="sidebar-link">合约子钱包</a>
     </li>
   
     
@@ -617,46 +526,42 @@
     
   
   
-    <h1>发行和销毁通证</h1>
+    <h1>通证</h1>
   
   
-    <blockquote>
-<p>学习本文档前，你需要对 FIBOS 和 fibos.js 有一定的了解。假如你对 FIBOS 和 fibos.js 不了解，请参阅 <a href="../start/start.html">快速入门</a> 。</p>
-</blockquote>
-<p>相比于在 EOS 上发行通证的复杂性和高成本，在 FIBOS 上发行通证只需要两步:</p>
-<ol>
-<li><p>获取 FIBOS 账号</p>
-</li>
-<li><p>发行通证</p>
-</li>
-</ol>
-<h2 id="获取-FIBOS-账号"><a href="#获取-FIBOS-账号" class="headerlink" title="获取 FIBOS 账号"></a>获取 FIBOS 账号</h2><p>由于9.4日之后，FIBOS 官网关闭了免费注册 FIBOS 的通道，现在有两种方式可以获得 FIBOS 账号：</p>
-<p>1.<a href="http://wallet.fo/" target="_blank" rel="noopener">下载 FO 钱包</a> 免费注册 FIBOS 账号</p>
-<p>2.参考<a href="../fibos.js/createaccountnotfree.html">在 FIBOS 中创建账号</a> 一文，让已经拥有 FIBOS 账号的朋友替你注册一个 。</p>
-<h2 id="发行通证"><a href="#发行通证" class="headerlink" title="发行通证"></a>发行通证</h2><p>发行通证调用 token 合约中的 <code>excreate</code> 接口，方法和参数名解释如下：</p>
+    <h2 id="发行通证"><a href="#发行通证" class="headerlink" title="发行通证"></a>发行通证</h2><p>发行通证调用 token 合约中的 <code>excreate</code> 接口，方法和参数名解释如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::excreate(</span><br><span class="line">  account_name issuer, <span class="comment">// 通证发行账号</span></span><br><span class="line">  asset maximum_supply, <span class="comment">// 最大可发行通证数量</span></span><br><span class="line">  double connector_weight, <span class="comment">// 连接器权重</span></span><br><span class="line">  asset maximum_exchange, <span class="comment">// 最大可兑换(流通)的通证数量</span></span><br><span class="line">  asset reserve_supply, <span class="comment">// 未流通通证数量</span></span><br><span class="line">  asset reserve_connector_balance, <span class="comment">// 未流通通证保证金数量</span></span><br><span class="line">  time_point_sec expiration, <span class="comment">// 项目方预设的项目锁仓期</span></span><br><span class="line">  double buy_fee, <span class="comment">// 项目方预设通证兑入手续费</span></span><br><span class="line">  double sell_fee <span class="comment">// 项目方预设通证兑出手续费</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>在 FIBOS 上你可以发行两种通证，一种是传统通证，一种智能通证。两种通证的不同点在于智能通证可以通过 bancor 协议进行兑换。如果还不了解什么是 bancor 协议的同学，可以参考 <a href="https://github.com/FIBOSIO/bancor" target="_blank" rel="noopener">bancor 协议中文白皮书</a> 一文。</p>
-<h3 id="发行普通通证"><a href="#发行普通通证" class="headerlink" title="发行普通通证"></a>发行普通通证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(name, <span class="string">'90000000000.0000 DDD'</span>, <span class="number">0</span>, <span class="string">'10000000000.0000 DDD'</span>, <span class="string">'3000000000.0000 DDD'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>, &#123;</span><br><span class="line">  authorization: name</span><br><span class="line">&#125;); <span class="comment">//expiration需大于等于当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(r)</span><br></pre></td></tr></table></figure>
-<h4 id="查询发行的通证"><a href="#查询发行的通证" class="headerlink" title="查询发行的通证"></a>查询发行的通证</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'fibostest123'</span>, <span class="string">'stats'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
-<p>通过调用查询通证的方法，可以查询到我们已经发行的通证。</p>
-<h4 id="增发普通通证"><a href="#增发普通通证" class="headerlink" title="增发普通通证"></a>增发普通通证</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exissueSync(name, <span class="string">'1000000.0000 ABC@fibostest123'</span>, <span class="string">'issue to fibostest123'</span>, &#123;</span><br><span class="line">  authorization: name</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
-<p><strong>Tips</strong> : 只有普通通证可以进行增发操作，智能通证不支持增发！</p>
+<h3 id="发行普通通证"><a href="#发行普通通证" class="headerlink" title="发行普通通证"></a>发行普通通证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(name, <span class="string">'90000000000.0000 DDD'</span>, <span class="number">0</span>, <span class="string">'10000000000.0000 DDD'</span>, <span class="string">'3000000000.0000 DDD'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="number">0</span>, <span class="number">0</span>, &#123;</span><br><span class="line">  authorization: name</span><br><span class="line">&#125;); <span class="comment">//expiration需大于等于当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(r)</span><br></pre></td></tr></table></figure>
 <h3 id="发行智能通证"><a href="#发行智能通证" class="headerlink" title="发行智能通证"></a>发行智能通证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(name, <span class="string">'100000000000.0000 AAA'</span>,  <span class="number">0.15</span>,<span class="string">'10000000000.0000 AAA'</span>, <span class="string">'3000000000.0000 AAA'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="number">0</span>, <span class="number">0</span>, &#123;</span><br><span class="line">    authorization: name</span><br><span class="line">&#125;);  <span class="comment">//expiration需大于等于当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
-<p>观察发行传统通证和创建智能通证的代码，我们不难发现，当一个通证的连接器权重（CW）值为0时，它就是传统通证。而对于智能通证来说，它必须要有对应的 cw（0-1之间）和 max_exchange。以及根据 bancor 协议计算出 reserve_supply 和 reserve_connector_balance。</p>
-<h4 id="开启智能通证的兑换"><a href="#开启智能通证的兑换" class="headerlink" title="开启智能通证的兑换"></a>开启智能通证的兑换</h4><p>刚刚创建完成的智能通证并不能立刻进行兑换，需要通证的创建者调用开仓操作之后才能开启兑换，具体API和操作如下：</p>
+<p>备注：当一个通证的连接器权重（CW）值为0时，它就是传统通证。而对于智能通证来说，它必须要有对应的 cw（0-1之间）和 max_exchange。以及根据 bancor 协议计算出 reserve_supply 和 reserve_connector_balance。</p>
+<h4 id="查询发行的通证"><a href="#查询发行的通证" class="headerlink" title="查询发行的通证"></a>查询发行的通证</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'fibostest123'</span>, <span class="string">'stats'</span>);<span class="comment">//第一个参数为是否明文展示，第二个参数为合约名，第三个参数为 FIBOS 账户名，第四个参数为表名</span></span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h2 id="增发普通通证"><a href="#增发普通通证" class="headerlink" title="增发普通通证"></a>增发普通通证</h2><blockquote>
+<p><strong>Tips</strong> : 只有普通通证可以进行增发操作，智能通证不支持增发！</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exissueSync(name, <span class="string">'1000000.0000 ABC@fibostest123'</span>, <span class="string">'issue to fibostest123'</span>, &#123;</span><br><span class="line">  authorization: name</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h2 id="开仓锁仓"><a href="#开仓锁仓" class="headerlink" title="开仓锁仓"></a>开仓锁仓</h2><h3 id="开仓"><a href="#开仓" class="headerlink" title="开仓"></a>开仓</h3><p>通证的创建者需要调用开仓操作之后才能开启兑换智能通证，具体 API 和操作如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span>;</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.setpositionSync(<span class="string">'0.0000 AAA@fibostest123'</span>, <span class="number">1</span>, <span class="string">'set postion state to true'</span>, &#123;</span><br><span class="line">    authorization: name</span><br><span class="line">&#125;); <span class="comment">// 第二个参数为 1 表示开仓，0 表示关仓</span></span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
-<p>经过开仓操作的智能通证就可以开放兑换了。</p>
-<p>请注意，这里的开仓/关仓状态仅仅影响智能通证的兑入，不影响智能通证的兑出功能。如果智能通证为关仓状态，仍然可以将智能通证兑换成保证金或者其他状态为开仓的智能通证，但是并不能将保证金兑换成为该智能通证了。</p>
-<h4 id="FO-通证兑换智能通证"><a href="#FO-通证兑换智能通证" class="headerlink" title="FO 通证兑换智能通证"></a>FO 通证兑换智能通证</h4><p>状态为开仓的智能通证就可以进行兑换了，具体操作如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">'fibostest123'</span></span><br><span class="line"><span class="keyword">let</span> result = ctx.exchangeSync(name, <span class="string">'1.0000 FO@eosio'</span>, <span class="string">'0.0000 AAA@fibostest123'</span>, <span class="string">'exchange FO to AAA'</span>, &#123;</span><br><span class="line">    authorization: name</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
-<h4 id="查询兑换的智能通证"><a href="#查询兑换的智能通证" class="headerlink" title="查询兑换的智能通证"></a>查询兑换的智能通证</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> rs = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'fibostest123'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
-<h4 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">var</span> r = ctx.extransferSync(<span class="string">'fibostest123'</span>, <span class="string">'fibostest321'</span>, <span class="string">'10.0000 ADC@fibostest123'</span>, <span class="string">'trasnfer to fibostest321'</span>, &#123;</span><br><span class="line">  authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
-<p>转账的目标账户必须要在 FIBOS 中存在，且转账的最大数量不能超过你的余额，精度也要与转账的 Token 精度一致。</p>
-<h2 id="销毁通证"><a href="#销毁通证" class="headerlink" title="销毁通证"></a>销毁通证</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exdestroySync(<span class="string">'0.0000 AAA@fibostest123'</span>, &#123;<span class="attr">authorization</span>: <span class="string">'fibostest123'</span>&#125;);</span><br></pre></td></tr></table></figure>
-<p>当不再需要该通证时，调用 <code>exdestroySync</code> 方法来销毁通证。</p>
-<p><strong>注意</strong>：销毁通证需要<strong>流通量为0</strong>的时候才可以销毁，也就是说通证发行方需要收回市场上所有流通的通证后才能销毁通证。</p>
-<h2 id="分红"><a href="#分红" class="headerlink" title="分红"></a>分红</h2><p>FIBOS 的 token 经济模型中为通证发行方提供了向社区中通证持有者进行分红的方法，发行方可通过填入一定数量的保证金进行分红，社区中的通证持有者将会在兑换过程中享受这部分保证金的红利。发行方执行分红的具体操作为：</p>
+<p>备注：这里的开仓/关仓状态仅仅影响智能通证的兑入，不影响智能通证的兑出功能。如果智能通证为关仓状态，仍然可以将智能通证兑换成保证金或者其他状态为开仓的智能通证，但是并不能将保证金兑换成为该智能通证了。</p>
+<h3 id="锁仓"><a href="#锁仓" class="headerlink" title="锁仓"></a>锁仓</h3><p>项目方发行智能通证时，填写的 reserve_supply 这个参数的值，锁仓量会随着销毁和解锁通证的操作而变化。项目方可以把锁仓中的一部分通证通过锁仓转账（exlocktrans）的方法给到用户 A ，用户 A 也可以将得到这部分锁仓的通证转给用户 B 或者说转给项目方。当项目运营良好的时候，项目方或者用户可以通过解锁通证来获取回报。</p>
+<p>调用 <code>exlocktrans</code>  方法和参数名解释如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::exlocktrans(</span><br><span class="line">    account_name <span class="keyword">from</span>, <span class="comment">//通证转出方</span></span><br><span class="line">    account_name to, <span class="comment">//通证转入方</span></span><br><span class="line">    extended_asset quantity, <span class="comment">//通证数量</span></span><br><span class="line">    time_point_sec expiration, <span class="comment">//待转出锁仓时间</span></span><br><span class="line">    time_point_sec expiration_to, <span class="comment">//待转入锁仓时间</span></span><br><span class="line">    string memo <span class="comment">//附言</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>备注：接口中的 <code>expiration_to</code> 参数是锁仓期，项目方给用户锁仓转账的时候可以设置这个参数，时间戳格式精确到秒，这样用户就可以在锁仓期到达之前是无法进行解锁操作的。 <code>expiration</code> 参数表示通过该锁仓期查找用户锁仓对应的通证。</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exlocktransSync(<span class="string">'nmslwsndhjyz'</span>, <span class="string">'fibostest123'</span>, <span class="string">`10000.0000 ADC@nmslwsndhjyz`</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="string">`lock transfer to fibostest123`</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'nmslwsndhjyz'</span></span><br><span class="line">&#125;); <span class="comment">//expiration_to必须大于等于expiration</span></span><br><span class="line"><span class="built_in">console</span>.notice(r)</span><br></pre></td></tr></table></figure>
+<p>上述代码中 <code>nmslwsndhjyz</code> 给用户 <code>fibostest123</code> 锁仓转账了 10000.0000 个 ADC 通证。</p>
+<h3 id="解锁"><a href="#解锁" class="headerlink" title="解锁"></a>解锁</h3><p>项目方和用户可以通过解锁操作来解锁仓中的通证变为流通中的通证。</p>
+<p>调用 <code>exunlock</code> 方法和参数名解释如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::exunlock(</span><br><span class="line">    account_name owner, <span class="comment">//通证持有者</span></span><br><span class="line">    extended_asset quantity, <span class="comment">//解锁数量</span></span><br><span class="line">    time_point_sec expiration, <span class="comment">//锁仓期</span></span><br><span class="line">    string memo <span class="comment">//附言</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>备注：解锁操作只有在当前时间大于锁仓期时候可以进行，这里需要注意的是 <code>expiration</code> 参数的值不是当前时间，而是锁仓转账时设定的锁仓期时间。</p>
+<h4 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exunlockSync(<span class="string">'fibostest123'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="number">1537960501</span>, <span class="string">'unlock 100.0000 ADC'</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'hujzwsndnmsl'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<h2 id="分红"><a href="#分红" class="headerlink" title="分红"></a>分红</h2><p>FIBOS 的 token 经济模型中为通证发行方提供了向社区中通证持有者进行分红的方法，发行方可通过填入一定数量的保证金进行分红，社区中的通证持有者将会在兑换过程中享受这部分保证金的红利。</p>
+<p>调用 <code>exshare</code> 方法和参数名解释如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exshareSync(<span class="string">'10000.0000 FO@eosio'</span>, <span class="string">'0.0000 AAA@fibostest321'</span>, <span class="string">'share 10000.0000 FO to token holders'</span>,&#123;</span><br><span class="line">    authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;); <span class="comment">// 第一个参数为填入保证金的数量，第二个参数为参与分红的智能通证，第三个参数为备注</span></span><br></pre></td></tr></table></figure>
+<h2 id="销毁通证"><a href="#销毁通证" class="headerlink" title="销毁通证"></a>销毁通证</h2><blockquote>
+<p><strong>Tips</strong> : 销毁通证需要<strong>流通量为0</strong>的时候才可以销毁，也就是说通证发行方需要收回市场上所有流通的通证后才能销毁通证。</p>
+</blockquote>
+<p>当不再需要该通证时，调用 <code>exdestroySync</code> 方法来销毁通证：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.exdestroySync(<span class="string">'0.0000 AAA@fibostest123'</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
   
   
