@@ -63,7 +63,7 @@ fibosClient.newaccountSync({
 以下代码保存至 `scripts/deploy.js` ：
 
 ```js
-const jsCode = fs.readTextFile('../contracts/todo.js');
+const jsCode = fs.readTextFile(`${__dirname}/../contracts/todo.js`);
 const wasm = fibosClient.compileCode(jsCode);
 ```
 
@@ -100,7 +100,7 @@ console.log(code);
 以下代码保存至 `scripts/deploy.js` ：
 
 ```js
-const abi = JSON.parse(fs.readTextFile('../contracts/todo.abi'));
+const abi = JSON.parse(fs.readTextFile(`${__dirname}/../contracts/todo.js`));
 fibosClient.setabiSync(config.contract.name, abi);
 ```
 

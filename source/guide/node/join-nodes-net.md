@@ -148,7 +148,7 @@ FIBOS 主网：
 
 ```javascript
 {
-    "initial_timestamp": "2018-08-01T00:00:00.000",
+    "initial_timestamp": "2018-08-28T00:00:00.000",
     "initial_key": "FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
     "initial_configuration": {
         "max_block_net_usage": 1048576,

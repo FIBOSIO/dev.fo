@@ -845,7 +845,7 @@ const fibos_client = FIBOS({
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
-    contract.exlocktr不不不``
+    contract.exlocktrans({
       from: 'nmslwsndhjyz',
       to: 'fibostest123',
       quantity: '10000.0000 BBB@5hzuyqumr3l5',
