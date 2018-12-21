@@ -240,4 +240,4 @@ types 用于自定义数据的类型：
 本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `contracts` 文件夹。
 
 **下一章节**
-👉 【[编写 JavaScript 智能合约](js.html)】
+👉 【[编写 JavaScript 智能合约](tutorials-js.html)】

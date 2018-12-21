@@ -153,4 +153,4 @@ exports.destorytodo = (id) => {
 本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `contracts` 文件夹。
 
 **下一章节**
-👉 【[部署合约](deploy.html)】
+👉 【[部署合约](tutorials-deploy.html)】

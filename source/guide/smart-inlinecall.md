@@ -4,7 +4,7 @@ type: tutorials
 order: 203
 ---
 
-学习本文档前，你需要对 [FIBOS 的权限系统 ](../contract/fibosauth.html)和 [如何发布 JS 合约](../start/start.html) 有一定了解
+学习本文档前，你需要对 [FIBOS 的权限系统 ](./smart-fibosauth.html)和 [如何发布 JS 合约](./start.html) 有一定了解
 
 **注意: FIBOS 中一个账户只能发布一份合约，且合约名为账户名**
 
@@ -90,7 +90,7 @@ var r = ctx.hiSync(account, 'fibos', `100.0000 AAA@fibostest123`, 'test inline c
 
 * 编写合约 abi
 
-  > 如果你对如何编写abi文档不太了解，请参阅 [编写abi文档](../contract/ABI.html)
+  > 如果你对如何编写abi文档不太了解，请参阅 [编写abi文档](./smart-ABI.html)
 
   abi 代码中，我们声明了一个名为`hi`的action，然后在 `hi` 的 action 中定义了四个参数: `from` 、 `to` 、 `quantity` 、 `memo` ，编写好 abi 文件后，调用了 `setabiSync` 的方法将abi部署。
 

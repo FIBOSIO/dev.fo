@@ -382,7 +382,7 @@ tracker.Queues.stats(); //输出队列统计信息
 
 1. 安装 FIBOS
 
-[快速安装](../installation/installation.html)
+[快速安装](./installation.html)
 
 2. 准备示例目录
 
@@ -590,7 +590,7 @@ fibos$ mongod
 
 #### 启动 FIBOS 环境
 
-如果你还未安装 FIBOS，请参考 [安装运行环境](../installation/installation.html)。
+如果你还未安装 FIBOS，请参考 [安装运行环境](./installation.html)。
 
 想要将数据同步至 mongoDB ，仅需在入门教程中的代码加入一段 `fibos.load('mongo_db')` ，将 mongo_db 这个模块载入 FIBOS。只需要三行代码，FIBOS 便会将区块数据自动同步至 mongoDB，非常方便。
 

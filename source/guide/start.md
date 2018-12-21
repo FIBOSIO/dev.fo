@@ -4,7 +4,7 @@ type:  tutorials
 order: 5
 ---
 
-搭建一个 FIBOS 开发环境需要安装 fibos 和 fibos.js，安装过程请参考 【[快速安装](../installation/installation.html)】 章节。 
+搭建一个 FIBOS 开发环境需要安装 fibos 和 fibos.js，安装过程请参考 【[快速安装](./installation.html)】 章节。 
 
 本章节示例代码的目录结构：
 
@@ -316,5 +316,5 @@ hello_fibos$ fibos fibos_client/call.js
 2018-8-30T14:28:22.005 thread-1   producer_plugin.cpp:1196      produce_block        ] Produced block 00000e57c573a33b... #3671 @ 2018-07-30T14:28:22.000 signed by eosio [trxs: 1, lib: 3670, confirmed: 0]
 ```
 
-本章带领大家快速了解以及发布了一个简单的 JavaScript 合约，下面为大家准备了一个示例可以在【[教程](../tutorials/instructions.html)】章节中查阅。
+本章带领大家快速了解以及发布了一个简单的 JavaScript 合约，下面为大家准备了一个示例可以在【[教程](./tutorials-instructions.html)】章节中查阅。
 

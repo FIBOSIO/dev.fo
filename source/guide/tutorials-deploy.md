@@ -127,5 +127,5 @@ code: {
 本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `scripts` 文件夹。
 
 **下一章节**
-👉 【[测试合约](testcase.html)】
+👉 【[测试合约](tutorials-testcase.html)】
 

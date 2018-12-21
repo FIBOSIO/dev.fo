@@ -10,7 +10,7 @@ order: 16
 ## 获取数据
 在 todomvc 项目中，dapp/components/app.js 文件。通过 `getTableRows()` 方法来获取数据。
 
-备注：`config.js` 配置文件已经在上一章 [部署合约](deploy.html) 里配置完成。
+备注：`config.js` 配置文件已经在上一章 [部署合约](tutorials-deploy.html) 里配置完成。
 
 ```javascript
 const FIBOS = require('fibos.js');

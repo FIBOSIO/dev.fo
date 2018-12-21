@@ -22,7 +22,7 @@ describe('todo', () => {})
 
 我们在 before(() => {}) 中定义一些用例开始前需要做的一些准备。
 
-备注：`config.js` 配置文件已经在上一章 [部署合约](deploy.html) 里配置完成。
+备注：`config.js` 配置文件已经在上一章 [部署合约](./tutorials-deploy.html) 里配置完成。
 
 ```js
 var FIBOS = require('fibos.js');
