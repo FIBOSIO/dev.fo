@@ -1,5 +1,5 @@
 ---
-title: 账户权限应用
+title: 账户权限
 type: tutorials
 order: 202
 ---

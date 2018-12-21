@@ -1,5 +1,5 @@
 ---
-title: 通知机制
+title: 通知
 type: tutorials
 order: 204
 ---
