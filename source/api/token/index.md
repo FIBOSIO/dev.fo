@@ -324,7 +324,7 @@ fibos_client.contract('eosio.token').then((contract)=>{
 | **expiration**                | date-time | 项目方预设的项目锁仓期     |
 | **buy_fee**                   | double    | 项目方预设通证兑入手续费   |
 | **sell_fee**                  | double    | 项目方预设通证兑出手续费   |
-
+| **connector_balance_issuer**  | stirng    | 准备金发行方              |
 #### 示例
 
 fibos.js 环境下：
@@ -341,7 +341,7 @@ const fibos_client = FIBOS({
 
 let ctx = fibos_client.contractSync('eosio.token');
 
-let r = ctx.excreateSync('dogfallchina', '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0,{ //手续费自定义,大于0小于等于1 
+let r = ctx.excreateSync('dogfallchina', '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio', { //手续费自定义,大于0小于等于1,此处准备金为 FO，所以准备金发行方填 eosio
   authorization: '私钥对应的账号'  //授权
 }); //expiration 需大于等于当前时间
 console.log(r)
@@ -369,7 +369,8 @@ fibos_client.contract('eosio.token').then((contract)=>{
       reserve_connector_balance: '90000.0000 FO',
       expiration: '2018-10-29T18:54:00',
       buy_fee: 0,
-      sell_fee: 0
+      sell_fee: 0,
+      connector_balance_issuer: 'eosio'
     },{
         authorization: '私钥对应的账号'
     })
