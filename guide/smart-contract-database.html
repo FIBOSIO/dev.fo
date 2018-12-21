@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    数据库 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="数据库 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="数据库 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <!-- <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li> -->
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <!-- <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li> -->
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/smart-contract-database.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/introduction.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/start.html" class="sidebar-link">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-database.html" class="sidebar-link current">数据库</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-auth.html" class="sidebar-link">账户权限</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-inlinecall.html" class="sidebar-link">合约内调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-recipient.html" class="sidebar-link">通知</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/contract/recipient.html" class="sidebar-link">通知机制</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>系统合约</h3></li>
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-account.html" class="sidebar-link">账户</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-permission.html" class="sidebar-link">权限</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-transfer.html" class="sidebar-link">转账</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-exchange.html" class="sidebar-link">兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-card.html" class="sidebar-link">通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-wallet.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node-instruction.html" class="sidebar-link">节点介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node-nodesNet.html" class="sidebar-link">加入节点网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node-persistence.html" class="sidebar-link">节点数据持久化</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>数据库</h1>
+  
+  
+    <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>为了将数据持久化到数据库中，并提供数据可查询的能力和服务，我们将引用 FIBOS 中的 db 模块。</li>
+<li>数据库操作需要3个模块，分别是：db, table and DBIterator。</li>
+</ul>
+<h2 id="访问数据库"><a href="#访问数据库" class="headerlink" title="访问数据库"></a>访问数据库</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> table = db.table(scope, code, indexes);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>table：abi 文件中定义数据表的表名</li>
+<li>scope： 指向合约发布者的名称</li>
+<li>code：table 中数据所属的 account_name</li>
+<li>index：索引</li>
+</ul>
+<p>db 是 FIBOS 中的全局模块，我们在 abi 文件中定义的数据表都会被挂载在 db 模块下，这样我们就可以通过 db 模块访问 abi 文件中定义的数据表。</p>
+<p>下面我们将演示对数据表进行增删改查操作：</p>
+<blockquote>
+<p>对数据表进行的操作是写在 JS 合约里！</p>
+</blockquote>
+<h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">exports.emplace = <span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    players.emplace(action.account, &#123; </span><br><span class="line">        title: <span class="string">'ceo'</span>,</span><br><span class="line">        age:<span class="number">48</span>, </span><br><span class="line">        nickname:<span class="string">'lion1'</span>,</span><br><span class="line">        id:<span class="number">123</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过 <code>table</code> 模块下的 <code>emplace</code> 函数向数据表中存入数据。</p>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.find = <span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> record_id = <span class="number">123</span>;</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(record_id);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'find =&gt;'</span>, itr.data);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过 <code>table</code> 模块下的 <code>find</code> 函数从数据表中查找数据，返回的是一个 <a href="../api/smartcontract/dbiterator.html">DBIterator</a>。 <a href="../api/smartcontract/dbiterator.html">DBIterator</a> 中的 data 属性展示了我们要查询的数据。详解请参考 API 中的 <a href="../api/smartcontract/dbiterator.html">DBIterator</a>。</p>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">exports.update = <span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> record_id = <span class="number">123</span>; </span><br><span class="line">    <span class="keyword">var</span> itr = players.find(record_id);</span><br><span class="line">    itr.data.title = <span class="string">'cto'</span>;</span><br><span class="line">    itr.data.age = <span class="number">23</span>;</span><br><span class="line">    itr.update(action.account);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过 <code>DBIterator</code> 模块下的 <code>update</code> 函数从数据表中修改数据，我们可以通过查找该数据，再对 <a href="../api/smartcontract/dbiterator.html">DBIterator</a>中的 data 属性进行修改，最后通过 <code>update</code> 进行保存修改。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.remove = <span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> players = db.players(action.account, action.account);</span><br><span class="line">    <span class="keyword">var</span> record_id = <span class="number">123</span>;</span><br><span class="line">    <span class="keyword">var</span> itr = players.find(record_id); </span><br><span class="line">    itr.remove();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过 <code>DBIterator</code> 模块下的 <code>remove</code> 函数从数据表中进行删除指定数据。</p>
+<h2 id="建立索引"><a href="#建立索引" class="headerlink" title="建立索引"></a>建立索引</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> indexes = &#123;</span><br><span class="line">   detail1:[<span class="number">128</span>, o =&gt; [o.age,o.weight]],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">var</span> players = db.players(action.account, action.account, indexes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码定义了一个或多个索引，访问表的时候加上 indexes 这个参数，这样在对表操作的时候就可以使用索引了。</p>
+<p><strong>基于索引查询</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> itr = players.indexes.age.find(&#123;<span class="attr">age</span>:<span class="number">48</span>,<span class="attr">weight</span>:<span class="number">100</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(itr.data);</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>模块 db 是 FIBOS 中的基础模块 — 数据库访问模块，可用于创建和操作数据库资源。</li>
+<li>通过 db 对象可以对数据表进行增删改查操作。</li>
+</ul>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>
