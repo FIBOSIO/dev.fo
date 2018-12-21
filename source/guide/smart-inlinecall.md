@@ -112,7 +112,7 @@ var r = ctx.hiSync(account, 'fibos', `100.0000 AAA@fibostest123`, 'test inline c
 
 * 合约授权
 
-  为了避免调用合约的用户的利益收到侵害， FIBSO 中合约调用 inline 方法涉及到权限操作时，需要用户主动向 `eosio.code` 该系统账户进行授权操作。主要调用 `updateauthSync` 方法。进行权限变更操作。
+  为了避免调用合约的用户的利益收到侵害， FIBOS 中合约调用 inline 方法涉及到权限操作时，需要用户主动向 `eosio.code` 该系统账户进行授权操作。主要调用 `updateauthSync` 方法。进行权限变更操作。
 
 * 调用合约
 

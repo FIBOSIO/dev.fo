@@ -4,115 +4,29 @@ type: tutorials
 order: 201
 ---
 
-## 1. 了解 FIBOS 的数据持久化
+##  介绍
 
-* **对于FIBOS 的 JavaScript 合约为什么需要数据持久化**
+- 为了将数据持久化到数据库中，并提供数据可查询的能力和服务，我们将引用 FIBOS 中的 db 模块。
+- 数据库操作需要3个模块，分别是：db, table and DBIterator。
 
-FIBOS  的 JavaScript 合约运行在一个独立的沙箱环境内，对于每一次的合约 action 操作来说，action 的上下文环境（Apply Context）都是新建的，类似于新建一个合约的实例，当 action 执行完毕后，所有定义的内容都会释放。合约的每个 action 操作都是独立的，因此为了帮助业务中存储过程数据就需要合约能够做到数据的持久化。
-
-
-
-## 2.  JavaScript 合约如何进行 CRUD 操作
-
-* **发布一个 JavaScript 合约**
-
-首先让我们通过发布合约，来实现一个支持对数据表的 CRUD 的合约。
+## 访问数据库 
 
 ```javascript
-var FIBOS = require('fibos.js');
-
-var fibos = FIBOS({
-    chainId:'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-    keyProvider:'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
-    httpEndpoint:'http://127.0.0.1:8888',
-    logger:{
-        log:null,
-        error:null
-    }
-})
-
-//合约所属账户 hellocode2 的公私钥对
-let pubkey = 'FO8h9mRbfNXix1PaC9bpUB4tr5SjVRrrkTVzMh78tfQSQRBXPPH8';
-let prikey = '5JE7knh6S5EWdzMjv6cadpaf8HLGoX95tALdG2KmzGVsSsaxMB7';
-
-//创建合约账号
-var name = 'hellocode2';
-fibos.newaccountSync({
-    creator:'eosio',
-    name:name,
-    owner:pubkey,
-    active:pubkey
-})
-
-//发布一个合约
-var abi = {
-    'version': 'eosio::abi/1.0',
-    'types': [{
-        'new_type_name': 'my_account_name',
-        'type': 'name'
-    }],
-    'structs': [{
-        'name': 'player',
-        'base': '',
-        'fields': [{
-            'name': 'nickname',
-            'type': 'my_account_name'
-         },{
-            'name': 'age',
-            'type': 'int32'
-         }]
-    },{
-        'name': 'param',
-        'base': '',
-        'fields': [{
-            'name': 'nickname',
-            'type': 'my_account_name'
-         }]
-    }],
-    'actions': [{
-        'name': 'emplace',
-        'type': 'param',
-        'ricardian_contract': ''
-    },{
-        'name': 'find',
-        'type': 'param',
-        'ricardian_contract':''
-    },{
-        'name': 'update',
-        'type': 'param',
-        'ricardian_contract':''
-    },{
-        'name': 'remove',
-        'type': 'param',
-        'ricardian_contract':''
-    }],
-    'tables': [{
-        'name': 'players',
-        'type': 'player',
-        'index_type': 'i64',
-        'key_names': ['id'],
-        'key_types': ['int64']
-    }]
-}
-//由 hellocode2 提供私钥发布合约
-fibos = FIBOS({
-    chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-    keyProvider: prikey,
-    httpEndpoint: 'http://127.0.0.1:8888',
-    logger: {
-       log: null,
-       error: null }
-})
-fibos.setabiSync(name, abi);
-                
+const table = db.table(scope, code, indexes);
 ```
 
+- table：abi 文件中定义数据表的表名
+- scope： 指向合约发布者的名称
+- code：table 中数据所属的 account_name
+- index：索引
 
+db 是 FIBOS 中的全局模块，我们在 abi 文件中定义的数据表都会被挂载在 db 模块下，这样我们就可以通过 db 模块访问 abi 文件中定义的数据表。
 
-* **对数据表进行 CRUD**
+下面我们将演示对数据表进行增删改查操作：
 
-CRUD — 保存
+> 对数据表进行的操作是写在 JS 合约里！
 
+### 保存
 
 ```javascript
 exports.emplace = param => {
@@ -126,9 +40,9 @@ exports.emplace = param => {
 };
 ```
 
+通过 `table` 模块下的 `emplace` 函数向数据表中存入数据。
 
-
-CRUD — 查看
+### 查看
 
 ```javascript
 exports.find = param => {
@@ -139,9 +53,9 @@ exports.find = param => {
 };
 ```
 
+通过 `table` 模块下的 `find` 函数从数据表中查找数据，返回的是一个 [DBIterator](../api/smartcontract/dbiterator.html)。 [DBIterator](../api/smartcontract/dbiterator.html) 中的 data 属性展示了我们要查询的数据。详解请参考 API 中的 [DBIterator](../api/smartcontract/dbiterator.html)。
 
-
-CRUD — 修改
+### 修改
 
 ```javascript
 exports.update = param => {
@@ -154,9 +68,9 @@ exports.update = param => {
 };
 ```
 
+通过 `DBIterator` 模块下的 `update` 函数从数据表中修改数据，我们可以通过查找该数据，再对 [DBIterator](../api/smartcontract/dbiterator.html)中的 data 属性进行修改，最后通过 `update` 进行保存修改。
 
-
-CRUD — 删除
+### 删除
 
 ```javascript
 exports.remove = param => {
@@ -167,9 +81,30 @@ exports.remove = param => {
 };
 ```
 
-定义了4个 **CRUD** 合约 action：分别为 emplace，find，update，remove。
+通过 `DBIterator` 模块下的 `remove` 函数从数据表中进行删除指定数据。
 
-## 3. 结语
+## 建立索引
+
+```javascript
+const indexes = {
+   detail1:[128, o => [o.age,o.weight]],
+};
+
+exports.hi = v => {
+     var players = db.players(action.account, action.account, indexes);
+}
+```
+
+上述代码定义了一个或多个索引，访问表的时候加上 indexes 这个参数，这样在对表操作的时候就可以使用索引了。
+
+**基于索引查询**
+
+```javascript
+var itr = players.indexes.age.find({age:48,weight:100});
+console.log(itr.data);
+```
+
+## 总结
 
 * 模块 db 是 FIBOS 中的基础模块 — 数据库访问模块，可用于创建和操作数据库资源。
-* 通过 db 对象可以对数据表进行 CURD 操作。
+* 通过 db 对象可以对数据表进行增删改查操作。
