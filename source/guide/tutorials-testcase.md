@@ -22,7 +22,7 @@ describe('todo', () => {})
 
 我们在 before(() => {}) 中定义一些用例开始前需要做的一些准备。
 
-备注：`config.js` 配置文件已经在上一章 [部署合约](deploy.html) 里配置完成。
+备注：`config.js` 配置文件已经在上一章 [部署合约](./tutorials-deploy.html) 里配置完成。
 
 ```js
 var FIBOS = require('fibos.js');
@@ -142,4 +142,4 @@ todos# 1n  removed
 本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `test` 文件夹。
 
 **下一章节**
-👉 【[开发 DApp 客户端](usecontract.html)】
+👉 【[开发 DApp 客户端](./tutorials-usecontract.html)】

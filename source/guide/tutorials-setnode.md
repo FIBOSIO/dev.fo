@@ -4,7 +4,7 @@ type: tutorials
 order: 11
 ---
 
->注意：**搭建节点前请确保本地安装 FIBOS 【[安装运行环境](../installation/installation.html)】**
+>注意：**搭建节点前请确保本地安装 FIBOS 【[安装运行环境](./installation.html)】**
 
 启动一个本地 FIBOS 节点，这样你就能在本地开发 FIBOS 的具体内容了，实际开发环境中，需要通过下面的不同插件来开发 FIBOS 节点。
 
@@ -181,4 +181,4 @@ fibos-todomvc$ fibos start_fibos/node.js
 本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `start_fibos` 文件夹。
 
 **下一章节**
-👉 【[编写 ABI 文件](abi.html)】
+👉 【[编写 ABI 文件](tutorials-abi.html)】

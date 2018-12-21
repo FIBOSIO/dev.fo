@@ -19,6 +19,7 @@ void token::excreate(
   time_point_sec expiration, // 项目方预设的项目锁仓期
   double buy_fee, // 项目方预设通证兑入手续费
   double sell_fee // 项目方预设通证兑出手续费
+  string connector_balance_issuer //准备金发行方
 )
 ```
 
@@ -31,9 +32,9 @@ void token::excreate(
 ...
 let name = 'fibostest123';
 let ctx = fibos.contractSync('eosio.token');
-let r = ctx.excreateSync(name, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, {
+let r = ctx.excreateSync(name, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio' {
   authorization: name
-}); //expiration需大于等于当前时间
+}); //expiration需大于等于当前时间,此处准备金为 FO，所以准备金发行方填 eosio
 console.log(r)
 ```
 
@@ -44,9 +45,9 @@ console.log(r)
 ...
 let name = 'fibostest123';
 let ctx = fibos.contractSync('eosio.token');
-let r = ctx.excreateSync(name, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, {
+let r = ctx.excreateSync(name, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio' {
     authorization: name
-});  //expiration需大于等于当前时间
+});  //expiration需大于等于当前时间,此处准备金为 FO，所以准备金发行方填 eosio
 console.log(r);
 ```
 

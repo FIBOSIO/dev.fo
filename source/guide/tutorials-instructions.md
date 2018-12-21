@@ -70,4 +70,4 @@ JavaScript 学习： <https://developer.mozilla.org/bm/docs/Web/JavaScript>
 React 学习：<https://react.docschina.org/>
 
 **下一章节**
-👉 【[搭建本地测试节点](setnode.html)】
+👉 【[搭建本地测试节点](tutorials-setnode.html)】

@@ -4,7 +4,7 @@ type: tutorials
 order: 253
 ---
 
-> 学习本文档前，你需要对 FIBOS 和 fibos.js 有一定的了解。假如你对 FIBOS 和 fibos.js 不了解，请参阅 [快速入门](../start/start.html) 。
+> 学习本文档前，你需要对 FIBOS 和 fibos.js 有一定的了解。假如你对 FIBOS 和 fibos.js 不了解，请参阅 [快速入门](./start.html) 。
 
 ## 为什么要用合约子钱包
 
@@ -24,7 +24,7 @@ order: 253
 
 ## 合约子钱包的三种用法
 
-前提条件：用户 `nmslwsndhjyz` 发行了一个合约，以及精度为四位小数，名字叫做 `ADC` 的智能通证。用户 `tteesstt1122` 通过 [兑换](./exchange.html) 持有 1000  个 `ADC` 流通通证。
+前提条件：用户 `nmslwsndhjyz` 发行了一个合约，以及精度为四位小数，名字叫做 `ADC` 的智能通证。用户 `tteesstt1122` 通过 [兑换](./token-exchange.html) 持有 1000  个 `ADC` 流通通证。
 
 ### 充值
 
@@ -175,7 +175,7 @@ exports.settle = (user, minutes) => {
 }
 ```
 
-关于 JavaScript 合约如何发布，请参考 [快速入门](../start/start.html)。
+关于 JavaScript 合约如何发布，请参考 [快速入门](./start.html)。
 
 通过上面的 JavaScript 合约，我们可以看到，`assert.isTrue(minutes > 0, 'minutes must be positive');`用于判断骑行时间的正确性。然后我们根据骑行时长计算出用户所需支付的通证数量，构造了一个`extended_asset`对象，作为参数，使用`send_inline`的方式调用`eosio.token`合约的`ctxtransfer`，将用户的子钱包资产转账至合约的发布者（fobikeissuer）的子钱包资产中。（关于合约之间的调用，下一期的文档我们会详细介绍，敬请期待！）
 

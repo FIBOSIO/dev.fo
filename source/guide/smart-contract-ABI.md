@@ -4,7 +4,7 @@ type: tutorials
 order: 200
 ---
 
-在 FIBOS 中，支持使用 JavaScript 开发区块链智能合约。在之前的文章 [快速入门](../start/start.html) 中，我们所编写发布的 JS 智能合约，除了合约代码的 JS 文件外，还有一份合约 ABI 文件，在当时我们并未给出详细的解读，这篇文章将带大家进行了解。
+在 FIBOS 中，支持使用 JavaScript 开发区块链智能合约。在之前的文章 [快速入门](./start.html) 中，我们所编写发布的 JS 智能合约，除了合约代码的 JS 文件外，还有一份合约 ABI 文件，在当时我们并未给出详细的解读，这篇文章将带大家进行了解。
 
 ## ABI 是什么
 
@@ -20,7 +20,7 @@ ABI 全称 Application Binary Interface，中文名“应用程序二进制接�
     "types":[...],              //定义类型的别名
     "structs":[...],            //各个类型的数据结构
     "actions":[...],            //智能合约的 action
-    "tables":[...],             //数据结构体
+    "tables":[...]            //数据结构体
 }
 ```
 
