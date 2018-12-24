@@ -1,15 +1,16 @@
 <li class="nav-dropdown-container learn">
-  <a class="nav-link<%- page.path.match(/\/(tutorials(?!\/team.html$)|installation|start|introduction|economic|contract|node|fibos.js)(\/|$)/) ? ' current' : '' %>"><%= __('menu.guidelines') %></a><span class="arrow"></span>
+  <a class="nav-link<%- page.path.match(/\/(introduction.html|installation.html|start.html|tutorials-instructions.html|smart-ABI.html|system-account.html|token-transfer.html|node-instruction.html)(\/|$)/) ? ' current' : '' %>"><%= __('menu.guidelines') %></a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
-      <li><a href="<%- url_for_lang("/guide/introduction/introduction.html") %>" class="nav-link<%- page.path.match(/\/introduction(\/|$)/) ? ' current' : '' %>"><%= __('submenu.introduction') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/installation/installation.html") %>" class="nav-link<%- page.path.match(/\/installation(\/|$)/) ? ' current' : '' %>"><%= __('submenu.installation') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/start/start.html") %>" class="nav-link<%- page.path.match(/\/start(\/|$)/) ? ' current' : '' %>"><%= __('submenu.start') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/tutorials/instructions.html") %>" class="nav-link<%- page.path.match(/\/tutorials(\/|$)/) ? ' current' : '' %> tutorials"><%= __('submenu.tutorials') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/fibos.js/situation.html") %>" class="nav-link<%- page.path.match(/\/fibos.js(\/|$)/) ? ' current' : '' %>"><%= __('submenu.fibos') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/contract/whatisabi.html") %>" class="nav-link<%- page.path.match(/\/contract(\/|$)/) ? ' current' : '' %>"><%= __('submenu.contract') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/economic/eos2fibos.html") %>" class="nav-link<%- page.path.match(/\/economic(\/|$)/) ? ' current' : '' %>"><%= __('submenu.economic') %></a></li>
-      <li><a href="<%- url_for_lang("/guide/node/instruction.html") %>" class="nav-link<%- page.path.match(/\/node(\/|$)/) ? ' current' : '' %>"><%= __('submenu.node') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/introduction.html") %>" class="nav-link<%- page.path.match(/\/introduction.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.introduction') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/installation.html") %>" class="nav-link<%- page.path.match(/\/installation.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.installation') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/start.html") %>" class="nav-link<%- page.path.match(/\/start.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.start') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/tutorials-instructions.html") %>" class="nav-link<%- page.path.match(/\/tutorials-instructions.html(\/|$)/) ? ' current' : '' %> tutorials"><%= __('submenu.tutorials') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/smart-contract-ABI.html") %>" class="nav-link<%- page.path.match(/\/smart-contract-ABI.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.contract') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/system-account.html") %>" class="nav-link<%- page.path.match(/\/system-account.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.system') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/token-transfer.html") %>" class="nav-link<%- page.path.match(/\/token-transfer.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.economic') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/node-instruction.html") %>" class="nav-link<%- page.path.match(/\/node-instruction.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.node') %></a></li>
     </ul></li>
   </ul>
 </li>
+

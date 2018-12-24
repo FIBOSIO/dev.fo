@@ -14,7 +14,7 @@ submenu:
   start: Starting Up
   tutorials: Guides
   node: Node Guide
-  fibos: fibos.js
+  system: System Contracts
   contract: Smart Contracts
   economic: Token Contracts
 

@@ -14,7 +14,7 @@ submenu:
   start: 入门
   tutorials: 教程
   node: 节点编程
-  fibos: fibos.js
+  system: 系统合约
   contract: 智能合约
   economic: Token 合约
   
