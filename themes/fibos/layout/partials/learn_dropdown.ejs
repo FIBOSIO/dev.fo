@@ -1,13 +1,13 @@
 <li class="nav-dropdown-container learn">
-  <a class="nav-link<%- page.path.match(/\/(introduction.html|installation.html|start.html|tutorials-instructions.html|smart-ABI.html|system-account.html|token-transfer.html|node-instruction.html)(\/|$)/) ? ' current' : '' %>">开发指南</a><span class="arrow"></span>
+  <a class="nav-link<%- page.path.match(/\/(introduction.html|installation.html|start.html|tutorials-instructions.html|smart-contract-instructions.html|system-resources.html|token-transfer.html|node-instruction.html)(\/|$)/) ? ' current' : '' %>">开发指南</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="<%- url_for("/guide/introduction.html") %>" class="nav-link<%- page.path.match(/\/introduction.html(\/|$)/) ? ' current' : '' %>">简介</a></li>
       <li><a href="<%- url_for("/guide/installation.html") %>" class="nav-link<%- page.path.match(/\/installation.html(\/|$)/) ? ' current' : '' %>">安装</a></li>
       <li><a href="<%- url_for("/guide/start.html") %>" class="nav-link<%- page.path.match(/\/start.html(\/|$)/) ? ' current' : '' %>">入门</a></li>
       <li><a href="<%- url_for("/guide/tutorials-instructions.html") %>" class="nav-link<%- page.path.match(/\/tutorials-instructions.html(\/|$)/) ? ' current' : '' %> tutorials">教程</a></li>
-      <li><a href="<%- url_for("/guide/smart-contract-instructions.html") %>" class="nav-link<%- page.path.match(/\/smart-contract-ABI.html(\/|$)/) ? ' current' : '' %>">智能合约</a></li>
-      <li><a href="<%- url_for("/guide/system-resources.html") %>" class="nav-link<%- page.path.match(/\/system-account.html(\/|$)/) ? ' current' : '' %>">系统合约</a></li>
+      <li><a href="<%- url_for("/guide/smart-contract-instructions.html") %>" class="nav-link<%- page.path.match(/\/smart-contract-instructions.html(\/|$)/) ? ' current' : '' %>">智能合约</a></li>
+      <li><a href="<%- url_for("/guide/system-resources.html") %>" class="nav-link<%- page.path.match(/\/system-resources.html(\/|$)/) ? ' current' : '' %>">系统合约</a></li>
       <li><a href="<%- url_for("/guide/token-transfer.html") %>" class="nav-link<%- page.path.match(/\/token-transfer.html(\/|$)/) ? ' current' : '' %>">Token 合约</a></li>
       <li><a href="<%- url_for("/guide/node-instruction.html") %>" class="nav-link<%- page.path.match(/\/node-instruction.html(\/|$)/) ? ' current' : '' %>">节点编程</a></li>
     </ul></li>
