@@ -1,29 +1,33 @@
 ---
-title: 测试合约
+title: test contract
 type: tutorials
 language: en
 order: 15
 ---
-不写自动测试用例的程序员不是一个好的测试工程师。我们鼓励所有的项目在启动最初，就建立完整的自动化测试用例。随着项目的发展，前期的投入会得到数百倍的回报。
 
-接下里我们将针对上文编写的 todo 合约，使用 FIBOS 的测试框架编写相应的测试用例。
+A developer who does not write automated test cases is not a good test developer. We advocate for complete automated test cases at the beginning of all projects developments. With the development of the project, this early-stage investment will be heavily rewarded with returns hundreds of times the initial.
 
 
-新建 `test` 文件夹，保存代码至 `test/index.js`:
+Next, we will use the FIBOS test framework to write the corresponding test cases in terms of the todo contract written in the foregoing article.
 
-## 用例名定义
 
-通过 describe(name, () => {}); 方法来定义一个测试用例的名称和框架。每一个 describe 中的上下文环境都是干净的。
+Create a new `test` folder, and save the code to `test/index.js`:
+
+
+## Definition of name of test cases
+
+Define the name and framework of a test case by using the method of describe(name, () => {});. The context for each describe should be ensured to be clean.
 
 ```js
 describe('todo', () => {})
 ```
 
-## 环境准备
 
-我们在 before(() => {}) 中定义一些用例开始前需要做的一些准备。
+## Preparation of environment
 
-备注：`config.js` 配置文件已经在上一章 [部署合约](./tutorials-deploy.html) 里配置完成。
+The preparation should be prior to definition of some cases in before(() => {}).
+
+Remarks: the configuration of file `config.js` has been completed in the previous chapter of Deployment of Contract.
 
 ```js
 var FIBOS = require('fibos.js');
@@ -61,11 +65,12 @@ describe('todo', () => {
 })
 ```
 
-上述代码，我们创建了一个 fibos 账号并且部署合约。
+As shown above, we created a fibos account and finished contract deployment.
 
-## 单元用例编写
 
-每个 it 都相当于一个单元用例，分别对 todo 合约中的四个方法进行了测试。
+## Writing of unit case
+
+Each “it” can be considered as a unit case, respectively testing the four methods in the todo contract.
 
 ```js
 describe('todo', () => {
@@ -114,7 +119,7 @@ describe('todo', () => {
 require.main === module && test.run(console.DEBUG);
 ```
 
-运行命令
+Run the command
 
 ```
 fibos-todomvc$ fibos test/index.js
@@ -122,9 +127,9 @@ fibos-todomvc$ fibos test/index.js
 
 
 
-## 结果展示
+## Display of results
 
-在测试代码中，我们分别对合约提供的增删改查四个方法进行了测试。并输出如下结果（节选）：
+In the test code, we have tested the four methods of adding, deleting, and modifying and finding of the contract, and output the following results (partial):
 
 ```j&#39;s
 is_producing_block: 1, tm: 16.138
@@ -140,7 +145,7 @@ todos# 1n  removed
   √ 5 tests completed (3709ms)
 ```
 
-本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `test` 文件夹。
+The GitHub source code of this article: in the `test` folder under <https://github.com/fengluo/ﬁbos-todomvc>
 
-**下一章节**
-👉 【[开发 DApp 客户端](./tutorials-usecontract.html)】
+Next chapter 
+👉 【[Develop the DApp client](usecontract.html)】

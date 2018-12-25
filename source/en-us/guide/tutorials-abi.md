@@ -1,15 +1,15 @@
 ---
-title: 智能合约——ABI 文件
+title: Smart Contract - ABI Files
 type: tutorials
 language: en
 order: 12
 ---
 
-ABI 全称 Application Binary Interface，中文名“应用程序二进制接口”，顾名思义是一个接口文件，描述了智能合约与上层应用之间的数据交换格式。ABI 文件格式类似 JSON，具备很好的可读性，有利于智能合约工程师与上层应用工程师之间的工作衔接。
+ABI, called the Application Binary Interface, as the name implies, refers to an interface file which describes the data interchange format between the smart contract and the upper-layer application. The ABI file format is similar to JSON format, and it is highly readable so as to facilitate the work connection between smart contract developers and upper application developers. 
 
-对于 JavaScript 合约来说，需要使用 ABI 文件来定义 actions 以及 tables。
+For contracts developed by JavaScript, it is required to use ABI files to define the definition of actions and tables. 
 
-智能合约 ABI 文件由 5 部分组成：
+The Smart Contract ABI file consists of five parts:
 
 ```json
 {
@@ -20,19 +20,20 @@ ABI 全称 Application Binary Interface，中文名“应用程序二进制接�
     "types":[...],              
 }
 ```
-`version` ：指定 ABI 的版本号。
-`structs` ：代表各个类型的数据结构。
-`actions` ：声明智能合约调用的 action。
-`tables` ：列出智能合约中的数据表名称，以及数据表中所储存的结构体名称。
-`types` ：用于自定义数据的类型。
+`version` ：refers to the version number of specified ABI
+`structs` ：represents various types of data structures
+`actions` ：states the called action of smart contracts
+`tables` ：lists the name of the data tables in the smart contracts, and the name of the struct stored in the data tables
+`types` ：used for customized data
 
-我们将按照 structs -> actions -> tables -> types 的顺序了解 FIBOS 智能合约 ABI 的开发方法。
+We will illustrate the development method of Smart Contract ABI on FIBOS in the order of structs -> actions -> tables -> types.
 
-新建 `contracts` 文件夹，保存代码至 `contracts/todo.abi`:
+Create new  `contracts` folder，and save the code to `contracts/todo.abi`:
+
 
 ## structs
 
-structs 部分的内容与 actions 部分的内容存在一一对应的关系，我们需要在 structs 里声明各个 action 需要传入的参数，如下所示。
+There is a one-to-one correspondence relationship between the content of the structs section and the content of the actions section. It is necessary to declare the parameters required to be passed to each action in the structs as following.
 
 ```json
 "structs": [
@@ -63,9 +64,9 @@ structs 部分的内容与 actions 部分的内容存在一一对应的关系，
 ]
 ```
 
-FIBOS 系统会根据 actions 部分中声明的 type ，在 structs 部分寻找对应的数据结构，每个数据结构的 fields 中，会列出每个参数的名称和类型。
+The FIBOS system will look for the corresponding data structure in the structs section according to the type declared in the actions section. Furthermore, the name and type of each parameter will also be listed in the fields of each data structure.
 
-除此以外，不光是 actions 里的项目需要在 structs 里列出详细的数据结构，tables 中的项目也需要。
+In addition, the detailed data structure of both items in actions section and items in tables is require to be listed in structs.
 
 ```json
 "structs": [
@@ -100,12 +101,12 @@ FIBOS 系统会根据 actions 部分中声明的 type ，在 structs 部分寻�
 ]
 ```
 
-这样，在 structs 中，我们就定义了一个名为 todo_index 的 struct，用来列出数据表 todo_index，包含字段 id(int64) ；一个名为 todo 的 struct ，用来列出数据表 todo ，包含字段 id(int64)，text(string)，completed(bool)。
+Thus, we define a struct named todo_index in structs, so as to list the data table of todo_index, including the field id(int64); a struct named todo is used to list the data table of todo, including the field id(int64), text(string), and completed(bool).
+
 
 ## actions
 
-action 部分的作用是声明智能合约有哪些可以调用的 action。
-以下代码实例中 action 定义了添加数据、查找数据、修改数据、删除数据四个方法。
+The action section is used to declare which action the smart contract can call. In the following code example, the action defines four methods which are adding data, finding data, modifying data, and deleting data.
 
 ```json
     "actions": [{
@@ -127,16 +128,17 @@ action 部分的作用是声明智能合约有哪些可以调用的 action。
     }],
 ```
 
-其中每一项的 name 就是 action 的名字，type 用来在 structs 中查找数据结构，ricardian_contract 是李嘉图合约。
+The name in each item refers to the name of the action, while type is used to find the data structure in structs, and the ricardian_contract is a Ricardian Contract
 
-李嘉图合约是一种特殊的结构化文本，主要用作交易中明确双方的意图。在 FIBOS 上，你所发送的每一条 action，都是可以附加上合约。这种合约很特殊，有着固定的格式，既能够被程序读取，也能为人类阅读。这一合约，就叫做李嘉图合约。
+The Ricardian Contract is a special structured text that is used primarily to clarify the intentions of both parties of the transaction. On FIBOS, contracts can be attached to every action you send. Such a kind of contract is very special and has a fixed format so that it can be read by both programs and humans. This contract is called the Ricardian Contract.
 
-> 注意： action 取名沿用了 eos 的命名规则。
-> 目前 action 中 name 命名规则约束：只支持数字 1 ～ 5 和英文小写字母；字符长度最大为 12。
+> Note: An action is named following the naming rule of EOS. 
+> The current naming rule on naming of action: only consisting of numbers from 1 to 5 and English lowercase letters; the maximum length of characters is 12.
+
 
 ## tables
 
-tables 列出了智能合约中需要建立的数据表名称，以及数据表中所储存的结构体名称。
+tables lists the names of the data table that needs to be created in the smart contract, and also the name of the structs stored in the data table.
 
 ```json
 "tables": [{
@@ -148,11 +150,12 @@ tables 列出了智能合约中需要建立的数据表名称，以及数据表�
 }]
 ```
 
-上述代码构造了一个 table 名是 todos ，结构体类型是 todo，主键名称是 id，主键类型是 int64 的数据表。
+The above codes construct a data table with the name todos, the structure type todo, the primary key name is id, and the primary key type is int64.
+
 
 ## types
 
-types 用于自定义数据的类型：
+types are used to customize the type of data:
 
 ```json
 {
@@ -161,11 +164,13 @@ types 用于自定义数据的类型：
 }
 ```
 
-这样在这个 ABI 文件里就自定义了一个类型名称为 my_account_name 的类型，类型是 name ，new_type_name 和 type 是关键字，类型 name 是系统定义的数据类型。
+In this way, in this ABI file, a type with the type name of my_account_name is customized, and the type is determined as “name”. Moreover, “new_type_name” and “type” are the keywords, and the “name” type is a system-defined data type.
 
-## ABI 文件代码实例
 
-按照上面的说明，我们编写本文需要的合约，以下代码保存为 contracts/todo.abi。
+
+## ABI file code example
+
+According to the instructions above, we wrote the contract required for this article. The following code is saved as contracts/todo.abi.
 
 ```json
 {
@@ -234,11 +239,12 @@ types 用于自定义数据的类型：
 }
 ```
 
->**注意：ABI 文件请不要添加任何注释，否则会运行报错！**
+>**Note: Please do not add any annotations to the ABI file, otherwise an error will be reported!**
 
-通过该 ABI 文件，我们就定义了四个 action ，分别为 emplacetodo(todo)、findtodo(todo_index)、updatetodo(todo)、destorytodo(todo_index) ；对应的 struct 主键为 todo_index，有 id(int64)、text(string)、completed(bool) 三个属性。
+Through the ABI file, we define four actions, including emplacetodo(todo), findtodo(todo_index), updatetodo(todo), and destorytodo(todo_index); the primary key of corresponding structs is todo_index, qualified with three attributes of id(int64), text(string), completed(bool) 
 
-本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `contracts` 文件夹。
+The GitHub source code for this article: under the `contracts` folder of 
+<https://github.com/fengluo/fibos-todomvc> 
 
-**下一章节**
-👉 【[编写 JavaScript 智能合约](tutorials-js.html)】
+**Next Chapter**
+👉 【[Write JavaScript Smart Contracts](js.html)】

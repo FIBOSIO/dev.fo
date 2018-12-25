@@ -1,17 +1,17 @@
 ---
-title: 开发 DApp 客户端
+title: Develop DApp Client
 type: tutorials
 language: en
 order: 16
 ---
 
-本文运用前端框架 React 创建了一个 TodoList 示例，并对其调用合约，进行添加数据操作。
-> 注意：本文有运用到前端框架 React。如果有对于 React 不熟悉的用户，可以建议先学习 [React](https://react.docschina.org/) 。
+This article uses the front-end framework of React to create a TodoList example, and call the contract to perform the data addition. 
+> Note: This article will apply the front-end framework React. If you are not familiar with React, you may learn React first. [React](https://react.docschina.org/) 。
 
-## 获取数据
-在 todomvc 项目中，dapp/components/app.js 文件。通过 `getTableRows()` 方法来获取数据。
+## Obtain the data
+In the the file of dapp/components/app.js of the project todomvc,  the getTableRows() method can be used to obtain the data. 
 
-备注：`config.js` 配置文件已经在上一章 [部署合约](tutorials-deploy.html) 里配置完成。
+Note: the configuration of file config.js has been completed in the previous chapter of Deployment of Contract.
 
 ```javascript
 const FIBOS = require('fibos.js');
@@ -24,22 +24,23 @@ fibosClient.getTableRows(
       config.contract.sender,
       config.contract.name,
       'todos').then((data)=>{
-        this.setState({todos: data.rows}) //this setState 为React 改变视图层方法
+        this.setState({todos: data.rows}) //this.setState is method for changing React visual layer
       }).catch((e) => {
         console.error(e)
       }   
 )
 ```
 
-## 调用合约
+## Call the contract
 
-在 todomvc 项目中，dapp/components/app.js 文件是我们是我们调用合约的地方。通过 `contract()` 方法来获取到合约。
+In the todomvc project, the dapp/components/app.js file is used to call the contract. The contract can be called by the methods of contract().
 
 ```js
 fibosClient.contract(config.contract.name)
 ```
 
-以插入数据为例，调用合约中暴露的 emplacetodo 方法，并传入 id、text、completed 三个参数。并将 authorization 配置为合约调用者的账户。
+Take data inserting as an example, call the emplacetodo method exposed in the contract, and pass in three parameters: id, text, completed. At the same time, authorization should be configured as the account of contract caller.
+
 
 ```js
  fibosClient.contract(config.contract.name).then((contract) => {
@@ -59,16 +60,16 @@ fibosClient.contract(config.contract.name)
           },
           ...this.state.todos
         ]
-        this.setState({todos})   ///this setState 为React 改变视图层方法
+        this.setState({todos})   ///this.setState is method for changing React visual layer
        }
       )
       .catch((err) => { console.log(err) })
     }) 
 ```
 
-## 结语
+## Conclusion
 
-本文以添加数据为代码示例，更多的 todo 操作示例可以在 <https://github.com/fengluo/fibos-todomvc>下的 `dapp` 文件下学习！
+This article takes data addition as an example. For more examples of todo operations you can refer to `dapp`at https://github.com/fengluo/fibos-todomvc!
 
 
 

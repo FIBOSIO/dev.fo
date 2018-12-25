@@ -1,29 +1,29 @@
 ---
-title: 安装英文
+title: Installation
 type: tutorials
 language: en
 order: 2
 ---
 
-## 快速安装
+## Quick Installation
 
-FIBOS 支持常用的 UNIX 操作系统，比如 Mac OSX，Linux 和 FreeBSD。
+FIBOS supports the common UNIX operating systems such as Mac OSX, Linux and FreeBSD.
 
-#### 建议在终端直接使用下面的命令快速安装：
+#### It is recommended to perform quick installation on the terminal by directly adopting the following commands:
 
-**稳定版**
+**Stable Version**
 
 ```
 curl -s https://fibos.io/download/installer.sh | sh
 ```
 
-**beta 版**
+**beta Version**
 
 ```
 curl -s https://fibos.io/download/installer_beta.sh | sh
 ```
 
-安装结束后 FIBOS 可执行文件在系统 `bin` 目录下，使用查看 FIBOS 版本：
+After the installation, the FIBOS executable file is in the system directory of `bin` , which can be used to view the FIBOS version:
 
 ```
 ~$ which fibos
@@ -33,9 +33,9 @@ curl -s https://fibos.io/download/installer_beta.sh | sh
 v0.27.0-dev
 ```
 
-## 常用命令
+## Common Commands
 
-直接执行 FIBOS 回车，查询版本信息，如：
+Directly press Enter on FIBOS to query version information as follows:
 
 ```
 ~$ fibos
@@ -46,25 +46,25 @@ hello,FIBOS!
 > .info
 ```
 
-创建 `hello_fibos` 文件夹 ，生成 `package.json`  文件配置初始化：
+Create a folder called `hello_fibos` so as to generate the configuration initialization of the file `package.json`.  
 
 ```
 $ cd  hello_fibos
 $ fibos --init 或者 npm init
 ```
 
-安装包
+Installation package
 
 ```
 $ fibos --install fibos.js 或者 npm install fibos.js
 ```
 
-## UNIX 操作系统下编译
+## Compilation under UNIX operating systems
 
-FIBOS 暂时未开源，待开源后提供编译教程！
+FIBOS is temporarily still not open source. The compiling course will be provided after we are!
 
-## 开始编程
+## Start compiling
 
-到现在为止，你已经有一个可以执行的 fibos 版本，可以开始体验 fibos 开发的乐趣了！
+Now you have an executable version of fibos, and you can start to enjoy the experience of developing on Fibos!
 
-👉 【[快速入门](./start.html)】
+👉 【[Quick Start](../start/start.html)】

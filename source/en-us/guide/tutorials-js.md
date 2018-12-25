@@ -1,21 +1,24 @@
 ---
-title: 智能合约——JS 合约
+title: Smart Contract——JS Contract
 type: tutorials
 language: en
 order: 13
 ---
->重要提示：
->JS 合约里的时间是 UTC 时间，如需用到其他时区的时间，请手动添加时间差！
+> Important Note：
+> The time in the JS contract is UTC time. If you desire to show other time zones, please add the time difference manually!
 
-​前面的 ABI 文件中我们设计了 actions 、tables、structs、types。表中存的数据为 todo ，最终存到数据库表里，JS 合约就是用来实现 ABI 文件中定义 action 的方法。
+In the previous ABI file, we have designed actions, tables, structs, and types. The data stored in the table is as todo and is lastly stored in the database table.
+The JS contract is used to apply the method of defining the action in the ABI file. 
 
-在 `contracts` 文件夹下，保存代码至 `contracts/todo.js`:
 
-## 添加信息
+Under the `contracts` folder，save the code to `contracts/todo.js`:
 
-在 ABI 文件中定义了 emplacetodo 的 action 方法，用来给 todo 表添加数据，其中包含字段 id(int64)，text(string)，completed(bool)。
 
-**代码：编写 JS 合约实现 emplacetodo 方法**
+## Emplace information
+
+The method for defining the action of emplacetodo in the ABI file is used to emplace data to the todo table, including the fields id(int64), text(string), completed(bool).
+
+**Code: Write a JS contract to apply the emplacetodo method**
 
 ```javascript
 exports.emplacetodo = (id, text, completed) => {
@@ -28,23 +31,26 @@ exports.emplacetodo = (id, text, completed) => {
 };
 ```
 
-内部的 todos.emplace(action.account,{text,completed,id}) 是 fibos.js 向 table 中添加信息的方法。
+The todos.emplace(action.account,{text,completed,id}) refers to the method of emplacing information to table in fibos.js.
 
-**emplace 函数描述：**
+
+**emplace function descriptions:**
 
 Table.emplace(String payer,Object val);
 
-调用参数:
+Call parameters:
 
-payer: String, 为此次操作付费的账户。
+payer: String, the account that will pay for this operation.
 
-val: Object, 将要存入到 table 的值。
+val: Object, refers to the value to be stored in table.
 
-## 查找信息
 
-在 ABI 文件中定义了 findtodo 的 action 方法，用来查询 todo 表信息，其中包含字段 id(int64)。
+## Query Information
 
-**代码：编写 JS 合约实现 findtodo 方法**
+The method of defining the action of findtodo in the ABI file is used to find the information about the todo table, including the fields id(int64).
+
+
+**Code: Write a JS contract to apply the findtodo method**
 
 ```javascript
 exports.findtodo = (id) => {
@@ -53,21 +59,23 @@ exports.findtodo = (id) => {
 };
 ```
 
-内部的 todos.find(id) 是 fibos.js 中对 table 查询的方法。
+The todos.find(id) refers to the method to query the table in fibos.js.
 
-**get 的函数描述:**
+**get function descriptions:**
 
 DBIterator Table.find(Value id);
 
-调用参数:
+Call parameters:
 
-- id: Value, 查询的参数。
+- id: Value,  refers to the parameters to be found. 
 
-## 更新信息
 
-在 ABI 文件中定义了 updatetodo 的 action 方法，用来修改 todo 表数据，其中包含字段 id(int64)，text(string)，completed(bool)。
+## Update information
 
-**代码：。编写 JS 合约实现 updatetodo 方法**
+The method of defining the action of updatetodo in the ABI file is used to modify the data of todo table, including the fields id(int64), text(string)， completed(bool).
+
+
+**Code: Write a JS contract to apply the updatetodo method**
 
 ```javascript
 exports.updatetodo = (id, text, completed) => {
@@ -80,23 +88,25 @@ exports.updatetodo = (id, text, completed) => {
 };
 ```
 
-内部的 todos.update(id,action.account,{text,completed,id}); 是 fibos.js 中对 table 信息的修改方法。
+The todos.update(id,action.account,{text,completed,id}); refers to the method of modifying the information in the table in fibos.js.
 
-**modify 函数描述：**
+**modify function descriptions：**
 
 DBIterator Table.modify(Value id,String payer,Object val);
 
-调用参数:
+Call Parameters:
 
-- id:Value,修改的参数。
-- payer:String，为此次操作付费的账户。
-- val：Object，将要存入到table的值。
+- id:Value, refers to the parameters to be modified.
+- payer:String, refers to the account that will pay for this operation.
+- val：Object, refers to the value to be stored in table. 
 
-## 销毁信息
 
-在 ABI 文件中定义了 destorytodo 的 action 方法，用来销毁 todo 表数据，其中包含字段 id(int64)。
+## Destroy Information
 
-**代码：编写 JS 合约实现 destorytodo 方法**
+The method of defining the action of destroytodo in the ABI file is used to destroy the data of todo table, including the fields id(int64).
+
+
+**Code: Write a JS contract to apply the destroytodo method**
 
 ```javascript
 exports.destorytodo = (id) => {
@@ -107,19 +117,20 @@ exports.destorytodo = (id) => {
 };
 ```
 
-内部的 todos.remove(id) 是 fibos.js 中的对 table 信息的删除方法。
+The todos.remove(id) refers to the method of removing the information in the table in fibos.js.
 
-**remove 函数描述：**
+**remove function description：**
 
 DBIterator.remove(Value id);
 
-调用参数:
+Call parameters:
 
-- id: Value, 要销毁的参数。
+- id: Value, refers to the parameters to be destroyed.
 
-## JS 合约代码实例
 
-下面代码保存至 contracts/todo.js ：用来处理合约 ABI 中定义的 todo 表信息。
+## JS contract code example
+
+The following code is saved to contracts/todo.js, and used to process the information about the defined todo table in the contract ABI.
 
 ```javascript
 exports.emplacetodo = (id, text, completed) => {
@@ -151,7 +162,8 @@ exports.destorytodo = (id) => {
 };
 
 ```
-本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `contracts` 文件夹。
+The GitHub source code of this article: under `contracts` folder of
+ <https://github.com/fengluo/fibos-todomvc> 
 
-**下一章节**
-👉 【[部署合约](tutorials-deploy.html)】
+**Next Chapter**
+👉 【[Deploy Contract](deploy.html)】

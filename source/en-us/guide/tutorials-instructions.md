@@ -1,57 +1,60 @@
 ---
-title: 简介
+title: Introductions
 type: tutorials
 language: en
 order: 10
 ---
 
-## DApp 简介
+## Introduction to DApp
 
-DApp 是 Decentralized Application 的缩写，中文是去中心化应用，被认为开启了区块链3.0时代。
+DApp is the abbreviation of Decentralized Application, and DApp is considered to initiate the start of the blockchain 3.0 era.
 
-不同的 DApp 采用不同的底层区块链开发平台和共识机制。这里所说的不同的底层区块链开发平台就好比手机的 IOS 系统和 Android 系统，是各个 DApp 的底层生态开发环境。DApp 就是在底层区块链平台生态上衍生的各种分布式应用，也是区块链世界中的基础服务提供方。DApp 于区块链，就好比 APP 之于 IOS 和 Android。
+Different DApps adopt different base blockchain development platforms and consensus mechanisms. The mentioned different base blockchain development platforms are like the IOS and Android systems applied of mobile phone, and they are the base ecosystem development environment for each DApp. DApp is a distributed application that is derived from the ecology of the base blockchain platform and is also the basic service provider in the blockchain world. The DApp is to blockchain what the APP is to IOS and Android.
 
-具体的底层区块链开发平台是什么样子的呢？
+What are these base blockchain development platforms like?
 
-目前比较流行的开发平台由以太坊、eos、fibos 等。
+Currently, popular development platforms include Ethereum, EOS, FIBOS and others.
 
-以太坊的核心是有智能合约功能的公共区块链平台，它允许任何人在上面中建立和使用通过区块链技术运行的分布式应用，编程语言为 solidity 。
+Ethereum, at its core, is public blockchain platform with the function of smart contracts, and it allows anyone to build and use distributed applications based on blockchain technology on the platform through the programming language of solidity.
 
-EOS 是一个允许开发者在其协议顶端创建区块链应用的新平台，与 ETH 相比，运行速度更快更稳定，主要解决了高交易频率的问题，每秒交易可达百亿次，且可同时运行上千个 APP ，编程语言为 c++。
+EOS is a new platform that allows developers to create blockchain applications on the top of the protocols. It runs faster and more stable than ETH, and it solves the problem concerning high transaction frequency, with transactions reaching tens of billions per second. Additionally, it can support running of thousands of APPs at the same time. Its programming language is c++.
 
-FIBOS 是一个由 fibjs+eos 设计的一个全新的区块链 js 开发平台，相比以上两者做到兼顾速度、稳定之外，对开发者更友好。
+FIBOS is a brand new blockchain-based js development platform designed by fibjs + EOS. In addition to better speed and stability, it is also more friendly to developers than the former two.
 
-## 教程说明
 
-Todo DApp 是用 React 和 fibos.js 编写的一款在 FIBOS 平台上运行的 DApp。通过它我们可以创建一个 TodoList 示例，并且进行以下操作：
-- 搭建本地节点
-- 编写 ABI 文件
-- 编写 JavaScript 合约
-- 部署合约
-- 调用合约
 
-代码文件目录结构
+## Tutorial clarification
+
+TodoDApp is a DApp running on the FIBOS platform and written through React and fibos.js. Through TodoDapp, we can create a TodoList example, and operate the following:
+- Build a local node
+- Write an ABI file
+- Write a JavaScript contract
+- Deploy the contract
+- Call the contract
+
+
+Code file directory structure
 
 ```
 
 fibos-todomvc/
-├── .babelrc  前端配置文件
-├── config.js  保存了主链、合约和账户的基本信息
+├── .babelrc            Front end config file
+├── config.js           Saves main chain, contract and account basic info
 ├── dist 
-│   └──index.html 前端测试页面
+│   └──index.html       Front end test page
 ├── start_fibos 
-│   ├── node.js  节点，生成区块
+│   ├── node.js         Node, produce block
 ├── contracts
-│   ├── todo.js  合约代码文件
-│   └── todo.abi 合约abi文件
+│   ├── todo.js         Contract code file
+│   └── todo.abi        Contract abi file
 ├── script
-│   ├── deploy.js  加载、发布合约脚本文件
-│   ├── server.js  本地fibos服务
-│   └── webpack.dev.js  前端html配置脚本
+│   ├── deploy.js       Load, publish contract script files
+│   ├── server.js       Local fibos service
+│   └── webpack.dev.js  Front end html config script
 └── dapp
-    ├── index.js  前端配置脚本
+    ├── index.js        Front end config script 
     └── components
-   	├── app.js  dapp开发文件
+   	├── app.js          dapp development file
    	├── footer.js 
    	├── header.js
    	├── main-section.js
@@ -60,15 +63,15 @@ fibos-todomvc/
 	   
 ```
 
->注意：本文重点讲解的是 fibos 以及如何开发 DApp 。前端运用的框架为 React，开发语言为 JavaScript。如果不具备 React 以及 JS 开发的新手，建议先学习 React 及 JavaScript。
+> Note: This article focuses on fibos and how to develop DApp. React is set as the front-end framework, and JavaScript is the development language. If you are a newcomer and are unable to develop with React and JS, it's advised to learn React and JavaScript first. 
 
-另外本教程的运行环境仅在本地开发环境中，如果需要在生产环境（实际开发）中，得结合实际的账户和秘钥等信息进行现场测试。
+In addition, the running environment of this tutorial is only confined in the local development environment. If the running environment needs to be in the production environment (actual development), it is necessary to perform on-site testing based on some information such as the actual account and private key.
 
-## 学习资源
+## Learning Resources
 
-本项目 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 
-JavaScript 学习： <https://developer.mozilla.org/bm/docs/Web/JavaScript>
-React 学习：<https://react.docschina.org/>
+The GitHub source code of this article: <https://github.com/fengluo/fibos-todomvc> 
+Learn JavaScript: <https://developer.mozilla.org/bm/docs/Web/JavaScript>
+Learn React: <https://reactjs.org/>
 
-**下一章节**
-👉 【[搭建本地测试节点](tutorials-setnode.html)】
+**Next Chapter**
+👉 【[Build Local Test Nodes](setnode.html)】

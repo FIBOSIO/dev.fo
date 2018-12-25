@@ -1,38 +1,42 @@
 ---
-title: 搭建本地测试节点
+title: Build local test node
 type: tutorials
 language: en
 order: 11
 ---
 
->注意：**搭建节点前请确保本地安装 FIBOS 【[安装运行环境](./installation.html)】**
+>Note: **Please make sure to install FIBOS locally before setting up the node.** 
+> **【[Install runtime environment](../installation/installation.html)】**
 
-启动一个本地 FIBOS 节点，这样你就能在本地开发 FIBOS 的具体内容了，实际开发环境中，需要通过下面的不同插件来开发 FIBOS 节点。
+Start a local FIBOS node so that you can develop the specific content of FIBOS locally. In the actual development environment, you need to develop FIBOS nodes through the different plug-ins below.
 
-新建 `start_fibos` 文件夹，保存代码至 `start_fibos/node.js`:
+
+Create a new `start_fibos` folder, and save the code to `start_fibos/node.js`:
 
 ```javascript
 var fibos = require('fibos');
 ```
 
-## 配置 HTTP 服务 
 
-http 插件
+## Configure HTTP service 
 
-如：http-server-address 用于配置本地服务地址，默认值为127.0.0.1:8888。
+http plugin 
+
+For example: http-server-address can be used to configure the local service address, default value is 127.0.0.1:8888. 
 
 ```javascript
 fibos.load('http', {
    'http-server-address':'0.0.0.0:8888'
 });
 ```
-**具体 http 配置信息请参考 [http 插件](../../api/fibos/index.html#http插件)**
+**Specific http configuration information please see [http plugin](../../api/fibos/index.html#http插件)**
 
-## 配置区块信息
 
-chain 插件
+## Configure block info 
 
-如：delete-all-blocks 用于确定是否删除所有状态数据和区块数据，默认值为 false。
+chain plugin 
+
+For example: delete-all-blocks can be used to determine whether all state data and block data are deleted, with the default value is false.
 
 ```javascript
 fibos.load('chain',{
@@ -40,28 +44,30 @@ fibos.load('chain',{
 });
 ```
 
-**具体 chain 配置信息请参考 [chain 插件](../../api/fibos/index.html#chain插件)**
+**Specific chain configuration information please see [chain plugin](../../api/fibos/index.html#chain插件)**
 
-## 获取 P2P 信息
 
-net 插件
+## Obtain P2P information
 
-p2p-listen-endpoint 用于监听 p2p 链接的地址和端口，默认值为：0.0.0.0:9876。
+net plugin
+
+p2p-listen-endpoint can be used to monitor the address and port of the p2p link, with the default value is 0.0.0.0:9876.
 
 ```javascript
 fibos.load('net',{
    'p2p-listen-endpoint':'0.0.0.0:9876'
 })
 ```
-**具体 net 配置信息请参考 [net 插件](../../api/fibos/index.html#net插件)**
+**Specific net configuration information see [net plugin](../../api/fibos/index.html#net插件)**
 
-## 控制区块生产的信息
 
-producer 插件
+## Control block production information
 
-producer-name：控制节点出块的账户名。
+producer plugin
 
-enable-stale-production：启用产生区块,即使区块是静止的。
+producer-name：refers to the account name that control block production of nodes.
+
+enable-stale-production：: enables the production of blocks, even if the block is static.
 
 ```javascript
 fibos.load('producer', {
@@ -69,38 +75,42 @@ fibos.load('producer', {
    'enable-stale-production': true
 });
 ```
-**具体 producer 配置信息请参考 [producer 插件](../../api/fibos/index.html#producer插件)**
+**Specific producer configuration information see [producer plugin](../../api/fibos/index.html#producer插件)**
 
-## 修改及查看 FIBOS 配置以及数据目录
 
-fibos.data_dir：fibos 的数据存放目录。
+## Modify and view FIBOS config and data directory
 
-fibos.config_dir：fibos 的配置存放目录。
+fibos.data_dir：refers to the data storage directory of fibos.
+
+fibos.config_dir：refers to the config storage directory of fibos.
 
 ```javascript
 fibos.config_dir = 'fibos_config_dir/';
 fibos.data_dir = 'fibos_data_dir/';
 ```
 
-## JS 智能合约状态
 
-Boolean, 查询和设置 JavaScript 智能合约状态，为 True 时支持 JavaScript 智能合约。
+## JS smart contract status
+
+Boolean can be used to query and set the JavaScript smart contract status. When it is True, it can support JavaScript smart contracts.
 
 ```javascript
 fibos.enableJSContract = true;
 ```
 
-## 启动节点
+
+## Start node
 ```javascript
 fibos.start();
 ```
 
-## 高级配置
-- 修改 FIBOS 监听端口以及地址
 
-  开启 HTTP 服务对所有地址的 8889 端口监听
+## Advanced Config
+- Modify FIBOS monitoring port and address
 
-  开启 P2P 服务对所有地址的 9877 端口监听
+  Enable the HTTP service to monitor the 8889 Port of all addresses
+
+  Enable the P2P service to monitor the 9877 Port of all addresses
 
 ```javascript
 fibos.load('http', {
@@ -112,19 +122,19 @@ fibos.load('net', {
 });
 ```
 
-- 修改及查看 FIBOS 配置以及数据目录
+- Modify and view FIBOS config and data directory
 
 ```javascript
-// 查看 FIBOS 配置以及数据目录
+// View FIBOS config and data directory
 console.notice('config_dir:', fibos.config_dir);
 console.notice('data_dir:', fibos.data_dir);
 
-// 修改 FIBOS 配置以及数据目录
+// Modify FIBOS config and data directory
 fibos.config_dir = 'fibos_config_dir/';
 fibos.data_dir = 'fibos_data_dir/';
 ```
 
-- 设置 FIBOS 服务启动时重置环境数据
+- Set the reset of environment data when the FIBOS service starts
 
 ```javascript
 fibos.load('chain', {
@@ -132,12 +142,12 @@ fibos.load('chain', {
 });
 ```
 
-[更多插件请点击这里](../../api/fibos/index.html)
+[Click here for more plugins](../../api/fibos/index.html)
 
 
-## 节点代码实例
+## Node code example
 
-下面代码存为 start_fibos/node.js，用来启动一个本地 FIBOS 节点。
+The following code is stored to start_fibos/node.js, and used to start a local FIBOS node.
 
 ```javascript
 var fibos = require('fibos');
@@ -161,15 +171,15 @@ fibos.data_dir = 'start_fibos/fibos_data_dir/';
 fibos.enableJSContract = true;
 fibos.start();
 ```
->注意：如后面开发和测试遇见问题，请重启 FIBOS 节点服务再尝试！
+> Note: In case of any problems in subsequent development and testing, please restart the FIBOS node service and try again!
 
-运行 FIBOS 开发环境：
+Run the FIBOS development environment:
 
 ```
 fibos-todomvc$ fibos start_fibos/node.js
 ```
 
-运行结果日志（部分）
+Run results log (partial) 
 
 ```
 fibos-todomvc$ fibos start_fibos/node.js
@@ -177,9 +187,9 @@ fibos-todomvc$ fibos start_fibos/node.js
 2018-07-30T03:29:01.004 thread-1   producer_plugin.cpp:1194      produce_block        ] Produced block 00000002e091c956... #2 @ 2018-07-30T03:29:01.000 signed by eosio [trxs: 0, lib: 0, confirmed: 0]
 ```
 
-如果你看到了以上的消息，说明运行成功，`fibos` 已经开始区块生产。
+If you see the above, it means operation is successful and `fibos` has started block production. 
 
-本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `start_fibos` 文件夹。
+The GitHub source code of this article: `start_fibos` folder of  <https://github.com/fengluo/fibos-todomvc> 
 
-**下一章节**
-👉 【[编写 ABI 文件](tutorials-abi.html)】
+**Next Chapter**
+👉 【[Write ABI File](abi.html)】

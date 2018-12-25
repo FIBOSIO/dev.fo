@@ -1,15 +1,17 @@
 ---
-title: 部署合约
+title: Deploy Contracts
 type: tutorials
 language: en
 order: 14
 ---
 
-上文中，我们已经写好了 js 合约代码和 ABI 文件，并起了本地的测试节点，下面我们将合约部署到环境上，并对合约进行测试。
+In the previous article, we have finished the js contract code and ABI file, and initiated the local test node. 
+Now, we will deploy the contract to the environment and test the contract.
 
-## 创建账户
 
-在根目录下，新建 `config.js` 保存以下代码，用来配置基本信息。
+## Create an account
+
+Create `config.js` under the root directory and save the following code for configuring the basic information.
 
 ```javascript
 const config = {
@@ -35,11 +37,9 @@ const config = {
 module.exports = config
 ```
 
+The release of contract needs to be performed via a fibos account, so initially, we need to create a fibos account and call the method of `newaccountSync()` to create the contract account.
 
-
-发布合约需要通过一个 fibos 账号进行发布，所以首先我们需要创建一个 fibos 账户，调用 `newaccountSync()` 方法来进行合约账户的创建。
-
-新建 `scripts` 文件夹，保存代码至 `scripts/deploy.js`:
+Create a new folder named `scripts`，and save the code to `scripts/deploy.js`:
 
 ```js
 const FIBOS = require('fibos.js');
@@ -57,62 +57,65 @@ fibosClient.newaccountSync({
 
 
 
-## 编译合约
+## Compile the contract
 
-我们通过 fs 模块读取到 js 合约文件，并通过 `compileCode()` 方法将合约编译成 wasm 文件。
+We can read the js contract file via the fs module and compile the contract into a wasm file by method of `compileCode()`. 
 
-以下代码保存至 `scripts/deploy.js` ：
+Save the following code to `scripts/deploy.js` ：
 
 ```js
 const jsCode = fs.readTextFile(`${__dirname}/../contracts/todo.js`);
 const wasm = fibosClient.compileCode(jsCode);
 ```
 
-### 部署 wasm 文件
+### Deploy wasm file
 
-调用 `setcodeSync()` 方法将 wasm 部署到节点上。
+Call `setcodeSync()` method to deploy wasm file to the node. 
 
-以下代码保存至 `scripts/deploy.js` ：
+Save the following code to `scripts/deploy.js` ：
 
 ```js
 fibosClient.setcodeSync(config.contract.name, 0, 0, wasm);
 ```
 
-### 获取 js 文件
+### Obtain js files. 
 
-使用 `getCodeSync()` 方法可以读取到 js 文件，与项目方提供的 js 合约文件对比，看看是否一致。
+Use `getCodeSync()` method to read js files，and it is suggested to compare the js files with the provided js contracts from projects and see whether the two are consistent with each other.
 
-以下代码保存至 `scripts/deploy.js` ：
+Save the following code to `scripts/deploy.js` ：
 
 ```js
 const code = fibosClient.getCodeSync(config.contract.name, true);
 console.log(code);
 ```
 
-## 部署合约
 
-我们需要将编译生产的 wasm 文件和 abi 文件部署到节点上。
+## Deploy contracts
+
+We need to deploy the compiled wasm and ABI files to the node.
 
 
 ### 部署 ABI 文件
 
-使用 fs 模块获取 ABI 文件，并通过 `setabiSync()` 将 ABI 文件部署到节点上。
+Obtain the ABI file using the fs module and deploy the ABI file to the node via  
+`setabiSync()` 
 
-以下代码保存至 `scripts/deploy.js` ：
+Save the following code to `scripts/deploy.js` ：
 
 ```js
 const abi = JSON.parse(fs.readTextFile(`${__dirname}/../contracts/todo.js`));
 fibosClient.setabiSync(config.contract.name, abi);
 ```
 
-运行命令
+Run command 
 
 ```javascript
 fibos-todomvc$ fibos  scripts/deploy.js
 ```
->注意：需新建窗口，保证 node.js 节点正常运行。如果报错 `账户已存在` 请关闭节点，重新启动 `fibos  start_fibos/node.js`。
 
-输出结果（部分）
+> Note: A new window is required to ensure that the node.js is working properly. If an account already exist error is reported, it is suggested to close the node and restart `fibos  start_fibos/node.js`.
+
+Output (partial):
 
 ```
 code: {
@@ -124,9 +127,11 @@ code: {
 
 ```
 
-至此，合约已经并成功部署到节点上了！
-本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `scripts` 文件夹。
+So far, the contract has been successfully deployed to the node! 
 
-**下一章节**
-👉 【[测试合约](tutorials-testcase.html)】
+The GitHub source code of this article: under `scripts` folder of 
+<https://github.com/fengluo/fibos-todomvc> 
+
+**Next Chapter**
+👉 【[Test Contract](testcase.html)】
 

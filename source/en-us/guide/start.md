@@ -1,35 +1,38 @@
 ---
-title: 快速入门
+title: Quick Start
 type:  tutorials
 language: en
 order: 5
 ---
 
-搭建一个 FIBOS 开发环境需要安装 fibos 和 fibos.js，安装过程请参考 【[快速安装](./installation.html)】 章节。 
+Building a FIBOS development environment requires installation of fibos and fibos.js. 
 
-本章节示例代码的目录结构：
+For installation proccess please see to 【[Quick Installation](../installation/installation.html)】.  
+
+The directory structure of the code example in this section is as follows:
 
 ```
 hello_fibos/
 ├── fibos_client
-│   ├── call.js  //调用合约接口脚本文件
-│   ├── initClient.js  //FIBOS连接文件
-│   ├── deploy.js  //加载、发布合约脚本文件
+│   ├── call.js  // Call contract interface script file
+│   ├── initClient.js  //FIBOS connection file
+│   ├── deploy.js  // Load, publish contract script file
 │   ├── hello
-│   │   ├── hello.abi  //合约abi文件
-│   │   └── hello.js  //合约代码文件
+│   │   ├── hello.abi  // Contract abi file
+│   │   └── hello.js  // Contract code file 
 │   └── package.json
 └── start_fibos
     └── node.js
 ```
 
-本章节示例代码地址：https://github.com/FIBOSIO/samples  下`basic`文件夹示例。
+Find the sample code in this chapter here : https://github.com/FIBOSIO/samples under the `basic` folder.
 
-## 启动节点
 
-**环境配置脚本**
+## Start Node
 
-创建 `start_fibos` 文件夹，保存如下代码至 `node.js`
+**Environment configuration script**
+
+Create `start_fibos` folder and save the codes to `node.js`
 
 ```js
 var fibos = require('fibos');
@@ -54,33 +57,35 @@ fibos.enableJSContract = true;
 fibos.start();
 ```
 
-运行 FIBOS 开发环境
+Run the FIBOS development environment:
 
 ```
 hello_fibos$ fibos start_fibos/node.js
 ```
 
-运行结果日志（部分）：
+Run results log (part):
 
 ```
 ……
 2018-07-30T03:29:01.004 thread-1   producer_plugin.cpp:1194      produce_block        ] Produced block 00000002e091c956... #2 @ 2018-07-30T03:29:01.000 signed by eosio [trxs: 0, lib: 0, confirmed: 0]
 ```
 
-如果你看到了以上的消息，说明运行成功，`fibos` 已经开始区块生产。
+If you see the above message, it means operation is sucessful and `fibos` has started block production.
 
-## JavaScript 合约代码
->注意：需新建窗口，保证 node.js 节点正常运行
 
-创建文件夹 `fibos_client`，保存如下代码至 `hello/hello.js`：
+## JavaScript Contract Code 
+
+> Note: A new window is required to ensure that node,js is operating normally.
+
+Create folder `fibos_client`，and save the following code to `hello/hello.js`：
 
 ```js
 exports.hi = user => console.error('in contract:', user);
 ```
 
-## 合约 ABI 文件
+## Contract ABI file
 
-保存如下代码至 `hello/hello.abi`：
+Save the following code to `hello/hello.abi`：
 
 ```abi
 {
@@ -111,9 +116,9 @@ exports.hi = user => console.error('in contract:', user);
 }
 ```
 
-## 连接 FIBOS 节点
+## Connect to FIBOS node
 
-在文件夹`fibos_client`下，新建 `initClient.js`，保存如下代码：
+Create a new `initClient.js` under the folder of `fibos_client`, and save the following code: 
 
 ```javascript
 var FIBOS = require('fibos.js');
@@ -133,9 +138,9 @@ function initClient(_keyProvider) {
 module.exports = initClient;
 ```
 
-## 加载、发布合约脚本
+## Load and publish contract scripts
 
-在文件夹`fibos_client`下，新建 `deploy.js`，保存如下代码：
+Create `deploy.js` under the folder of `fibos_client`, and save the following code: 
 
 ```js
 var FIBOS = require('./initClient.js')
@@ -168,13 +173,13 @@ var abi = JSON.parse(fs.readTextFile('./hello/hello.abi'));
 fibos.setabiSync(config['contractName'], abi);
 ```
 
-运行脚本：
+Run the script：
 
 ```
 hello_fibos$ fibos fibos_client/deploy.js
 ```
 
-输出结果（部分）：
+Output the results (part)：
 
 ```
 code: {
@@ -184,13 +189,14 @@ code: {
   "wasm": "504b03042d00000008002cadfe4c6a9400a2360000003900000008001400696e6465782e6a7301001000000000000000000000000000000000004bad28c82f2a29d6cbc854b055282d4e2d52b0b55348cecf2bcecf49d54b2d2aca2fd250cfcc0389941425269758a9eb8055695a0300504b010200001400000008002cadfe4c6a9400a23600000039000000080000000000000001000000000000000000696e6465782e6a73504b0506000000000100010036000000700000000000"
 }
 ```
-备注：`wasm` 是一个低层级的、轻便式的字节码,它致力于实现接近原生的执行速度。
 
-## 调用合约
+Notes: `wasm` is a kind of low-level and easy bytecode that is designed to achieve near-native execution speed.
 
-使用 fibos.js 中的 API 去调用合约。
+## Call the contract
 
-在文件夹`fibos_client`下，新建 `call.js`，保存如下代码：
+Use the API in fibos.js to call the contract. 
+
+Create `call.js` under the folder of `fibos_client`, and save the following code: 
 
 ```js
 var FIBOS = require('./initClient.js')
@@ -211,13 +217,13 @@ let i = ctx.hiSync('hello', {
 console.log(i)
 ```
 
-执行脚本：
+Execute the scripts:
 
 ```
 hello_fibos$ fibos fibos_client/call.js
 ```
 
-控制台打印结果如下：
+Printed results by Console are as follows:
 
 ```
 {
@@ -312,10 +318,10 @@ hello_fibos$ fibos fibos_client/call.js
   }
 }
 ```
-同时在 FIBOS 节点服务控制台显示 `trxs:1` 显示结果如下：
+
+At the same time, the FIBOS node service console displays the `trxs:1`, and the displayed results are as follows:
 ```
 2018-8-30T14:28:22.005 thread-1   producer_plugin.cpp:1196      produce_block        ] Produced block 00000e57c573a33b... #3671 @ 2018-07-30T14:28:22.000 signed by eosio [trxs: 1, lib: 3670, confirmed: 0]
 ```
 
-本章带领大家快速了解以及发布了一个简单的 JavaScript 合约，下面为大家准备了一个示例可以在【[教程](./tutorials-instructions.html)】章节中查阅。
-
+This chapter gives you a quick understanding of JavaScript contract and a simple JavaScript contract. There is an example for you in the 【[Instructions](../tutorials/instructions.html)】000000000000000
