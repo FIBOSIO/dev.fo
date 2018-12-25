@@ -19,26 +19,27 @@ trans.send_inline(account,name,args,authorization);
 
 - account: String, [action](index.html) 发送者的帐号名称
 - name: String, [action](index.html) 名称
-- args: Object, [action](index.html) 附带的数据
+- args: Object, [action](index.html) 所需的参数
 - authorization: Array, [action](index.html) 的权限
 
 **实例**
 
 ```JavaScript
 // hi acction
-exports.hi => (user) {
+exports.hi = (user, friend) => {
   // 触发hi2 action
   trans.send_inline(
-    "test", 
-    "hi2", 
+    'test', 
+    'hi2', 
     {
-      user:"user1", 
-      friend:"user2"
+      user: user, 
+      friend: friend
     }, 
     [{
-      "actor": "${name}", 
-      "permission": "active"
-  }])
+      actor: user, 
+      permission: 'active'
+    }]
+  )
 };
 
 // hi2 action
@@ -61,20 +62,20 @@ trans.send_context_free_inline(account,name,args):
 
 - account: String, [action](index.html) 发送者的帐号名称
 - name: String, [action](index.html) 名称
-- args: Object, [action](index.html) 附带的数据
+- args: Object, [action](index.html) 所需的参数
 
 **实例**
 
 ```JavaScript
 // hi acction
-exports.hi => (user) {
+exports.hi = (user, friend) => {
   // 触发hi2 action
   trans.send_context_free_inline(
-    "test", 
-    "hi2", 
+    'test', 
+    'hi2', 
     { 
-      user:"user1", 
-      friend:"user2" 
+      user: user, 
+      friend: friend 
     }
   );
 };

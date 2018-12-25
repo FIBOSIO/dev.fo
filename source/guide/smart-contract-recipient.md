@@ -4,12 +4,11 @@ type: tutorials
 order: 204
 ---
 
-* Recipient 是 JavaScript 合约通知机制，用户在转账交易时可以给接收者发送消息通知。
-* require_recipient 和 has_recipient 分别是模块 action 的静态函数。
+FIBOS 的通知机制可以帮助智能合约之间的通讯，实现了异步解耦。当合约执行的时候，可以向指定的账户集发送通知，对应账户的合约接受通知的话，可以做相应处理。
 
-## require_recipient
+## 发送通知
 
-**将指定的帐户添加到要通知的帐户集。**
+我们可以使用 [action](../api/smartcontract/index.html) 模块中的 `require_recipient` 方法将指定的帐户添加到要通知的帐户集合。当该合约方法被执行时，就会向账户集合所有账户发送通知。
 
 实例：
 
@@ -17,60 +16,28 @@ order: 204
 exports.hi = v => {
     action.require_recipient(action.receiver);
 };
+```
 
+## 监听通知
+
+当我们需要监听某个合约函数的通知，需要在合约中编写监听函数。函数名为需要监听的方法的名称前加 `on_`。例如，上述例子中我们定义了一个名为 `hi` 的函数，并且在该函数中通过 `require_recipient` 发送通知。我们需要在合约创建一个名为 `on_hi` 的函数用以监听通知，其参数是其监听的函数的参数。
+
+```javascript
 exports.on_hi = v => {
     console.log(action.receiver, action.account , v)
 };
 ```
 
-## has_recipient
-
-**当 action 执行成功后，账号是否会收到通知**。
-
-实例：
+监听通知最常使用的场景是监听转账操作。Token 合约的转账方法 —— `extransfer` 函数中转账成功后会对转账的双方账户发送通知。开发者可以监听该函数，做到账后的处理，比如：给用户开通相关服务等。
 
 ```javascript
-exports.hi = v => {
-    if (action.has_recipient(receiver)) console.notice('action received')
-    else console.error('action not received');
-};
-```
-
-## 如何使用
-
-```javascript
-const FIBOS = require('fibos.js');
-
-const fibos_client = FIBOS({
-  // fibos 主网 chainId
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '你的私钥',
-  httpEndpoint: "http://127.0.0.1:8888",
-});
-
-var js_code = `exports.on_transfer = (from, to, quantity, memo) => {
+exports.on_extransfer = (from, to, quantity, memo) => {
 	console.log(from ,to ,quantity, memo);
- }`;
-fibos_client.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
-
-let ctx = fibos_client.contractSync('eosio.token');
-var r = ctx.transferSync(
-    'fibostest123',  //通证转入方
-    'fibostest321',   //通证转出方
-    '1.0000 FO',  //通证数量
-    'trasnfer to fibostest321',  //附言
-    {
-  authorization: 'fibostest123'
-});
-console.log(r);
+}；
 ```
 
-成功调用合约后，接收方能获取到这笔转账的详细信息。
-
-
-
-## 结语
-
-* 一个合约向另一个合约发出的通知消息会被另一个合约收到，不管有没有 ABI 定义接口，都会在应用层收到。
-* 一个合约向另一个合约发送的通知消息就是本合约收到的消息，包括 code、action 和参数。
-* 账户处理处理通知信息和处理正常的消息一样，根据 code、action 和参数进行逻辑处理。
+> Tips:
+> 1. 一个合约向另一个合约发出的通知消息会被另一个合约收到，不管有没有 ABI 定义接口，都会在应用层收到。
+> 2. 一个合约向另一个合约发送的通知消息就是本合约收到的消息，包括 `code`、`action` 和参数。
+> 3. 账户处理处理通知信息和处理正常的消息一样，根据 `code`、`action` 和参数进行逻辑处理。
+> 4. 可以使用 `has_recipient` 函数来检查对应账户是否在通知账户集合中。

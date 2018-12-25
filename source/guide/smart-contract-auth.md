@@ -4,233 +4,62 @@ type: tutorials
 order: 202
 ---
 
-## FIBOS 中的账户权限如何应用到合约中
+跟所有的系统设计一样，我们也会在智能合约开发中需要对账户验证权限。[action](../api/smartcontract/index.html) 模块中提供了多个函数可以满足我们的需求。
 
-一般的事务中会有转账、合约的action等操作，这些都会涉及到账户权限的知识，学习到这里，大家应该对账户与权限已经有一定了解，FIBOS 提供使用 JavaScript 编写合约，那么如何在 FIBOS 的合约中控制权限呢？下面会通过示例来为大家演示。
+## 验证账户是否存在
 
-让我们先来实现一个简单的合约，保存代码至工作目录 `code.js`:
+在验证账户权限之前，我们可以先确认账户的有效性。[action](../api/smartcontract/index.html) 模块的 `is_account` 函数可以帮你轻松实现。
 
 ```javascript
-var FIBOS = require('fibos.js');
-
-var fibos = FIBOS({
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
-  httpEndpoint: 'http://127.0.0.1:8888',
-  logger: {
-    log: null,
-    error: null
+exports.hi = account => {
+  if (action.is_account(account)) {
+    console.notice("account exists");
+  } else {
+    console.error("account notexists");
   }
-});
-
-//合约所属账户 hellocode 的公私钥对
-let pubkey = 'FO5L9g2mnC4zZMZWDR8VBksz3exFmXV4kwfj65oYeKdqRPc2oPFW';
-let prikey = '5KMg9oUf5caX9yku7zQQwKZQLukRW7dMHaST8njpBf22puUvjea';
-
-//创建合约账户
-var name = 'hellocode';
-fibos.newaccountSync({
-  creator: 'eosio',
-  name: name,
-  owner: pubkey,
-  active: pubkey
-});
-
-//发布一个合约
-var abi = {
-  'version': 'eosio::abi/1.0',
-  'structs': [{
-    'name': 'hi',
-    'base': '',
-    'fields': [{
-      'name': 'user',
-      'type': 'name'
-    }]
-  }],
-  'actions': [{
-    'name': 'hi',
-    'type': 'hi',
-    'ricardian_contract': ''
-  }]
 };
-
-//由 hellocode 提供私钥发布合约
-fibos = FIBOS({
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: prikey,
-  httpEndpoint: 'http://127.0.0.1:8888',
-  logger: {
-    log: null,
-    error: null
-  }
-});
-
-fibos.setabiSync(name, abi);
-
-var js_code = `exports.hi = v => console.error(action);`;
-fibos.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
 ```
 
-运行脚本：
-```
-fibos code.js
-```
+## 验证账户授权
 
-
-执行结束后，我们使用 hellocode 账户发布了一个合约，合约提供一个 hi 方法，该方法仅仅打印输出了 action 这个对象，那么我们开始尝试调用合约。
-
-action 对象对于权限控制非常重要，请继续阅读。
-
-### 解读合约内 action 对象
-
-让我们写一个调用合约脚本，查看 action 对象是一个什么？保存代码至工作目录 `call.js`:
+就像传统系统中需要检查用户登陆情况，智能合约开发中也可以检查用户账户的授权。我们可以使用 `has_auth` 函数来检查 `action` 是否需要指定账户的授权。
 
 ```javascript
-var FIBOS = require('fibos.js');
-
-//合约所属账户 hellocode 的公私钥对
-let pubkey = 'FO5L9g2mnC4zZMZWDR8VBksz3exFmXV4kwfj65oYeKdqRPc2oPFW';
-let prikey = '5KMg9oUf5caX9yku7zQQwKZQLukRW7dMHaST8njpBf22puUvjea';
-
-var name = 'hellocode';
-
-var fibos = FIBOS({
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: prikey,
-  httpEndpoint: 'http://127.0.0.1:8888',
-  logger: {
-    log: null,
-    error: null
+exports.hi = account => {
+  if (action.has_auth(account)){
+    console.notice("action be authed");
   }
-});
-
-var ctx = fibos.contractSync(name);
-var r = ctx.hiSync(name, {
-  authorization: name
-});
-
-console.error(r.processed.action_traces[0].console);
+};
 ```
 
-执行脚本:
-```
-fibos call.js
-```
+## 验证账户权限
 
-输出:
-```
-{
-  'is_account': [Function],
-  'has_recipient': [Function],
-  'require_recipient': [Function],
-  'has_auth': [Function],
-  'require_auth': [Function],
-  'name': 'hi',
-  'account': 'hellocode',
-  'receiver': 'hellocode',
-  'publication_time': 1534845804000000,
-  'authorization': [
-    {
-      'actor': 'hellocode',
-      'permission': 'active'
-    }
-  ]
-}
+如果只是验证账户授权，[action](../api/smartcontract/index.html) 模块中的 `require_auth` 函数可以实现跟 `has_auth` 类似的效果。不过这两者还是有所不同。
+
+1. `has_auth` 验证没有指定账户授权，会返回 `false` 的布尔值。而 `require_auth` 添加指定账户失败后会抛出异常，中断执行后退出合约。
+
+2. `require_auth` 函数不仅可以检查账户是否授权，还可以检查账户是否提供了相应权限。
+
+FIBOS 账户有2种原生权限： `owner`、`active`。
+
+* `owner` 拥有超级权限，代表着账户的归属者，因为拥有此权限者可以用于操作其他权限配置，该权限常用事务中（转账、合约 action 等）一般不会使用。
+* `active` 常用业务的权限，比如：转账、投票等。
+
+下面的代码示例中，如果客户端调用合约方法 `hi` 的时候，没有提供所传参数 `account` 对应账户的授权，合约会抛出异常，中断执行。
+```javascript
+exports.hi = account => {
+  action.require_auth(account);
+  console.log("auth success");
+};
 ```
 
-分析一下脚本以及结果：
-
-- r.processed.action_traces[0].console 合约执行过程打印的信息会出现在返回值中
-- is_account 判断是否是一个账户
-- has_auth 判断账户是否拥有权限
-- require_auth 获取某个账户是否拥有某个权限
-- name action 方法的名称
-- account 合约所属账户
-- authorization 调用 hi 方法的账户、权限信息
-
-### 让我们来试试 action 的权限控制
-
-首先我们先来更新一下合约，保存代码 `updatecode.js`:
+下面的代码示例中，`require_auth` 要求提供 `account` 对应账户的 `active` 权限。否则会抛出异常，中断执行。
 
 ```javascript
-var FIBOS = require('fibos.js');
-
-//合约所属账户 hellocode 的公私钥对
-let pubkey = 'FO5L9g2mnC4zZMZWDR8VBksz3exFmXV4kwfj65oYeKdqRPc2oPFW';
-let prikey = '5KMg9oUf5caX9yku7zQQwKZQLukRW7dMHaST8njpBf22puUvjea';
-var name = 'hellocode';
-
-var fibos = FIBOS({
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: prikey,
-  httpEndpoint: 'http://127.0.0.1:8888',
-  logger: {
-    log: null,
-    error: null
-  }
-});
-
-var js_code = `exports.hi = v => console.error(action.has_auth(v));`;
-fibos.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
+exports.hi = account => {
+  action.require_auth(account, 'active');
+  console.log("action be authed");
+};
 ```
 
-运行脚本:
-
-```
-fibos updatecode.js
-```
-
-这段脚本的含义是判断调用者是否拥有对参数 v 这个用户的 active 权限，让我们写一个脚本开始测试一下吧！
-
-保存以下代码到工作目录 `call2.js`:
-
-```javascript
-var FIBOS = require('fibos.js');
-
-//合约所属账户 hellocode 的公私钥对
-let pubkey = 'FO5L9g2mnC4zZMZWDR8VBksz3exFmXV4kwfj65oYeKdqRPc2oPFW';
-let prikey = '5KMg9oUf5caX9yku7zQQwKZQLukRW7dMHaST8njpBf22puUvjea';
-var name = 'hellocode';
-
-var fibos = FIBOS({
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: prikey,
-  httpEndpoint: 'http://127.0.0.1:8888',
-  logger: {
-    log: null,
-    error: null
-  }
-});
-
-var ctx = fibos.contractSync(name);
-var r = ctx.hiSync('hellocode', {
-  authorization: name
-});
-
-console.error(r.processed.action_traces[0].console);
-
-
-var ctx = fibos.contractSync(name);
-var r = ctx.hiSync('eosio', {
-  authorization: name
-});
-
-console.error(r.processed.action_traces[0].console);
-```
-
-执行脚本:
-
-```
-fibos call2.js
-```
-
-输出结果:
-
-```
-true
-false
-```
-
-根据结果，代表 hellocode 账户 拥有 hellocode 的active 权限，但是并不拥有 eosio 这个账户的 active 权限。
-
-大家可以尝试升级合约使用 `require_auth` 替换 `has_auth`, `require_auth` 执行如果不是预期结果会执行退出合约。
+当然除了默认的两种原生权限，开发者也可以给账户添加自定义权限，然后在合约中验证。
