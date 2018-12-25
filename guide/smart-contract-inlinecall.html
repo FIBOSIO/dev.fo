@@ -68,8 +68,8 @@
       <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link">系统合约</a></li>
       <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
       <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
@@ -138,8 +138,8 @@
       <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link">系统合约</a></li>
       <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
       <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
@@ -335,6 +335,19 @@
     
     <!--  -->
     <li>
+      <a href="/guide/smart-contract-instructions.html" class="sidebar-link">合约介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
       <a href="/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
     </li>
   
@@ -396,6 +409,19 @@
       
       
         <li><h3>系统合约</h3></li>
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-resources.html" class="sidebar-link">资源</a>
+    </li>
+  
+    
+    
+      
+      
       
       
       
@@ -529,33 +555,16 @@
     <h1>合约内调用</h1>
   
   
-    <p>学习本文档前，你需要对 <a href="./smart-contract-auth.html">FIBOS 的权限系统 </a>和 <a href="./start.html">如何发布 JS 合约</a> 有一定了解</p>
-<p><strong>注意: FIBOS 中一个账户只能发布一份合约，且合约名为账户名</strong></p>
-<h3 id="发布调用其他合约方法的合约"><a href="#发布调用其他合约方法的合约" class="headerlink" title="发布调用其他合约方法的合约"></a>发布调用其他合约方法的合约</h3><blockquote>
-<p>前提条件:用户 <code>fibostest123</code> 拥有发布一个合约的资源，包括足够的 RAM、CPU 和 NET</p>
-</blockquote>
-<p>保存如下代码到 <code>inlinecall.js</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">var</span> account = <span class="string">'fibostest123'</span></span><br><span class="line"><span class="comment">//编写abi文件</span></span><br><span class="line"> <span class="keyword">var</span> abi = &#123;</span><br><span class="line">     <span class="string">'version'</span>: <span class="string">'eosio::abi/1.0'</span>,</span><br><span class="line">     <span class="string">'structs'</span>: [&#123;</span><br><span class="line">         <span class="string">'name'</span>: <span class="string">'hi'</span>,</span><br><span class="line">         <span class="string">'base'</span>: <span class="string">''</span>,</span><br><span class="line">         <span class="string">'fields'</span>: [</span><br><span class="line">             &#123;<span class="string">'name'</span>: <span class="string">'from'</span>,<span class="string">'type'</span>: <span class="string">'name'</span>&#125;, </span><br><span class="line">             &#123;<span class="string">'name'</span>: <span class="string">'to'</span>,<span class="string">'type'</span>: <span class="string">'name'</span>&#125;,</span><br><span class="line">             &#123;<span class="string">'name'</span>: <span class="string">'quantity'</span>,<span class="string">'type'</span>: <span class="string">'extended_asset'</span>&#125;, </span><br><span class="line">             &#123;<span class="string">'name'</span>: <span class="string">'memo'</span>,<span class="string">'type'</span>: <span class="string">'string'</span>&#125;</span><br><span class="line">         ]</span><br><span class="line">     &#125;],</span><br><span class="line">     <span class="string">'actions'</span>: [&#123;</span><br><span class="line">         <span class="string">'name'</span>: <span class="string">'hi'</span>,</span><br><span class="line">         <span class="string">'type'</span>: <span class="string">'hi'</span>,</span><br><span class="line">         <span class="string">'ricardian_contract'</span>: <span class="string">''</span></span><br><span class="line">     &#125;]</span><br><span class="line"> &#125;;</span><br><span class="line">fibos.setabiSync(account, abi, &#123;</span><br><span class="line">    authorization: account</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//编写、部署JS合约</span></span><br><span class="line"><span class="keyword">var</span> js_code = <span class="string">`exports.hi = (from, to, quantity, memo) =&gt; &#123;</span></span><br><span class="line"><span class="string">    console.log(from, to, quantity, memo);</span></span><br><span class="line"><span class="string">    trans.send_inline('eosio.token', 'ctxtransfer', &#123;</span></span><br><span class="line"><span class="string">        from: from,</span></span><br><span class="line"><span class="string">        to: to,</span></span><br><span class="line"><span class="string">        quantity: quantity,</span></span><br><span class="line"><span class="string">        memo: memo</span></span><br><span class="line"><span class="string">    &#125;, [&#123;</span></span><br><span class="line"><span class="string">        'actor': '<span class="subst">$&#123;account&#125;</span>',</span></span><br><span class="line"><span class="string">        'permission': 'active'</span></span><br><span class="line"><span class="string">        &#125;]);</span></span><br><span class="line"><span class="string">&#125;;`</span>;</span><br><span class="line"><span class="comment">//编译、部署JS合约</span></span><br><span class="line">fibos.setcodeSync(account, <span class="number">0</span>, <span class="number">0</span>, fibos.compileCode(js_code), &#123;</span><br><span class="line">	authorization: account</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//授权操作</span></span><br><span class="line">fibos.updateauthSync(&#123;</span><br><span class="line">    account: account,</span><br><span class="line">    permission: <span class="string">'active'</span>,</span><br><span class="line">    parent: <span class="string">'owner'</span>,</span><br><span class="line">    auth: &#123;</span><br><span class="line">    	threshold: <span class="number">1</span>,</span><br><span class="line">        keys: [&#123;</span><br><span class="line">        key: <span class="string">''</span>, <span class="comment">//你的公钥</span></span><br><span class="line">        weight: <span class="number">1</span></span><br><span class="line">        &#125;],</span><br><span class="line">     	<span class="string">'accounts'</span>: [&#123;</span><br><span class="line">			<span class="string">'permission'</span>: &#123;</span><br><span class="line">            <span class="string">'actor'</span>: account,</span><br><span class="line">            <span class="string">'permission'</span>: <span class="string">'eosio.code'</span></span><br><span class="line">            &#125;,</span><br><span class="line">         <span class="string">'weight'</span>: <span class="number">1</span></span><br><span class="line">          &#125;]</span><br><span class="line">        &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">authorization: account</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//合约调用</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(account);</span><br><span class="line"><span class="keyword">var</span> r = ctx.hiSync(account, <span class="string">'fibos'</span>, <span class="string">`100.0000 AAA@fibostest123`</span>, <span class="string">'test inline ctxtransfer'</span>, &#123;</span><br><span class="line">            authorization: account</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>上面代码中，一共进行了四个操作: <code>编写合约abi</code> 、 <code>编写部署JS合约</code> 、 <code>合约授权</code> 、 <code>调用合约</code>。</p>
-<ul>
-<li><p>编写合约 abi</p>
-<blockquote>
-<p>如果你对如何编写abi文档不太了解，请参阅 <a href="./smart-contract-ABI.html">编写abi文档</a></p>
-</blockquote>
-<p>abi 代码中，我们声明了一个名为<code>hi</code>的action，然后在 <code>hi</code> 的 action 中定义了四个参数: <code>from</code> 、 <code>to</code> 、 <code>quantity</code> 、 <code>memo</code> ，编写好 abi 文件后，调用了 <code>setabiSync</code> 的方法将abi部署。</p>
-</li>
-<li><p>编写部署 JS 合约</p>
-<p>JS 合约代码中，主要调用了全局的 <code>trans</code> 模块的 <code>send_inline</code> 方法，该方法的参数如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">@param account 合约的名称</span></span><br><span class="line"><span class="comment">@param name action的名称</span></span><br><span class="line"><span class="comment">@param args action的参数</span></span><br><span class="line"><span class="comment">@param authorization action的权限</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">send_inline</span><span class="params">(String account, String name, Object args, Array authorization = [])</span></span>;</span><br></pre></td></tr></table></figure>
-<p>代码中，调用的<strong>合约名称</strong>为: <code>eosio.token</code> ，调用<strong>合约的action</strong>为: <code>ctxtransfer</code>，然后将 <code>ctxtransfer</code> 方法所需的四个参数传入，最后传入调用 action 的权限。编写好 JS 合约代码后，需要调用 <code>setcodeSync</code> 方法，将 JS 合约代码部署到主网上。</p>
-</li>
-<li><p>合约授权</p>
-<p>为了避免调用合约的用户的利益收到侵害， FIBOS 中合约调用 inline 方法涉及到权限操作时，需要用户主动向 <code>eosio.code</code> 该系统账户进行授权操作。主要调用 <code>updateauthSync</code> 方法。进行权限变更操作。</p>
-</li>
-<li><p>调用合约</p>
-<p>将合约部署到主网后，只需要调用 <code>contractSync</code> 方法，该方法的参数为合约名称。然后调用合约 <code>fibostest123</code> 中的 <code>hi</code> 的 action，同时传入 action 的四个参数。这样我们就可以通过 <code>fibostest123</code> 合约的 <code>hi</code> 的action来调用 <code>eosio.token</code> 合约的 <code>ctxtransfer</code> action。</p>
-</li>
-</ul>
+    <p>通常我们会使用客户端在链下调用合约方法来实现我们的操作。如果我们希望在合约里调用其他合约的方法，就需要用到 <a href="../api/smartcontract/trans.html">trans</a> 模块来实现内部调用。</p>
+<p>例如：用户 <code>fibostest123</code> 定义了如下合约函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">name</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么用户 <code>fibostest456</code> 就可以通过如下方式来调用 <code>fibostest123</code> 合约的 <code>hi</code> 函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">exports.hello = <span class="function"><span class="params">user</span> =&gt;</span> &#123;</span><br><span class="line">  trans.send_inline(</span><br><span class="line">    <span class="string">'fibostest123'</span>, </span><br><span class="line">    <span class="string">'hi'</span>, </span><br><span class="line">    &#123;</span><br><span class="line">      name: user,</span><br><span class="line">    &#125;, </span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            actor: <span class="string">`fibostest456`</span>, </span><br><span class="line">            permission: <span class="string">'active'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>用户 <code>fibostest123</code> 合约的 <code>hi</code> 函数中并没有需要验证权限的地方，所以我们可以使用 <code>send_context_free_inline</code> 函数来免授权调用合约方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">exports.hello = <span class="function"><span class="params">user</span> =&gt;</span> &#123;</span><br><span class="line">  trans.send_context_free_inline(</span><br><span class="line">    <span class="string">'fibostest123'</span>, </span><br><span class="line">    <span class="string">'hi'</span>, </span><br><span class="line">    &#123;</span><br><span class="line">      name: user,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>内部调用最常用的场景是在合约内部调用 Token 合约进行转账操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">exports.helloworld = <span class="function">(<span class="params"><span class="keyword">from</span>, to, quantity, memo</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">from</span>, to, quantity, memo);</span><br><span class="line">    trans.send_inline(<span class="string">'eosio.token'</span>, <span class="string">'extransfer'</span>, &#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="keyword">from</span>,</span><br><span class="line">        to: to,</span><br><span class="line">        quantity: quantity,</span><br><span class="line">        memo: memo</span><br><span class="line">    &#125;,</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            actor: <span class="keyword">from</span>,</span><br><span class="line">            permission: <span class="string">'active'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如此我们就可以通过调用 <code>helloworld</code> 函数来进行转账操作了。</p>
 
   
   

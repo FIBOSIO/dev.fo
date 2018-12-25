@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    资源 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="资源 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="资源 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar" >
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link current">系统合约</a></li>
+      <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <!-- <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li> -->
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/" class="nav-link contribute">首页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link current">系统合约</a></li>
+      <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <!-- <li><a href="http://www.fibjs.org/docs/manual/module/readme.md.html" target="_blank">FIBJS API</a></li> -->
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<!-- <li class="nav-dropdown-container language">
+  <a class="nav-link">中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/guide/system-resources.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+ -->
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/introduction.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/start.html" class="sidebar-link">快速入门</a>
+    </li>
+  
+    
+    
+      
+        <li><h3>教程</h3></li>
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-instructions.html" class="sidebar-link">简介</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-setnode.html" class="sidebar-link">搭建本地测试节点</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-js.html" class="sidebar-link">智能合约——JS 合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-deploy.html" class="sidebar-link">部署合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-testcase.html" class="sidebar-link">测试合约</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/tutorials-usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>智能合约</h3></li>
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-instructions.html" class="sidebar-link">合约介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-database.html" class="sidebar-link">数据库</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-auth.html" class="sidebar-link">账户权限</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-inlinecall.html" class="sidebar-link">合约内调用</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/smart-contract-recipient.html" class="sidebar-link">通知</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>系统合约</h3></li>
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-resources.html" class="sidebar-link current">资源</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-account.html" class="sidebar-link">账户</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-permission.html" class="sidebar-link">权限</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>Token 合约</h3></li>
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-transfer.html" class="sidebar-link">转账</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-exchange.html" class="sidebar-link">兑换</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-card.html" class="sidebar-link">通证</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/token-wallet.html" class="sidebar-link">合约子钱包</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>节点编程</h3></li>
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node-instruction.html" class="sidebar-link">节点介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node-nodesNet.html" class="sidebar-link">加入节点网络</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/node-persistence.html" class="sidebar-link">节点数据持久化</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>资源</h1>
+  
+  
+    <p>FIBOS的资源分为两种类型：一种是抵押型资源，包括CPU和NET；另一种是消耗性资源，叫做RAM，也称存储。</p>
+<p>用户拥有发布一个合约的资源，包括足够的 RAM、CPU 和 NET。</p>
+<h2 id="内存和资源"><a href="#内存和资源" class="headerlink" title="内存和资源"></a>内存和资源</h2><h3 id="内存（RAM）"><a href="#内存（RAM）" class="headerlink" title="内存（RAM）"></a>内存（RAM）</h3><ul>
+<li>RAM 是在区块链上存储数据的必备资源，需要用户向系统购买，存储的数据越多，需要的 RAM 越多。</li>
+<li>RAM的价格是由市场决定的，RAM的价格会根据市场自动的调整，当程序使用完RAM的时候，可以释放RAM空间，并以当前市场价卖出。</li>
+<li>不论是购买 RAM，还是卖出 RAM，都是参与者与系统账户之间的交互，而不是直接的市场交易行为。只是，价格会按照bancor算法来决定。</li>
+</ul>
+<h3 id="网络宽带（Network-Bandwidth）"><a href="#网络宽带（Network-Bandwidth）" class="headerlink" title="网络宽带（Network Bandwidth）"></a>网络宽带（Network Bandwidth）</h3><ul>
+<li>用户可以通过抵押更多的 FO，来获得更大的带宽。也可以随时取消抵押，降低网络带宽，并取回 FO。</li>
+<li>网络带宽，可以比作手机流量的 “使用量”。可以根据需求，灵活的按需获取。</li>
+</ul>
+<h3 id="CPU-宽带（CPU-Bandwidth）"><a href="#CPU-宽带（CPU-Bandwidth）" class="headerlink" title="CPU 宽带（CPU Bandwidth）"></a>CPU 宽带（CPU Bandwidth）</h3><ul>
+<li>CPU带宽，用来衡量你最近3天内，合约执行过程中的运算时间消耗（按毫秒计算）。</li>
+<li>CPU带宽和网络带宽一样，是一个临时性的消耗。当调用量减少时，消耗随之减少，最小可以降到0。</li>
+<li>随时可以通过抵押 FO，来获得更大的 CPU，以及取消抵押来降低 CPU，并取回抵押的 FO。</li>
+</ul>
+<h2 id="如何购买内存、抵押资源"><a href="#如何购买内存、抵押资源" class="headerlink" title="如何购买内存、抵押资源"></a>如何购买内存、抵押资源</h2><h3 id="购买内存"><a href="#购买内存" class="headerlink" title="购买内存"></a>购买内存</h3><ol>
+<li>在链上存贮账户信息是需要消耗内存的，创建者需为被创建者购买内存来存放新账户的信息。</li>
+</ol>
+<p>通过调用 <code>buyrambytes</code> 方法，参数和解释说明如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://ca-rpc.fibos.io:8870"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.buyrambytesSync(&#123;</span><br><span class="line">      payer: <span class="string">"fibosmaster1"</span>,  <span class="comment">//创建者的账户名</span></span><br><span class="line">      receiver: <span class="string">"yunyu1212122"</span>, <span class="comment">//被创建者的账户名</span></span><br><span class="line">      bytes: <span class="number">4096</span>  <span class="comment">//购买的内存大小（字节）</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'私钥对应的账号'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>购买存储资源，区别是买特定数量的通证还是买特定大小的内容。</li>
+</ol>
+<p>通过调用 <code>buyram</code> 方法，参数和解释说明如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://ca-rpc.fibos.io:8870"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.buyramSync(&#123;</span><br><span class="line">      payer: <span class="string">"silver123451"</span>, <span class="comment">//购买存储资源的账号</span></span><br><span class="line">      receiver: <span class="string">"silver123451"</span>, <span class="comment">//接受存储资源的账号</span></span><br><span class="line">      quant: <span class="string">"0.1273 FO"</span> <span class="comment">//购买存储资源所用的通证数量</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'私钥对应的账号'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h3 id="抵押资源"><a href="#抵押资源" class="headerlink" title="抵押资源"></a>抵押资源</h3><p>创建者为被创建者抵押 FO 获取 CPU 和 NET ，让新账户能够进行转账。</p>
+<p>通过调用 <code>delegatebw</code> 方法，参数和解释说明如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://ca-rpc.fibos.io:8870"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.delegatebwSync(&#123;</span><br><span class="line">      <span class="keyword">from</span>: <span class="string">"slowmistioio"</span>,  <span class="comment">//资源抵押者的账户名</span></span><br><span class="line">      receiver: <span class="string">"slowmistioio"</span>,  <span class="comment">//资源接受者的账户名</span></span><br><span class="line">      stake_net_quantity: <span class="string">"3193.0000 FO"</span>,  <span class="comment">//抵押者为接受者抵押 FO 获取 NET</span></span><br><span class="line">      stake_cpu_quantity: <span class="string">"30000.0000 FO"</span>,  <span class="comment">//  抵押者为接受者抵押 FO 获取 CPU</span></span><br><span class="line">      transfer: <span class="number">0</span>  <span class="comment">// 代表抵押资源同时是否将对应通证转账给接受者</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'私钥对应的账号'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h3 id="取消抵押"><a href="#取消抵押" class="headerlink" title="取消抵押"></a>取消抵押</h3><p>用来解除抵押，释放资源，收回通证。</p>
+<p>通过调用 <code>updelegatebw</code> 方法，参数和解释说明如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://ca-rpc.fibos.io:8870"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.undelegatebwSync(&#123;</span><br><span class="line">      <span class="keyword">from</span>: <span class="string">'hoffercq1211'</span>,  <span class="comment">//解除用哪个账号所抵押的通证</span></span><br><span class="line">      receiver: <span class="string">'hoffercq1211'</span>,  <span class="comment">//解除作用在哪个账号上的抵押通证</span></span><br><span class="line">      unstake_net_quantity: <span class="string">'649540.0000 FO'</span>, <span class="comment">//解除用来获取带宽资源的通证数量</span></span><br><span class="line">      unstake_cpu_quantity: <span class="string">'649540.0000 FO'</span> <span class="comment">//解除用来获取计算资源的通证数量</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'私钥对应的账号'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h3 id="出售资源"><a href="#出售资源" class="headerlink" title="出售资源"></a>出售资源</h3><p>通过调用 <code>sellram</code> 方法，参数和解释说明如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'ssl'</span>).loadRootCerts();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://ca-rpc.fibos.io:8870"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.sellramSync(&#123;</span><br><span class="line">      account: <span class="string">"silver123451"</span>, <span class="comment">//出售资源通证的接受账号</span></span><br><span class="line">      bytes: <span class="number">789438000</span> <span class="comment">//出售多少空间的存储资源</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'私钥对应的账号'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

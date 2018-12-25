@@ -68,8 +68,8 @@
       <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link">系统合约</a></li>
       <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
       <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
@@ -138,8 +138,8 @@
       <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link">系统合约</a></li>
       <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
       <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
@@ -335,6 +335,19 @@
     
     <!--  -->
     <li>
+      <a href="/guide/smart-contract-instructions.html" class="sidebar-link">合约介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+    
+    <!--  -->
+    <li>
       <a href="/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
     </li>
   
@@ -396,6 +409,19 @@
       
       
         <li><h3>系统合约</h3></li>
+      
+      
+      
+    
+    <!--  -->
+    <li>
+      <a href="/guide/system-resources.html" class="sidebar-link">资源</a>
+    </li>
+  
+    
+    
+      
+      
       
       
       
@@ -529,23 +555,23 @@
     <h1>通知</h1>
   
   
-    <ul>
-<li>Recipient 是 JavaScript 合约通知机制，用户在转账交易时可以给接收者发送消息通知。</li>
-<li>require_recipient 和 has_recipient 分别是模块 action 的静态函数。</li>
-</ul>
-<h2 id="require-recipient"><a href="#require-recipient" class="headerlink" title="require_recipient"></a>require_recipient</h2><p><strong>将指定的帐户添加到要通知的帐户集。</strong></p>
+    <p>FIBOS 的通知机制可以帮助智能合约之间的通讯，实现了异步解耦。当合约执行的时候，可以向指定的账户集发送通知，对应账户的合约接受通知的话，可以做相应处理。</p>
+<h2 id="发送通知"><a href="#发送通知" class="headerlink" title="发送通知"></a>发送通知</h2><p>我们可以使用 <a href="../api/smartcontract/index.html">action</a> 模块中的 <code>require_recipient</code> 方法将指定的帐户添加到要通知的帐户集合。当该合约方法被执行时，就会向账户集合所有账户发送通知。</p>
 <p>实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    action.require_recipient(action.receiver);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">exports.on_hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(action.receiver, action.account , v)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="has-recipient"><a href="#has-recipient" class="headerlink" title="has_recipient"></a>has_recipient</h2><p><strong>当 action 执行成功后，账号是否会收到通知</strong>。</p>
-<p>实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (action.has_recipient(receiver)) <span class="built_in">console</span>.notice(<span class="string">'action received'</span>)</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">console</span>.error(<span class="string">'action not received'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://127.0.0.1:8888"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> js_code = <span class="string">`exports.on_transfer = (from, to, quantity, memo) =&gt; &#123;</span></span><br><span class="line"><span class="string">	console.log(from ,to ,quantity, memo);</span></span><br><span class="line"><span class="string"> &#125;`</span>;</span><br><span class="line">fibos_client.setcodeSync(name, <span class="number">0</span>, <span class="number">0</span>, fibos.compileCode(js_code));</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">var</span> r = ctx.transferSync(</span><br><span class="line">    <span class="string">'fibostest123'</span>,  <span class="comment">//通证转入方</span></span><br><span class="line">    <span class="string">'fibostest321'</span>,   <span class="comment">//通证转出方</span></span><br><span class="line">    <span class="string">'1.0000 FO'</span>,  <span class="comment">//通证数量</span></span><br><span class="line">    <span class="string">'trasnfer to fibostest321'</span>,  <span class="comment">//附言</span></span><br><span class="line">    &#123;</span><br><span class="line">  authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
-<p>成功调用合约后，接收方能获取到这笔转账的详细信息。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    action.require_recipient(action.receiver);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="监听通知"><a href="#监听通知" class="headerlink" title="监听通知"></a>监听通知</h2><p>当我们需要监听某个合约函数的通知，需要在合约中编写监听函数。函数名为需要监听的方法的名称前加 <code>on_</code>。例如，上述例子中我们定义了一个名为 <code>hi</code> 的函数，并且在该函数中通过 <code>require_recipient</code> 发送通知。我们需要在合约创建一个名为 <code>on_hi</code> 的函数用以监听通知，其参数是其监听的函数的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.on_hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(action.receiver, action.account , v)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>监听通知最常使用的场景是监听转账操作。Token 合约的转账方法 —— <code>extransfer</code> 函数中转账成功后会对转账的双方账户发送通知。开发者可以监听该函数，做到账后的处理，比如：给用户开通相关服务等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.on_extransfer = <span class="function">(<span class="params"><span class="keyword">from</span>, to, quantity, memo</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">from</span> ,to ,quantity, memo);</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Tips:</p>
+<ol>
 <li>一个合约向另一个合约发出的通知消息会被另一个合约收到，不管有没有 ABI 定义接口，都会在应用层收到。</li>
-<li>一个合约向另一个合约发送的通知消息就是本合约收到的消息，包括 code、action 和参数。</li>
-<li>账户处理处理通知信息和处理正常的消息一样，根据 code、action 和参数进行逻辑处理。</li>
-</ul>
+<li>一个合约向另一个合约发送的通知消息就是本合约收到的消息，包括 <code>code</code>、<code>action</code> 和参数。</li>
+<li>账户处理处理通知信息和处理正常的消息一样，根据 <code>code</code>、<code>action</code> 和参数进行逻辑处理。</li>
+<li>可以使用 <code>has_recipient</code> 函数来检查对应账户是否在通知账户集合中。</li>
+</ol>
+</blockquote>
 
   
   

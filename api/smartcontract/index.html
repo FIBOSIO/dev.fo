@@ -68,8 +68,8 @@
       <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link">系统合约</a></li>
       <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
       <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
@@ -138,8 +138,8 @@
       <li><a href="/guide/installation.html" class="nav-link">安装</a></li>
       <li><a href="/guide/start.html" class="nav-link">入门</a></li>
       <li><a href="/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
-      <li><a href="/guide/smart-contract-ABI.html" class="nav-link">智能合约</a></li>
-      <li><a href="/guide/system-account.html" class="nav-link">系统合约</a></li>
+      <li><a href="/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/guide/system-resources.html" class="nav-link">系统合约</a></li>
       <li><a href="/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
       <li><a href="/guide/node-instruction.html" class="nav-link">节点编程</a></li>
     </ul></li>
@@ -391,7 +391,7 @@
 <li>permission: String, 需要该账户授权的权限</li>
 </ul>
 <p>实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (action.require_auth(account));</span><br><span class="line">    <span class="built_in">console</span>.notice(<span class="string">"auth success"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    action.require_auth(account);</span><br><span class="line">    <span class="built_in">console</span>.notice(<span class="string">"auth success"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="静态属性"><a href="#静态属性" class="headerlink" title="静态属性"></a>静态属性</h2><h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p><strong>action 名称</strong></p>
 <p><strong>类型：String</strong></p>
 <p>实例：</p>
