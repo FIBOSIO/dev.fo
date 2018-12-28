@@ -58,12 +58,17 @@ $ fibos --init 或者 npm init
 $ fibos --install fibos.js 或者 npm install fibos.js
 ```
 
-## UNIX 操作系统下编译
+## 升级
 
-FIBOS 暂时未开源，待开源后提供编译教程！
+重新执行安装命令会自动覆盖原有的 `fibos` 可执行文件，然后重启一下 `fibos` 服务即可完成升级。
 
-## 开始编程
+## 卸载
 
-到现在为止，你已经有一个可以执行的 fibos 版本，可以开始体验 fibos 开发的乐趣了！
+直接删除 `/usr/local/bin/` 下的 `fibos` 这个可执行文件即可。
+
+```
+$ sudo rm /usr/local/bin/fibos
+```
+
 
 👉 【[快速入门](./start.html)】
