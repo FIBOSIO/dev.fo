@@ -2,7 +2,7 @@
 title: 账户
 type: tutorials
 language: zh-cn
-order: 240
+order: 241
 ---
 
 > **Tips:**我们将在9.4日关闭免费注册 FIBOS 账号通道，后续想要注册 FIBOS 账号的用户，可以通过学习本文档，让已经拥有 FIBOS 账号的用户替你创建。

@@ -1,77 +1,44 @@
 ---
-title: 通知
+title: Notification
 type: tutorials
 language: en
-order: 204
+order: 205
 ---
 
-* Recipient 是 JavaScript 合约通知机制，用户在转账交易时可以给接收者发送消息通知。
-* require_recipient 和 has_recipient 分别是模块 action 的静态函数。
+The FIBOS notification system can help the communication between smart contracts, also realizing asynchronous decoupling. When a contract is running, it can send notifications to specific accounts, if the corresponding account can deal with it if it accepts the notification. 
 
-## require_recipient
+## Send Notifications
 
-**将指定的帐户添加到要通知的帐户集。**
+We can use  `require_recipient` method in  [action](../api/smartcontract/index.html) module to add specific account to the account collection that will be sent notifications. When this contract method is executed, the notifications will be sent to all accounts in this account collection.
 
-实例：
+Example：
 
 ```javascript
 exports.hi = v => {
     action.require_recipient(action.receiver);
 };
+```
 
+## Moniter Notifications
+
+When we need to moniter notification of a contract function, the moniter function is needed. The function name is the name of function that needs to moniter with prefix `on_` . In the example above we defined a function named `hi`, and sent notifications in this function through `require_recipient`. We need to create a function named `on_hi` in the contract to moniter notification, the parameter is the monitered function parameter.
+
+```javascript
 exports.on_hi = v => {
     console.log(action.receiver, action.account , v)
 };
 ```
 
-## has_recipient
-
-**当 action 执行成功后，账号是否会收到通知**。
-
-实例：
+The most common scenario of monitering notification is moniter transfer operations. In the transfer method  of token contract -- `extransfer` function, Notifications will be sent to both account after the transfer is done. Developers can moniter this function to do the notification process after transfer is done, such as: open the corresponding services for user and so on. 
 
 ```javascript
-exports.hi = v => {
-    if (action.has_recipient(receiver)) console.notice('action received')
-    else console.error('action not received');
-};
-```
-
-## 如何使用
-
-```javascript
-const FIBOS = require('fibos.js');
-
-const fibos_client = FIBOS({
-  // fibos 主网 chainId
-  chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '你的私钥',
-  httpEndpoint: "http://127.0.0.1:8888",
-});
-
-var js_code = `exports.on_transfer = (from, to, quantity, memo) => {
+exports.on_extransfer = (from, to, quantity, memo) => {
 	console.log(from ,to ,quantity, memo);
- }`;
-fibos_client.setcodeSync(name, 0, 0, fibos.compileCode(js_code));
-
-let ctx = fibos_client.contractSync('eosio.token');
-var r = ctx.transferSync(
-    'fibostest123',  //通证转入方
-    'fibostest321',   //通证转出方
-    '1.0000 FO',  //通证数量
-    'trasnfer to fibostest321',  //附言
-    {
-  authorization: 'fibostest123'
-});
-console.log(r);
+}；
 ```
 
-成功调用合约后，接收方能获取到这笔转账的详细信息。
-
-
-
-## 结语
-
-* 一个合约向另一个合约发出的通知消息会被另一个合约收到，不管有没有 ABI 定义接口，都会在应用层收到。
-* 一个合约向另一个合约发送的通知消息就是本合约收到的消息，包括 code、action 和参数。
-* 账户处理处理通知信息和处理正常的消息一样，根据 code、action 和参数进行逻辑处理。
+> Tips:
+> 1. A contract will receive a notification when the other contract sends it, whether or not there is an ABI definition interface, the notification will be received in the application layer. 
+> 2. The notification message sent by one contract to another contract is the message received by rhe contract, includes  `code` , `action` and parameters.
+> 3. Accounts handle notification information as well as normal messages. Logical processing is performed according to `code` `action` and parameters.
+> 4. The `has_recipient` function can be used to check whether the corresponding account is in the notification account collection.

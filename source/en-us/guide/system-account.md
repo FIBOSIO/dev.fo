@@ -2,7 +2,7 @@
 title: Account
 type: tutorials
 language: en
-order: 240
+order: 241
 ---
 
 > **Tips:** We will close free FIBOS account register channel on Sep 4th. After then, users who want to register FIBOS account can ask the users that already have FIBOS account to help you to register via learning this document.
