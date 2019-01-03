@@ -2,12 +2,12 @@
 title: 权限
 type: tutorials
 language: zh-cn
-order: 242
+order: 241
 ---
 
 ## 什么是权限
 
-FIBOS 账户权限有3种： owner、active、publish，一个账户必须“关联” owner、active 权限。
+FIBOS 账户权限有2种： owner、active，一个账户必须“关联” owner、active 权限。
 
 - owner 拥有超级权限，代表着账户的归属者，因为拥有此权限者可以用于操作其他权限配置，该权限常用事务中（转账、合约 action 等）一般不会使用。
 - active 常用业务的权限，比如：转账、投票等。

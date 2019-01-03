@@ -1,8 +1,8 @@
 ---
-title:  合约介绍
+title: 合约介绍
 type: tutorials
 language: zh-cn
-order: 200
+order: 199
 ---
 
 ## 智能合约是什么

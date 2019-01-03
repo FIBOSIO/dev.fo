@@ -35,8 +35,6 @@ const config = {
 module.exports = config
 ```
 
-
-
 发布合约需要通过一个 fibos 账号进行发布，所以首先我们需要创建一个 fibos 账户，调用 `newaccountSync()` 方法来进行合约账户的创建。
 
 新建 `scripts` 文件夹，保存代码至 `scripts/deploy.js`:
@@ -55,32 +53,30 @@ fibosClient.newaccountSync({
 });
 ```
 
+## 打包 js 合约
 
-
-## 编译合约
-
-我们通过 fs 模块读取到 js 合约文件，并通过 `compileCode()` 方法将合约编译成 wasm 文件。
+我们通过 fs 模块读取到 js 合约文件，并通过 `compileCode()` 方法将合约压缩打包。
 
 以下代码保存至 `scripts/deploy.js` ：
 
 ```js
 const jsCode = fs.readTextFile(`${__dirname}/../contracts/todo.js`);
-const wasm = fibosClient.compileCode(jsCode);
+const zipCode = fibosClient.compileCode(jsCode);
 ```
 
-### 部署 wasm 文件
+## 上传 js 合约
 
-调用 `setcodeSync()` 方法将 wasm 部署到节点上。
+调用 `setcodeSync()` 方法将打包后的合约内容上传到节点上。
 
 以下代码保存至 `scripts/deploy.js` ：
 
 ```js
-fibosClient.setcodeSync(config.contract.name, 0, 0, wasm);
+fibosClient.setcodeSync(config.contract.name, 0, 0, zipCode);
 ```
 
-### 获取 js 文件
+## 获取 js 合约
 
-使用 `getCodeSync()` 方法可以读取到 js 文件，与项目方提供的 js 合约文件对比，看看是否一致。
+使用 `getCodeSync()` 方法可以读取到链上的 js 合约内容，与项目方提供的 js 合约文件对比，看看是否一致。
 
 以下代码保存至 `scripts/deploy.js` ：
 
@@ -89,14 +85,9 @@ const code = fibosClient.getCodeSync(config.contract.name, true);
 console.log(code);
 ```
 
-## 部署合约
+## 上传 ABI 文件
 
-我们需要将编译生产的 wasm 文件和 abi 文件部署到节点上。
-
-
-### 部署 ABI 文件
-
-使用 fs 模块获取 ABI 文件，并通过 `setabiSync()` 将 ABI 文件部署到节点上。
+使用 fs 模块获取 ABI 文件，并通过 `setabiSync()` 将 ABI 文件上传到节点上。
 
 以下代码保存至 `scripts/deploy.js` ：
 
@@ -104,6 +95,9 @@ console.log(code);
 const abi = JSON.parse(fs.readTextFile(`${__dirname}/../contracts/todo.js`));
 fibosClient.setabiSync(config.contract.name, abi);
 ```
+## 部署合约
+
+我们需要将打包好的 js 合约内容和 abi 文件部署到节点上。
 
 运行命令
 

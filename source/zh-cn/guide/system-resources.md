@@ -2,7 +2,7 @@
 title: 资源
 type: tutorials
 language: zh-cn
-order: 240
+order: 239
 ---
 
 FIBOS的资源分为两种类型：一种是抵押型资源，包括CPU和NET；另一种是消耗性资源，叫做RAM，也称存储。

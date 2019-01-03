@@ -1,5 +1,5 @@
 ---
-title: test contract
+title: Test Contract
 type: tutorials
 language: en
 order: 15
