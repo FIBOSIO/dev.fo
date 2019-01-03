@@ -125,7 +125,7 @@ action.require_auth(name, permission);
 
 ```JavaScript
 exports.hi = v => {
-    if (action.require_auth(account));
+    action.require_auth(account);
     console.notice("auth success");
 };
 ```

@@ -1041,7 +1041,7 @@ ctx.exchange('Owner Account', '1.0000 VO@fibostest123', '0.0000 FO@eosio', memo,
 调用 token 合约中的 `excreate` 接口来进行通证的发行
 
 ```js
-ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee,sell_fee,{
+ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee, sell_fee, connector_balance_issuer, {
   authorization: 'author_name'
 }); 
 ```
@@ -1057,6 +1057,7 @@ ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve
 * **expiration:**   time_point_sec项目方预设的项目锁仓期
 * **buy_fee:** double  项目方预设通证兑入手续费
 * **sell_fee:** double  项目方预设通证兑出手续费
+* **connector_balance_issuer** string 准备金发行方
 * **authorization:** string  权限
 
 #### 示例
@@ -1067,7 +1068,7 @@ ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve
 ```javascript
 //初始化 fibos 客户端
 ...
-let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0{ //手续费自定义,目前为0
+let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio', { //手续费自定义,目前为0,此处准备金为 FO，所以准备金发行方填 eosio
   authorization: name  //授权
 }); //expiration 需大于等于当前时间
 console.log(r)
@@ -1078,7 +1079,7 @@ console.log(r)
 ```js
 //初始化 fibos 客户端
 ...
-ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
+ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio', {//手续费自定义,目前为0,此处准备金为 FO，所以准备金发行方填 eosio
   authorization: name  //授权
 }).then(r=>{
     console.log(r);
@@ -1092,7 +1093,7 @@ ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000
 ```javascript
 //初始化 fibos 客户端
 ...
-let r = ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
+let r = ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio', {//手续费自定义,目前为0,此处准备金为 FO，所以准备金发行方填 eosio
     authorization: name //授权
 });  //expiration 需大于等于当前时间
 console.log(r);
@@ -1103,7 +1104,7 @@ console.log(r);
 ```js
 //初始化 fibos 客户端
 ...
-ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//手续费自定义,目前为0
+ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio', {//手续费自定义,目前为0,此处准备金为 FO，所以准备金发行方填 eosio
     authorization: name //授权
 }).then(r=>{
     console.log(r);

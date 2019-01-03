@@ -2,7 +2,7 @@
 title: 账户权限
 type: tutorials
 language: zh-cn
-order: 202
+order: 203
 ---
 
 ## FIBOS 中的账户权限如何应用到合约中

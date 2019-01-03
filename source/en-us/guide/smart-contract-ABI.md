@@ -1,37 +1,37 @@
 ---
-title:  ABI 文件
+title:  ABI File
 type: tutorials
 language: en
 order: 200
 ---
 
-在 FIBOS 中，支持使用 JavaScript 开发区块链智能合约。在之前的文章 [快速入门](./start.html) 中，我们所编写发布的 JS 智能合约，除了合约代码的 JS 文件外，还有一份合约 ABI 文件，在当时我们并未给出详细的解读，这篇文章将带大家进行了解。
+Using JavaScript to develop blockchain smart contract is supported in FIBOS. In the previous chapter [Quick Start](./start.html), in the JS smart contract that we wrote, there is another contract ABI file beside the contract code JS file. We didn't make it clear at that time, so here we will go through the details of the ABI file.
 
-## ABI 是什么
+## What is ABI
 
-ABI 全称 Application Binary Interface，中文名“应用程序二进制接口”，顾名思义是一个接口文件，描述了智能合约与上层应用之间的数据交换格式。ABI 文件格式类似 JSON，具备很好的可读性，有利于智能合约工程师与上层应用工程师之间的工作衔接。
+The full name of ABI is Application Binary Interface. It is a Interface file, which describes the data tracsfer format between smart contract and the upper applications. ABI file format is similar to JSON which has a good readablity. It is good for connection between smart contract engineers and upper applications engineers. 
 
-对于 JavaScript 合约来说，需要使用 ABI 文件来定义 `actions` 以及 `tables`。
+For JavaScript contract, ABI file is needed to define  `actions` and `tables`.
 
-智能合约 ABI 文件由 5 部分组成：
+Smart contract ABI files are composed of 5 parts:
 
 ```json
 {
-    "version": "eosio::abi/1.0",//定义 ABI 的版本号
-    "types":[...],              //定义类型的别名
-    "structs":[...],            //各个类型的数据结构
-    "actions":[...],            //智能合约的 action
-    "tables":[...]            //数据结构体
+    "version": "eosio::abi/1.0",//define ABI version
+    "types":[...],              //define types alias
+    "structs":[...],            //the data structure of each types
+    "actions":[...],            //action of smart contract 
+    "tables":[...]            //data tables
 }
 ```
 
-我们将按照 `actions` ->  `tables` -> `structs` -> `types`  的顺序了解 FIBOS 智能合约 ABI 的开发方法。
+We will go through the development method of FIBOS smart contract ABI by the sequence of  `actions` ->  `tables` -> `structs` -> `types` 
 
-## ABI 开发
+## ABI Development
 
 ### actions
 
-action 部分的作用是声明智能合约有哪些可以调用的 action。如下所示。
+Part of the usage of action is to define the actions that can be called by the smart contract as shown below:
 
 ```json
 "actions": [{
@@ -41,22 +41,20 @@ action 部分的作用是声明智能合约有哪些可以调用的 action。如
 }]
 ```
 
-其中每一项的 `name` 就是 action 的名字，`type` 用来在 `structs` 中查找数据结构，`ricardian_contract ` 是李嘉图合约。
+Each ` name ` is the action name, while `type` is used to find data structure in `structs `, and `ricardian_contract ` is Ricardian Contract.
 
-李嘉图合约是一种特殊的结构化文本，主要用作交易中明确双方的意图。在 FIBOS 上，你所发送的每一条action，都是可以附加上合约。这种合约很特殊，有着固定的格式，既能够被程序读取，也能为人类阅读。这一合约，就叫做李嘉图合约。
+Ricardian Contract is a special Structured text, mainly used to declear intentions of both parties in trading. In FIBOS, each action you send can be added with contract. This type of contract is special, it has a fixed format that can be read by both programs and human beings. This is what we called the Ricardian Contract.
 
+**Attention: Action names follow the naming rules of eos.**
 
+Currently, the naming rule: composed of only Numbers 1-5 and lowercase English letters ; The maximum character length is 12.
 
-**注意： action 取名沿用了 eos 的命名规则。**
-
-目前 action 中 name 命名规则约束：只支持数字1～5和小写英文字母；字符长度最大为12。
-
-后期如果改动，我们会及时修改文档的。
+If any changes are made later, we will modify the document in time.
 
 
 ### tables
 
-`tables` 列出了智能合约中需要建立的数据表名称，以及数据表中所储存的结构体名称。
+`tables`  listed the data tables that need to be build in the smart contract and also the structure name saved in data table.
 
 ```json
 "tables": [{
@@ -68,11 +66,11 @@ action 部分的作用是声明智能合约有哪些可以调用的 action。如
 }]
 ```
 
-上述代码构造了一个 table 名是 players，结构体类型是 player，主键名称是 id，类型是 int64 的数据表。
+The codes above built a table named players, the structure type is player, main key is id, type is int64 data table.
 
 ### structs
 
-`structs` 部分的内容与 `actions` 部分的内容存在一一对应的关系，刚才我们在上方 `actions` 中，声明了一个 action 的名称，我们还要在 `structs` 里声明各个 action 需要传入的参数，如下所示。
+There is a correspondence between part of the content of `structs` and part of the content of `actions`. We just defined an action name at above `actions`. We also need to define ` structs ` the incoming parameters for each action.
 
 ```json
 "structs":  [{
@@ -95,7 +93,9 @@ action 部分的作用是声明智能合约有哪些可以调用的 action。如
     }]
 }]
 ```
-通过 `base` 字段继承相当于：
+
+Through ` base ` field inheritance is equivalent to:
+
 ```json
 "structs":  [{
     "name": "colorshape",
@@ -110,9 +110,9 @@ action 部分的作用是声明智能合约有哪些可以调用的 action。如
 }]
 ```
 
-FIBOS 系统会根据 `actions` 部分中声明的 `type` ，在 `structs` 部分寻找对应的数据结构，每个数据结构的 `fields` 中，会列出每个参数的名称和类型。
+FIBOS system will find the corresponding data structure in `structs` by the `type` defined by `actions`. In `fields` of  each data structures, name and type of each parameter will listed.
 
-除此以外，不光是 `actions` 里的项目需要在 `structs` 里列出详细的数据结构，`tables` 中的项目也需要。
+Except that, not only the projects in `actions` need to list detailed data structure in `structs`, but also the projects in `tables`
 
 ```json
 "structs": [{
@@ -135,11 +135,12 @@ FIBOS 系统会根据 `actions` 部分中声明的 `type` ，在 `structs` 部�
 }]
 ```
 
-这样，在 `structs` 中，我们就定义了一个名为 player 的 struct，用来列出数据表 player 包含两个字段  `nickname` 和 `age` ，类型分别是 `my_account_name` 和 `int32`。
+So, in `structs`  we defined a struct named player. It is used to list data table player including 2 strings: `nickname` and `age` , the types are  `my_account_name` and`int32`
 
 ### types
 
-`types` 用于自定义数据的类型：
+
+`types` is used to define data type:
 
 ```json
 {
@@ -148,11 +149,11 @@ FIBOS 系统会根据 `actions` 部分中声明的 `type` ，在 `structs` 部�
 }
 ```
 
-这样在这个 ABI 文件里就自定义了一个类型名称为 `my_account_name` 的类型，类型是 `name` ，`new_type_name` 和 `type` 是关键字，类型 `name` 是系统定义的数据类型。
+So in this ABI file, we defined a type name named  `my_account_name` ,the type is `name`, `new_type_name` and `type` are keywords, type `name` is the data type defined by system.
 
-## 总结
+## Conclusion
 
-这样，一个完整的 ABI 文件就编写完成。
+So, a complete ABI file is now written. 
 
 ```json
 {
@@ -194,4 +195,4 @@ FIBOS 系统会根据 `actions` 部分中声明的 `type` ，在 `structs` 部�
 };
 ```
 
-通过该 ABI 文件，我们就定义了一个有 id 、 nickname 、 age 三个字段，类型分别是 int64 、my_account_name 、 int32 ，主键是 id 的数据表 player 和一个传递参数名是 nickname ，类型是 my_account_name 的名为 hi 的 action 方法。
+Through this ABI file, we defined an action method, it has 3 strings: id, nickname, age; types are: int64, my_account_name, int32; a data table player main key is id and a Passing parameters of nickname, type is my_account_name and the name is hi. 

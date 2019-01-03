@@ -1,33 +1,33 @@
 ---
-title: 数据库
+title: Database
 type: tutorials
 language: en
 order: 201
 ---
 
-##  介绍
+##  Introduction
 
-- 为了将数据持久化到数据库中，并提供数据可查询的能力和服务，我们将引用 FIBOS 中的 db 模块。
-- 数据库操作需要3个模块，分别是：db, table and DBIterator。
+- In order to persist data to the database, and provide the data query capability and services, we will quote the FIBOS db module.
+- Database operations require 3 modules, Respectively is: db, table and DBIterator。
 
-## 访问数据库 
+## To access the database
 
 ```javascript
 const table = db.table(scope, code, indexes);
 ```
 
-- table：abi 文件中定义数据表的表名
-- scope： 指向合约发布者的名称
-- code：table 中数据所属的 account_name
-- index：索引
+- table：The table name of the data table defined in the abi file
+- scope： The name of the publisher of contract pointed to
+- code：The account_name to which the data in table belongs to
+- index：index
 
-db 是 FIBOS 中的全局模块，我们在 abi 文件中定义的数据表都会被挂载在 db 模块下，这样我们就可以通过 db 模块访问 abi 文件中定义的数据表。
+db is the global module in FIBOS, The data tables we defined in the abi file will be mounted under the db module, This way we can access the data table defined in the abi file through the db module.
 
-下面我们将演示对数据表进行增删改查操作：
+We will demonstrate the addition, deletion and modification of the data table:
 
-> 对数据表进行的操作是写在 JS 合约里！
+> The operation on the data table is written in the JS contract!
 
-### 保存
+### Save
 
 ```javascript
 exports.emplace = param => {
@@ -41,9 +41,9 @@ exports.emplace = param => {
 };
 ```
 
-通过 `table` 模块下的 `emplace` 函数向数据表中存入数据。
+Save the data to the data table via the `emplace` function under the `table` module. 
 
-### 查看
+### View
 
 ```javascript
 exports.find = param => {
@@ -54,9 +54,9 @@ exports.find = param => {
 };
 ```
 
-通过 `table` 模块下的 `find` 函数从数据表中查找数据，返回的是一个 [DBIterator](../api/smartcontract/dbiterator.html)。 [DBIterator](../api/smartcontract/dbiterator.html) 中的 data 属性展示了我们要查询的数据。详解请参考 API 中的 [DBIterator](../api/smartcontract/dbiterator.html)。
+Find data from the data table via the `find` function under the `table` module, Returning a [DBIterator](../api/smartcontract/dbiterator.html).  The data property in [DBIterator](../api/smartcontract/dbiterator.html)  shows the data we want to query. For details, please refer to [DBIterator](../api/smartcontract/dbiterator.html) in the API. 
 
-### 修改
+### Modify
 
 ```javascript
 exports.update = param => {
@@ -69,9 +69,9 @@ exports.update = param => {
 };
 ```
 
-通过 `DBIterator` 模块下的 `update` 函数从数据表中修改数据，我们可以通过查找该数据，再对 [DBIterator](../api/smartcontract/dbiterator.html)中的 data 属性进行修改，最后通过 `update` 进行保存修改。
+Modify the data from the data table via the `update` function under the `DBIterator` module, We can modify the data property in [DBIterator](../api/smartcontract/dbiterator.html) by looking up the data, and finally save and modify it with 'update'.
 
-### 删除
+### Delete
 
 ```javascript
 exports.remove = param => {
@@ -82,9 +82,9 @@ exports.remove = param => {
 };
 ```
 
-通过 `DBIterator` 模块下的 `remove` 函数从数据表中进行删除指定数据。
+The specified data is deleted from the data table via the `remove` function under the `DBIterator` module.
 
-## 建立索引
+## Set up index
 
 ```javascript
 const indexes = {
@@ -96,16 +96,16 @@ exports.hi = v => {
 }
 ```
 
-上述代码定义了一个或多个索引，访问表的时候加上 indexes 这个参数，这样在对表操作的时候就可以使用索引了。
+The above code defines one or more indexes, Add the indexes parameter when accessing the table, so you can use the index when working on the table.
 
-**基于索引查询**
+**Index based query**
 
 ```javascript
 var itr = players.indexes.age.find({age:48,weight:100});
 console.log(itr.data);
 ```
 
-## 总结
+## Conclusion
 
-* 模块 db 是 FIBOS 中的基础模块 — 数据库访问模块，可用于创建和操作数据库资源。
-* 通过 db 对象可以对数据表进行增删改查操作。
+* Module db is the base module in FIBOS - a database access module that can be used to create and manipulate database resources.
+* The data table can be added, deleted, and changed through the db object.

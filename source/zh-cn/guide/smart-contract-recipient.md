@@ -2,7 +2,7 @@
 title: 通知
 type: tutorials
 language: zh-cn
-order: 204
+order: 205
 ---
 
 * Recipient 是 JavaScript 合约通知机制，用户在转账交易时可以给接收者发送消息通知。

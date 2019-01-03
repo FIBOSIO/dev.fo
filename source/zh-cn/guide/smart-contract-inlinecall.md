@@ -2,7 +2,7 @@
 title: 合约内调用
 type: tutorials
 language: zh-cn
-order: 203
+order: 204
 ---
 
 学习本文档前，你需要对 [FIBOS 的权限系统 ](./smart-contract-auth.html)和 [如何发布 JS 合约](./start.html) 有一定了解
