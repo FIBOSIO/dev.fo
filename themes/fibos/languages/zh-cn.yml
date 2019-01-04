@@ -33,6 +33,14 @@ active:
   advanced: 进阶指南
   api: 技术手册
 
+content:
+  js: JS 合约 API
+  node: FIBOS 节点
+  system: System 合约
+  token: Token 合约
+  fibos: FIBOS.JS
+  rpc: RPC API
+
 footer:
   contact: 联系我们
   text: FIBOS 开发者社区

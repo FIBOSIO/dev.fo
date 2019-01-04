@@ -3,7 +3,6 @@ title:
 type: fibos
 language: zh-cn
 order: 1
-
 ---
 
 # FIBOS 模块

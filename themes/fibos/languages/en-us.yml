@@ -28,6 +28,14 @@ active:
   advanced: Advanced Guide
   api: Technical Manual
 
+content:
+  js: JS Contract
+  node: FIBOS Node
+  system: System Contract
+  token: Token Contract
+  fibos: FIBOS.JS
+  rpc: RPC API
+
 footer:
   contact: Contact Us
   text: FIBOS Developer Community
