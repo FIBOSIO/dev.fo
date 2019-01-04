@@ -7,7 +7,7 @@ order: 242
 
 ## What is permission
 
-There are 3 types of FIBOS account permissions： owner、active、publish. An account must be “associated” with owner、active permissions.
+There are 2 types of FIBOS account permissions： owner、active. An account must be “associated” with owner、active permissions.
 
 - owner: 
 Has super privileges. Represents the owner of the account. Because the owner of this permission can operate the other permissions' configuration, this permission is commonly used in transactions (Transfer, contract action, etc) It is not usually used.

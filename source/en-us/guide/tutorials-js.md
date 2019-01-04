@@ -166,4 +166,4 @@ The GitHub source code of this article: under `contracts` folder of
  <https://github.com/fengluo/fibos-todomvc> 
 
 **Next Chapter**
-👉 【[Deploy Contract](deploy.html)】
+👉 【[Deploy Contract](./tutorials-deploy.html)】

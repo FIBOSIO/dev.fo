@@ -247,4 +247,4 @@ The GitHub source code for this article: under the `contracts` folder of
 <https://github.com/fengluo/fibos-todomvc> 
 
 **Next Chapter**
-👉 【[Write JavaScript Smart Contracts](js.html)】
+👉 【[Write JavaScript Smart Contracts](./tutorials-js.html)】

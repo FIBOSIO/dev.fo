@@ -26,7 +26,7 @@ fibos.load('http', {
    'http-server-address':'0.0.0.0:8888'
 });
 ```
-**具体 http 配置信息请参考 [http 插件](../../api/fibos/index.html#http插件)**
+**具体 http 配置信息请参考 [http 插件](../api/fibos/index.html#http插件)**
 
 ## 配置区块信息
 
@@ -40,7 +40,7 @@ fibos.load('chain',{
 });
 ```
 
-**具体 chain 配置信息请参考 [chain 插件](../../api/fibos/index.html#chain插件)**
+**具体 chain 配置信息请参考 [chain 插件](../api/fibos/index.html#chain插件)**
 
 ## 获取 P2P 信息
 
@@ -53,7 +53,7 @@ fibos.load('net',{
    'p2p-listen-endpoint':'0.0.0.0:9876'
 })
 ```
-**具体 net 配置信息请参考 [net 插件](../../api/fibos/index.html#net插件)**
+**具体 net 配置信息请参考 [net 插件](../api/fibos/index.html#net插件)**
 
 ## 控制区块生产的信息
 
@@ -69,7 +69,7 @@ fibos.load('producer', {
    'enable-stale-production': true
 });
 ```
-**具体 producer 配置信息请参考 [producer 插件](../../api/fibos/index.html#producer插件)**
+**具体 producer 配置信息请参考 [producer 插件](../api/fibos/index.html#producer插件)**
 
 ## 修改及查看 FIBOS 配置以及数据目录
 
@@ -132,7 +132,7 @@ fibos.load('chain', {
 });
 ```
 
-[更多插件请点击这里](../../api/fibos/index.html)
+[更多插件请点击这里](../api/fibos/index.html)
 
 
 ## 节点代码实例

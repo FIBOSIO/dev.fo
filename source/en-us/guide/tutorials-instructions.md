@@ -74,4 +74,4 @@ Learn JavaScript: <https://developer.mozilla.org/bm/docs/Web/JavaScript>
 Learn React: <https://reactjs.org/>
 
 **Next Chapter**
-👉 【[Build Local Test Nodes](setnode.html)】
+👉 【[Build Local Test Nodes](./tutorials-setnode.html)】

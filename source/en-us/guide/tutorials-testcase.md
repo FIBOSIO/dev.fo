@@ -148,4 +148,4 @@ todos# 1n  removed
 The GitHub source code of this article: in the `test` folder under <https://github.com/fengluo/ﬁbos-todomvc>
 
 Next chapter 
-👉 【[Develop the DApp client](usecontract.html)】
+👉 【[Develop the DApp client](./tutorials-usecontract.html)】

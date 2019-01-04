@@ -133,5 +133,5 @@ The GitHub source code of this article: under `scripts` folder of
 <https://github.com/fengluo/fibos-todomvc> 
 
 **Next Chapter**
-👉 【[Test Contract](testcase.html)】
+👉 【[Test Contract](./tutorials-testcase.html)】
 

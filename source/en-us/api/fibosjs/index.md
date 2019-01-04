@@ -1058,6 +1058,7 @@ ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve
 * **expiration:**   time_point_sec Project lock period preset by the project side
 * **buy_fee:** double  transaction fee of token presets by project party
 * **sell_fee:** double  Cashing fee presets by project party
+* **connector_balance_issuer:** string Reserve issuer
 * **authorization:** string  permission
 
 #### Example
@@ -1069,7 +1070,7 @@ Synchronous:
 ```javascript
 //init fibos client
 ...
-let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0{ //Custom service fee,current is 0
+let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0, 'eosio',{ //Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
   authorization: name  //authorization
 }); //expiration needs to larger or equal to current time
 console.log(r)
@@ -1080,7 +1081,7 @@ Asynchronous:
 ```js
 /init fibos client
 ...
-ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//Custom service fee,current is 0
+ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 , 'eosio',{//Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
   authorization: name  //authorization
 }).then(r=>{
     console.log(r);
@@ -1094,7 +1095,7 @@ Synchronous:
 ```javascript
 //init fibos client
 ...
-let r = ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//Custom service fee,current is 0
+let r = ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 , 'eosio',{//Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
     authorization: name //authorization
 });  //expiration needs to larger or equal to current time
 console.log(r);
@@ -1105,7 +1106,7 @@ Asynchronous:
 ```js
 //init fibos client
 ...
-ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0 {//Custom service fee,current is 0
+ctx.excreateSync(issuer, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00',0,0, 'eosio',{//Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
     authorization: name //authorization
 }).then(r=>{
     console.log(r);

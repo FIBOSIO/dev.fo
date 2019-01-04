@@ -6,7 +6,7 @@ order: 11
 ---
 
 >Note: **Please make sure to install FIBOS locally before setting up the node.** 
-> **【[Install runtime environment](../installation/installation.html)】**
+> **【[Install runtime environment](./installation.html)】**
 
 Start a local FIBOS node so that you can develop the specific content of FIBOS locally. In the actual development environment, you need to develop FIBOS nodes through the different plug-ins below.
 
@@ -29,7 +29,7 @@ fibos.load('http', {
    'http-server-address':'0.0.0.0:8888'
 });
 ```
-**Specific http configuration information please see [http plugin](../../api/fibos/index.html#http插件)**
+**Specific http configuration information please see [http plugin](../api/fibos/index.html#http插件)**
 
 
 ## Configure block info 
@@ -44,7 +44,7 @@ fibos.load('chain',{
 });
 ```
 
-**Specific chain configuration information please see [chain plugin](../../api/fibos/index.html#chain插件)**
+**Specific chain configuration information please see [chain plugin](../api/fibos/index.html#chain插件)**
 
 
 ## Obtain P2P information
@@ -58,7 +58,7 @@ fibos.load('net',{
    'p2p-listen-endpoint':'0.0.0.0:9876'
 })
 ```
-**Specific net configuration information see [net plugin](../../api/fibos/index.html#net插件)**
+**Specific net configuration information see [net plugin](../api/fibos/index.html#net插件)**
 
 
 ## Control block production information
@@ -75,7 +75,7 @@ fibos.load('producer', {
    'enable-stale-production': true
 });
 ```
-**Specific producer configuration information see [producer plugin](../../api/fibos/index.html#producer插件)**
+**Specific producer configuration information see [producer plugin](../api/fibos/index.html#producer插件)**
 
 
 ## Modify and view FIBOS config and data directory
@@ -142,7 +142,7 @@ fibos.load('chain', {
 });
 ```
 
-[Click here for more plugins](../../api/fibos/index.html)
+[Click here for more plugins](../api/fibos/index.html)
 
 
 ## Node code example
@@ -192,4 +192,4 @@ If you see the above, it means operation is successful and `fibos` has started b
 The GitHub source code of this article: `start_fibos` folder of  <https://github.com/fengluo/fibos-todomvc> 
 
 **Next Chapter**
-👉 【[Write ABI File](abi.html)】
+👉 【[Write ABI File](./tutorials-abi.html)】

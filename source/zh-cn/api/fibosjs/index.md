@@ -1057,7 +1057,7 @@ ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve
 * **expiration:**   time_point_sec项目方预设的项目锁仓期
 * **buy_fee:** double  项目方预设通证兑入手续费
 * **sell_fee:** double  项目方预设通证兑出手续费
-* **connector_balance_issuer** string 准备金发行方
+* **connector_balance_issuer:** string 准备金发行方
 * **authorization:** string  权限
 
 #### 示例

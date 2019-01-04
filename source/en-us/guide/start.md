@@ -7,7 +7,7 @@ order: 5
 
 Building a FIBOS development environment requires installation of fibos and fibos.js. 
 
-For installation proccess please see to 【[Quick Installation](../installation/installation.html)】.  
+For installation proccess please see to 【[Quick Installation](./installation.html)】.  
 
 The directory structure of the code example in this section is as follows:
 

@@ -67,4 +67,4 @@ FIBOS is temporarily still not open source. The compiling course will be provide
 
 Now you have an executable version of fibos, and you can start to enjoy the experience of developing on Fibos!
 
-👉 【[Quick Start](../start/start.html)】
+👉 【[Quick Start](./start.html)】

@@ -91,7 +91,7 @@ exports.hi1 = v => {
 **get previous data**
 
 ```JavaScript
-DBIterator DBIterator.previous();
+DBIterator.previous();
 ```
 
 Example: 

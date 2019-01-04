@@ -78,4 +78,4 @@ Developers can discuss and study FIBOS in the following ways:
 
 Are you ready to start a pleasant development experience? If so, let's start with the installation.
 
-👉 【[Install runtime environment](../installation/installation.html)】
+👉 【[Install runtime environment](./installation.html)】
