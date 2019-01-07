@@ -57,9 +57,8 @@ fibosClient.newaccountSync({
 
 
 
-## Compile the contract
-
-We can read the js contract file via the fs module and compile the contract into a wasm file by method of `compileCode()`. 
+## Packaged JS contract
+We read the js contract file through the fs module and compress the contract package via the `compileCode()` method.
 
 Save the following code to `scripts/deploy.js` ：
 
@@ -68,17 +67,16 @@ const jsCode = fs.readTextFile(`${__dirname}/../contracts/todo.js`);
 const wasm = fibosClient.compileCode(jsCode);
 ```
 
-### Deploy wasm file
-
-Call `setcodeSync()` method to deploy wasm file to the node. 
+## Upload JS contract
+The packaged contract content is uploaded to the node by calling the `setcodeSync()` method.
 
 Save the following code to `scripts/deploy.js` ：
 
 ```js
-fibosClient.setcodeSync(config.contract.name, 0, 0, wasm);
+fibosClient.setcodeSync(config.contract.name, 0, 0, zipCode);
 ```
 
-### Obtain js files. 
+## Get JS contract 
 
 Use `getCodeSync()` method to read js files，and it is suggested to compare the js files with the provided js contracts from projects and see whether the two are consistent with each other.
 
@@ -89,13 +87,7 @@ const code = fibosClient.getCodeSync(config.contract.name, true);
 console.log(code);
 ```
 
-
-## Deploy contracts
-
-We need to deploy the compiled wasm and ABI files to the node.
-
-
-### 部署 ABI 文件
+## Upload an ABI file
 
 Obtain the ABI file using the fs module and deploy the ABI file to the node via  
 `setabiSync()` 
@@ -106,6 +98,12 @@ Save the following code to `scripts/deploy.js` ：
 const abi = JSON.parse(fs.readTextFile(`${__dirname}/../contracts/todo.js`));
 fibosClient.setabiSync(config.contract.name, abi);
 ```
+
+
+## Deploy contracts
+
+We need to deploy the compiled wasm and ABI files to the node.
+
 
 Run command 
 
