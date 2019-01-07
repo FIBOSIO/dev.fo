@@ -325,6 +325,7 @@ issue token
 | **expiration**                | date-time | Preset project lock-up period                  |
 | **buy_fee**                   | double    | Preset token exchange fee                      |
 | **sell_fee**                  | double    | Preset token cashing fee                       |
+| **connector_balance_issuer**  | string    | Reserve issuer                                 |
 
 #### Example
 
@@ -342,10 +343,9 @@ const fibos_client = FIBOS({
 
 let ctx = fibos_client.contractSync('eosio.token');
 
-let r = ctx.excreateSync('dogfallchina', '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0,{ //手续费自定义,大于0小于等于1 
-  authorization: 'The account corresponding to the private key'  //授权
-}); //expiration 需大于等于当前时间
-console.log(r)
+let r = ctx.excreateSync('dogfallchina', '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0,'eosio',{ //Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
+  authorization: 'The account corresponding to the private key'  //authorization
+}); //expiration needs to larger or equal to current time(r)
 ```
 
 In the browser environment：
@@ -370,7 +370,8 @@ fibos_client.contract('eosio.token').then((contract)=>{
       reserve_connector_balance: '90000.0000 FO',
       expiration: '2018-10-29T18:54:00',
       buy_fee: 0,
-      sell_fee: 0
+      sell_fee: 0,
+      connector_balance_issuer: 'eosio'
     },{
         authorization: 'The account corresponding to the private key'
     })
