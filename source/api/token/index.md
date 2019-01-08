@@ -29,9 +29,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -51,9 +51,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -92,9 +92,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -112,9 +112,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -153,9 +153,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -173,9 +173,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -212,9 +212,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -232,9 +232,9 @@ const FIBOS = require('fibos.js');
 
 const client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 client.contract('eosio.token').then((contract)=>{
@@ -271,9 +271,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos.contractSync('eosio.token');
@@ -289,9 +289,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -334,9 +334,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -354,9 +354,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -400,9 +400,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 
@@ -421,9 +421,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -457,9 +457,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -477,9 +477,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -515,9 +515,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -535,9 +535,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -575,9 +575,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -595,9 +595,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -634,9 +634,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -654,9 +654,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -694,9 +694,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -714,9 +714,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -757,9 +757,9 @@ require('ssl').loadRootCerts();
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -777,9 +777,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -820,9 +820,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -840,9 +840,9 @@ const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
   // fibos 主网 chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: '你的私钥',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
