@@ -3,7 +3,7 @@ title:
 type: msig
 order: 1
 ---
-# Eosio.msig
+# Msig Contract
 
 **msig** 是 **multiple signature（多重签名）**的简写，顾名思义，就是让多个账户对一起事务进行签名。可以异步提出、批准、发布经过多方同意的事务。多重签名是根据账户或公钥所拥有权限的**权重**来决定的，权重达到阈值才能签名成功。
 
