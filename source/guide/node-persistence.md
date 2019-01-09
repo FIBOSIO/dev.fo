@@ -8,11 +8,11 @@ order: 302
 
 如果能将链上的数据实时同步存放在本地，分离节点服务和查询业务，那将大大提高效率和性能。
 
-在 FIBOS 中，我们提供三种解决方案供大家针对自己的业务场景进行选用。
+在 FIBOS 中，我们提供两种解决方案供大家针对自己的业务场景进行选用。
 
 ## Emitter 插件
 
-emitter 是一个监听事件的插件，可以方便的监听到 transaction 、 block 、 irreversible_block 三种事件，你可以使用该监听，根据自己的需求存储对应的数据。
+emitter 是一个监听事件的插件，可以方便的监听到  block 、 irreversible_block 两种事件，你可以使用该监听，根据自己的需求存储对应的数据。
 
 ### 优势
 
@@ -31,9 +31,7 @@ fibos.load('chain');
 fibos.load('net');
 fibos.load('chain_api');
 fibos.load('emitter'); // 启用 emitter 插件
-fibos.on('transaction',at => {
-    console.log(at);
-}) // 打印 transaction 信息
+
 fibos.on('block',at => {
     console.log(at);
 }) // 打印 block 信息
@@ -55,7 +53,7 @@ fibos.start();
 fibos node.js
 ```
 
-`eosio` 已经开始区块生产，并且打印获取的 transaction 、 block 、 irreversible_block 的数据。 
+`eosio` 已经开始区块生产，并且打印获取的  block 、 irreversible_block 的数据。 
 
 下面将数据同步保存至 MySql 数据库中，步骤如下：
 
@@ -89,20 +87,20 @@ fibos.load('chain');
 fibos.load('net');
 fibos.load('chain_api');
 fibos.load('emitter');
-fibos.on('transaction',at => {
+fibos.on('block',at => {
     console.log(at);
     let acitonname = at.action_traces[0].act.name;
     if(acitonname === 'extransfer') {
-        let trx_id = at.action_traces[0].trx_id
-        let data = at.action_traces[0].act.data;
-        let from = data.from;
-        let to = data.to;
-        let memo = data.memo;
-        let quantity = data.quantity.quantity;
-        let contract = data.quantity.contract;
-	    mysql.execute('insert into transfer_info(from,to,memo,trx_id,quantity,contract) values(?,?,?,?,?,?)', [from , to, memo , trx_id , quantity , contract]);        
+        let trx_id = at.trans.action_traces[0].trx_id
+        let data = at.trans.action_traces[0].act.data;
+        let from = data.trans.from;
+        let to = data.trans.to;
+        let memo = data.trans.memo;
+        let quantity = data.trans.quantity.quantity;
+        let contract = data.trans.quantity.contract;
+	    mysql.execute('insert into trans_info(from,to,memo,trx_id,quantity,contract) values(?,?,?,?,?,?)', [from , to, memo , trx_id , quantity , contract]);        
     }
-})// 打印 transaction 信息，并将其中的 extransfer 信息写入 mysql 中的 transfer_info 数据表中
+})// 打印 block 信息，并将其中的 trans 信息写入 mysql 中的 trans_info 数据表中
 fibos.load('producer', {
     'producer-name': 'eosio',
     'enable-stale-production': true
@@ -147,16 +145,18 @@ fibos --install fibos-tracker
 
 #### blocks 表数据
 
-| 字段              | 类型   | 备注          |
-| ----------------- | ------ | ------------- |
-| id                | Number | 自增长 id     |
-| block_num         | Number | 区块高度      |
-| block_time        | Date   | 区块时间      |
-| producer_block_id | String | 区块 hash     |
-| producer          | String | 区块 producer |
-| status            | String | 可逆状态      |
-| createdAt         | Date   | 记录创建时间  |
-| updatedAt         | Date   | 记录更新时间  |
+| 字段              | 类型    | 备注               |
+| ----------------- | ------- | ------------------ |
+| id                | Number  | 自增长 id          |
+| block_num         | Number  | 区块高度           |
+| block_time        | Date    | 区块时间           |
+| producer_block_id | String  | 区块 hash          |
+| producer          | String  | 区块 producer      |
+| trans             | JSON    | 区块中 transaction |
+| isExec            | Boolean | 队列是否可执行     |
+| status            | String  | 可逆状态           |
+| createdAt         | Date    | 记录创建时间       |
+| updatedAt         | Date    | 记录更新时间       |
 
 #### transactions 表数据
 
