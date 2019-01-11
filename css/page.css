@@ -331,7 +331,6 @@ a.button.gray {
 #main {
   position: relative;
   z-index: 1;
-  padding: 0 60px 30px;
   overflow-x: hidden;
 }
 #nav .nav-link {
@@ -393,7 +392,7 @@ a.button.gray {
 }
 #nav .nav-dropdown a {
   color: #3a5169;
-  text-align: center;
+  text-align: left;
   font-size: 0.9em;
   display: block;
 }
@@ -403,7 +402,7 @@ a.button.gray {
 #nav .arrow {
   display: inline-block;
   vertical-align: middle;
-  margin-top: -1px;
+  margin-top: -8px;
   margin-left: 6px;
   margin-right: -14px;
   width: 0;
@@ -550,6 +549,12 @@ body.docs #nav {
   margin-top: -4px;
   left: 8px;
 }
+#nav .nav-dropdown .lang {
+  font-size: 1em;
+  padding-left: 10px;
+  position: relative;
+  top: -2px;
+}
 .nav-link {
   padding-bottom: 3px;
   white-space: nowrap;
@@ -610,7 +615,7 @@ body.docs #nav {
   width: 100%;
   height: 40px;
   background-color: #fff;
-  z-index: 9;
+  z-index: 11;
   display: none;
   box-shadow: 0 0 2px rgba(0,0,0,0.25);
 }
@@ -636,6 +641,11 @@ body.docs #nav {
 @media print {
   #header {
     display: none;
+  }
+}
+@media screen and (max-width: 950px) {
+  #nav {
+    right: 50px;
   }
 }
 #demo,
@@ -1034,7 +1044,7 @@ ul.demo li {
     box-sizing: border-box;
   }
   .sidebar .sidebar-inner-index {
-    padding: 10px 10px 10px 20px;
+    padding: 40px 10px 10px 20px;
   }
   .sidebar .search-query {
     width: 200px;
@@ -1635,14 +1645,14 @@ ul.demo li {
     background-color: #fff;
   }
 }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1200px) {
   #nav li {
-    margin: 0 1.3em;
+    margin: 0 0.8em;
   }
 }
 @media screen and (max-width: 1300px) {
   .content.with-sidebar {
-    margin-left: 80px;
+    margin-left: 130px;
   }
   #ad {
     z-index: 1;
