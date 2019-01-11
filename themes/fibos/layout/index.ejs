@@ -9,12 +9,12 @@
 
 <div id="hero">
   <div class="inner">
-    <h1>FIBOS 开发者社区</h1>
+    <h1><%= __('main.title') %></h1>
     <p class="introduce">
-      FIBOS 是一个创造和发展区块链应用生态的平台，让您轻松创建属于自己的价值网络，帮助开发者和创业者一步进入区块链世界
+      <%= __('main.text') %>
     </p>
     <p class="start">
-      <a class="button white" href="<%- url_for("/guide/installation.html") %>">快速入门</a>
+      <a class="button white" href="<%- url_for_lang("/guide/installation.html") %>"><%= __('main.button') %></a>
       <a class="button gray has-icon" href="https://github.com/fibosio" target="_blank">
         <%- partial('icons/github-dark') %>
         GITHUB</a>
@@ -26,69 +26,69 @@
 <div id="highlights">
   <div class="inner">
     <div class="point">
-      <h2>新手入门</h2>
+      <h2><%= __('active.start') %></h2>
       <ul>
         <li>
-          <a href="<%- url_for("/guide/introduction.html") %>">简介</a>
+          <a href="<%- url_for_lang("/guide/introduction.html") %>"><%= __('submenu.introduction') %></a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/installation.html") %>">安装</a>
+          <a href="<%- url_for_lang("/guide/installation.html") %>"><%= __('submenu.installation') %></a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/start.html") %>">入门</a>
+          <a href="<%- url_for_lang("/guide/start.html") %>"><%= __('submenu.start') %></a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/tutorials-instructions.html") %>">教程</a>
+          <a href="<%- url_for_lang("/guide/tutorials-instructions.html") %>"><%= __('submenu.tutorials') %></a>
         </li>
       </ul>
     </div>
 
     <div class="point">
-      <h2>进阶指南</h2>
+      <h2><%= __('active.advanced') %></h2>
       <ul>
         <li>
-          <a href="<%- url_for("/guide/smart-contract-instructions.html") %>">智能合约</a>
+          <a href="<%- url_for_lang("/guide/smart-contract-instructions.html") %>"><%= __('submenu.contract') %></a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/system-resources.html") %>">系统合约</a>
+          <a href="<%- url_for_lang("/guide/system-resources.html") %>"><%= __('submenu.system') %></a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/token-transfer.html") %>">Token 合约</a>
+          <a href="<%- url_for_lang("/guide/token-transfer.html") %>"><%= __('submenu.economic') %></a>
         </li>
         <li>
-          <a href="<%- url_for("/guide/node-instruction.html") %>">节点编程</a>
+          <a href="<%- url_for_lang("/guide/node-instruction.html") %>"><%= __('submenu.node') %></a>
         </li>
       </ul>
     </div>
 
     <div class="point">
-      <h2>技术手册</h2>
-      <div style="display:flex">
-        <ul style = 'width:50%'>
-          <li>
-            <a href="<%- url_for("/api/smartcontract/index.html") %>">JS 合约 API</a>
-          </li>
-          <li>
-            <a href="<%- url_for("/api/fibos/index.html") %>">FIBOS 节点</a>
-          </li>
-          <li>
-            <a href="<%- url_for("/api/eosiocontract/index.html") %>">System 合约</a>
-          </li>
-          <li>
-            <a href="<%- url_for("/api/token/index.html") %>">Token 合约</a>
-          </li>
-        </ul>
-        <ul style = 'width:50%'>
-          <li>
-            <a href="<%- url_for("/api/fibosjs/index.html") %>">FIBOS.JS</a>
-          </li>
-          <li>
-            <a href="<%- url_for("/api/rpc/index.html") %>">RPC API</a>
-          </li>
-          <li>
-            <a href="<%- url_for("/api/msig/index.html") %>">Msig 合约</a>
-          </li>
-        </ul>
+      <h2><%= __('active.api') %></h2>
+      <div style ="display: flex">
+          <ul style="width: 50%">
+              <li>
+                  <a href="<%- url_for_lang("/api/smartcontract/index.html") %>"><%= __('content.js') %></a>
+              </li>
+              <li>
+                  <a href="<%- url_for_lang("/api/fibos/index.html") %>"><%= __('content.node') %></a>
+              </li>
+              <li>
+                  <a href="<%- url_for_lang("/api/eosiocontract/index.html") %>"><%= __('content.system') %></a>
+              </li>
+              <li>
+                  <a href="<%- url_for_lang("/api/token/index.html") %>"><%= __('content.token') %></a>
+              </li>
+            </ul>
+            <ul style="width: 50%">
+              <li>
+                  <a href="<%- url_for_lang("/api/fibosjs/index.html") %>"><%= __('content.fibos') %></a>
+              </li>
+              <li>
+                  <a href="<%- url_for_lang("/api/rpc/index.html") %>"><%= __('content.rpc') %></a>
+              </li>
+              <li>
+                  <a href="<%- url_for_lang("/api/rpc/index.html") %>"><%= __('content.msig') %></a>
+              </li>
+            </ul>
       </div>
     </div>
   </div>
@@ -101,10 +101,11 @@
       <p>
         <img class="downicon" src="<%- url_for("/images/downlogo.png") %>" alt="Developer logo">
       </p>
-      <p class="foot-text">FIBOS 开发者社区</p>
+      <p class="foot-text"><%= __('footer.text') %></p>
     </div>
+    <% if (page.lang === 'zh-cn') { %>
     <div>
-      <p class="foot-contact">联系我们</p>
+      <p class="foot-contact"><%= __('footer.contact') %></p>
       <ul>
         <li>
           <a href="javascript:void(0)" class="qrcode">
@@ -129,6 +130,7 @@
         </li>
       </ul>
     </div>
+    <% } %>
   </div>
   <div class="Copyright">
     <p>

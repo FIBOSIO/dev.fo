@@ -1,14 +1,14 @@
 <li class="nav-dropdown-container learn">
-    <a class="nav-link<%- page.path.match(/\/(smartcontract|fibos|eosiocontract|token|fibosjs|rpc|msig)(\/|$)/) ? ' current' : '' %>">技术手册</a><span class="arrow"></span>
+    <a class="nav-link<%- page.path.match(/\/(smartcontract|fibos|eosiocontract|token|fibosjs|rpc|msig)(\/|$)/) ? ' current' : '' %>"><%= __('menu.api') %></a><span class="arrow"></span>
     <ul class="nav-dropdown">
       <li><ul>
-        <li><a href="<%- url_for("/api/smartcontract/index.html") %>" class="nav-link<%- page.path.match(/\/smartcontract(\/|$)/) ? ' current' : '' %>">JS Contract</a></li>
-        <li><a href="<%- url_for("/api/fibos/index.html") %>" class="nav-link<%- page.path.match(/\/fibos(\/|$)/) ? ' current' : '' %>">FIBOS Node</a></li>
-        <li><a href="<%- url_for("/api/eosiocontract/index.html") %>" class="nav-link<%- page.path.match(/\/eosiocontract(\/|$)/) ? ' current' : '' %>">System Contract</a></li>
-        <li><a href="<%- url_for("/api/token/index.html") %>" class="nav-link<%- page.path.match(/\/token(\/|$)/) ? ' current' : '' %>">Token Contract</a></li>
-        <li><a href="<%- url_for("/api/fibosjs/index.html") %>" class="nav-link<%- page.path.match(/\/fibosjs(\/|$)/) ? ' current' : '' %>">FIBOS.JS</a></li>
-        <li><a href="<%- url_for("/api/rpc/index.html") %>" class="nav-link<%- page.path.match(/\/rpc(\/|$)/) ? ' current' : '' %>">RPC API</a></li>
-        <li><a href="<%- url_for("/api/msig/index.html") %>" class="nav-link<%- page.path.match(/\/msig(\/|$)/) ? ' current' : '' %>">Msig Contract</a></li>
+        <li><a href="<%- url_for_lang("/api/smartcontract/index.html") %>" class="nav-link<%- page.path.match(/\/smartcontract(\/|$)/) ? ' current' : '' %>">JS Contract</a></li>
+        <li><a href="<%- url_for_lang("/api/fibos/index.html") %>" class="nav-link<%- page.path.match(/\/fibos(\/|$)/) ? ' current' : '' %>">FIBOS Node</a></li>
+        <li><a href="<%- url_for_lang("/api/eosiocontract/index.html") %>" class="nav-link<%- page.path.match(/\/eosiocontract(\/|$)/) ? ' current' : '' %>">System Contract</a></li>
+        <li><a href="<%- url_for_lang("/api/token/index.html") %>" class="nav-link<%- page.path.match(/\/token(\/|$)/) ? ' current' : '' %>">Token Contract</a></li>
+        <li><a href="<%- url_for_lang("/api/fibosjs/index.html") %>" class="nav-link<%- page.path.match(/\/fibosjs(\/|$)/) ? ' current' : '' %>">FIBOS.JS</a></li>
+        <li><a href="<%- url_for_lang("/api/rpc/index.html") %>" class="nav-link<%- page.path.match(/\/rpc(\/|$)/) ? ' current' : '' %>">RPC API</a></li>
+        <li><a href="<%- url_for_lang("/api/msig/index.html") %>" class="nav-link<%- page.path.match(/\/msig(\/|$)/) ? ' current' : '' %>">Msig Contract</a></li>
       </ul></li>
     </ul>
   </li>
