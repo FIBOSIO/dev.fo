@@ -1,0 +1,433 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "msig"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/zh-cn/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link current">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/msig/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/msig/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link current">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/msig/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/msig/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Msig Contract
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+        <li>
+          <a href="/zh-cn/api/msig/index.html" class="sidebar-link current"></a>
+        </li>
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content msig with-sidebar ">
+  
+    
+  
+  
+  
+    <h1 id="Msig-Contract"><a href="#Msig-Contract" class="headerlink" title="Msig Contract"></a>Msig Contract</h1><p><strong>msig</strong> 是 <strong>multiple signature（多重签名）</strong>的简写，顾名思义，就是让多个账户对一起事务进行签名。可以异步提出、批准、发布经过多方同意的事务。多重签名是根据账户或公钥所拥有权限的<strong>权重</strong>来决定的，权重达到阈值才能签名成功。</p>
+<h2 id="propose"><a href="#propose" class="headerlink" title="propose"></a>propose</h2><p>发起提案</p>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>proposer</strong></td>
+<td>string</td>
+<td>提案人</td>
+</tr>
+<tr>
+<td><strong>proposal_name</strong></td>
+<td>string</td>
+<td>提案名</td>
+</tr>
+<tr>
+<td><strong>requested</strong></td>
+<td>string</td>
+<td>提案通过所需权限</td>
+</tr>
+<tr>
+<td><strong>trx</strong></td>
+<td>string</td>
+<td>提案具体执行的交易内容</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>fibos.js 环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.msig'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.proposeSync(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      requested: [&#123;</span><br><span class="line">            <span class="string">"actor"</span>: <span class="string">"popo11111111"</span>,</span><br><span class="line">            <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">          &#125;],</span><br><span class="line">      trx: <span class="string">'transaction'</span>    </span><br><span class="line">&#125;, &#123;</span><br><span class="line">  authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>浏览器环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio.msig'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.propose(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      requested:  [&#123;</span><br><span class="line">            <span class="string">"actor"</span>: <span class="string">"popo11111111"</span>,</span><br><span class="line">            <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">          &#125;],</span><br><span class="line">      trx: <span class="string">'transaction'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="approve"><a href="#approve" class="headerlink" title="approve"></a>approve</h2><p>同意提案</p>
+<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>proposer</strong></td>
+<td>string</td>
+<td>提案人</td>
+</tr>
+<tr>
+<td><strong>proposal_name</strong></td>
+<td>string</td>
+<td>提案名</td>
+</tr>
+<tr>
+<td><strong>level</strong></td>
+<td>string</td>
+<td>使用哪个权限批准这个提案</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p>fibos.js 环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.msig'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.approveSync(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      level:&#123;<span class="string">"actor"</span>:<span class="string">"bob"</span>, <span class="string">"permission"</span>:<span class="string">"active"</span>&#125;    </span><br><span class="line">&#125;, &#123;</span><br><span class="line">  authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>浏览器环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio.msig'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.approve(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      level: &#123;<span class="string">"actor"</span>:<span class="string">"bob"</span>, <span class="string">"permission"</span>:<span class="string">"active"</span>&#125;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="unapprove"><a href="#unapprove" class="headerlink" title="unapprove"></a>unapprove</h2><p>不同意提案</p>
+<h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>proposer</strong></td>
+<td>string</td>
+<td>提案人</td>
+</tr>
+<tr>
+<td><strong>proposal_name</strong></td>
+<td>string</td>
+<td>提案名</td>
+</tr>
+<tr>
+<td><strong>level</strong></td>
+<td>string</td>
+<td>使用哪个权限拒绝这个提案</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><p>fibos 环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.msig'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.unapproveSync(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      level: &#123;<span class="string">"actor"</span>:<span class="string">"bob"</span>, <span class="string">"permission"</span>:<span class="string">"active"</span>&#125;   </span><br><span class="line">&#125;, &#123;</span><br><span class="line">  authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>浏览器环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio.msig'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.unapprove(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      level:&#123;<span class="string">"actor"</span>:<span class="string">"bob"</span>, <span class="string">"permission"</span>:<span class="string">"active"</span>&#125;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="cancel"><a href="#cancel" class="headerlink" title="cancel"></a>cancel</h2><p>取消提案</p>
+<h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>proposer</strong></td>
+<td>string</td>
+<td>提案人</td>
+</tr>
+<tr>
+<td><strong>proposal_name</strong></td>
+<td>string</td>
+<td>提案名</td>
+</tr>
+<tr>
+<td><strong>canceler</strong></td>
+<td>string</td>
+<td>取消账户</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h4><p>fibos.js 环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.msig'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.cancelSync(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      canceler: <span class="string">'account_name'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>浏览器环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio.msig'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.cancel(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      canceler: <span class="string">'account_name'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><p>执行提案</p>
+<h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>proposer</strong></td>
+<td>string</td>
+<td>提案人</td>
+</tr>
+<tr>
+<td><strong>proposal_name</strong></td>
+<td>string</td>
+<td>提案名</td>
+</tr>
+<tr>
+<td><strong>executer</strong></td>
+<td>string</td>
+<td>执行账户</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h4><p>fibos.js 环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.msig'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.execSync(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      executer: <span class="string">'account_name'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>浏览器环境下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos 主网 chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'你的私钥'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio.msig'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.exec(&#123;</span><br><span class="line">      proposer: <span class="string">'account_name'</span>,</span><br><span class="line">      proposal_name: <span class="string">'name'</span>,</span><br><span class="line">      executer: <span class="string">'account_name'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'私钥对应的账号'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

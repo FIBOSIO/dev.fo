@@ -1,0 +1,846 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Account — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Account — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Account — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/system-account.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/system-account.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/system-account.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/system-account.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link current">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Account</h1>
+  
+  
+    <blockquote>
+<p><strong>Tips:</strong> We will close free FIBOS account register channel on Sep 4th. After then, users who want to register FIBOS account can ask the users that already have FIBOS account to help you to register via learning this document.</p>
+</blockquote>
+<h2 id="What-is-account"><a href="#What-is-account" class="headerlink" title="What is account"></a>What is account</h2><ul>
+<li><p>Account is different from ETH and BTC addresses. It is an identifiable, readable, notable string. For example: your gaming English nickname could be hellofibos.</p>
+</li>
+<li><p>The naming of accounts follows the design by EOS. The rule are: composed only of the numbers 1-5 and the letters a-z(lower-case). The length must be 12 characters.</p>
+</li>
+<li><p>For now, the account name length must be 12 characters after EOS BIOS is launched. For the engineers there is one thing one should know. The short account name (shorter than 12 characters) is caused by the system contract. If you are interested in this, you can check the informations about EOS’ short name bidding.</p>
+</li>
+<li><p>FIBOS account can own resources and relational contracts. Owning resources can be understood as the EOS,RAM,CPU,NET in FIBOS are all belong to the account. Relational contracts can be understood as contracts that must belongs to the account. Account can be authorized to do some actions, such as: transferring, contract action.</p>
+</li>
+</ul>
+<h2 id="Generate-public-private-key"><a href="#Generate-public-private-key" class="headerlink" title="Generate public/private key"></a>Generate public/private key</h2><blockquote>
+<p><strong>Tips:</strong> The private key generated needs to be saved properly, and make sure it is not leaked to anyone!  Registering a FIBOS account by someone else only requires your public key. Anyone who ask for your private key for the reason of helping you to register a FIBOS account are fraudsters.</p>
+</blockquote>
+<p><strong>Generate by ecc of fibos.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> prikey = FIBOS.modules.ecc.randomKeySync(); <span class="comment">//private key</span></span><br><span class="line"><span class="keyword">var</span> pubkey = FIBOS.modules.ecc.privateToPublic(prikey); <span class="comment">//public key</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'public key: %s\nprivate key: %s'</span>,pubkey,prikey);</span><br></pre></td></tr></table></figure>
+<h2 id="Create-Account"><a href="#Create-Account" class="headerlink" title="Create Account"></a>Create Account</h2><h3 id="create-new-account"><a href="#create-new-account" class="headerlink" title="create new account"></a>create new account</h3><p><code>newaccount</code> method and parameters:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'creator_priKey'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.newaccount(&#123;</span><br><span class="line">    creator: <span class="string">"Creator Name"</span>, <span class="comment">//Creator acount name</span></span><br><span class="line">    name: <span class="string">"Account Name"</span>, <span class="comment">//Created account name</span></span><br><span class="line">    owner: <span class="string">"Owner Key"</span>, <span class="comment">//Created owner permission public key</span></span><br><span class="line">    active: <span class="string">"Active Key"</span> <span class="comment">//Created active permission public key</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Buy-RAM"><a href="#Buy-RAM" class="headerlink" title="Buy RAM"></a>Buy RAM</h3><p>Saving account information to the chain consumes RAM. The creator needs to buy RAM for the created account informations.</p>
+<p><code>buyrambytes</code> method and parameters:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'creator_priKey'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.buyrambytes(&#123;</span><br><span class="line">    payer: <span class="string">'eosio.token'</span>,<span class="comment">//Created account name</span></span><br><span class="line">    receiver: <span class="string">'Receiver Account'</span>,<span class="comment">//Created account name</span></span><br><span class="line">    bytes: <span class="number">4096</span> <span class="comment">//The amount of memory consumed</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Mortgage-Resources"><a href="#Mortgage-Resources" class="headerlink" title="Mortgage Resources"></a>Mortgage Resources</h3><p>Creator mortgages FO to get CPU and NET to allow the created account to do transfers.</p>
+<p><code>delegatebw</code> method and parameters:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'creator_priKey'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.delegatebw(&#123;</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'from'</span>,<span class="comment">//Creator account name</span></span><br><span class="line">    receiver: <span class="string">'Your_Account'</span>,<span class="comment">//Created account name</span></span><br><span class="line">    stake_net_quantity: <span class="string">'0.1000 FO'</span>,<span class="comment">//Creator mortgage FO to get CPU for created account</span></span><br><span class="line">    stake_cpu_quantity: <span class="string">'0.1000 FO'</span>,<span class="comment">//Creator mortgage FO to get NET for created account</span></span><br><span class="line">    transfer: <span class="number">1</span><span class="comment">//Represents wether to transfer tokens to receivors while mortgaging resources</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'creator_priKey'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> r = fibos_client.transactionSync(<span class="function"><span class="params">tr</span> =&gt;</span> &#123;</span><br><span class="line">  tr.newaccount(&#123;</span><br><span class="line">    creator: <span class="string">'creator_account'</span>,</span><br><span class="line">    name: <span class="string">'your_account'</span>,</span><br><span class="line">    owner: <span class="string">'your_owner_publicKey'</span>,</span><br><span class="line">    active: <span class="string">'your_active_publicKey'</span></span><br><span class="line">  &#125;);</span><br><span class="line">  tr.buyrambytes(&#123;</span><br><span class="line">    payer: <span class="string">'creator_account'</span>,</span><br><span class="line">    receiver: <span class="string">'your_account'</span>,</span><br><span class="line">    bytes: <span class="number">4096</span></span><br><span class="line">  &#125;);</span><br><span class="line">  tr.delegatebw(&#123;</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'creator_account'</span>,</span><br><span class="line">    receiver: <span class="string">'your_account'</span>,</span><br><span class="line">    stake_net_quantity: <span class="string">'0.1000 FO'</span>,</span><br><span class="line">    stake_cpu_quantity: <span class="string">'0.1000 FO'</span>,</span><br><span class="line">    transfer: <span class="number">1</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Execute the code to help others successfully register an account.</p>
+<p>Results (parts) ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&apos;act&apos;: &#123;</span><br><span class="line">  &apos;account&apos;: &apos;eosio&apos;,</span><br><span class="line">  &apos;name&apos;: &apos;newaccount&apos;,</span><br><span class="line">  &apos;authorization&apos;: [&#123;</span><br><span class="line">    &apos;actor&apos;: &apos;fibostest123&apos;,</span><br><span class="line">    &apos;permission&apos;: &apos;active&apos;</span><br><span class="line">  &#125;],</span><br><span class="line">  &apos;data&apos;: &#123;</span><br><span class="line">    &apos;creator&apos;: &apos;fibostest123&apos;,</span><br><span class="line">    &apos;name&apos;: &apos;xinchengdai1&apos;,</span><br><span class="line">    &apos;owner&apos;: &#123;</span><br><span class="line">      &apos;threshold&apos;: 1,</span><br><span class="line">      &apos;keys&apos;: [&#123;</span><br><span class="line">        &apos;key&apos;: &apos;FO7yLv8FvFhFCjajcqgnJJFHBUnLLS9BYfZLymQXoDu7wL3a67Xr&apos;,</span><br><span class="line">        &apos;weight&apos;: 1</span><br><span class="line">      &#125;],</span><br><span class="line">      &apos;accounts&apos;: [],</span><br><span class="line">      &apos;waits&apos;: []</span><br><span class="line">    &#125;,</span><br><span class="line">    &apos;active&apos;: &#123;</span><br><span class="line">      &apos;threshold&apos;: 1,</span><br><span class="line">      &apos;keys&apos;: [&#123;</span><br><span class="line">        &apos;key&apos;: &apos;FO7yLv8FvFhFCjajcqgnJJFHBUnLLS9BYfZLymQXoDu7wL3a67Xr&apos;,</span><br><span class="line">        &apos;weight&apos;: 1</span><br><span class="line">      &#125;],</span><br><span class="line">      &apos;accounts&apos;: [],</span><br><span class="line">      &apos;waits&apos;: []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>Based on the information printed above，We can see <code>fibostest123</code> account created an account named <code>xinchengdai1</code> ,next the owner of account <code>xinchengdai1</code> can import the private key to FO wallet to use the other functions! click <a href="http://wallet.fo/" target="_blank" rel="noopener">download FO wallet</a> to get FO wallet.</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

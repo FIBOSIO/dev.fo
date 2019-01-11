@@ -1,0 +1,1192 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Node Data Persistence — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Node Data Persistence — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Node Data Persistence — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/node-persistence.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/node-persistence.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/node-persistence.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/node-persistence.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link current">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Node Data Persistence</h1>
+  
+  
+    <p>In buisness, we often have needs to query history data, such as: a certain account’s transfer history, but considering performance, performing self historic data query in EOS is not a great solution, also EOS’ history API module has slow iterations, even about to be abandoned.</p>
+<p>If the data onchain can be real-time synced locally, seperating node services and buisness query, then efficiency can be greatly improved. </p>
+<p>In FIBOS, we offer three solutions for you to choose for your own scenario.</p>
+<h2 id="Emitter-Plug-In"><a href="#Emitter-Plug-In" class="headerlink" title="Emitter Plug In"></a>Emitter Plug In</h2><p>emitter is an event listening plugin, can easily listen to events of transaction, block, and irreversible_block. You can use it to listen in, and store the corresponding data according to your own needs.</p>
+<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><ul>
+<li>No restrictions such as that of mongo plugins, and have the ability to store data according to your business needs.</li>
+<li>Compared to history plugin, uses less RAM. </li>
+</ul>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><p>Open the working directory <code>node.js</code> and add the emitter plugin: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain'</span>);</span><br><span class="line">fibos.load(<span class="string">'net'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'emitter'</span>); <span class="comment">// start emitter plugin</span></span><br><span class="line">fibos.on(<span class="string">'transaction'</span>,at =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(at);</span><br><span class="line">&#125;) <span class="comment">// print transaction info</span></span><br><span class="line">fibos.on(<span class="string">'block'</span>,at =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(at);</span><br><span class="line">&#125;) <span class="comment">// print block info</span></span><br><span class="line">fibos.on(<span class="string">'irreversible_block'</span>,at =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(at);</span><br><span class="line">&#125;) <span class="comment">// print irreversible_block info</span></span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">    <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">    <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.config_dir = <span class="string">'fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'fibos_data_dir/'</span>;</span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<p>Operate FIBOS runtime environment </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos node.js</span><br></pre></td></tr></table></figure>
+<p><code>eosio</code> already started block production, print transaction, block, and irreversible_block data obtain. </p>
+<p>Next, synch and swave the data to MySql database, the steps are as follows: </p>
+<ol>
+<li>Connect MySql Database</li>
+</ol>
+<p>Use db.open or db.openMySQL to create, the create method: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql = db.openMySQL(<span class="string">'mysql://user:pass@host/db'</span>);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Run a sql command and return the result, can format string based on parameters</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql.execute(<span class="built_in">String</span> sql,...args);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Call Parameters：</p>
+<p>sql：String，formatted string, optional parameters specified with ?. Example: ‘INSERT INTO TABLENAME (name…) VALUES (value);’</p>
+<p>args：…，Optional parameter list</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"><span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'db'</span>);</span><br><span class="line"><span class="keyword">var</span> mysql = db.openMySQL(<span class="string">'mysql://user:pass@host/db'</span>); <span class="comment">// </span></span><br><span class="line">Change to your own mysql configs </span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain'</span>);</span><br><span class="line">fibos.load(<span class="string">'net'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'emitter'</span>);</span><br><span class="line">fibos.on(<span class="string">'transaction'</span>,at =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(at);</span><br><span class="line">    <span class="keyword">let</span> acitonname = at.action_traces[<span class="number">0</span>].act.name;</span><br><span class="line">    <span class="keyword">if</span>(acitonname === <span class="string">'extransfer'</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> trx_id = at.action_traces[<span class="number">0</span>].trx_id</span><br><span class="line">        <span class="keyword">let</span> data = at.action_traces[<span class="number">0</span>].act.data;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">from</span> = data.from;</span><br><span class="line">        <span class="keyword">let</span> to = data.to;</span><br><span class="line">        <span class="keyword">let</span> memo = data.memo;</span><br><span class="line">        <span class="keyword">let</span> quantity = data.quantity.quantity;</span><br><span class="line">        <span class="keyword">let</span> contract = data.quantity.contract;</span><br><span class="line">	    mysql.execute(<span class="string">'insert into transfer_info(from,to,memo,trx_id,quantity,contract) values(?,?,?,?,?,?)'</span>, [<span class="keyword">from</span> , to, memo , trx_id , quantity , contract]);        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)<span class="comment">// print transaction info，and write the extransfer info into transfer_info array of mysql</span></span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">    <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">    <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.config_dir = <span class="string">'fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'fibos_data_dir/'</span>;</span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<h3 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h3><p>Data on the block can not only be saved to <strong>MySql</strong> database, it can also be sync and sacved to other databses under the <code>db module</code>. </p>
+<p>Example：</p>
+<ul>
+<li><strong>sqlite</strong></li>
+<li><p><del><strong>mongodb</strong></del> note that emitter does not support mongob. Because it supports EOS’ mongodb plugin, FIBJS disabled the mongodb plugin. </p>
+</li>
+<li><p><strong>leveldb</strong></p>
+</li>
+<li><strong>Redis</strong></li>
+</ul>
+<h2 id="fibos-tracker-framework"><a href="#fibos-tracker-framework" class="headerlink" title="fibos-tracker framework"></a>fibos-tracker framework</h2><p>fibos-tracker is a FIBOS blockchain data GraphQL API service framework, realized based off    <a href="https://github.com/fibjs/fib-app" target="_blank" rel="noopener">fib-app</a>, current version is v1.1.0. </p>
+<p>Project Website: <a href="https://github.com/FIBOSIO/fibos-tracker" target="_blank" rel="noopener">https://github.com/FIBOSIO/fibos-tracker</a></p>
+<p>Its main functions are：</p>
+<ul>
+<li>Provide emitter listening events to FIBOS block date</li>
+<li>Provide http service, supports call of GraphQL </li>
+<li>Supports using ORM model to customize own data model model, custom data table and custom hook listening data</li>
+</ul>
+<h3 id="Quick-Installation"><a href="#Quick-Installation" class="headerlink" title="Quick Installation"></a>Quick Installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos --install fibos-tracker</span><br></pre></td></tr></table></figure>
+<h3 id="Framework-clarification"><a href="#Framework-clarification" class="headerlink" title="Framework clarification"></a>Framework clarification</h3><p>Framework defaultly saves block, transaction and actions base data </p>
+<h4 id="blocks-table-data"><a href="#blocks-table-data" class="headerlink" title="blocks table data"></a>blocks table data</h4><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Self-Growing id</td>
+</tr>
+<tr>
+<td>block_num</td>
+<td>Number</td>
+<td>Block Height</td>
+</tr>
+<tr>
+<td>block_time</td>
+<td>Date</td>
+<td>Block Date</td>
+</tr>
+<tr>
+<td>producer_block_id</td>
+<td>String</td>
+<td>block hash</td>
+</tr>
+<tr>
+<td>producer</td>
+<td>String</td>
+<td>block producer</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Reversible status</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>Date</td>
+<td>Record creation time</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>Date</td>
+<td>Record update time</td>
+</tr>
+</tbody>
+</table>
+<h4 id="transactions-表数据"><a href="#transactions-表数据" class="headerlink" title="transactions 表数据"></a>transactions 表数据</h4><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Self-Growing id</td>
+</tr>
+<tr>
+<td>trx_id</td>
+<td>String</td>
+<td>Transaction hash</td>
+</tr>
+<tr>
+<td>rawData</td>
+<td>JSON</td>
+<td>Raw Data</td>
+</tr>
+<tr>
+<td>block_id</td>
+<td>String</td>
+<td>Block Height (Links blocks)</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>Date</td>
+<td>Record creation time</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>Date</td>
+<td>record update time</td>
+</tr>
+</tbody>
+</table>
+<h4 id="actions-表数据"><a href="#actions-表数据" class="headerlink" title="actions 表数据"></a>actions 表数据</h4><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Self-Growing id</td>
+</tr>
+<tr>
+<td>contract_name</td>
+<td>String</td>
+<td>Contract Name</td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>action Name</td>
+</tr>
+<tr>
+<td>authorization</td>
+<td>Array</td>
+<td>authorize account</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON</td>
+<td>Transaction data</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>Number</td>
+<td>Transaction id (Regard Table transactions)</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>Number</td>
+<td>parent action id (Regard Table actions)</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>Date</td>
+<td>Record creation time</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>Date</td>
+<td>Record update time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="API-Introduction"><a href="#API-Introduction" class="headerlink" title="API Introduction"></a>API Introduction</h3><h4 id="Tracker-Config"><a href="#Tracker-Config" class="headerlink" title="Tracker.Config"></a>Tracker.Config</h4><p>Config is global attribute of Tracker, it can be used to quickly modify settings, such as: modify the storage engine configuration. </p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"></span><br><span class="line">Tracker.Config.DBconnString = <span class="string">"mysql://root:123456@127.0.0.1/fibos_chain"</span>;</span><br><span class="line"></span><br><span class="line">Tracker.Config.isFilterNullBlock = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>desc</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DBconnString</td>
+<td>Data storage engine</td>
+<td>Default use SQLite storage engine</td>
+</tr>
+<tr>
+<td>isFilterNullBlock</td>
+<td>Whether to filter empty blocks</td>
+<td>Default true</td>
+</tr>
+<tr>
+<td>isSyncSystemBlock</td>
+<td>Whether to store default data</td>
+<td>Default false</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tracker-app"><a href="#tracker-app" class="headerlink" title="tracker.app"></a>tracker.app</h4><p>fib-app instance app object, for details please refer to <a href="https://github.com/fibjs/fib-app" target="_blank" rel="noopener">fib-app</a> documentation. </p>
+<p>tracker.app object supports rounting access. </p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> httpServer = <span class="keyword">new</span> http.Server(<span class="string">""</span>, <span class="number">8080</span>, &#123;</span><br><span class="line">	<span class="string">'/1.0/app'</span>: tracker.app</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">httpServer.run();</span><br></pre></td></tr></table></figure>
+<h4 id="tracker-emitter"><a href="#tracker-emitter" class="headerlink" title="tracker.emitter"></a>tracker.emitter</h4><p>Uses with action plugin of FIBOS. </p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fibos = <span class="built_in">require</span>(<span class="string">"fibos"</span>);</span><br><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line">tracker.emitter(fibos);</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>params</th>
+<th>type</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fibos</td>
+<td>fibos object</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tracker-diagram"><a href="#tracker-diagram" class="headerlink" title="tracker.diagram"></a>tracker.diagram</h4><p>Generate data table associated diagram, if self-defined data tabled, must call tracker.use then run. </p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line"><span class="comment">//If exist other db modles，please exec tracker.use.</span></span><br><span class="line"></span><br><span class="line">tracker.diagram();</span><br></pre></td></tr></table></figure>
+<h4 id="tracker-stop"><a href="#tracker-stop" class="headerlink" title="tracker.stop"></a>tracker.stop</h4><p>Safe stops tracker</p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line">tracker.stop();</span><br></pre></td></tr></table></figure>
+<h4 id="tracker-use"><a href="#tracker-use" class="headerlink" title="tracker.use"></a>tracker.use</h4><p>Self-define hook listening data, use ORM model to define DB storage and process. </p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fibos = <span class="built_in">require</span>(<span class="string">"fibos"</span>);</span><br><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line">tracker.use(&#123;</span><br><span class="line">	defines: [<span class="function">(<span class="params">db</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="comment">// ORM DB Define</span></span><br><span class="line">	&#125;, (db) =&gt; &#123;</span><br><span class="line">		<span class="comment">// ORM DB Define</span></span><br><span class="line">	&#125;],</span><br><span class="line">	hooks: &#123;</span><br><span class="line">		<span class="string">"eosio.token/transfer"</span>: <span class="function">(<span class="params">db, messages</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="comment">// hook Tracker messages</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="string">"eosio/newaccount"</span>: <span class="function">(<span class="params">db, messages</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="comment">// hook Tracker messages</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>defines supports arrays, fulfills operational senarios that some model requires multiple tables. </p>
+<p>tracker.use Parameter Definitions：</p>
+<table>
+<thead>
+<tr>
+<th>params</th>
+<th>type</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>model</td>
+<td>Object</td>
+<td>Custom data object, includes defines and hook</td>
+</tr>
+</tbody>
+</table>
+<p><code>model</code> 内部参数定义：</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>type</th>
+<th>desc</th>
+<th>params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>defines</td>
+<td>Function</td>
+<td>Use ORM model to define data table, provides API access</td>
+<td><code>(db) =&gt; {}</code> parameter db is ORM object，can be used to operate data layers</td>
+</tr>
+<tr>
+<td>hooks</td>
+<td>Function</td>
+<td>supports filter of action data’s hook function</td>
+<td><code>(db, messages) =&gt; {}</code> parameter db is ORM object，messages is action Raw data collection</td>
+</tr>
+</tbody>
+</table>
+<p>hooks filter rules clarification: </p>
+<ul>
+<li>filter certain contract, such as: <code>eosio.token</code></li>
+<li>filter certain action of contract, such as: <code>eosio.token/transfer</code></li>
+</ul>
+<p>hooks messages data clarification： </p>
+<p>For easy hooks development, pass of messages is optimized: </p>
+<ul>
+<li>All action that satisfy the filter rule are merged into an array to pass</li>
+<li>All action in array that satisfy the filter rule including this layer action and all below layer inline_action, if there are action in above layers, will carry parent attribute, identifu]y the action data of the upper parent. </li>
+</ul>
+<p>Note: Each layer <code>parent_id</code> is the DB self-growth id of the level’s <code>action</code>.</p>
+<p>Example return structure: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"inline_traces"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"parent"</span>: ... parent_id =&gt; <span class="number">1</span></span><br><span class="line">        <span class="string">"inline_traces"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">"parent"</span>: ... parent_id =&gt; <span class="number">2</span></span><br><span class="line">                <span class="string">"parent"</span>: ... parent_id =&gt; <span class="number">1</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">"parent"</span>: ... parent_id =&gt; <span class="number">2</span></span><br><span class="line">                <span class="string">"parent"</span>: ... parent_id =&gt; <span class="number">1</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="tracker-Queues"><a href="#tracker-Queues" class="headerlink" title="tracker.Queues"></a>tracker.Queues</h4><p>When tracker is handling event data, it will first be saved to the queue. When you are restoring data or resetting environment, it is suggested to clean up the environment. </p>
+<p>Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fibos = <span class="built_in">require</span>(<span class="string">"fibos"</span>);</span><br><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line">tracker.Queues.clear(); <span class="comment">//Clean up queue data</span></span><br><span class="line"></span><br><span class="line">tracker.Queues.stats(); <span class="comment">//Output queue stats</span></span><br></pre></td></tr></table></figure>
+<h3 id="Quick-Application"><a href="#Quick-Application" class="headerlink" title="Quick Application"></a>Quick Application</h3><p><a href="https://github.com/FIBOSIO/fibos-tracker/blob/master/examples" target="_blank" rel="noopener">Example Source Code</a></p>
+<p>After understanding fibos-tracker, let us start writing, using framework to write a blockchain data storage display application.  </p>
+<p>Integrating with FIBOS’ emitter, create an application. It can sync FIBOS TestNet network block data, and use GraphQL to obtain application data.  </p>
+<p><a href="https://testnet.fibos.fo/#/" target="_blank" rel="noopener">FIBOS TestNet WebSite</a>：</p>
+<h4 id="Prepare-Environment"><a href="#Prepare-Environment" class="headerlink" title="Prepare Environment"></a>Prepare Environment</h4><ol>
+<li>Install FIBOS</li>
+</ol>
+<p><a href="./installation.html">Quick Installation</a></p>
+<ol start="2">
+<li>Prepare sample directory</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:$ mkdir example;cd example</span><br><span class="line">:$ fibos --init</span><br><span class="line">:$ fibos --install fibos-tracker</span><br></pre></td></tr></table></figure>
+<h4 id="Write-Example"><a href="#Write-Example" class="headerlink" title="Write Example"></a>Write Example</h4><p><a href="https://github.com/FIBOSIO/fibos-tracker/blob/master/examples/genesis.json" target="_blank" rel="noopener">genesis.json</a> is the network config of FIBOS TestNet. </p>
+<p><a href="https://github.com/FIBOSIO/fibos-tracker/blob/master/examples/index.js" target="_blank" rel="noopener">index.js</a> :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">const</span> fibos = <span class="built_in">require</span>(<span class="string">"fibos"</span>);</span><br><span class="line"><span class="keyword">const</span> Tracker = <span class="built_in">require</span>(<span class="string">"fibos-tracker"</span>);</span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> Tracker();</span><br><span class="line"></span><br><span class="line">fibos.config_dir = <span class="string">"./data"</span>;</span><br><span class="line">fibos.data_dir = <span class="string">"./data"</span>;</span><br><span class="line">fibos.load(<span class="string">"http"</span>, &#123;</span><br><span class="line">	<span class="string">"http-server-address"</span>: <span class="string">"0.0.0.0:8870"</span>,</span><br><span class="line">	<span class="string">"access-control-allow-origin"</span>: <span class="string">"*"</span>,</span><br><span class="line">	<span class="string">"http-validate-host"</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"verbose-http-errors"</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">"net"</span>, &#123;</span><br><span class="line">	<span class="string">"p2p-peer-address"</span>: [<span class="string">"p2p-testnet.fibos.fo:9870"</span>],</span><br><span class="line">	<span class="string">"p2p-listen-endpoint"</span>: <span class="string">"0.0.0.0:9870"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">"producer"</span>);</span><br><span class="line">fibos.load(<span class="string">"chain"</span>, &#123;</span><br><span class="line">	<span class="string">"contracts-console"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="string">"delete-all-blocks"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="string">"genesis-json"</span>: <span class="string">"genesis.json"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">"chain_api"</span>);</span><br><span class="line"></span><br><span class="line">tracker.emitter(fibos);</span><br><span class="line"></span><br><span class="line">fibos.start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> httpServer = <span class="keyword">new</span> http.Server(<span class="string">""</span>, <span class="number">8080</span>, [</span><br><span class="line">	(req) =&gt; &#123;</span><br><span class="line">		req.session = &#123;&#125;;</span><br><span class="line">	&#125;, &#123;</span><br><span class="line">		<span class="string">'^/ping'</span>: <span class="function">(<span class="params">req</span>) =&gt;</span> &#123;</span><br><span class="line">			req.response.write(<span class="string">"pong"</span>);</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="string">'/1.0/app'</span>: tracker.app,</span><br><span class="line">		<span class="string">"*"</span>: [<span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>&#123;&#125;]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>&#123;&#125;</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">httpServer.crossDomain = <span class="literal">true</span>;</span><br><span class="line">httpServer.asyncRun();</span><br></pre></td></tr></table></figure>
+<h4 id="Startup-Services"><a href="#Startup-Services" class="headerlink" title="Startup Services"></a>Startup Services</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos index.js</span><br></pre></td></tr></table></figure>
+<p>Return the following means startup is sucessful, and is sync writing data. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">putLog emitter-running: 1.54080331e+12ms</span><br></pre></td></tr></table></figure>
+<h4 id="Use-GraphQL-method-to-obtain-application-data"><a href="#Use-GraphQL-method-to-obtain-application-data" class="headerlink" title="Use GraphQL method to obtain application data"></a>Use GraphQL method to obtain application data</h4><ol>
+<li>FIBOS GraphQL Client</li>
+</ol>
+<p>fibjs Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> graphql = <span class="function"><span class="keyword">function</span>(<span class="params">body</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> http.post(<span class="string">`http://127.0.0.1:8080/1.0/app/`</span>, &#123;</span><br><span class="line">		headers: &#123;</span><br><span class="line">			<span class="string">'Content-Type'</span>: <span class="string">'application/graphql'</span></span><br><span class="line">		&#125;,</span><br><span class="line">		body: body</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Web GraphQL Client</li>
+</ol>
+<p>jQuery Ajax Example：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> graphql = <span class="function"><span class="keyword">function</span>(<span class="params">body</span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type: <span class="string">"POST"</span>,</span><br><span class="line">        url: <span class="string">"http://127.0.0.1:8080/1.0/app"</span>,</span><br><span class="line">        data: body,</span><br><span class="line">        headers: &#123;</span><br><span class="line">            <span class="string">"Content-Type"</span>: <span class="string">"application/graphql"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        success: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"success"</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"error"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="GraphQL-Get-application-data-list"><a href="#GraphQL-Get-application-data-list" class="headerlink" title="GraphQL Get application - data list"></a>GraphQL Get application - data list</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">graphql(`</span><br><span class="line">&#123;</span><br><span class="line">    find_blocks(</span><br><span class="line">       	skip: 0,</span><br><span class="line">        limit: 10,</span><br><span class="line">        order: &quot;-id&quot;</span><br><span class="line">    )&#123;</span><br><span class="line">        id,</span><br><span class="line">        block_time,</span><br><span class="line">        block_num,</span><br><span class="line">        producer_block_id,</span><br><span class="line">        producer,</span><br><span class="line">        status,</span><br><span class="line">        createdAt,</span><br><span class="line">        updatedAt</span><br><span class="line">    &#125;</span><br><span class="line">&#125;`)</span><br></pre></td></tr></table></figure>
+<h4 id="GraphQL-Get-application-detail-data"><a href="#GraphQL-Get-application-detail-data" class="headerlink" title="GraphQL Get application - detail data"></a>GraphQL Get application - detail data</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">graphql(`</span><br><span class="line">&#123;</span><br><span class="line">    find_blocks(</span><br><span class="line">		where:&#123;</span><br><span class="line">			block_num: 23</span><br><span class="line">		&#125;</span><br><span class="line">	) &#123;</span><br><span class="line">        id,</span><br><span class="line">        block_time,</span><br><span class="line">        block_num,</span><br><span class="line">		producer_block_id,</span><br><span class="line">		producer,</span><br><span class="line">		status,</span><br><span class="line">		createdAt,</span><br><span class="line">		updatedAt,</span><br><span class="line">		actions&#123;</span><br><span class="line">			id,</span><br><span class="line">			trx_id,</span><br><span class="line">			contract_name,</span><br><span class="line">			action,</span><br><span class="line">			authorization,</span><br><span class="line">			data,</span><br><span class="line">			createdAt,</span><br><span class="line">			updatedAt</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;`)</span><br></pre></td></tr></table></figure>
+<p>For more detailed information and high level usage and examples of the framework, please visit <a href="https://github.com/FIBOSIO/fibos-tracker" target="_blank" rel="noopener">project website</a> </p>
+<h2 id="mongoDB-Plugin"><a href="#mongoDB-Plugin" class="headerlink" title="mongoDB Plugin"></a>mongoDB Plugin</h2><p>EOS itself provides pljug in for mongoDB (eosio::mongo_db_plugin), FIBOS also uses this feature. The implementation principle of this module is synching the block data to mongoDB. This makes mongoDB a centralized data storage. </p>
+<p>We will start locally a FIBOS node service, creating account and query within mongoDB. </p>
+<h4 id="Start-mongod-service"><a href="#Start-mongod-service" class="headerlink" title="Start mongod service"></a>Start mongod service</h4><p>If you have not installed mongoDB, please refer to <a href="https://docs.mongoDB.com/manual/administration/install-community/" target="_blank" rel="noopener">Install mongoDB Community Edition</a>. </p>
+<p>First we will start the mongod service, the command is a follows: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos$ mongod</span><br></pre></td></tr></table></figure>
+<p>If it returns the following, it means startup of mongod service is successful. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2018-08-08T09:52:09.459+0800 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols &apos;none&apos;</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten] mongoDB starting : pid=8061 port=27017 dbpath=/data/db 64-bit host=Velen</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten] db version v4.0.1</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten] git version: 54f1582fc6eb01de4d4c42f26fc133e623f065fb</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten] allocator: system</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten] modules: none</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten] build environment:</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten]     distarch: x86_64</span><br><span class="line">2018-08-08T09:52:09.534+0800 I CONTROL  [initandlisten]     target_arch: x86_64</span><br></pre></td></tr></table></figure>
+<h4 id="Start-FIBOS-Runtime"><a href="#Start-FIBOS-Runtime" class="headerlink" title="Start FIBOS Runtime"></a>Start FIBOS Runtime</h4><p>If you have not installed FIBOS, please refer to <a href="./installation.html">Install runtime environment</a>. </p>
+<p>To sync data to mongoDB, all thats needed is to add <code>fibos.load(&#39;mongo_db&#39;)</code> to the code in the getting started tutorial, loading the mongo_db module into FIBOS. Only with three lines, FIBOS will sync block data automatically to mongoDB. Its very convieniant. </p>
+<p>The port number and database name can be changedm in this tutorial the port number is 27017, and the database name is eosmain. The following code is saved to <code>./local/node.js</code>. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'http'</span>,&#123;</span><br><span class="line">    <span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8888'</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'chain'</span>, &#123;</span><br><span class="line">    <span class="string">'contracts-console'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'delete-all-blocks'</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'net'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'history_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">    <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">    <span class="string">'enable-stale-production'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'max-transaction-time'</span>: <span class="number">3000</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'mongo_db'</span>, &#123;</span><br><span class="line">    <span class="string">'mongodb-uri'</span>: <span class="string">'mongodb://localhost:27017/eosmain'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<p>Start FIBOS Runtime: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos$ fibos ./local/node.js</span><br></pre></td></tr></table></figure>
+<p>After startup, we will see the following return in the mongd logs: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2018-08-08T11:33:42.867+0800 I NETWORK  [listener] connection accepted from 127.0.0.1:54259 #2 (2 connections now open)</span><br><span class="line">2018-08-08T11:33:42.868+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:54259 conn2: &#123; driver: &#123; name: &apos;mongoc / mongocxx&apos;, version: &apos;1.10.2 / 3.3.1-pre&apos; &#125;, os: &#123; type: &apos;Darwin&apos;, name: &apos;macOS&apos;, version: &apos;18.0.0&apos;, architecture: &apos;x86_64&apos; &#125;, platform: &apos;cfg=0x00d6a265 posix=200112 stdc=201112 CC=clang 9.1.0 (clang-902.0.39.2) CFLAGS=&apos;&apos; LDFLAGS=&apos;&apos;&apos; &#125;</span><br><span class="line">2018-08-08T11:33:42.873+0800 I STORAGE  [conn2] createCollection: eosmain.accounts with generated UUID: 0e553ab1-4c07-436a-abf7-62c6864779ed</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">2018-08-08T11:33:43.925+0800 I COMMAND  [conn2] command eosmain.$cmd command: createIndexes &#123; createIndexes: &apos;actions&apos;, indexes: [ &#123; name: &apos;trx_id_1&apos;, key: &#123; trx_id: 1 &#125; &#125; ], $db: &apos;eosmain&apos;, lsid: &#123; id: UUID(&apos;1ee67ce9-d0db-4ad1-9737-c4fba7f850ca&apos;) &#125; &#125; numYields:0 reslen:114 locks:&#123; Global: &#123; acquireCount: &#123; r: 1, w: 1 &#125; &#125;, Database: &#123; acquireCount: &#123; W: 1 &#125; &#125;, Collection: &#123; acquireCount: &#123; w: 1 &#125; &#125; &#125; protocol:op_msg 119ms</span><br><span class="line">2018-08-08T11:33:44.019+0800 I STORAGE  [conn2] createCollection: eosmain.transaction_traces with generated UUID: a637e777-aed4-45d2-9bf6-b149bc4e702b</span><br></pre></td></tr></table></figure>
+<p>Through the log we can see that FIBOS has done the following for us: </p>
+<ol>
+<li>Create collections: accounts, actions, block_states, transaction_traces, transactions </li>
+<li>Create the necessary indexes for each collection</li>
+</ol>
+<p>We go into mongoDB’s client mongo to query, and we see that the eosmain database was successfully created:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; show dbs</span><br><span class="line">admin          0.000GB</span><br><span class="line">config         0.000GB</span><br><span class="line">eosmain        0.002GB</span><br><span class="line">local          0.000GB</span><br></pre></td></tr></table></figure>
+<p>Going to the eosmain database, we find that FIBOS has created 5 collections in mongoDB: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; use eosmain</span><br><span class="line">switched to db eosmain</span><br><span class="line">&gt; show tables</span><br><span class="line">accounts</span><br><span class="line">actions</span><br><span class="line">block_states</span><br><span class="line">blocks</span><br><span class="line">transaction_traces</span><br><span class="line">transactions</span><br></pre></td></tr></table></figure>
+<p>We can directly query data from the accounts collection:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.accounts.find()</span><br><span class="line">&#123; &apos;_id&apos; : ObjectId(&apos;5b6a6496bc9b452f1e4750d2&apos;), &apos;name&apos; : &apos;eosio&apos;, &apos;createdAt&apos; : ISODate(&apos;2018-08-08T03:33:42.869Z&apos;) &#125;</span><br></pre></td></tr></table></figure>
+<p>and will find that a system account eosio’s data has already been synched to mongoDB. </p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

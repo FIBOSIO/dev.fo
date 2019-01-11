@@ -1,0 +1,893 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    buffer — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="buffer — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="buffer — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "manual"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/smartcontract/buffer.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/smartcontract/buffer.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/smartcontract/buffer.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/smartcontract/buffer.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            JS Contract
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/index.html" class="sidebar-link">action</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/assert.html" class="sidebar-link">assert</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/buffer.html" class="sidebar-link current">buffer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/console.html" class="sidebar-link">console</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/crypto.html" class="sidebar-link">crypto</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/db.html" class="sidebar-link">db</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/dbiterator.html" class="sidebar-link">DBIterator</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/Table.html" class="sidebar-link">table</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/trans.html" class="sidebar-link">trans</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content manual with-sidebar ">
+  
+    
+  
+  
+    <h1>buffer</h1>
+  
+  
+    <h1 id="Object-buffer"><a href="#Object-buffer" class="headerlink" title="Object buffer"></a>Object buffer</h1><p>Binary data cache object for IO read-write data processing</p>
+<p>Buffer object is global basic class, can be created with new Buffer(…) by anytime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer();</span><br></pre></td></tr></table></figure>
+<h2 id="Static-function"><a href="#Static-function" class="headerlink" title="Static function"></a>Static function</h2><h3 id="isBuffer"><a href="#isBuffer" class="headerlink" title="isBuffer"></a>isBuffer</h3><p><strong>Detects whether a given variable is a Buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.isBuffer(v);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>v: Value, Give the variables to detect</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Boolean, Whether the incoming object is a Buffer object<br>Example:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>);</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">"abcd"</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isBuffer(buf));</span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isBuffer(str));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="from"><a href="#from" class="headerlink" title="from"></a>from</h3><p><strong>Use other Buffer to create Buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.from(buffer,byteOffset,length);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>buffer: Buffer, A Buffer type variable is given to create a Buffer object</li>
+<li>byteOffset: Integer, Specifies the data start position, start with 0</li>
+<li>length: Integer, Specify data length，start with -1，Represents all the remaining data</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return Buffer Example</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = Buffer.from(<span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>), <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Use string to create Buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.from(str,byteOffset,length);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, Initialize string，the string will be written in format utf-8</li>
+<li>byteOffset: Integer, Specifies the data start position，start with 0</li>
+<li>length: Integer, Specify data length，start with -1，Represents all the remaining data</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return Buffer Example</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = Buffer.from(<span class="string">"abcd"</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Use string to create Buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.from(str,codec);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, Initializing string，the string will be written in format utf-8, default is to create a empty object.</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return Buffer Example</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(Awesome！<span class="string">", "</span>utf8<span class="string">");</span></span><br><span class="line"><span class="string">    console.log(buf.toString());</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><p><strong>Concatenate data in multiple cache regions</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.concat(buflist,cutLength);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>buflist: Array, Buffer array to be spliced</li>
+<li>cutLength: Integer, How many Buffer objects to intercept</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, new Buffer object spliced result</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = <span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>);</span><br><span class="line">    <span class="keyword">var</span> buf2 = <span class="keyword">new</span> Buffer(<span class="string">"efg"</span>);</span><br><span class="line">    <span class="keyword">var</span> buf3 = <span class="keyword">new</span> Buffer();</span><br><span class="line">    <span class="keyword">var</span> bufArray = [buf1];</span><br><span class="line">    <span class="keyword">var</span> bufRes = Buffer.concat(bufArray);</span><br><span class="line">    <span class="built_in">console</span>.log(bufRes.toString());</span><br><span class="line"></span><br><span class="line">    bufArray = [buf1, buf2];</span><br><span class="line">    bufRes = Buffer.concat(bufArray);</span><br><span class="line">    <span class="built_in">console</span>.log(bufRes.toString());</span><br><span class="line"></span><br><span class="line">    bufRes = Buffer.concat(bufArray, <span class="number">6</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(bufRes.toString());</span><br><span class="line"></span><br><span class="line">    buf1 = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    buf2 = <span class="keyword">new</span> Buffer([<span class="number">0x35</span>, <span class="number">0x36</span>, <span class="number">0x37</span>, <span class="number">0x38</span>]);</span><br><span class="line">    bufArray = [buf1, buf2];</span><br><span class="line">    bufRes = Buffer.concat(bufArray);</span><br><span class="line">    <span class="built_in">console</span>.log(bufRes.toString());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> buf2 = Buffer.concat([]);</span><br><span class="line">    <span class="built_in">console</span>.log(buf2.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="alloc"><a href="#alloc" class="headerlink" title="alloc"></a>alloc</h3><p><strong>Allocates a new cache area of specified length. If the size is 0, a zero-length buffer is created.</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.alloc(size,fill,codec);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>size: Integer, The required length of the buffer</li>
+<li>fill: Integer, Prepopulate the value of the new buffer, string/buffer/integer value types can be used Default：0</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Populates the new Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = Buffer.alloc(<span class="number">10</span>, <span class="number">0</span>, <span class="string">"utf8"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf1.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Allocates a new cache area of specified length. If the size is 0, a zero-length buffer is created.</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.alloc(size,fill,codec);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>size: Integer, The required length of the buffer</li>
+<li>fill: String, Prepopulate the value of the new buffer，string/buffer/integer value types can be used. Default：0</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Populates the new Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = Buffer.alloc(<span class="number">11</span>, <span class="string">'aGVsbG8gd29ybGQ='</span>, <span class="string">'base64'</span>);</span><br><span class="line">    <span class="keyword">var</span> buf2 = Buffer.alloc(<span class="number">16</span>, <span class="string">'aGVsbG8gd29ybGQ='</span>, <span class="string">'base64'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf1.toString());</span><br><span class="line">    <span class="built_in">console</span>.log(buf2.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Allocates a new cache area of specified length. If the size is 0, a zero-length buffer is created.</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.alloc(size,fill,codec);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>size: Integer, The required length of the buffer</li>
+<li>fill: Buffer, Prepopulate the value of the new buffer, string/buffer/integer value types can be used. Default：0</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Populates the new Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = Buffer.alloc(<span class="number">11</span>, <span class="keyword">new</span> Buffer(<span class="string">'aGVsbG8gd29ybGQ='</span>), <span class="string">'base64'</span>);</span><br><span class="line">    <span class="keyword">var</span> buf2 = Buffer.alloc(<span class="number">16</span>, <span class="keyword">new</span> Buffer(<span class="string">'aGVsbG8gd29ybGQ='</span>), <span class="string">'base64'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf1.toString());</span><br><span class="line">    <span class="built_in">console</span>.log(buf2.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="allocUnsafe"><a href="#allocUnsafe" class="headerlink" title="allocUnsafe"></a>allocUnsafe</h3><p><strong>Allocates a new cache area of specified length. If the size is 0, a zero-length buffer is created.</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.allocUnsafe(size);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>size: Integer, The required length of the buffer</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Specifies the size of the new Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = Buffer.allocUnsafe(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf1.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="allocUnsafeSlow"><a href="#allocUnsafeSlow" class="headerlink" title="allocUnsafeSlow"></a>allocUnsafeSlow</h3><p><strong>Allocates a new cache area of specified length. If the size is 0, a zero-length buffer is created.</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.allocUnsafeSlow(size);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>size: Integer, The required length of the buffer</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Specifies the size of the new Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = Buffer.allocUnsafeSlow(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf1.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="isEncoding"><a href="#isEncoding" class="headerlink" title="isEncoding"></a>isEncoding</h3><p><strong>Check whether the encoding format is supported</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.isEncoding(codec);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>codec: String, Encoding format to be check</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Boolean, wether it is supported</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'utf8'</span>)); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'utf-8'</span>)); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'gbk'</span>)); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'gb2312'</span>)); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'hex'</span>)); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'base64'</span>)); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'jis'</span>)); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'aaabbbccc'</span>)); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'binary'</span>)); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'latin1'</span>)); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(Buffer.isEncoding(<span class="string">'big5'</span>)); <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Member-attribute"><a href="#Member-attribute" class="headerlink" title="Member attribute"></a>Member attribute</h2><h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3><p><strong>Integer, Get the size of the cached object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readonly Integer Buffer.length;</span><br></pre></td></tr></table></figure>
+<h2 id="member-function"><a href="#member-function" class="headerlink" title="member function"></a>member function</h2><h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(<span class="built_in">Array</span> datas);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>datas: Array, Initialize the data array</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>])</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(<span class="built_in">ArrayBuffer</span> datas);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>datas: ArrayBuffer, Initialize the data array</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Uint16Array</span>(<span class="number">2</span>);</span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">5000</span>;</span><br><span class="line">    arr[<span class="number">1</span>] = <span class="number">4000</span>;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(arr.buffer);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.hex());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(TypedArray datas);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>datas: TypedArray, Initializes the data array</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="number">2</span>);</span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">50</span>;</span><br><span class="line">    arr[<span class="number">1</span>] = <span class="number">40</span>;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(arr);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.hex());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Uint16Array</span>(<span class="number">2</span>);</span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">5000</span>;</span><br><span class="line">    arr[<span class="number">1</span>] = <span class="number">4000</span>;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(arr);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.hex());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>([<span class="number">0x10</span>, <span class="number">0x20</span>, <span class="number">0x30</span>]);</span><br><span class="line">    <span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(arr.buffer, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(arr1);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.hex());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(ArrayBufferView datas);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>datas: ArrayBufferView, Initialize the data array</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">DataView</span>(<span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">2</span>));</span><br><span class="line">    arr.setInt8(<span class="number">0</span>, <span class="number">0x10</span>);</span><br><span class="line">    arr.setInt8(<span class="number">1</span>, <span class="number">0x20</span>);</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(arr);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.hex());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(Buffer buffer);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>buffer: Buffer, Initialize the buffer object</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(<span class="built_in">String</span> str,</span><br><span class="line">    <span class="built_in">String</span> codec = <span class="string">"utf8"</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, Initialize string，the string will be written in by the format of utf-8，default is to create an empty object.</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>, <span class="string">"utf8"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Cache object constructors</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.Buffer(Integer size = <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>size: Integer, Initialize size of buffer area</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">100</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h3><p><strong>resize cached object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.resize(Integer sz);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>sz: Integer, give a new size</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"abcded"</span>);</span><br><span class="line">    buf.resize(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="append"><a href="#append" class="headerlink" title="append"></a>append</h3><p><strong> Write a binary array in the end of cached object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.append(Buffer data);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>data: Buffer, Initialize binary data</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    buf.append(<span class="string">"abcd"</span>);</span><br><span class="line">    buf.append([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Write a string at the end of the cached object, which is written in utf-8 format</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Buffer.append(<span class="built_in">String</span> str,</span><br><span class="line">    <span class="built_in">String</span> codec = <span class="string">"utf8"</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, strings need to be written</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    buf.append(<span class="string">"3132"</span>, <span class="string">"hex"</span>);</span><br><span class="line">    buf.append(<span class="string">"MTIzNA=="</span>, <span class="string">"base64"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="write"><a href="#write" class="headerlink" title="write"></a>write</h3><p><strong>Write specific string to cached object, default string is utf-8, Only part of the data is written when the boundary is crossed</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.write(<span class="built_in">String</span> str,</span><br><span class="line">    Integer offset = <span class="number">0</span>,</span><br><span class="line">    Integer length = <span class="number">-1</span>,</span><br><span class="line">    <span class="built_in">String</span> codec = <span class="string">"utf8"</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, The string to be written</li>
+<li>offset: Integer, Write start point</li>
+<li>length: Integer, Write lenth（Unit of byte，Default-1），The length of the string to be written if not specified</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, The length of written data byte</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.write(<span class="string">"abcd"</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="string">'utf8'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">'utf8'</span>, <span class="number">0</span>, <span class="number">4</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Write specific string to cached object, default string is utf-8, Only part of the data is written when the boundary is crossed</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.write(<span class="built_in">String</span> str,</span><br><span class="line">    Integer offset = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">String</span> codec = <span class="string">"utf8"</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, The string to be written</li>
+<li>offset: Integer, Write start point</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, The length of written data byte</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.write(<span class="string">"MTIzNA=="</span>, <span class="number">0</span>, <span class="string">"base64"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">"utf8"</span>, <span class="number">0</span>, <span class="number">4</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Write specific string to cached object, default string is utf-8, Only part of the data is written when the boundary is crossed</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.write(<span class="built_in">String</span> str,</span><br><span class="line">    <span class="built_in">String</span> codec = <span class="string">"utf8"</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>str: String, The string to be written</li>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, The length of written data byte</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.write(<span class="string">"MTIzNA=="</span>, <span class="string">"base64"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">"utf8"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="fill"><a href="#fill" class="headerlink" title="fill"></a>fill</h3><p><strong>Fill in specific content data to buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.fill(Integer v,</span><br><span class="line">    Integer offset = <span class="number">0</span>,</span><br><span class="line">    Integer end = <span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>v: Integer, Data that needs to be populated. If offset and end are not specified, the buffer is filled</li>
+<li>offset: Integer, fill in starting point</li>
+<li>end: Integer, fill in ending point</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return current Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.fill(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Fill in specific content data to buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.fill(Buffer v,</span><br><span class="line">    Integer offset = <span class="number">0</span>,</span><br><span class="line">    Integer end = <span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>v: Buffer, Data that needs to be populated. If offset and end are not specified, the buffer is filled</li>
+<li>offset: Integer, fill in starting point</li>
+<li>end: Integer, fill in ending point</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return current Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.fill(<span class="keyword">new</span> Buffer(<span class="string">"abc"</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Fill in specific content data to buffer object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.fill(<span class="built_in">String</span> v,</span><br><span class="line">    Integer offset = <span class="number">0</span>,</span><br><span class="line">    Integer end = <span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>v: String, Data that needs to be populated. If offset and end are not specified, the buffer is filled</li>
+<li>offset: Integer, Write starting position</li>
+<li>end: Integer, Write ending position</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return current Buffer object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.fill(<span class="string">"abc"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><p><strong>Return the location in Buffer where the specificdata first appears</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.indexOf(Integer v,</span><br><span class="line">    Integer offset = <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>v: Integer, Data to be looked up，if offset is not defined，start from starting point by default</li>
+<li>offset: Integer, Initial search location</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, Return the location found，Return -1 if Not found</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>, <span class="number">0x00</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.indexOf(<span class="number">0x33</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.indexOf(<span class="number">0x00</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Return the location in Buffer where the specificdata first appears</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.indexOf(<span class="built_in">String</span> v,</span><br><span class="line">    Integer offset = <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>v: String, Data to be looked up，if offset is not defined，start from starting point by default</li>
+<li>offset: Integer, Find starting location</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, Return the location found，Return -1 if Not found</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"cacdbfcde"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.indexOf(<span class="string">"cd"</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="compare"><a href="#compare" class="headerlink" title="compare"></a>compare</h3><p><strong>Compares the contents of the cache area</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.compare(Buffer buf);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>buf: Buffer, Cache objects to be compared</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, Content comparison results</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.compare(<span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>)));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.compare(<span class="keyword">new</span> Buffer(<span class="string">"abc"</span>)));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.compare(<span class="keyword">new</span> Buffer(<span class="string">"abcde"</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><p><strong>Copy data from the source cache object region to the target cache object region</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer Buffer.copy(Buffer targetBuffer,</span><br><span class="line">    Integer targetStart = <span class="number">0</span>,</span><br><span class="line">    Integer sourceStart = <span class="number">0</span>,</span><br><span class="line">    Integer sourceEnd = <span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>targetBuffer: Buffer, Target cache object</li>
+<li>targetStart: Integer, The target cache object begins copying the byte location，default is 0</li>
+<li>sourceStart: Integer, Source cache object starting byte location, default is 0</li>
+<li>sourceEnd: Integer, Source cache object ending byte location, default is -1, Represents the length of the source data</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Integer, copy the length of the data bytes</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf1 = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>]);</span><br><span class="line">    <span class="keyword">var</span> arr = [<span class="number">0x34</span>, <span class="number">0x35</span>, <span class="number">0x36</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> buf2 = <span class="keyword">new</span> Buffer(arr);</span><br><span class="line">    <span class="keyword">var</span> sz = buf1.copy(buf2);</span><br><span class="line">    <span class="built_in">console</span>.log(sz);</span><br><span class="line">    <span class="built_in">console</span>.log(buf2.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><p><strong>Return a new cache object，Contains data that specifies the start to end of the cache</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.slice(Integer start = <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>start: Integer, Specifies the start of the range, starting from scratch by default</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return a new cache object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.write(<span class="string">"abcdefghih"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.slice(<span class="number">8</span>).toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Return a new cache object，Contains data for the specified range, and returns only a valid portion of the data if the range exceeds the cache</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.slice(Integer start,</span><br><span class="line">    Integer end);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>start: Integer, Specifies the start of the range</li>
+<li>end: Integer, Specifies the end of the range</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return a new cache objecrt</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line">    buf.write(<span class="string">"abcdefghih"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.slice(<span class="number">0</span>, <span class="number">3</span>).toString());</span><br><span class="line">    <span class="built_in">console</span>.log(buf.slice(<span class="number">0</span>, <span class="number">11</span>).toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p><strong>Puts all elements of the current object into a string</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.join(<span class="built_in">String</span> separator = <span class="string">","</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>separator: String, split string，default is “,”</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>String, Return generated data</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> Buffer([<span class="number">192</span>, <span class="number">168</span>, <span class="number">0</span>, <span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(a.join(<span class="string">'.'</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h3><p><strong>Return a new cache object，Contains the inverted order of the current object data</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer Buffer.reverse();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>Buffer, Return new cache object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(a.reverse().toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h3><p><strong>Compares whether the current object is equal to a given object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span> Buffer.equals(object expected);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>expected: object, Set goals for comparison</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>Boolean, Return objects comparing results</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.equals(<span class="keyword">new</span> Buffer(<span class="string">"abcd"</span>)));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.equals(<span class="keyword">new</span> Buffer(<span class="string">"abc"</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="hex"><a href="#hex" class="headerlink" title="hex"></a>hex</h3><p><strong>Use hex to cache object content</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.hex();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>String, Return encoding string</li>
+</ul>
+<h3 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h3><p><strong>use base64 encodes to cache object content</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.base64();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>String, Return encoding string</li>
+</ul>
+<h3 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h3><p><strong>Return all arrays of binary data</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Iterator Buffer.keys();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>Iterator, Return iterator includes object data index</li>
+</ul>
+<h3 id="values"><a href="#values" class="headerlink" title="values"></a>values</h3><p><strong>Return all arrays of binary data</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Iterator Buffer.values();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>Iterator, Return iterator includes object data index</li>
+</ul>
+<h3 id="entries"><a href="#entries" class="headerlink" title="entries"></a>entries</h3><p><strong>Return including object data [index, byte] Right iterator</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Iterator Buffer.entries();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>Iterator, [index, byte] Right iterator</li>
+</ul>
+<h3 id="toArray"><a href="#toArray" class="headerlink" title="toArray"></a>toArray</h3><p><strong>Return all arrays of binary data</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span> Buffer.toArray();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>Array, Return arrays includes data object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"buffer"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toArray());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h3><p><strong>Return encoding string of binary data</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.toString(<span class="built_in">String</span> codec,</span><br><span class="line">    Integer offset = <span class="number">0</span>,</span><br><span class="line">    Integer end);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+<li>offset: Integer, read starting point</li>
+<li>end: Integer, read ending point</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>String, Return string of the object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">"utf8"</span>, <span class="number">1</span>, <span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Return encoding string of binary data</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.toString(<span class="built_in">String</span> codec,</span><br><span class="line">    Integer offset = <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>codec: String, Specifies the encoding format with an allowable value of：”hex”, “base64”, “utf8”, Or the character sets supported by the system</li>
+<li>offset: Integer, read start point.</li>
+</ul>
+<p>Results:</p>
+<ul>
+<li>String, Return string of the object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">"utf8"</span>, <span class="number">1</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">"hex"</span>, <span class="number">2</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString(<span class="string">"base64"</span>, <span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Return binary utf8 string</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.toString();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>String, Return string of the object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="toJSON"><a href="#toJSON" class="headerlink" title="toJSON"></a>toJSON</h3><p><strong>Return JSON format of the object，Return a collection of readable properties defined by an object</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> Buffer.toJSON();</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<ul>
+<li>String, Return JSON format of the object</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"buffer"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(buf.toJSON());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

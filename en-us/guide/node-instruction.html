@@ -1,0 +1,999 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Node Introduction — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Node Introduction — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Node Introduction — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link current">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/node-instruction.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/node-instruction.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link current">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/node-instruction.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/node-instruction.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link current">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Node Introduction</h1>
+  
+  
+    <h2 id="What-is-a-node"><a href="#What-is-a-node" class="headerlink" title="What is a node"></a>What is a node</h2><p>A node is the the terminal responsible for maintaining the running of the network.</p>
+<p>In the Internet field, all data operation of an enterprise is centralized in its own server, so this server is a node.</p>
+<p>For example, WeChat, which we use, processes so much chat information and money trasnfers every day. The data is stored and run on Tencent’s servers. So the server that processes the data, we can call it a node.</p>
+<p>Each node in the blockchain network is equivalent to every computer or server terminal that stores all the block data. The production of all new blocks, as well as verification and accounting of transactions, and broadcasting them to the entire network synchronously, is done by the nodes.</p>
+<p>Simply put, nodes are dedicated workers. In EOS, nodes on the public chain are rewarded with cryptocurrency by voting, and the top 21 nodes get billing rights and provide services.</p>
+<h2 id="FIBOS-Node-Type"><a href="#FIBOS-Node-Type" class="headerlink" title="FIBOS Node Type"></a>FIBOS Node Type</h2><p>As we all know, FIBOS is a side chain of EOS, so FIBOS also adopts the DPOS consensus mechanism, and the nodes are divided into super nodes (BP) and ordinary nodes.</p>
+<p>The super nodes of FIBOS are the 21 nodes from the standby nodes that have been voted by all coin-holders to obtain the accounting rights.</p>
+<p>Supernodes are the core practice of the DPOS consensus. First, because of the decentralized voting mechanism, DPOS is more democratic than other consensus algorithms and is not easy to be monopolized by large holders of the currency.</p>
+<p>The 21 supernodes are all created by fair and fair voting. If 21 node representatives fail to perform their duties, such as not generating blocks in time when it is their turn to work, they are removed from the list and a new supernode is selected by the community to replace them.</p>
+<p>Second, because the number of nodes is reduced, the operation efficiency of 21 supernodes is higher. It claims to be able to achieve millions of TPS per second under optimal conditions. This exceeds the efficiency of all the running public chain now, and the future is incalculable.</p>
+<p>Although the number of supernodes in general is small and some “decentralization” components are sacrificed, it does not lead to the disadvantages of centralization, because any node that does not comply with the constitution of FIBOS will be rejected and replaced by a democratic vote.</p>
+<p>In addition, the block order of these 21 nodes and the audit order of the whole network transaction are all set randomly by the system and will change at any time, which can effectively upgrade, prevent cheating and avoid hard bifurcation.</p>
+<p>Last but not least, the number of supernodes can be flexible and is not immutable. FIBOS is a community-driven project, so when the number of supernodes cannot meet the development of the project, the community can vote to increase the number of nodes.</p>
+<h2 id="FIBOS-Network-node-information"><a href="#FIBOS-Network-node-information" class="headerlink" title="FIBOS Network node information"></a>FIBOS Network node information</h2><p>The current FIBOS network is divided into the FIBOS TestNet and FIBOS main network. The FIBOS foundation has provided several supernodes to help both run since they were launched. Among them, the supernodes of the FIBOS main network have all been replaced by the supernodes entered later. the TestNet is still run by the supernodes provided by the foundation.</p>
+<h3 id="FIBOS-TestNet"><a href="#FIBOS-TestNet" class="headerlink" title="FIBOS TestNet"></a>FIBOS TestNet</h3><p>FIBOS TestNet is a p2p-connected testing chain with FIBOS nodes, which is convenient for developers to test and verify.</p>
+<p>Root BP connection information:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IP : &apos;http://testnet.fibos.fo&apos;</span><br><span class="line">chainID : &apos;68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a&apos;</span><br></pre></td></tr></table></figure>
+<p>Support FIBOS TestNet, account registration: <a href="http://testnet.fibos.fo/" target="_blank" rel="noopener">http://testnet.fibos.fo/</a></p>
+<p>(Default account sends 10 EOS to pass-through)</p>
+<p>HTTP List</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">URL</th>
+<th style="text-align:center">HTTP port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="http://testnet.fibos.fo" target="_blank" rel="noopener">http://testnet.fibos.fo</a></td>
+<td style="text-align:center">8870</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://testnet2.fibos.fo" target="_blank" rel="noopener">http://testnet2.fibos.fo</a></td>
+<td style="text-align:center">8870</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://testnet.fibos.fo" target="_blank" rel="noopener">http://testnet.fibos.fo</a></td>
+<td style="text-align:center">80</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://history-testnet.fibos.fo" target="_blank" rel="noopener">http://history-testnet.fibos.fo</a></td>
+<td style="text-align:center">80</td>
+</tr>
+</tbody>
+</table>
+<p>P2P List</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">URL            s</th>
+<th style="text-align:center">P2P port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">p2p-testnet.fibos.fo</td>
+<td style="text-align:center">9870</td>
+</tr>
+<tr>
+<td style="text-align:center">p2p-testnet-02.fibos.fo</td>
+<td style="text-align:center">9870</td>
+</tr>
+</tbody>
+</table>
+<h3 id="FIBOS-Main-Net"><a href="#FIBOS-Main-Net" class="headerlink" title="FIBOS Main Net"></a>FIBOS Main Net</h3><p>At 0 UTC on August 28, 2018, FIBOS main network was successfully launched. The five nodes of Seoul, Tokyo, Canada, London and Virginia successfully connected and produced blocks.</p>
+<p>FIBOS RPC List</p>
+<p>The RPC HTTP address of part of FIBOS main network is shown as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>URL(http)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokyo</td>
+<td><a href="http://api.fibos.me" target="_blank" rel="noopener">http://api.fibos.me</a></td>
+</tr>
+<tr>
+<td>Hong Kong</td>
+<td><a href="http://rpc-mainnet.fibscan.io" target="_blank" rel="noopener">http://rpc-mainnet.fibscan.io</a></td>
+</tr>
+<tr>
+<td>Oregon</td>
+<td><a href="http://api.bitze.site" target="_blank" rel="noopener">http://api.bitze.site</a></td>
+</tr>
+<tr>
+<td>San Francisco</td>
+<td><a href="http://api.fibos.icu" target="_blank" rel="noopener">http://api.fibos.icu</a></td>
+</tr>
+<tr>
+<td>London</td>
+<td><a href="http://api.fibosutility.com" target="_blank" rel="noopener">http://api.fibosutility.com</a></td>
+</tr>
+</tbody>
+</table>
+<p>The RPC HTTPS address of part of FIBOS main network is shown as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>URL(https)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokyo</td>
+<td><a href="https://api.fibos.me" target="_blank" rel="noopener">https://api.fibos.me</a></td>
+</tr>
+<tr>
+<td>Hong Kong</td>
+<td><a href="https://rpc-mainnet.fibscan.io" target="_blank" rel="noopener">https://rpc-mainnet.fibscan.io</a></td>
+</tr>
+<tr>
+<td>Oregon</td>
+<td><a href="https://api.bitze.site" target="_blank" rel="noopener">https://api.bitze.site</a></td>
+</tr>
+<tr>
+<td>San Francisco</td>
+<td><a href="https://api.fibos.icu" target="_blank" rel="noopener">https://api.fibos.icu</a></td>
+</tr>
+<tr>
+<td>London</td>
+<td><a href="https://api.fibosutility.com" target="_blank" rel="noopener">https://api.fibosutility.com</a></td>
+</tr>
+</tbody>
+</table>
+<p>P2P List</p>
+<p>The P2P address of the main network of FIBOS is shown as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>URL(P2P)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokyo</td>
+<td>p2p.mainnet.fibos.me:80</td>
+</tr>
+<tr>
+<td>Hong Kong</td>
+<td>seed-mainnet.fibscan.io:9103</td>
+</tr>
+<tr>
+<td>Oregon</td>
+<td>seed.bitze.site:9870</td>
+</tr>
+<tr>
+<td>San Francisco</td>
+<td>seed.fibos.icu:9870</td>
+</tr>
+<tr>
+<td>London</td>
+<td>p2p.fibosutility.com:9870</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>：The above address may change and there may be delays in updating the document.</p>
+<h2 id="Hardware-recommended-configuration"><a href="#Hardware-recommended-configuration" class="headerlink" title="Hardware recommended configuration"></a>Hardware recommended configuration</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Config</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>8 cores</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>16GB RAM</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>200GB Hard Disk</td>
+</tr>
+</tbody>
+</table>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

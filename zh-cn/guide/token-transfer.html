@@ -1,0 +1,927 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    转账 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="转账 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="转账 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/zh-cn/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link current">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-transfer.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-transfer.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link current">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-transfer.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-transfer.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/introduction.html" class="sidebar-link">介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/installation.html" class="sidebar-link">安装</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/start.html" class="sidebar-link">快速入门</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+            <li><h3>教程</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-instructions.html" class="sidebar-link">简介</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-setnode.html" class="sidebar-link">搭建本地测试节点</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-js.html" class="sidebar-link">智能合约——JS 合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-deploy.html" class="sidebar-link">部署合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-testcase.html" class="sidebar-link">测试合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+            <li><h3>智能合约</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-instructions.html" class="sidebar-link">合约介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-database.html" class="sidebar-link">数据库</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-auth.html" class="sidebar-link">账户权限</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-inlinecall.html" class="sidebar-link">合约内调用</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-recipient.html" class="sidebar-link">通知</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+            <li><h3>系统合约</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-resources.html" class="sidebar-link">资源</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-account.html" class="sidebar-link">账户</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-permission.html" class="sidebar-link">权限</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+            <li><h3>Token 合约</h3></li>
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-transfer.html" class="sidebar-link current">转账</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-exchange.html" class="sidebar-link">兑换</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-card.html" class="sidebar-link">通证</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-wallet.html" class="sidebar-link">合约子钱包</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>节点编程</h3></li>
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-instruction.html" class="sidebar-link">节点介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-nodesNet.html" class="sidebar-link">加入节点网络</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-persistence.html" class="sidebar-link">节点数据持久化</a>
+        </li>
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>转账</h1>
+  
+  
+    <h2 id="链内转账"><a href="#链内转账" class="headerlink" title="链内转账"></a>链内转账</h2><p>转账的目标账户必须要在 FIBOS 中存在，且转账的最大数量不能超过你的余额，精度也要与转账的 Token 精度一致。</p>
+<p>调用 <code>extransfer</code> 方法，方法和参数名如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>通证转入方</td>
+</tr>
+<tr>
+<td>to</td>
+<td>通证转出方</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>通证数量</td>
+</tr>
+<tr>
+<td>meno</td>
+<td>附言</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">var</span> r = ctx.extransferSync(</span><br><span class="line">    <span class="string">'fibostest123'</span>,  <span class="comment">//通证转入方</span></span><br><span class="line">    <span class="string">'fibostest321'</span>,   <span class="comment">//通证转出方</span></span><br><span class="line">    <span class="string">'10.0000 ADC@fibostest123'</span>,  <span class="comment">//通证数量</span></span><br><span class="line">    <span class="string">'trasnfer to fibostest321'</span>,  <span class="comment">//附言</span></span><br><span class="line">    &#123;</span><br><span class="line">  authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h2 id="跨链转账"><a href="#跨链转账" class="headerlink" title="跨链转账"></a>跨链转账</h2><blockquote>
+<p>重要提示：为防止出现跨链转账失败的情况：</p>
+<ol>
+<li>请勿直接通过交易所转账（建议使用 EOS 钱包转账），通过交易所转账时，一旦遇到 memo 填写错误的情况，则资产将会丢失且无法找回！</li>
+<li>请再三确认 memo 的填写是否正确（memo请填写“您在 FIBOS 主网已注册成功的账户名”），一旦填错，可能会导致资产丢失：</li>
+<li>如果因您填写的 memo 账户不存在，导致资产丢失，则系统查到后，会将这笔资产转回您的打款账户；</li>
+<li>如果您填写的 memo 错误，但正好是其他人的 FIBOS 账户，那么很抱歉，这笔资产将无法转回您的账户。</li>
+</ol>
+</blockquote>
+<h3 id="从-EOS-到-FIBOS-的跨链转账"><a href="#从-EOS-到-FIBOS-的跨链转账" class="headerlink" title="从 EOS 到 FIBOS 的跨链转账"></a>从 EOS 到 FIBOS 的跨链转账</h3><p>使用 EOS 主网的账户向 EOS 账户(fiboscouncil) 发起转账，memo 的内容填写 FIBOS 主网已经注册账户名称，即可完成一次跨链转账。</p>
+<h4 id="在-EOS-主网发起转账操作"><a href="#在-EOS-主网发起转账操作" class="headerlink" title="在 EOS 主网发起转账操作"></a>在 EOS 主网发起转账操作</h4><p>EOS 主网 RPC 地址(建议)：<a href="http://api-mainnet.starteos.io" target="_blank" rel="noopener">http://api-mainnet.starteos.io</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'</span>,</span><br><span class="line">    priKey: <span class="string">'你的 EOS active权限私钥'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://api-mainnet.starteos.io'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> eos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> eosaccount = <span class="string">''</span> <span class="comment">// 你的 EOS 账户名</span></span><br><span class="line"><span class="keyword">let</span> value = <span class="string">'1.0000 EOS'</span>; <span class="comment">//转账给 fiboscouncil 账户的数量</span></span><br><span class="line"><span class="keyword">let</span> ctx = eos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> memo = <span class="string">'fibosmainnet'</span>; <span class="comment">//填入已注册的 FIBOS 账号</span></span><br><span class="line"><span class="keyword">let</span> result = ctx.transferSync(eosaccount, <span class="string">'fiboscouncil'</span>, value, memo, &#123;</span><br><span class="line">    authorization: eosaccount</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p><strong>实例说明:</strong></p>
+<p>实例操作中,配置好 EOS MainNet 和 EOS RPC 地址 和 EOS 私钥后,便初始化了一个 eos 客户端,通过调用 <code>transferSync</code> 方法,传入四个参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eosaccount</td>
+<td>转出方</td>
+</tr>
+<tr>
+<td>fiboscouncil</td>
+<td>转入方</td>
+</tr>
+<tr>
+<td>value</td>
+<td>数量：1.0000 EOS</td>
+</tr>
+<tr>
+<td>memo</td>
+<td>填入已注册的 FIBOS 账号</td>
+</tr>
+</tbody>
+</table>
+<h4 id="在-FIBOS-主网查询转账信息"><a href="#在-FIBOS-主网查询转账信息" class="headerlink" title="在 FIBOS 主网查询转账信息"></a>在 FIBOS 主网查询转账信息</h4><p>从 EOS 主网发起的跨链转账后，需要等待300个左右的安全区块时间，大约2分钟，才能在 FIBOS 主网查询到转账信息。</p>
+<p>使用 FIBOS 的客户端查询，使用的是 FIBOS 主网的 chainID 以及 RPC 接口地址。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'你的 FIBOS 账户名'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<p><strong>实例说明:</strong></p>
+<p>配置了 FIBOS 主网的 chainId 和 Http 服务地址后,便初始化了一个 FIBOS 客户端,调用 <code>getTableRowsSync</code> 方法，查询账户的资产信息。</p>
+<h3 id="从-FIBOS-到-EOS-的跨链转账"><a href="#从-FIBOS-到-EOS-的跨链转账" class="headerlink" title="从 FIBOS 到 EOS 的跨链转账"></a>从 FIBOS 到 EOS 的跨链转账</h3><p>使用 FIBOS 主网的账户向 EOS 账户(fiboscouncil) 发起转账，memo 的内容填写 EOS 主网已经注册账户名称，即可完成一次跨链转账。</p>
+<h4 id="在-FIBOS-主网发起转账操作"><a href="#在-FIBOS-主网发起转账操作" class="headerlink" title="在 FIBOS 主网发起转账操作"></a>在 FIBOS 主网发起转账操作</h4><p><strong>调用方法:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> result = ctx.transferSync(eosaccount, <span class="string">'fiboscouncil'</span>, value, memo);</span><br></pre></td></tr></table></figure>
+<p><strong>方法说明:</strong></p>
+<p>使用 fibos.js 客户端 调用 eosio.token 合约发起一笔转账操作</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eosaccount</td>
+<td>转出方</td>
+</tr>
+<tr>
+<td>fiboscouncil</td>
+<td>指定转入方</td>
+</tr>
+<tr>
+<td>value</td>
+<td>数量:1.0000 EOS</td>
+</tr>
+<tr>
+<td>memo</td>
+<td>备注:填入你已注册的 EOS 账号名</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">    priKey: <span class="string">'你的 FIBOS 私钥'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://testnet.fibos.fo'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> fibosaccount = <span class="string">''</span> <span class="comment">// 你的 FIBOS 账户名</span></span><br><span class="line"><span class="keyword">let</span> value = <span class="string">'1.0000 EOS'</span>; <span class="comment">//转账 EOS 数量</span></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> memo = <span class="string">'eoseoseoseos'</span>; <span class="comment">//填入你已注册的 EOS 账号</span></span><br><span class="line"><span class="keyword">let</span> result = ctx.transferSync(fibosaccount, <span class="string">'fiboscouncil'</span>, value, memo, &#123;</span><br><span class="line">    authorization: fibosaccount</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h4 id="在-EOS-主网查询转账信息"><a href="#在-EOS-主网查询转账信息" class="headerlink" title="在 EOS 主网查询转账信息"></a>在 EOS 主网查询转账信息</h4><p>从 FIBOS 主网发起的跨链转账后，需要等待300个左右的安全区块时间，大约2分钟，才能在 EOS 主网查询到转账信息。</p>
+<p>使用 EOS 的客户端查询，使用的是 EOS 主网的 chainID 以及 RPC 接口地址。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://api-mainnet.starteos.io'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'你的 EOS 账户名'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<p><strong>实例说明:</strong></p>
+<p>配置了 EOS 主网的 chainId 和 RPC 服务地址后,便初始化了一个 EOS 客户端,调用 <code>getTableRowsSync</code>方法，查询账户的资产信息。</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,844 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Deploy Contracts — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Deploy Contracts — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Deploy Contracts — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/tutorials-deploy.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/tutorials-deploy.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/tutorials-deploy.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/tutorials-deploy.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link current">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Deploy Contracts</h1>
+  
+  
+    <p>In the previous article, we have finished the js contract code and ABI file, and initiated the local test node.<br>Now, we will deploy the contract to the environment and test the contract.</p>
+<h2 id="Create-an-account"><a href="#Create-an-account" class="headerlink" title="Create an account"></a>Create an account</h2><p>Create <code>config.js</code> under the root directory and save the following code for configuring the basic information.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    client: &#123;</span><br><span class="line">        chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">        httpEndpoint: <span class="string">'http://127.0.0.1:8888'</span>,</span><br><span class="line">        keyProvider: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    contract: &#123;</span><br><span class="line">        name: <span class="string">'todo'</span>,</span><br><span class="line">        sender: <span class="string">'todo'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    testContract:&#123;</span><br><span class="line">        name: <span class="string">'testtodo'</span>,</span><br><span class="line">        sender: <span class="string">'testtodo'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    account: &#123;</span><br><span class="line">        publicKey: <span class="string">'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV'</span>,</span><br><span class="line">        privateKey: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = config</span><br></pre></td></tr></table></figure>
+<p>The release of contract needs to be performed via a fibos account, so initially, we need to create a fibos account and call the method of <code>newaccountSync()</code> to create the contract account.</p>
+<p>Create a new folder named <code>scripts</code>，and save the code to <code>scripts/deploy.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'../config'</span>);</span><br><span class="line"><span class="keyword">const</span> fibosClient = FIBOS(config.client);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fibosClient.newaccountSync(&#123;</span><br><span class="line">    creator: <span class="string">'eosio'</span>,</span><br><span class="line">    name: <span class="string">'todo'</span>,</span><br><span class="line">    owner: config.account.publicKey,</span><br><span class="line">    active: config.account.publicKey,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Compress-JS-contract"><a href="#Compress-JS-contract" class="headerlink" title="Compress JS contract"></a>Compress JS contract</h2><p>We read the js contract file through the fs module and package the contract with the <code>compileCode()</code> method.</p>
+<p>Save the following code to <code>scripts/deploy.js</code> ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsCode = fs.readTextFile(<span class="string">`<span class="subst">$&#123;__dirname&#125;</span>/../contracts/todo.js`</span>);</span><br><span class="line"><span class="keyword">const</span> wasm = fibosClient.compileCode(jsCode);</span><br></pre></td></tr></table></figure>
+<h2 id="Upload-JS-contract"><a href="#Upload-JS-contract" class="headerlink" title="Upload JS contract"></a>Upload JS contract</h2><p>Call the <code>setcodeSync()</code> method to upload the compressed content to the node.</p>
+<p>Save the following code to <code>scripts/deploy.js</code> ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibosClient.setcodeSync(config.contract.name, <span class="number">0</span>, <span class="number">0</span>, zipCode);</span><br></pre></td></tr></table></figure>
+<h2 id="Get-JS-contract"><a href="#Get-JS-contract" class="headerlink" title="Get JS contract"></a>Get JS contract</h2><p>Use <code>getCodeSync()</code> method to read js files，and it is suggested to compare the js files with the provided js contracts from projects and see whether the two are consistent with each other.</p>
+<p>Save the following code to <code>scripts/deploy.js</code> ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> code = fibosClient.getCodeSync(config.contract.name, <span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(code);</span><br></pre></td></tr></table></figure>
+<h2 id="Upload-ABI-file"><a href="#Upload-ABI-file" class="headerlink" title="Upload ABI file"></a>Upload ABI file</h2><p>Obtain the ABI file using the fs module and deploy the ABI file to the node via<br><code>setabiSync()</code> </p>
+<p>Save the following code to <code>scripts/deploy.js</code> ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> abi = <span class="built_in">JSON</span>.parse(fs.readTextFile(<span class="string">`<span class="subst">$&#123;__dirname&#125;</span>/../contracts/todo.abi`</span>));</span><br><span class="line">fibosClient.setabiSync(config.contract.name, abi);</span><br></pre></td></tr></table></figure>
+<h2 id="Deploy-contracts"><a href="#Deploy-contracts" class="headerlink" title="Deploy contracts"></a>Deploy contracts</h2><p>We need to deploy the compiled wasm and ABI files to the node.</p>
+<p>Run command </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos-todomvc$ fibos  scripts/deploy.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: A new window is required to ensure that the node.js is working properly. If an account already exist error is reported, it is suggested to close the node and restart <code>fibos  start_fibos/node.js</code>.</p>
+</blockquote>
+<p>Output (partial):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">code: &#123;</span><br><span class="line">  &quot;account_name&quot;: &quot;todo&quot;,</span><br><span class="line">  &quot;code_hash&quot;: &quot;383a12daacaf124eea9afc529822d990853b5b99570401b8394534b746ea3977&quot;,</span><br><span class="line">  &quot;wast&quot;: &quot;&quot;,</span><br><span class="line">  &quot;wasm&quot;: &quot;504b03042d00000008002cadfe4c6a9400a2360000003900000008001400696e6465782e6a7301001000000000000000000000000000000000004bad28c82f2a29d6cbc854b055282d4e2d52b0b55348cecf2bcecf49d54b2d2aca2fd250cfcc0389941425269758a9eb8055695a0300504b010200001400000008002cadfe4c6a9400a23600000039000000080000000000000001000000000000000000696e6465782e6a73504b0506000000000100010036000000700000000000&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So far, the contract has been successfully deployed to the node! </p>
+<p>The GitHub source code of this article: under <code>scripts</code> folder of<br><a href="https://github.com/fengluo/fibos-todomvc" target="_blank" rel="noopener">https://github.com/fengluo/fibos-todomvc</a> </p>
+<p><strong>Next Chapter</strong><br>👉 【<a href="./tutorials-testcase.html">Test Contract</a>】</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

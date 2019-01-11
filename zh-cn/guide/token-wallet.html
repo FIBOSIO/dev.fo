@@ -1,0 +1,853 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    合约子钱包 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="合约子钱包 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="合约子钱包 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/zh-cn/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-wallet.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-wallet.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-wallet.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-wallet.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/introduction.html" class="sidebar-link">介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/installation.html" class="sidebar-link">安装</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/start.html" class="sidebar-link">快速入门</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+            <li><h3>教程</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-instructions.html" class="sidebar-link">简介</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-setnode.html" class="sidebar-link">搭建本地测试节点</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-abi.html" class="sidebar-link">智能合约——ABI 文件</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-js.html" class="sidebar-link">智能合约——JS 合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-deploy.html" class="sidebar-link">部署合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-testcase.html" class="sidebar-link">测试合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+            <li><h3>智能合约</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-instructions.html" class="sidebar-link">合约介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-database.html" class="sidebar-link">数据库</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-auth.html" class="sidebar-link">账户权限</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-inlinecall.html" class="sidebar-link">合约内调用</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-recipient.html" class="sidebar-link">通知</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+            <li><h3>系统合约</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-resources.html" class="sidebar-link">资源</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-account.html" class="sidebar-link">账户</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-permission.html" class="sidebar-link">权限</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+            <li><h3>Token 合约</h3></li>
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-transfer.html" class="sidebar-link">转账</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-exchange.html" class="sidebar-link">兑换</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-card.html" class="sidebar-link">通证</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-wallet.html" class="sidebar-link current">合约子钱包</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>节点编程</h3></li>
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-instruction.html" class="sidebar-link">节点介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-nodesNet.html" class="sidebar-link">加入节点网络</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-persistence.html" class="sidebar-link">节点数据持久化</a>
+        </li>
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>合约子钱包</h1>
+  
+  
+    <blockquote>
+<p>学习本文档前，你需要对 FIBOS 和 fibos.js 有一定的了解。假如你对 FIBOS 和 fibos.js 不了解，请参阅 <a href="./start.html">快速入门</a> 。</p>
+</blockquote>
+<h2 id="为什么要用合约子钱包"><a href="#为什么要用合约子钱包" class="headerlink" title="为什么要用合约子钱包"></a>为什么要用合约子钱包</h2><h3 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h3><p>假设有这样一个业务场景，公司 A 发布了一款产品叫做 FO 单车，使用 FO 单车需要使用 FO 单车通证付款，且FO 单车通证可以与 FO 通证进行互相兑换。用户 A 想要使用 FO 单车，那么他就要在 FO 单车平台注册一个账户并向其中充入一定数量的 FO 单车通证。每使用一次 FO 单车，需要进行一次支付，但是每次支付都需要用户输入密码，影响了用户的体验。那么有什么好的解决方案呢？</p>
+<p>合约子钱包就能解决这个问题，我们可以这样理解，平台相当于合约，子钱包相当于平台账户。当用户想要使用 FO 单车时，就往子钱包中充入 FO 单车通证，合约会被授权可以对你的子钱包中的余额进行操作。这样每次使用完单车后，合约会自动扣款，就不需要用户再去手动操作了。当用户不再需要使用 FO 单车时，将 FO 单车通证从子钱包中提出即可。</p>
+<h3 id="场景二"><a href="#场景二" class="headerlink" title="场景二"></a>场景二</h3><p>假设 A 和 B 竞猜，各自投入 50 个 FO 通证，但是没有人来裁判竞猜结果，两人都可以耍赖，这时候该怎么办呢？</p>
+<p>合约子钱包也能解决这个问题，A 和 B 需要一个第三方平台 C 来监管。A 和 B 在竞猜之前分别把 50 个 FO 通证打到 C 平台的账户中，平台可以对 A 和 B 账户的通证进行操作，当结果出来之后。平台直接将输的一方的通证打入到获胜的一方。</p>
+<p>上述两个场景中，给大家简单的展示了合约子钱包的用法。还有更多合约子钱包的用法等着大家去发掘，下面给大家讲解一下合约子钱包三个接口的用法。</p>
+<h2 id="合约子钱包的三种用法"><a href="#合约子钱包的三种用法" class="headerlink" title="合约子钱包的三种用法"></a>合约子钱包的三种用法</h2><p>前提条件：用户 <code>nmslwsndhjyz</code> 发行了一个合约，以及精度为四位小数，名字叫做 <code>ADC</code> 的智能通证。用户 <code>tteesstt1122</code> 通过 <a href="./token-exchange.html">兑换</a> 持有 1000  个 <code>ADC</code> 流通通证。</p>
+<h3 id="充值"><a href="#充值" class="headerlink" title="充值"></a>充值</h3><p><strong>接口</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::ctxrecharge(</span><br><span class="line">    account_name owner, <span class="comment">//账户拥有者</span></span><br><span class="line">    extended_asset quantity, <span class="comment">//充值通证数量</span></span><br><span class="line">    string memo <span class="comment">//附言</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>实例</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxrechargeSync(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxrecharge'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span></span><br><span class="line">		&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>上述代码中，<code>tteesstt1122</code> 调用 <code>ctxrechargeSync</code> 方法给自己的合约子钱包中充入了200个 <code>ADC</code> 智能通证。</p>
+<p>充值成功后，我们可以调用如下的方法分别来查询流通通证余额和合约子钱包的余额。</p>
+<p>查询可用余额：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'nmslwsndhjyz'</span>, <span class="string">'accounts'</span>)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>查询合约子钱包余额：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> s = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'nmslwsndhjyz'</span>, <span class="string">'ctxaccounts'</span>)</span><br><span class="line"><span class="built_in">console</span>.notice(s);</span><br></pre></td></tr></table></figure>
+<h3 id="提现"><a href="#提现" class="headerlink" title="提现"></a>提现</h3><p><strong>接口</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::ctxextract(</span><br><span class="line">    account_name owner,<span class="comment">//账户拥有者</span></span><br><span class="line">    extended_asset quantity, <span class="comment">//提现通证数量</span></span><br><span class="line">    string memo <span class="comment">//附言</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>实例</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 fibos 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxextractSync(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxextract'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span></span><br><span class="line">		&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>调用 <code>ctxextractSync</code> 方法将自己的合约子钱包中的100个通证提回到流通通证余额中。</p>
+<h3 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h3><p><strong>接口</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::ctxtransfer(</span><br><span class="line">	account_name <span class="keyword">from</span>, <span class="comment">//通证转出方</span></span><br><span class="line">	account_name to, <span class="comment">//通证转入方</span></span><br><span class="line">	extended_asset quantity, <span class="comment">//通证数量</span></span><br><span class="line">	string memo <span class="comment">//附言</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>实例</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.ctxtransferSync(<span class="string">'tteesstt1122'</span>, <span class="string">'tteesstt2222'</span>, <span class="string">'50.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxtransfer'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'nmslwsndhjyz'</span></span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>ADC</code> 合约发行者 <code>nmslwsndhjyz</code> 调用转账方法将 <code>ttteesstt1122</code> 用户合约子钱包中的 50 个 <code>ADC</code> 通证转到了用户 <code>tteesstt2222</code> 的合约子钱包中。</p>
+<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><p>了解了上面的关于合约子钱包的充值、提现、转账三个 API 之后，我们可以实现很多功能。比如场景一中的 FO 单车，在用户进行充值后，用户的合约子钱包便有了相应的资产。想象一下，用户骑行后，将单车锁上便可离开。用户的资产在合约中进行相关结算之后，调用合约子钱包的 <code>ctxtransfer</code> 这个 action 将用户的子钱包中相应资产进行扣除，全程不需要用户的参与和等待，十分方便。下面，让我们使用 JavaScript 合约来实现这个功能！</p>
+<p>在这个合约中，我们只需要实现一个最基础的功能，便是在用户使用完单车后进行扣费，假设骑行 1 分钟需要消耗 1 FOBIKE 通证，那么根据时长便可结算处用户需要支付的资产数量。接着，在合约中使用合约的权限调用<code>eosio.token</code>合约的<code>ctxtransfer</code>这个 action，将用户的合约子钱包资产转账至合约发布者的合约子钱包资产中，以达到对用户资产扣除目的。</p>
+<p>我们将这个 action 命名为 settle，用于结算。保存下面的代码至  <code>contract.js</code>，作为合约代码文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">exports.settle = <span class="function">(<span class="params">user, minutes</span>) =&gt;</span> &#123;</span><br><span class="line">    assert.isTrue(minutes &gt; <span class="number">0</span>, <span class="string">'minutes must be positive'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> quantity = (minutes * <span class="number">10</span>n).toString();</span><br><span class="line">    quantity = &#123;</span><br><span class="line">        quantity: <span class="string">`<span class="subst">$&#123;quantity&#125;</span>.0000 FOBIKE`</span>,</span><br><span class="line">        contract: <span class="string">'fobikeissuer'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    trans.send_inline(<span class="string">'eosio.token'</span>, <span class="string">'ctxtransfer'</span>, &#123;</span><br><span class="line">        <span class="keyword">from</span>: user,</span><br><span class="line">        to: <span class="string">'fobikeissuer'</span>,</span><br><span class="line">        quantity: quantity,</span><br><span class="line">        memo: <span class="string">`<span class="subst">$&#123;user&#125;</span> pays for FO Bike`</span></span><br><span class="line">    &#125;, [&#123;</span><br><span class="line">        <span class="string">'actor'</span>: <span class="string">'fobikeissuer'</span>,</span><br><span class="line">        <span class="string">'permission'</span>: <span class="string">'active'</span></span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>以及abi文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &apos;version&apos;: &apos;eosio::abi/1.0&apos;,</span><br><span class="line">    &apos;structs&apos;: [&#123;</span><br><span class="line">        &apos;name&apos;: &apos;settle&apos;,</span><br><span class="line">        &apos;base&apos;: &apos;&apos;,</span><br><span class="line">        &apos;fields&apos;: [&#123;</span><br><span class="line">            &apos;name&apos;: &apos;user&apos;,</span><br><span class="line">            &apos;type&apos;: &apos;name&apos;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            &apos;name&apos;: &apos;minutes&apos;,</span><br><span class="line">            &apos;type&apos;: &apos;uint64&apos;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;],</span><br><span class="line">    &apos;actions&apos;: [&#123;</span><br><span class="line">        &apos;name&apos;: &apos;settle&apos;,</span><br><span class="line">        &apos;type&apos;: &apos;settle&apos;,</span><br><span class="line">        &apos;ricardian_contract&apos;: &apos;&apos;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于 JavaScript 合约如何发布，请参考 <a href="./start.html">快速入门</a>。</p>
+<p>通过上面的 JavaScript 合约，我们可以看到，<code>assert.isTrue(minutes &gt; 0, &#39;minutes must be positive&#39;);</code>用于判断骑行时间的正确性。然后我们根据骑行时长计算出用户所需支付的通证数量，构造了一个<code>extended_asset</code>对象，作为参数，使用<code>send_inline</code>的方式调用<code>eosio.token</code>合约的<code>ctxtransfer</code>，将用户的子钱包资产转账至合约的发布者（fobikeissuer）的子钱包资产中。（关于合约之间的调用，下一期的文档我们会详细介绍，敬请期待！）</p>
+<p>这样，一个最简单的用于扣费的 JavaScript 合约就完成了。关于合约子钱包，还有很多有趣的玩法，欢迎大家踊跃发言，让我们共同进步！</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,850 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Contract Sub-Wallet — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Contract Sub-Wallet — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Contract Sub-Wallet — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-wallet.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-wallet.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-wallet.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-wallet.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link current">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Contract Sub-Wallet</h1>
+  
+  
+    <h2 id="Why-do-we-use-Sub-Wallets"><a href="#Why-do-we-use-Sub-Wallets" class="headerlink" title="Why do we use Sub-Wallets"></a>Why do we use Sub-Wallets</h2><h3 id="Scenario-1"><a href="#Scenario-1" class="headerlink" title="Scenario 1"></a>Scenario 1</h3><p>Suppose there is such A business scenario where company A releases a product called FO bike. To use the FO bike, user payments should be made by using the FO bicycle token, and the FO bike token can be exchanged with the FO token. If user A wants to use FO bike, he should register an account on the FO bike platform and fill it with a certain amount of FO bike tokens. However, every time he or she use the FO bike, he or she will need to make a payment, but since every payment requires the user to enter a password, it affects the user’s experience. So what’s a good solution?</p>
+<p>Contract sub wallets can solve this problem, we can think of it this way, the FO bike platform is equivalent to the contract, and the sub wallet is equivalent to the platform account. When users want to use FO bikes, they can charge FO bike tokens into the sub-wallet, and the contract will be authorized to operate the balance in your sub-wallet. This way, after each use of the bike, the contract will automatically deduct FO bike tokens, so that users do not need to manually operate their account. When the user no longer needs to use FO bike, the FO bike pass can be extracted from the sub-wallet.</p>
+<h3 id="Scenario-2"><a href="#Scenario-2" class="headerlink" title="Scenario 2"></a>Scenario 2</h3><p>Suppose A and B are making a bet and invest 50 FO tokens respectively, but there is no one judges the result of the bet, and both of them can cheat. What should we do then?</p>
+<p>Contract sub-wallets can also solve this problem. Here, A and B need a third-party platform C to supervise. Before the competition, A and B respectively transfer 50 FO tokens to the accounts of platform C, and the platform can operate the tokens of accounts A and B for when the result comes out. The platform will directly transfer the losing party’s tokens to the winning party. </p>
+<p>In the above two scenarios, one can see how to use contract subwallets simply. There are many more use cases of contract sub-walles waiting to be explored, and the following are the three interfaces of the contract sub-wallet.</p>
+<h2 id="Three-uses-of-the-contract-sub-wallet"><a href="#Three-uses-of-the-contract-sub-wallet" class="headerlink" title="Three uses of the contract sub-wallet"></a>Three uses of the contract sub-wallet</h2><p>The premise condition：user <code>nmslwsndhjyz</code> issued a contract，And the precision is four decimal places，with smart token named <code>ADC</code>. user <code>tteesstt1122</code> via <a href="./token-exchange.html">exchanging</a> holds the 1000 <code>ADC</code> circulating tokens.</p>
+<h3 id="top-up"><a href="#top-up" class="headerlink" title="top-up"></a>top-up</h3><p><strong>Interface</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::ctxrecharge(</span><br><span class="line">    account_name owner, <span class="comment">//account owner</span></span><br><span class="line">    extended_asset quantity, <span class="comment">//top-up amount</span></span><br><span class="line">    string memo <span class="comment">//memo</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>Example</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Initialize fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxrechargeSync(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxrecharge'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span></span><br><span class="line">		&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>In the codes above，<code>tteesstt1122</code> called <code>ctxrechargeSync</code> method to top-up 200 <code>ADC</code> smart token into its own sub-wallet.</p>
+<p>After successful top-up, we can call the following method to query the balance of the circulation license and the balance of the contract sub-wallet, respectively.</p>
+<p>Check available balance:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Initialize fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'nmslwsndhjyz'</span>, <span class="string">'accounts'</span>)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>Check available sub-wallet balance:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Initialize fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> s = fibos.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'nmslwsndhjyz'</span>, <span class="string">'ctxaccounts'</span>)</span><br><span class="line"><span class="built_in">console</span>.notice(s);</span><br></pre></td></tr></table></figure>
+<h3 id="Withdrawal"><a href="#Withdrawal" class="headerlink" title="Withdrawal"></a>Withdrawal</h3><p><strong>Interface</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::ctxextract(</span><br><span class="line">    account_name owner,<span class="comment">//Account owner</span></span><br><span class="line">    extended_asset quantity, <span class="comment">//withdrawal amount</span></span><br><span class="line">    string memo <span class="comment">//memo</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>Example</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Initialize fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxextractSync(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxextract'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span></span><br><span class="line">		&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>Call <code>ctxextractSync</code> method to withdraw the 100 tokens in your contract sub-wallet back to the circulating token balance.</p>
+<h3 id="Transfer"><a href="#Transfer" class="headerlink" title="Transfer"></a>Transfer</h3><p><strong>Interface</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> token::ctxtransfer(</span><br><span class="line">	account_name <span class="keyword">from</span>, <span class="comment">//Token Transferor</span></span><br><span class="line">	account_name to, <span class="comment">//Token transferee</span></span><br><span class="line">	extended_asset quantity, <span class="comment">//Token amount</span></span><br><span class="line">	string memo <span class="comment">//memo</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>Example</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.ctxtransferSync(<span class="string">'tteesstt1122'</span>, <span class="string">'tteesstt2222'</span>, <span class="string">'50.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxtransfer'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'nmslwsndhjyz'</span></span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>ADC</code> contract issuer <code>nmslwsndhjyz</code> calls transfer method <code>ttteesstt1122</code> to transfer 50 <code>ADC</code> tokens in user contract sub-wallet to the contract sub-wallet of user <code>tteesstt2222</code> </p>
+<h2 id="Preliminary-tests"><a href="#Preliminary-tests" class="headerlink" title="Preliminary tests"></a>Preliminary tests</h2><p>After knowing the above three apis about the recharge, withdrawal and transfer of contract sub-wallet, we can realize many functions. For example, the FO bike in scenario 1, after the user recharges, the user’s contract subwallet has the corresponding assets. Imagine a user riding a bike, locking it and leaving. After the user’s assets in the contract are settled,  call contract wallet <code>ctxtransfer</code> . This action will go to the user’s sub wallet to deduct the corresponding assets, does not require users to participate or wait the whole time, and is very convenient. Now, let’s implement this using JavaScript contracts!</p>
+<p>In this contract, we only need to realize one of the most basic functions, which is to deduct the fee after the user finishes using the bike. Assuming that 1 minute of cycling needs to consume 1 FOBIKE token, the amount of assets that the user needs to pay can be settled according to the length. Then, the use of contract in contract call <code>eosio.token</code> contract’s <code>ctxtransfer</code> . This action will transfer the user sub wallet asset to the contract publishers’ contract sub wallet, in order to achieve deducting the user assets.</p>
+<p>Let’s call this action settle. Save the following code to <code>contract. Js</code>, as the contract code files:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">exports.settle = <span class="function">(<span class="params">user, minutes</span>) =&gt;</span> &#123;</span><br><span class="line">    assert.isTrue(minutes &gt; <span class="number">0</span>, <span class="string">'minutes must be positive'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> quantity = (minutes * <span class="number">10</span>n).toString();</span><br><span class="line">    quantity = &#123;</span><br><span class="line">        quantity: <span class="string">`<span class="subst">$&#123;quantity&#125;</span>.0000 FOBIKE`</span>,</span><br><span class="line">        contract: <span class="string">'fobikeissuer'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    trans.send_inline(<span class="string">'eosio.token'</span>, <span class="string">'ctxtransfer'</span>, &#123;</span><br><span class="line">        <span class="keyword">from</span>: user,</span><br><span class="line">        to: <span class="string">'fobikeissuer'</span>,</span><br><span class="line">        quantity: quantity,</span><br><span class="line">        memo: <span class="string">`<span class="subst">$&#123;user&#125;</span> pays for FO Bike`</span></span><br><span class="line">    &#125;, [&#123;</span><br><span class="line">        <span class="string">'actor'</span>: <span class="string">'fobikeissuer'</span>,</span><br><span class="line">        <span class="string">'permission'</span>: <span class="string">'active'</span></span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>and also abi file：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &apos;version&apos;: &apos;eosio::abi/1.0&apos;,</span><br><span class="line">    &apos;structs&apos;: [&#123;</span><br><span class="line">        &apos;name&apos;: &apos;settle&apos;,</span><br><span class="line">        &apos;base&apos;: &apos;&apos;,</span><br><span class="line">        &apos;fields&apos;: [&#123;</span><br><span class="line">            &apos;name&apos;: &apos;user&apos;,</span><br><span class="line">            &apos;type&apos;: &apos;name&apos;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            &apos;name&apos;: &apos;minutes&apos;,</span><br><span class="line">            &apos;type&apos;: &apos;uint64&apos;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;],</span><br><span class="line">    &apos;actions&apos;: [&#123;</span><br><span class="line">        &apos;name&apos;: &apos;settle&apos;,</span><br><span class="line">        &apos;type&apos;: &apos;settle&apos;,</span><br><span class="line">        &apos;ricardian_contract&apos;: &apos;&apos;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For more on how to release a JavaScript contract，Please refer to <a href="./start.html">Quick Start</a>。</p>
+<p>Through the JavaScript contract above, we can see that <code>assert.isTrue(minutes &gt; 0, &#39;minutes must be positive&#39;);</code> is used to judge the correctness of the cycling time. And then, according to the length of the ride we will calculate the user token amount needed to pay, constructing a <code>extended_asset</code> object, as a parameter, and use the <code>send_inline</code> method to call <code>eosio.token</code> contract’s <code>ctxtransfer</code>, transfering the user’s sub wallet asset  to the contract publisher’s (fobikeissuer) sub contract wallet. (We’ll cover the invocation between contracts in more detail in the next installment of the documentation, so stay tuned!)</p>
+<p>This completes one of the simplest JavaScript contracts for deducting fees. There are many more interesting ways to use the contract wallets, and we welcome everyone to speak up, so let us make progress together!</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

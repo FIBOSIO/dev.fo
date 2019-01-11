@@ -1,0 +1,923 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Permission — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Permission — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Permission — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/system-permission.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/system-permission.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/system-permission.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/system-permission.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link current">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Permission</h1>
+  
+  
+    <h2 id="What-is-permission"><a href="#What-is-permission" class="headerlink" title="What is permission"></a>What is permission</h2><p>There are 2 types of FIBOS account permissions： owner、active. An account must be “associated” with owner、active permissions.</p>
+<ul>
+<li><p>owner:<br>Has super privileges. Represents the owner of the account. Because the owner of this permission can operate the other permissions’ configuration, this permission is commonly used in transactions (Transfer, contract action, etc) It is not usually used.</p>
+</li>
+<li><p>active:<br>Common business permissions，Exp：transfer，vote，etc.</p>
+</li>
+</ul>
+<h2 id="Relationships-Between-Account-and-Permission"><a href="#Relationships-Between-Account-and-Permission" class="headerlink" title="Relationships Between Account and Permission"></a>Relationships Between Account and Permission</h2><h3 id="Create-FIBOS-account"><a href="#Create-FIBOS-account" class="headerlink" title="Create FIBOS account"></a>Create FIBOS account</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">  keyProvider: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://127.0.0.1:8888'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Account hellofibos01 public key to</span></span><br><span class="line"><span class="keyword">let</span> pubkey = <span class="string">'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR'</span>;</span><br><span class="line"><span class="keyword">let</span> prikey = <span class="string">'5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'hellofibos01'</span>;</span><br><span class="line">fibos.newaccountSync(&#123;</span><br><span class="line">  creator: <span class="string">'helloeosio12'</span>,</span><br><span class="line">  name: name,</span><br><span class="line">  owner: pubkey,</span><br><span class="line">  active: pubkey</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = fibos.getAccountSync(name);</span><br><span class="line"><span class="built_in">console</span>.notice(c);</span><br></pre></td></tr></table></figure>
+<p>Result：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">'account_name'</span>: <span class="string">'hellofibos01'</span>,</span><br><span class="line">  <span class="string">'head_block_num'</span>: 10,</span><br><span class="line">  <span class="string">'head_block_time'</span>: <span class="string">'2018-08-21T09:58:50.500'</span>,</span><br><span class="line">  <span class="string">'privileged'</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">'last_code_update'</span>: <span class="string">'1970-01-01T00:00:00.000'</span>,</span><br><span class="line">  <span class="string">'created'</span>: <span class="string">'2018-08-21T09:58:51.000'</span>,</span><br><span class="line">  <span class="string">'ram_quota'</span>: -1,</span><br><span class="line">  <span class="string">'net_weight'</span>: -1,</span><br><span class="line">  <span class="string">'cpu_weight'</span>: -1,</span><br><span class="line">  <span class="string">'net_limit'</span>: &#123;</span><br><span class="line">    <span class="string">'used'</span>: -1,</span><br><span class="line">    <span class="string">'available'</span>: -1,</span><br><span class="line">    <span class="string">'max'</span>: -1</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'cpu_limit'</span>: &#123;</span><br><span class="line">    <span class="string">'used'</span>: -1,</span><br><span class="line">    <span class="string">'available'</span>: -1,</span><br><span class="line">    <span class="string">'max'</span>: -1</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'ram_usage'</span>: 2724,</span><br><span class="line">  <span class="string">'permissions'</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'perm_name'</span>: <span class="string">'active'</span>,</span><br><span class="line">      <span class="string">'parent'</span>: <span class="string">'owner'</span>,</span><br><span class="line">      <span class="string">'required_auth'</span>: &#123;</span><br><span class="line">        <span class="string">'threshold'</span>: 1,</span><br><span class="line">        <span class="string">'keys'</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">'key'</span>: <span class="string">'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR'</span>,</span><br><span class="line">            <span class="string">'weight'</span>: 1</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">'accounts'</span>: [],</span><br><span class="line">        <span class="string">'waits'</span>: []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'perm_name'</span>: <span class="string">'owner'</span>,</span><br><span class="line">      <span class="string">'parent'</span>: <span class="string">''</span>,</span><br><span class="line">      <span class="string">'required_auth'</span>: &#123;</span><br><span class="line">        <span class="string">'threshold'</span>: 1,</span><br><span class="line">        <span class="string">'keys'</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">'key'</span>: <span class="string">'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR'</span>,</span><br><span class="line">            <span class="string">'weight'</span>: 1</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">'accounts'</span>: [],</span><br><span class="line">        <span class="string">'waits'</span>: []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">'total_resources'</span>: null,</span><br><span class="line">  <span class="string">'self_delegated_bandwidth'</span>: null,</span><br><span class="line">  <span class="string">'refund_request'</span>: null,</span><br><span class="line">  <span class="string">'voter_info'</span>: null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For the string <code>permissions</code> in the result, owner、active permission controller is indeed the owner of public key: <code>FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR</code> .</p>
+<h3 id="Analyze-Accounts-and-Permissions"><a href="#Analyze-Accounts-and-Permissions" class="headerlink" title="Analyze Accounts and Permissions"></a>Analyze Accounts and Permissions</h3><p>Select part of the execution script:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos.newaccountSync(&#123;</span><br><span class="line">    creator: <span class="string">'eosio'</span>,</span><br><span class="line">    name: name,</span><br><span class="line">    owner: pubkey,</span><br><span class="line">    active: pubkey</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>the codes above transferred owner, active permissions to the public key <code>FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR</code>. That is to say the private key owner corresponding to the public key has owner, active permissions.</p>
+<p>Select the part of the execution script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'ram_quota'</span>: -1,</span><br><span class="line"><span class="string">'net_weight'</span>: -1,</span><br><span class="line"><span class="string">'cpu_weight'</span>: -1,</span><br></pre></td></tr></table></figure>
+<p>Use eosio account to create hellofibos01，the resources is unlimited，so RAM、NET、CPU are all <code>-1</code>. The rest of resources we created are all <code>0</code>，0 represents no resources.</p>
+<h2 id="Permission-Configuration"><a href="#Permission-Configuration" class="headerlink" title="Permission Configuration"></a>Permission Configuration</h2><p>Change the active permission of account hellofibos01.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Public and private key pair of hellofibos01</span></span><br><span class="line"><span class="keyword">let</span> pubkey = <span class="string">'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR'</span>;</span><br><span class="line"><span class="keyword">let</span> prikey = <span class="string">'5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Public and private key pair of hellofibos02 </span></span><br><span class="line"><span class="keyword">let</span> pubkey2 = <span class="string">'FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D'</span>;</span><br><span class="line"><span class="keyword">let</span> prikey2 = <span class="string">'5JhJaiRmvpR8MmvrxGFYGoC7tG9icYkooLFUdVMDJ5cAsLTbsob'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'hellofibos01'</span>;</span><br><span class="line"><span class="keyword">var</span> name2 = <span class="string">'hellofibos02'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//create hellofibos02 account</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">  keyProvider: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://127.0.0.1:8888'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">fibos.newaccountSync(&#123;</span><br><span class="line">  creator: <span class="string">'eosio'</span>,</span><br><span class="line">  name: name2,</span><br><span class="line">  owner: pubkey2,</span><br><span class="line">  active: pubkey2</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Change the active permission of hellofibos01, Client needs to change to the private key of hellofibos01.</span></span><br><span class="line">fibos = FIBOS(&#123;</span><br><span class="line">  chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">  keyProvider: <span class="string">'5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">'http://127.0.0.1:8888'</span>,</span><br><span class="line">  logger: &#123;</span><br><span class="line">    log: <span class="literal">null</span>,</span><br><span class="line">    error: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line">ctx.updateauthSync(&#123;</span><br><span class="line">  account: name,</span><br><span class="line">  permission: <span class="string">'active'</span>,</span><br><span class="line">  parent: <span class="string">'owner'</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    threshold: <span class="number">1</span>,</span><br><span class="line">    keys: [&#123;</span><br><span class="line">      key: <span class="string">'FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D'</span>,</span><br><span class="line">      weight: <span class="number">1</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = fibos.getAccountSync(name);</span><br><span class="line"><span class="built_in">console</span>.notice(c);</span><br></pre></td></tr></table></figure>
+<p>Results:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">'account_name'</span>: <span class="string">'hellofibos01'</span>,</span><br><span class="line">  <span class="string">'head_block_num'</span>: 66,</span><br><span class="line">  <span class="string">'head_block_time'</span>: <span class="string">'2018-08-21T09:59:18.500'</span>,</span><br><span class="line">  <span class="string">'privileged'</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">'last_code_update'</span>: <span class="string">'1970-01-01T00:00:00.000'</span>,</span><br><span class="line">  <span class="string">'created'</span>: <span class="string">'2018-08-21T09:58:51.000'</span>,</span><br><span class="line">  <span class="string">'ram_quota'</span>: -1,</span><br><span class="line">  <span class="string">'net_weight'</span>: -1,</span><br><span class="line">  <span class="string">'cpu_weight'</span>: -1,</span><br><span class="line">  <span class="string">'net_limit'</span>: &#123;</span><br><span class="line">    <span class="string">'used'</span>: -1,</span><br><span class="line">    <span class="string">'available'</span>: -1,</span><br><span class="line">    <span class="string">'max'</span>: -1</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'cpu_limit'</span>: &#123;</span><br><span class="line">    <span class="string">'used'</span>: -1,</span><br><span class="line">    <span class="string">'available'</span>: -1,</span><br><span class="line">    <span class="string">'max'</span>: -1</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'ram_usage'</span>: 2724,</span><br><span class="line">  <span class="string">'permissions'</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'perm_name'</span>: <span class="string">'active'</span>,</span><br><span class="line">      <span class="string">'parent'</span>: <span class="string">'owner'</span>,</span><br><span class="line">      <span class="string">'required_auth'</span>: &#123;</span><br><span class="line">        <span class="string">'threshold'</span>: 1,</span><br><span class="line">        <span class="string">'keys'</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">'key'</span>: <span class="string">'FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D'</span>,</span><br><span class="line">            <span class="string">'weight'</span>: 1</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">'accounts'</span>: [],</span><br><span class="line">        <span class="string">'waits'</span>: []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">'perm_name'</span>: <span class="string">'owner'</span>,</span><br><span class="line">      <span class="string">'parent'</span>: <span class="string">''</span>,</span><br><span class="line">      <span class="string">'required_auth'</span>: &#123;</span><br><span class="line">        <span class="string">'threshold'</span>: 1,</span><br><span class="line">        <span class="string">'keys'</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">'key'</span>: <span class="string">'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR'</span>,</span><br><span class="line">            <span class="string">'weight'</span>: 1</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">'accounts'</span>: [],</span><br><span class="line">        <span class="string">'waits'</span>: []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">'total_resources'</span>: null,</span><br><span class="line">  <span class="string">'self_delegated_bandwidth'</span>: null,</span><br><span class="line">  <span class="string">'refund_request'</span>: null,</span><br><span class="line">  <span class="string">'voter_info'</span>: null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The codes above created hellofibos02，and called <code>updateauthSync</code> method to do permission change operation. We transferred active permiision of hellofibos01 to the public key.<code>FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D</code>.</p>
+<h2 id="Multiple-Signature"><a href="#Multiple-Signature" class="headerlink" title="Multiple Signature"></a>Multiple Signature</h2><h3 id="What-is-Multiple-Signature"><a href="#What-is-Multiple-Signature" class="headerlink" title="What is Multiple Signature?"></a>What is Multiple Signature?</h3><p>Multiple signiture means signing multiple times. While we use blockchain to do authorized operations, the private key is used to sign all. </p>
+<h3 id="Thresholds-and-Weights"><a href="#Thresholds-and-Weights" class="headerlink" title="Thresholds and Weights"></a>Thresholds and Weights</h3><p>Threshold is the minimum permission you need to access an account. Weight represents the permission level owned by your private key.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p><strong>Single Signature Account</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">permission</th>
+<th style="text-align:center">Public Key</th>
+<th style="text-align:center">Weight</th>
+<th style="text-align:center">Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">owner</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">active</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>As the table above shows，if you want to get owner permission，the weight of the owner must be greater than or equal to the threshold corresponding to the owner，the example above shows the threshold of owner is 1，and the weight of public key <code>FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</code> is 1. Therefore, the owner of the public key can be directly obtained for operation.</p>
+<p>Active permissions are the same as explained above, we understand this type of account that only has one public key as the single signature account.</p>
+<p><strong>Multi-Signature Account</strong></p>
+<p>For correct signature, must satisfy the threshold authorization</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Permission</th>
+<th style="text-align:center">Public Key</th>
+<th style="text-align:center">Weight</th>
+<th style="text-align:center">Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">owner</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">active</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>As the table above shows，if you want to get owner permission，two public keys must be authorized at the same time.</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

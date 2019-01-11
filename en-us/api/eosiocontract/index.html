@@ -1,0 +1,847 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "contract"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link current">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/eosiocontract/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/eosiocontract/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link current">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/eosiocontract/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/eosiocontract/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            System Contract
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/eosiocontract/index.html" class="sidebar-link current"></a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content contract with-sidebar ">
+  
+    
+  
+  
+  
+    <h1 id="System-Contract"><a href="#System-Contract" class="headerlink" title="System Contract"></a>System Contract</h1><h2 id="newaccount"><a href="#newaccount" class="headerlink" title="newaccount"></a>newaccount</h2><p>Create Contract Account</p>
+<h4 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>creator</strong></td>
+<td>string</td>
+<td>creator account</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td>The name of the account created</td>
+</tr>
+<tr>
+<td><strong>owner</strong></td>
+<td>string</td>
+<td>The public key of the owner permission of the account created</td>
+</tr>
+<tr>
+<td><strong>active</strong></td>
+<td>string</td>
+<td>Is the public key of the creator active permission</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.newaccountSync(&#123;</span><br><span class="line">    creator:<span class="string">'eosio'</span>,</span><br><span class="line">    name:<span class="string">'hellocode2'</span>,</span><br><span class="line">    owner:<span class="string">'your public key'</span>,</span><br><span class="line">    active:<span class="string">'your public key'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.newaccount(&#123;</span><br><span class="line">        creator:<span class="string">'eosio'</span>,</span><br><span class="line">        name:<span class="string">'hellocode2'</span>,</span><br><span class="line">        owner:<span class="string">'your public key'</span>,</span><br><span class="line">        active:<span class="string">'your public key'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="setcode"><a href="#setcode" class="headerlink" title="setcode"></a>setcode</h2><p>deploy JS contract</p>
+<h4 id="Parameters-1"><a href="#Parameters-1" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>contract account</td>
+</tr>
+<tr>
+<td><strong>vmtype</strong></td>
+<td>uint8</td>
+<td>Contract engine type</td>
+</tr>
+<tr>
+<td><strong>vmversion</strong></td>
+<td>uint8</td>
+<td>Contract engine version</td>
+</tr>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td>contract code</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r = ctx.setcodeSync(&#123;</span><br><span class="line">    account: <span class="string">'dexterdexter'</span>,</span><br><span class="line">    vmtype: <span class="number">0</span>,</span><br><span class="line">    vmversion: <span class="number">0</span>,</span><br><span class="line">    code: <span class="string">'bytes'</span>,</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.setcode(&#123;</span><br><span class="line">        account:<span class="string">'dexterdexter'</span>,</span><br><span class="line">        vmtype: <span class="number">0</span>,</span><br><span class="line">        vmversion: <span class="number">0</span>,</span><br><span class="line">        code: <span class="string">'bytes'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="setabi"><a href="#setabi" class="headerlink" title="setabi"></a>setabi</h2><p>deploy abi file</p>
+<h4 id="Parameters-2"><a href="#Parameters-2" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>Contract account</td>
+</tr>
+<tr>
+<td><strong>abi</strong></td>
+<td>json</td>
+<td>abi file code</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r = ctx.setabiSync(&#123;</span><br><span class="line">    account: <span class="string">'iforedpacket'</span>,</span><br><span class="line">    abi: &#123;<span class="string">"version"</span>:<span class="string">"eosio::abi/1.0"</span>,<span class="string">"types"</span>:[],<span class="string">"structs"</span>:[],<span class="string">"actions"</span>:[],<span class="string">"tables"</span>:[],<span class="string">"ricardian_clauses"</span>:[],<span class="string">"error_messages"</span>:[],<span class="string">"abi_extensions"</span>:[],<span class="string">"variants"</span>:[]&#125;</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.setabi(&#123;</span><br><span class="line">        account:<span class="string">'iforedpacket'</span>,</span><br><span class="line">        abi: &#123;<span class="string">"version"</span>:<span class="string">"eosio::abi/1.0"</span>,<span class="string">"types"</span>:[],<span class="string">"structs"</span>:[],<span class="string">"actions"</span>:[],<span class="string">"tables"</span>:[],<span class="string">"ricardian_clauses"</span>:[],<span class="string">"error_messages"</span>:[],<span class="string">"abi_extensions"</span>:[],<span class="string">"variants"</span>:[]&#125;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="updateauth"><a href="#updateauth" class="headerlink" title="updateauth"></a>updateauth</h2><p>add or edit user permission</p>
+<h4 id="Parameters-3"><a href="#Parameters-3" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>account name</td>
+</tr>
+<tr>
+<td><strong>permission</strong></td>
+<td>string</td>
+<td>An existing permission or a new permission name</td>
+</tr>
+<tr>
+<td><strong>parent</strong></td>
+<td>string</td>
+<td>Creates the parent permission of theis permission</td>
+</tr>
+<tr>
+<td><strong>auth</strong></td>
+<td>json</td>
+<td>The composition of this permission</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.updateauthSync(&#123;</span><br><span class="line">  account: <span class="string">'silver123451'</span>,</span><br><span class="line">  permission: <span class="string">'owner'</span>,</span><br><span class="line">  parent: <span class="string">''</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    threshold: <span class="number">1</span>,</span><br><span class="line">    keys: [&#123;</span><br><span class="line">      key: <span class="string">'FO7dmfQvyYT5JWhEVePELkFZYo4A1GqRTwHsMJEaN4HxSbcTjjrn'</span>,</span><br><span class="line">      weight: <span class="number">1</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.updateauth(&#123;</span><br><span class="line">        account: <span class="string">'silver123451'</span>,</span><br><span class="line">        permission: <span class="string">'owner'</span>,</span><br><span class="line">        parent: <span class="string">''</span>,</span><br><span class="line">        auth: &#123;</span><br><span class="line">            threshold: <span class="number">1</span>,</span><br><span class="line">            keys: [&#123;</span><br><span class="line">                key: <span class="string">'FO7dmfQvyYT5JWhEVePELkFZYo4A1GqRTwHsMJEaN4HxSbcTjjrn'</span>,</span><br><span class="line">                weight: <span class="number">1</span></span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="deleteauth"><a href="#deleteauth" class="headerlink" title="deleteauth"></a>deleteauth</h2><p>delete permission</p>
+<h4 id="Parameters-4"><a href="#Parameters-4" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>account name</td>
+</tr>
+<tr>
+<td><strong>permission</strong></td>
+<td>string</td>
+<td>permission requires to be deleted</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.deleteauthSync(&#123;</span><br><span class="line">    account: <span class="string">'account_name'</span>,</span><br><span class="line">    permission: <span class="string">'permission_name'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.deleteauth(&#123;</span><br><span class="line">        account: <span class="string">'account_name'</span>,</span><br><span class="line">        permission: <span class="string">'permission_name'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="linkauth"><a href="#linkauth" class="headerlink" title="linkauth"></a>linkauth</h2><p>Specify action for permissions</p>
+<h4 id="Parameters-5"><a href="#Parameters-5" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>account name</td>
+</tr>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td>contract name</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>string</td>
+<td>action name</td>
+</tr>
+<tr>
+<td><strong>requirement</strong></td>
+<td>string</td>
+<td>permission name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.linkauthSync(&#123;</span><br><span class="line">   account: <span class="string">"fiboshanghai"</span>,</span><br><span class="line">   code: <span class="string">"eosio"</span>,</span><br><span class="line">   type: <span class="string">"claimrewards"</span>,</span><br><span class="line">   requirement: <span class="string">"claimer"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.linkauth(&#123;</span><br><span class="line">        account: <span class="string">"fiboshanghai"</span>,</span><br><span class="line">        code: <span class="string">"eosio"</span>,</span><br><span class="line">        type: <span class="string">"claimrewards"</span>,</span><br><span class="line">        requirement: <span class="string">"claimer"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="unlinkauth"><a href="#unlinkauth" class="headerlink" title="unlinkauth"></a>unlinkauth</h2><p>actions that permissions can execute</p>
+<h4 id="Parameters-6"><a href="#Parameters-6" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>account name</td>
+</tr>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td>contract name</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>string</td>
+<td>action name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.unlinkauthSync(&#123;</span><br><span class="line">   account: <span class="string">'eosio'</span>,</span><br><span class="line">   code: <span class="string">'hello'</span>,</span><br><span class="line">   type: <span class="string">'hi'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.unlinkauth(&#123;</span><br><span class="line">        account: <span class="string">'eosio'</span>,</span><br><span class="line">        code: <span class="string">'hello'</span>,</span><br><span class="line">        type: <span class="string">'hi'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="canceldelay"><a href="#canceldelay" class="headerlink" title="canceldelay"></a>canceldelay</h2><p>cancel one delay transction</p>
+<h4 id="Parameters-7"><a href="#Parameters-7" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>canceling_auth</strong></td>
+<td>String</td>
+<td>permission type</td>
+</tr>
+<tr>
+<td><strong>trx_id</strong></td>
+<td>String</td>
+<td>transction hash</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.canceldelaySync(&#123;</span><br><span class="line">    canceling_auth: <span class="string">'permission_level'</span>,</span><br><span class="line">    trx_id: <span class="string">'transaction_id_type'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.canceldelay(&#123;</span><br><span class="line">        canceling_auth: <span class="string">'permission_level'</span>,</span><br><span class="line">        trx_id: <span class="string">'transaction_id_type'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="buyrambytes"><a href="#buyrambytes" class="headerlink" title="buyrambytes"></a>buyrambytes</h2><p>payer call this function to storage new account info for receiver.</p>
+<h4 id="Parameters-8"><a href="#Parameters-8" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>payer</strong></td>
+<td>string</td>
+<td>payer account name</td>
+</tr>
+<tr>
+<td><strong>receiver</strong></td>
+<td>string</td>
+<td>receiver account name</td>
+</tr>
+<tr>
+<td><strong>bytes</strong></td>
+<td>uint32</td>
+<td>size of purchased ram</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-8"><a href="#Example-8" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.buyrambytesSync(&#123;</span><br><span class="line">      payer: <span class="string">"fibosmaster1"</span>,</span><br><span class="line">      receiver: <span class="string">"yunyu1212122"</span>,</span><br><span class="line">      bytes: <span class="number">4096</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.buyrambytes(&#123;</span><br><span class="line">        payer: <span class="string">"fibosmaster1"</span>,</span><br><span class="line">        receiver: <span class="string">"yunyu1212122"</span>,</span><br><span class="line">        bytes: <span class="number">4096</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="buyram"><a href="#buyram" class="headerlink" title="buyram"></a>buyram</h2><p>Buy storage resources, difference is whether buy A specific amount of token or size of content.</p>
+<h4 id="Parameters-9"><a href="#Parameters-9" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>payer</strong></td>
+<td>string</td>
+<td>buy storage account</td>
+</tr>
+<tr>
+<td><strong>receiver</strong></td>
+<td>string</td>
+<td>receiving storage account</td>
+</tr>
+<tr>
+<td><strong>quant</strong></td>
+<td>string</td>
+<td>requiring token amount of buying resources</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-9"><a href="#Example-9" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.buyramSync(&#123;</span><br><span class="line">      payer: <span class="string">"silver123451"</span>,</span><br><span class="line">      receiver: <span class="string">"silver123451"</span>,</span><br><span class="line">      quant: <span class="string">"0.1273 FO"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.buyram(&#123;</span><br><span class="line">        payer: <span class="string">"silver123451"</span>,</span><br><span class="line">        receiver: <span class="string">"silver123451"</span>,</span><br><span class="line">        quant: <span class="string">"0.1273 FO"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="sellram"><a href="#sellram" class="headerlink" title="sellram"></a>sellram</h2><p>Sell unnecessary resources</p>
+<h4 id="Parameters-10"><a href="#Parameters-10" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account</strong></td>
+<td>string</td>
+<td>Accept account for selling resource token</td>
+</tr>
+<tr>
+<td><strong>bytes</strong></td>
+<td>uint64</td>
+<td>How much space to sell for storage resources</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-10"><a href="#Example-10" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'ssl'</span>).loadRootCerts();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.sellramSync(&#123;</span><br><span class="line">      account: <span class="string">"silver123451"</span>,</span><br><span class="line">      bytes: <span class="number">789438000</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.sellram(&#123;</span><br><span class="line">        account: <span class="string">"silver123451"</span>,</span><br><span class="line">        bytes: <span class="number">789438000</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="delegatebw"><a href="#delegatebw" class="headerlink" title="delegatebw"></a>delegatebw</h2><p>Mortgage token to get cpu and bandwidth resources</p>
+<h4 id="Parameters-11"><a href="#Parameters-11" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>from</strong></td>
+<td>string</td>
+<td>The account name of the resource mortgagor</td>
+</tr>
+<tr>
+<td><strong>receiver</strong></td>
+<td>string</td>
+<td>The account name of the resource recipient</td>
+</tr>
+<tr>
+<td><strong>stake_net_quantity</strong></td>
+<td>string</td>
+<td>The mortgagor mortgages FO to obtain NET for the recipient</td>
+</tr>
+<tr>
+<td><strong>stake_cpu_quantity</strong></td>
+<td>string</td>
+<td>The mortgagor mortgages FO for the recipient to obtain CPU</td>
+</tr>
+<tr>
+<td><strong>transfer</strong></td>
+<td>bool</td>
+<td>Represents whether the mortgage resources are transferred to the recipient at the same time</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-11"><a href="#Example-11" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.delegatebwSync(&#123;</span><br><span class="line">      <span class="keyword">from</span>: <span class="string">"slowmistioio"</span>,</span><br><span class="line">      receiver: <span class="string">"slowmistioio"</span>,</span><br><span class="line">      stake_net_quantity: <span class="string">"3193.0000 FO"</span>,</span><br><span class="line">      stake_cpu_quantity: <span class="string">"30000.0000 FO"</span>,</span><br><span class="line">      transfer: <span class="number">0</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.delegatebw(&#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="string">"slowmistioio"</span>,</span><br><span class="line">        receiver: <span class="string">"slowmistioio"</span>,</span><br><span class="line">        stake_net_quantity: <span class="string">"3193.0000 FO"</span>,</span><br><span class="line">        stake_cpu_quantity: <span class="string">"30000.0000 FO"</span>,</span><br><span class="line">        transfer: <span class="number">0</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="undelegatebw"><a href="#undelegatebw" class="headerlink" title="undelegatebw"></a>undelegatebw</h2><p>Unlock mortgage, release resources, return tokens.</p>
+<h4 id="Parameters-12"><a href="#Parameters-12" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>from</strong></td>
+<td>string</td>
+<td>Remove the token mortgaged by which account</td>
+</tr>
+<tr>
+<td><strong>receiver</strong></td>
+<td>string</td>
+<td>Remove the token on which the account is used as collateral</td>
+</tr>
+<tr>
+<td><strong>unstake_net_quantity</strong></td>
+<td>string</td>
+<td>Uncount the number of tokens used to obtain bandwidth resources</td>
+</tr>
+<tr>
+<td><strong>unstake_cpu_quantity</strong></td>
+<td>string</td>
+<td>Uncount the number of tokens used to get the calculated resource</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-12"><a href="#Example-12" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.undelegatebwSync(&#123;</span><br><span class="line">      <span class="keyword">from</span>: <span class="string">'hoffercq1211'</span>,</span><br><span class="line">      receiver: <span class="string">'hoffercq1211'</span>,</span><br><span class="line">      unstake_net_quantity: <span class="string">'649540.0000 FO'</span>,</span><br><span class="line">      unstake_cpu_quantity: <span class="string">'649540.0000 FO'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.undelegatebw(&#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="string">"\"silver123451\""</span>,</span><br><span class="line">        receiver: <span class="string">"\"silver123451\""</span>,</span><br><span class="line">        unstake_net_quantity: <span class="string">"\"0.0000 FO\""</span>,</span><br><span class="line">        unstake_cpu_quantity: <span class="string">"\"104000.0000 FO\""</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="refund"><a href="#refund" class="headerlink" title="refund"></a>refund</h2><p>call after undelegatebw fuction mortgage unlocked, in order to refund tokens back to account.</p>
+<h4 id="Parameters-13"><a href="#Parameters-13" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>owner</strong></td>
+<td>string</td>
+<td>return account name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-13"><a href="#Example-13" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.refundSync(&#123;</span><br><span class="line">    owner: <span class="string">"imeos2imeos2"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.refund(&#123;</span><br><span class="line">        owner: <span class="string">"imeos2imeos2"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="regproducer"><a href="#regproducer" class="headerlink" title="regproducer"></a>regproducer</h2><p>register as a block producer</p>
+<h4 id="Parameters-14"><a href="#Parameters-14" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>producer</strong></td>
+<td>string</td>
+<td>blcok producer account name</td>
+</tr>
+<tr>
+<td><strong>producer_key</strong></td>
+<td>string</td>
+<td>block producer public key</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td>string</td>
+<td>block producer website</td>
+</tr>
+<tr>
+<td><strong>location</strong></td>
+<td>uint16</td>
+<td>block producer server location code</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-14"><a href="#Example-14" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.regproducerSync(&#123;</span><br><span class="line">    producer: <span class="string">"aaaooooooooo"</span>,</span><br><span class="line">    producer_key: <span class="string">"FO75Bt2DwqUz78AZ5AACMJzXtRKBbWctpEAVVAv6hYLqfH7JSZNW"</span>,</span><br><span class="line">    url: <span class="string">"http://www.fiboso.com"</span>,</span><br><span class="line">    location: <span class="number">1</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.regproducer(&#123;</span><br><span class="line">        producer: <span class="string">"aaaooooooooo"</span>,</span><br><span class="line">        producer_key: <span class="string">"FO75Bt2DwqUz78AZ5AACMJzXtRKBbWctpEAVVAv6hYLqfH7JSZNW"</span>,</span><br><span class="line">        url: <span class="string">"http://www.fiboso.com"</span>,</span><br><span class="line">        location: <span class="number">1</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="unregprod"><a href="#unregprod" class="headerlink" title="unregprod"></a>unregprod</h2><p>unregister as a block producer.</p>
+<h4 id="Parameters-15"><a href="#Parameters-15" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>producer</strong></td>
+<td>string</td>
+<td>account name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-15"><a href="#Example-15" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.unregprodSync(&#123;</span><br><span class="line">    producer: <span class="string">"bitzebitze11"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.unregprod(&#123;</span><br><span class="line">        producer: <span class="string">"bitzebitze11"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="regproxy"><a href="#regproxy" class="headerlink" title="regproxy"></a>regproxy</h2><p>Register as an agent, allow vote proxy from other users.</p>
+<h4 id="Parameters-16"><a href="#Parameters-16" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>proxy</strong></td>
+<td>string</td>
+<td>registed account name</td>
+</tr>
+<tr>
+<td><strong>isproxy</strong></td>
+<td>bool</td>
+<td>if voter proxy is allowed</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-16"><a href="#Example-16" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.regproxySync(&#123;</span><br><span class="line">    proxy: <span class="string">"fibosking322"</span>,</span><br><span class="line">    isproxy: <span class="number">1</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.regproxy(&#123;</span><br><span class="line">        proxy: <span class="string">"fibosking322"</span>,</span><br><span class="line">        isproxy: <span class="number">1</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="voteproducer"><a href="#voteproducer" class="headerlink" title="voteproducer"></a>voteproducer</h2><p>vote for producer</p>
+<h4 id="Parameters-17"><a href="#Parameters-17" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>voter</strong></td>
+<td>string</td>
+<td>voter</td>
+</tr>
+<tr>
+<td><strong>proxy</strong></td>
+<td>string</td>
+<td>voter proxy</td>
+</tr>
+<tr>
+<td><strong>producers</strong></td>
+<td>array of strings</td>
+<td>producers list</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-17"><a href="#Example-17" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.voteproducerSync(&#123;</span><br><span class="line">    voter: <span class="string">"slowmistioio"</span>,</span><br><span class="line">    proxy: <span class="string">""</span>,</span><br><span class="line">    producers: [<span class="string">"slowmistioio"</span>]</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.voteproducer(&#123;</span><br><span class="line">        voter: <span class="string">"slowmistioio"</span>,</span><br><span class="line">        proxy: <span class="string">""</span>,</span><br><span class="line">        producers: [<span class="string">"slowmistioio"</span>]</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Note: Node vote list requires developers to sort alphabetically,  up to 30 BP vote maximum is allowed per time. </p>
+<h2 id="claimrewards"><a href="#claimrewards" class="headerlink" title="claimrewards"></a>claimrewards</h2><p>block producer claiming rewoards</p>
+<h4 id="Parameters-18"><a href="#Parameters-18" class="headerlink" title="Parameters"></a>Parameters</h4><table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>owner</strong></td>
+<td>string</td>
+<td>name of block producer</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-18"><a href="#Example-18" class="headerlink" title="Example"></a>Example</h4><p>fibos.js Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r = ctx.claimrewardsSync(&#123;</span><br><span class="line">    owner: <span class="string">"linyuezhan12"</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    authorization: <span class="string">'the account corresponding to private key'</span> </span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Browser Runtime：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibos_client = FIBOS(&#123;</span><br><span class="line">  <span class="comment">// fibos mainweb chainId</span></span><br><span class="line">  chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">  keyProvider: <span class="string">'your private key'</span>,</span><br><span class="line">  httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos_client.contract(<span class="string">'eosio'</span>).then(<span class="function">(<span class="params">contract</span>)=&gt;</span>&#123;</span><br><span class="line">    contract.claimrewards(&#123;</span><br><span class="line">        owner: <span class="string">"linyuezhan12"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        authorization: <span class="string">'the account corresponding to private key'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

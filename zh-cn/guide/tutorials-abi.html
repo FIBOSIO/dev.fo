@@ -1,0 +1,849 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    智能合约——ABI 文件 — FIBOS 开发者社区</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="智能合约——ABI 文件 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="智能合约——ABI 文件 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/zh-cn/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/tutorials-abi.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/tutorials-abi.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/zh-cn/" class="nav-link contribute">主页</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">开发指南</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/zh-cn/guide/introduction.html" class="nav-link">简介</a></li>
+      <li><a href="/zh-cn/guide/installation.html" class="nav-link">安装</a></li>
+      <li><a href="/zh-cn/guide/start.html" class="nav-link">入门</a></li>
+      <li><a href="/zh-cn/guide/tutorials-instructions.html" class="nav-link tutorials">教程</a></li>
+      <li><a href="/zh-cn/guide/smart-contract-instructions.html" class="nav-link">智能合约</a></li>
+      <li><a href="/zh-cn/guide/system-resources.html" class="nav-link">系统合约</a></li>
+      <li><a href="/zh-cn/guide/token-transfer.html" class="nav-link">Token 合约</a></li>
+      <li><a href="/zh-cn/guide/node-instruction.html" class="nav-link">节点编程</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">技术手册</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/zh-cn/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/zh-cn/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/zh-cn/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/zh-cn/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/zh-cn/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/zh-cn/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/zh-cn/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">社区</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+    <a class="nav-link"><img src="/images/zh.png"></a><span class="arrow"></span>
+  
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/tutorials-abi.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/tutorials-abi.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            开发指南
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/introduction.html" class="sidebar-link">介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/installation.html" class="sidebar-link">安装</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/start.html" class="sidebar-link">快速入门</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+            <li><h3>教程</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-instructions.html" class="sidebar-link">简介</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-setnode.html" class="sidebar-link">搭建本地测试节点</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-abi.html" class="sidebar-link current">智能合约——ABI 文件</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-js.html" class="sidebar-link">智能合约——JS 合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-deploy.html" class="sidebar-link">部署合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-testcase.html" class="sidebar-link">测试合约</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/tutorials-usecontract.html" class="sidebar-link">开发 DApp 客户端</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+            <li><h3>智能合约</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-instructions.html" class="sidebar-link">合约介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-ABI.html" class="sidebar-link">ABI 文件</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-database.html" class="sidebar-link">数据库</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-auth.html" class="sidebar-link">账户权限</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-inlinecall.html" class="sidebar-link">合约内调用</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/smart-contract-recipient.html" class="sidebar-link">通知</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+            <li><h3>系统合约</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-resources.html" class="sidebar-link">资源</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-account.html" class="sidebar-link">账户</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/system-permission.html" class="sidebar-link">权限</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+            <li><h3>Token 合约</h3></li>
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-transfer.html" class="sidebar-link">转账</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-exchange.html" class="sidebar-link">兑换</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-card.html" class="sidebar-link">通证</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/token-wallet.html" class="sidebar-link">合约子钱包</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>节点编程</h3></li>
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-instruction.html" class="sidebar-link">节点介绍</a>
+        </li>
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-nodesNet.html" class="sidebar-link">加入节点网络</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/zh-cn/guide/node-persistence.html" class="sidebar-link">节点数据持久化</a>
+        </li>
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>智能合约——ABI 文件</h1>
+  
+  
+    <p>ABI 全称 Application Binary Interface，中文名“应用程序二进制接口”，顾名思义是一个接口文件，描述了智能合约与上层应用之间的数据交换格式。ABI 文件格式类似 JSON，具备很好的可读性，有利于智能合约工程师与上层应用工程师之间的工作衔接。</p>
+<p>对于 JavaScript 合约来说，需要使用 ABI 文件来定义 actions 以及 tables。</p>
+<p>智能合约 ABI 文件由 5 部分组成：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"eosio::abi/1.0"</span>,</span><br><span class="line">    <span class="attr">"structs"</span>:[...],            </span><br><span class="line">    <span class="attr">"actions"</span>:[...],            </span><br><span class="line">    <span class="attr">"tables"</span>:[...],            </span><br><span class="line">    <span class="attr">"types"</span>:[...],              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>version</code> ：指定 ABI 的版本号。<br><code>structs</code> ：代表各个类型的数据结构。<br><code>actions</code> ：声明智能合约调用的 action。<br><code>tables</code> ：列出智能合约中的数据表名称，以及数据表中所储存的结构体名称。<br><code>types</code> ：用于自定义数据的类型。</p>
+<p>我们将按照 structs -&gt; actions -&gt; tables -&gt; types 的顺序了解 FIBOS 智能合约 ABI 的开发方法。</p>
+<p>新建 <code>contracts</code> 文件夹，保存代码至 <code>contracts/todo.abi</code>:</p>
+<h2 id="structs"><a href="#structs" class="headerlink" title="structs"></a>structs</h2><p>structs 部分的内容与 actions 部分的内容存在一一对应的关系，我们需要在 structs 里声明各个 action 需要传入的参数，如下所示。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">"structs": [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todo_index"</span>,</span><br><span class="line">      <span class="attr">"base"</span> : <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"id"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"int64"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todo"</span>,</span><br><span class="line">      <span class="attr">"base"</span> : <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"id"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"int64"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"text"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"string"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>FIBOS 系统会根据 actions 部分中声明的 type ，在 structs 部分寻找对应的数据结构，每个数据结构的 fields 中，会列出每个参数的名称和类型。</p>
+<p>除此以外，不光是 actions 里的项目需要在 structs 里列出详细的数据结构，tables 中的项目也需要。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">"structs": [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todo_index"</span>,</span><br><span class="line">      <span class="attr">"base"</span> : <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"id"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"int64"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todo"</span>,</span><br><span class="line">      <span class="attr">"base"</span> : <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"id"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"int64"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"text"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"string"</span></span><br><span class="line">        &#125;，</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"completed"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"bool"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>这样，在 structs 中，我们就定义了一个名为 todo_index 的 struct，用来列出数据表 todo_index，包含字段 id(int64) ；一个名为 todo 的 struct ，用来列出数据表 todo ，包含字段 id(int64)，text(string)，completed(bool)。</p>
+<h2 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h2><p>action 部分的作用是声明智能合约有哪些可以调用的 action。<br>以下代码实例中 action 定义了添加数据、查找数据、修改数据、删除数据四个方法。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">"actions": [&#123;</span><br><span class="line">    "name": "emplacetodo",</span><br><span class="line">    "type": "todo",</span><br><span class="line">    "ricardian_contract": ""</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    "name": "findtodo",</span><br><span class="line">    "type": "todo_index",</span><br><span class="line">    "ricardian_contract": ""</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    "name": "updatetodo",</span><br><span class="line">    "type": "todo",</span><br><span class="line">    "ricardian_contract": ""</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    "name": "destorytodo",</span><br><span class="line">    "type": "todo_index",</span><br><span class="line">    "ricardian_contract": ""</span><br><span class="line">&#125;],</span><br></pre></td></tr></table></figure>
+<p>其中每一项的 name 就是 action 的名字，type 用来在 structs 中查找数据结构，ricardian_contract 是李嘉图合约。</p>
+<p>李嘉图合约是一种特殊的结构化文本，主要用作交易中明确双方的意图。在 FIBOS 上，你所发送的每一条 action，都是可以附加上合约。这种合约很特殊，有着固定的格式，既能够被程序读取，也能为人类阅读。这一合约，就叫做李嘉图合约。</p>
+<blockquote>
+<p>注意： action 取名沿用了 eos 的命名规则。<br>目前 action 中 name 命名规则约束：只支持数字 1 ～ 5 和英文小写字母；字符长度最大为 12。</p>
+</blockquote>
+<h2 id="tables"><a href="#tables" class="headerlink" title="tables"></a>tables</h2><p>tables 列出了智能合约中需要建立的数据表名称，以及数据表中所储存的结构体名称。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">"tables": [&#123;</span><br><span class="line">    "name": "todos",</span><br><span class="line">    "type": "todo",</span><br><span class="line">    "index_type": "i64",</span><br><span class="line">    "key_names": ["id"],</span><br><span class="line">    "key_types": ["int64"]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>上述代码构造了一个 table 名是 todos ，结构体类型是 todo，主键名称是 id，主键类型是 int64 的数据表。</p>
+<h2 id="types"><a href="#types" class="headerlink" title="types"></a>types</h2><p>types 用于自定义数据的类型：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"new_type_name"</span>: <span class="string">"my_account_name"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"name"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样在这个 ABI 文件里就自定义了一个类型名称为 my_account_name 的类型，类型是 name ，new_type_name 和 type 是关键字，类型 name 是系统定义的数据类型。</p>
+<h2 id="ABI-文件代码实例"><a href="#ABI-文件代码实例" class="headerlink" title="ABI 文件代码实例"></a>ABI 文件代码实例</h2><p>按照上面的说明，我们编写本文需要的合约，以下代码保存为 contracts/todo.abi。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"eosio::abi/1.0"</span>,</span><br><span class="line">  <span class="attr">"structs"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todo_index"</span>, </span><br><span class="line">      <span class="attr">"base"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"id"</span>, </span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"int64"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todo"</span>, </span><br><span class="line">      <span class="attr">"base"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"id"</span>, </span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"int64"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"text"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"string"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"completed"</span>, </span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"bool"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"actions"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"emplacetodo"</span>, </span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"todo"</span>,</span><br><span class="line">      <span class="attr">"ricardian_contract"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"findtodo"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"todo_index"</span>,</span><br><span class="line">      <span class="attr">"ricardian_contract"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"updatetodo"</span>, </span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"todo"</span>,</span><br><span class="line">      <span class="attr">"ricardian_contract"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"destorytodo"</span>, </span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"todo_index"</span>,</span><br><span class="line">      <span class="attr">"ricardian_contract"</span>: <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"tables"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"todos"</span>, </span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"todo"</span>, </span><br><span class="line">      <span class="attr">"index_type"</span>: <span class="string">"i64"</span>, </span><br><span class="line">      <span class="attr">"key_names"</span>: [<span class="string">"id"</span>], </span><br><span class="line">      <span class="attr">"key_types"</span>: [<span class="string">"int64"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：ABI 文件请不要添加任何注释，否则会运行报错！</strong></p>
+</blockquote>
+<p>通过该 ABI 文件，我们就定义了四个 action ，分别为 emplacetodo(todo)、findtodo(todo_index)、updatetodo(todo)、destorytodo(todo_index) ；对应的 struct 主键为 todo_index，有 id(int64)、text(string)、completed(bool) 三个属性。</p>
+<p>本文 GitHub 源码：<a href="https://github.com/fengluo/fibos-todomvc" target="_blank" rel="noopener">https://github.com/fengluo/fibos-todomvc</a> 下的 <code>contracts</code> 文件夹。</p>
+<p><strong>下一章节</strong><br>👉 【<a href="tutorials-js.html">编写 JavaScript 智能合约</a>】</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

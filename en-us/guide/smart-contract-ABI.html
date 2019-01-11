@@ -1,0 +1,846 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    ABI File — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ABI File — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ABI File — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/smart-contract-ABI.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/smart-contract-ABI.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/smart-contract-ABI.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/smart-contract-ABI.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link current">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>ABI File</h1>
+  
+  
+    <p>Using JavaScript to develop blockchain smart contract is supported in FIBOS. In the previous chapter <a href="./start.html">Quick Start</a>, in the JS smart contract that we wrote, there is another contract ABI file beside the contract code JS file. We didn’t make it clear at that time, so here we will go through the details of the ABI file.</p>
+<h2 id="What-is-ABI"><a href="#What-is-ABI" class="headerlink" title="What is ABI"></a>What is ABI</h2><p>The full name of ABI is Application Binary Interface. It is a Interface file, which describes the data tracsfer format between smart contract and the upper applications. ABI file format is similar to JSON which has a good readablity. It is good for connection between smart contract engineers and upper applications engineers. </p>
+<p>For JavaScript contract, ABI file is needed to define  <code>actions</code> and <code>tables</code>.</p>
+<p>Smart contract ABI files are composed of 5 parts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "version": "eosio::abi/1.0",//define ABI version</span><br><span class="line">    "types":[...],              //define types alias</span><br><span class="line">    "structs":[...],            //the data structure of each types</span><br><span class="line">    "actions":[...],            //action of smart contract </span><br><span class="line">    "tables":[...]            //data tables</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We will go through the development method of FIBOS smart contract ABI by the sequence of  <code>actions</code> -&gt;  <code>tables</code> -&gt; <code>structs</code> -&gt; <code>types</code> </p>
+<h2 id="ABI-Development"><a href="#ABI-Development" class="headerlink" title="ABI Development"></a>ABI Development</h2><h3 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h3><p>Part of the usage of action is to define the actions that can be called by the smart contract as shown below:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"actions": [&#123;</span><br><span class="line">    "name": "hi",</span><br><span class="line">    "type": "hi",</span><br><span class="line">    "ricardian_contract": ""</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>Each <code>name</code> is the action name, while <code>type</code> is used to find data structure in <code>structs</code>, and <code>ricardian_contract</code> is Ricardian Contract.</p>
+<p>Ricardian Contract is a special Structured text, mainly used to declear intentions of both parties in trading. In FIBOS, each action you send can be added with contract. This type of contract is special, it has a fixed format that can be read by both programs and human beings. This is what we called the Ricardian Contract.</p>
+<p><strong>Attention: Action names follow the naming rules of eos.</strong></p>
+<p>Currently, the naming rule: composed of only Numbers 1-5 and lowercase English letters ; The maximum character length is 12.</p>
+<p>If any changes are made later, we will modify the document in time.</p>
+<h3 id="tables"><a href="#tables" class="headerlink" title="tables"></a>tables</h3><p><code>tables</code>  listed the data tables that need to be build in the smart contract and also the structure name saved in data table.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">"tables": [&#123;</span><br><span class="line">    "name": "players",</span><br><span class="line">    "type": "player",</span><br><span class="line">    "index_type": "i64",</span><br><span class="line">    "key_names": ["id"],</span><br><span class="line">    "key_types": ["int64"]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>The codes above built a table named players, the structure type is player, main key is id, type is int64 data table.</p>
+<h3 id="structs"><a href="#structs" class="headerlink" title="structs"></a>structs</h3><p>There is a correspondence between part of the content of <code>structs</code> and part of the content of <code>actions</code>. We just defined an action name at above <code>actions</code>. We also need to define <code>structs</code> the incoming parameters for each action.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"structs":  [&#123;</span><br><span class="line">    "name": "shape",</span><br><span class="line">    "base": "",</span><br><span class="line">    "fields": [&#123;</span><br><span class="line">        "name": "area",</span><br><span class="line">        "type": "flout64"</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"structs":  [&#123;</span><br><span class="line">    "name": "colorshape",</span><br><span class="line">    "base": "shape",</span><br><span class="line">    "fields": [&#123;</span><br><span class="line">        "name": "color",</span><br><span class="line">        "type": "int64"</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>Through <code>base</code> field inheritance is equivalent to:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">"structs":  [&#123;</span><br><span class="line">    "name": "colorshape",</span><br><span class="line">    "base": "",</span><br><span class="line">    "fields": [&#123;</span><br><span class="line">        "name": "area",</span><br><span class="line">        "type": "flout64"</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        "name": "color",</span><br><span class="line">        "type": "int64"</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>FIBOS system will find the corresponding data structure in <code>structs</code> by the <code>type</code> defined by <code>actions</code>. In <code>fields</code> of  each data structures, name and type of each parameter will listed.</p>
+<p>Except that, not only the projects in <code>actions</code> need to list detailed data structure in <code>structs</code>, but also the projects in <code>tables</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">"structs": [&#123;</span><br><span class="line">    "name": "player",</span><br><span class="line">    "base": "",</span><br><span class="line">    "fields": [&#123;</span><br><span class="line">        "name": "nickname",</span><br><span class="line">        "type": "my_account_name"</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        "name": "age",</span><br><span class="line">        "type": "int32"</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    "name": "hi",</span><br><span class="line">    "base": "",</span><br><span class="line">    "fields": [&#123;</span><br><span class="line">        "name": "nickname",</span><br><span class="line">        "type": "my_account_name"</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>So, in <code>structs</code>  we defined a struct named player. It is used to list data table player including 2 strings: <code>nickname</code> and <code>age</code> , the types are  <code>my_account_name</code> and<code>int32</code></p>
+<h3 id="types"><a href="#types" class="headerlink" title="types"></a>types</h3><p><code>types</code> is used to define data type:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"new_type_name"</span>: <span class="string">"my_account_name"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"name"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So in this ABI file, we defined a type name named  <code>my_account_name</code> ,the type is <code>name</code>, <code>new_type_name</code> and <code>type</code> are keywords, type <code>name</code> is the data type defined by system.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>So, a complete ABI file is now written. </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"eosio::abi/1.0"</span>,</span><br><span class="line">    <span class="attr">"types"</span>: [&#123;</span><br><span class="line">        <span class="attr">"new_type_name"</span>: <span class="string">"my_account_name"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"name"</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="attr">"structs"</span>: [&#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"player"</span>,</span><br><span class="line">        <span class="attr">"base"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"fields"</span>: [&#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"nickname"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"my_account_name"</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"age"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"int32"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"hi"</span>,</span><br><span class="line">        <span class="attr">"base"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="attr">"fields"</span>: [&#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"nickname"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"my_account_name"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="attr">"actions"</span>: [&#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"hi"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"hi"</span>,</span><br><span class="line">        <span class="attr">"ricardian_contract"</span>: <span class="string">""</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="attr">"tables"</span>: [&#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"players"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"player"</span>,</span><br><span class="line">        <span class="attr">"index_type"</span>: <span class="string">"i64"</span>,</span><br><span class="line">        <span class="attr">"key_names"</span>: [<span class="string">"id"</span>],</span><br><span class="line">        <span class="attr">"key_types"</span>: [<span class="string">"int64"</span>]</span><br><span class="line">    &#125;] </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Through this ABI file, we defined an action method, it has 3 strings: id, nickname, age; types are: int64, my_account_name, int32; a data table player main key is id and a Passing parameters of nickname, type is my_account_name and the name is hi. </p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

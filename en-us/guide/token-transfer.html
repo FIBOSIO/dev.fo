@@ -1,0 +1,927 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Transfer — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Transfer — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Transfer — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link current">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-transfer.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-transfer.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link current">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/token-transfer.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/token-transfer.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link current">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Transfer</h1>
+  
+  
+    <h2 id="In-chain-Transfer"><a href="#In-chain-Transfer" class="headerlink" title="In-chain Transfer"></a>In-chain Transfer</h2><p>the transfer target account must exists in FIBOS. Also the maximum amount to transfer should not be larger than your balance, the precision should equal to the token precision.</p>
+<p><code>extransfer</code> method and parameters:</p>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>token transferor</td>
+</tr>
+<tr>
+<td>to</td>
+<td>token recipient</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>token amount</td>
+</tr>
+<tr>
+<td>meno</td>
+<td>memo</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Initialize fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">var</span> r = ctx.extransferSync(</span><br><span class="line">    <span class="string">'fibostest123'</span>,  <span class="comment">//token transferee</span></span><br><span class="line">    <span class="string">'fibostest321'</span>,   <span class="comment">//token transferor</span></span><br><span class="line">    <span class="string">'10.0000 ADC@fibostest123'</span>,  <span class="comment">//token amount</span></span><br><span class="line">    <span class="string">'trasnfer to fibostest321'</span>,  <span class="comment">//memo</span></span><br><span class="line">    &#123;</span><br><span class="line">  authorization: <span class="string">'fibostest123'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<h2 id="Cross-chain-Transfer"><a href="#Cross-chain-Transfer" class="headerlink" title="Cross-chain Transfer"></a>Cross-chain Transfer</h2><blockquote>
+<p>Important note：In order to prevent cross-chain transfer failure:</p>
+<ol>
+<li>Please do not transfer directly through exchange accounts (it is recommended to use EOS wallet to transfer). When transferring through exchange accounts, if the memo is wrongly filled in and the transfer is made, the asset will be lost and cannot be recovered!</li>
+<li>Please confirm again and again whether the memo is filled in correctly (please fill in the memo with “your successfully registered account name on the main net of FIBOS”). If the memo is filled in incorrectly, the asset may be lost:</li>
+<li>If the memo account you filled in does not exist and the asset is lost, the system will check it and transfer the asset back to your payment account.</li>
+<li>If the memo you filled in is wrong, but it happens to be someone else’s FIBOS account, the assets cannot be transferred back to your account.</li>
+</ol>
+</blockquote>
+<h3 id="Cross-chain-transfer-from-EOS-to-FIBOS"><a href="#Cross-chain-transfer-from-EOS-to-FIBOS" class="headerlink" title="Cross-chain transfer from EOS to FIBOS"></a>Cross-chain transfer from EOS to FIBOS</h3><p>Use the account of the EOS main net to initiate transfer to the EOS account (fiboscouncil), and fill in the name of the registered account of the FIBOS main network in the memo to complete a cross-chain transfer.</p>
+<h4 id="Initiate-transfer-on-EOS-main-web"><a href="#Initiate-transfer-on-EOS-main-web" class="headerlink" title="Initiate transfer on EOS main web"></a>Initiate transfer on EOS main web</h4><p>EOS main web RPC address(recommended)：<a href="http://api-mainnet.starteos.io" target="_blank" rel="noopener">http://api-mainnet.starteos.io</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'</span>,</span><br><span class="line">    priKey: <span class="string">'your EOS active permission private key'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://api-mainnet.starteos.io'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> eos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> eosaccount = <span class="string">''</span> <span class="comment">// your EOS account name</span></span><br><span class="line"><span class="keyword">let</span> value = <span class="string">'1.0000 EOS'</span>; <span class="comment">//amount of transfer to fiboscouncil account</span></span><br><span class="line"><span class="keyword">let</span> ctx = eos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> memo = <span class="string">'fibosmainnet'</span>; <span class="comment">//Enter registered FIBOS account</span></span><br><span class="line"><span class="keyword">let</span> result = ctx.transferSync(eosaccount, <span class="string">'fiboscouncil'</span>, value, memo, &#123;</span><br><span class="line">    authorization: eosaccount</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p><strong>Example:</strong></p>
+<p>A real operation example， after EOS MainNet, EOS RPC Address, EOS private key are configured, an EOS client is initiated, by calling <code>transferSync</code> method pass with 4 parameters: </p>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eosaccount</td>
+<td>transferor</td>
+</tr>
+<tr>
+<td>fiboscouncil</td>
+<td>transferee</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Amount: 1.0000 EOS</td>
+</tr>
+<tr>
+<td>memo</td>
+<td>memo</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Check-transfer-information-on-EOS-main-web"><a href="#Check-transfer-information-on-EOS-main-web" class="headerlink" title="Check transfer information on EOS main web"></a>Check transfer information on EOS main web</h4><p>After initializing a cross-chain transfer on FIBOS main web. You need to wait for 300 or so safe block time, about 2 min, the transfer information can then be checked on EOS main net </p>
+<p>Check via FIBOS client，using the FIBOS main net chainID and RPC interface address.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://ca-rpc.fibos.io:8870'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'your FIBOS account name'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<p><strong>Example:</strong></p>
+<p>Configuration of main FIBOS chainId Http service address, then a FIBOS client is initialized, call <code>getTableRowsSync</code> method to query asset information of account.</p>
+<h3 id="Cross-chain-transfer-from-FIBOS-to-EOS"><a href="#Cross-chain-transfer-from-FIBOS-to-EOS" class="headerlink" title="Cross-chain transfer from FIBOS to EOS"></a>Cross-chain transfer from FIBOS to EOS</h3><p>Use the account of the main net of FIBOS to initiate transfer to the EOS account (fiboscouncil), and fill in the name of the registered account of the main network of EOS in the memo to complete a cross-chain transfer.</p>
+<h4 id="Initiate-transfer-operation-on-FIBOS-main-web"><a href="#Initiate-transfer-operation-on-FIBOS-main-web" class="headerlink" title="Initiate transfer operation on FIBOS main web"></a>Initiate transfer operation on FIBOS main web</h4><p><strong>Calling method:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> result = ctx.transferSync(eosaccount, <span class="string">'fiboscouncil'</span>, value, memo);</span><br></pre></td></tr></table></figure>
+<p><strong>method description:</strong></p>
+<p>Eosio.token contract is invoked using the fibos.js client to initiate a transfer operation</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eosaccount</td>
+<td>transferor</td>
+</tr>
+<tr>
+<td>fiboscouncil</td>
+<td>transferee</td>
+</tr>
+<tr>
+<td>value</td>
+<td>amount:1.0000 EOS</td>
+</tr>
+<tr>
+<td>memo</td>
+<td>Note:EOS account you have registered</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'</span>,</span><br><span class="line">    priKey: <span class="string">'your FIBOS private key'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://ca-rpc.fibos.io:8870'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> fibosaccount = <span class="string">''</span> <span class="comment">// your FIBOS account name</span></span><br><span class="line"><span class="keyword">let</span> value = <span class="string">'1.0000 EOS'</span>; <span class="comment">//transfer EOS amount</span></span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> memo = <span class="string">'eoseoseoseos'</span>; <span class="comment">//EOS account you have registered</span></span><br><span class="line"><span class="keyword">let</span> result = ctx.transferSync(fibosaccount, <span class="string">'fiboscouncil'</span>, value, memo, &#123;</span><br><span class="line">    authorization: fibosaccount</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h4 id="Check-transfer-info-on-EOS-main-web"><a href="#Check-transfer-info-on-EOS-main-web" class="headerlink" title="Check transfer info on EOS main web"></a>Check transfer info on EOS main web</h4><p>After initializing a cross-chain transfer on FIBOS main web, You need to wait for 300 or so safe block time, about 2 min, then the transfer information can be checked on EOS main net. </p>
+<p>Check via EOS client，EOS main web chainID and RPC interface address is used.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://api-mainnet.starteos.io'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'your EOS account name'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<p><strong>Example:</strong></p>
+<p>After configuring EOS main web chainId and RPC server address,then an EOS client is initialized. Call <code>getTableRowsSync</code> method to check the assets information of the account.</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

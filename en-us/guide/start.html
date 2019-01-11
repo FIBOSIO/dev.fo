@@ -1,0 +1,853 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    Quick Start — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quick Start — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Quick Start — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link current">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/start.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/start.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link current">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/start.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/start.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link current">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>Quick Start</h1>
+  
+  
+    <p>Building a FIBOS development environment requires installation of fibos and fibos.js. </p>
+<p>For installation proccess please see to 【<a href="./installation.html">Quick Installation</a>】.  </p>
+<p>The directory structure of the code example in this section is as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos/</span><br><span class="line">├── fibos_client</span><br><span class="line">│   ├── call.js  // Call contract interface script file</span><br><span class="line">│   ├── initClient.js  //FIBOS connection file</span><br><span class="line">│   ├── deploy.js  // Load, publish contract script file</span><br><span class="line">│   ├── hello</span><br><span class="line">│   │   ├── hello.abi  // Contract abi file</span><br><span class="line">│   │   └── hello.js  // Contract code file </span><br><span class="line">│   └── package.json</span><br><span class="line">└── start_fibos</span><br><span class="line">    └── node.js</span><br></pre></td></tr></table></figure>
+<p>Find the sample code in this chapter here : <a href="https://github.com/FIBOSIO/samples" target="_blank" rel="noopener">https://github.com/FIBOSIO/samples</a> under the <code>basic</code> folder.</p>
+<h2 id="Start-Node"><a href="#Start-Node" class="headerlink" title="Start Node"></a>Start Node</h2><p><strong>Environment configuration script</strong></p>
+<p>Create <code>start_fibos</code> folder and save the codes to <code>node.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibos = <span class="built_in">require</span>(<span class="string">'fibos'</span>);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'chain'</span>);</span><br><span class="line">fibos.load(<span class="string">'chain_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'history_api'</span>);</span><br><span class="line">fibos.load(<span class="string">'producer'</span>, &#123;</span><br><span class="line">    <span class="string">'producer-name'</span>: <span class="string">'eosio'</span>,</span><br><span class="line">    <span class="string">'enable-stale-production'</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.load(<span class="string">'http'</span>, &#123;</span><br><span class="line">    <span class="string">'http-server-address'</span>: <span class="string">'0.0.0.0:8888'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fibos.load(<span class="string">'net'</span>, &#123;</span><br><span class="line">    <span class="string">'p2p-listen-endpoint'</span>: <span class="string">'0.0.0.0:9876'</span></span><br><span class="line">&#125;);</span><br><span class="line">fibos.config_dir = <span class="string">'fibos_config_dir/'</span>;</span><br><span class="line">fibos.data_dir = <span class="string">'fibos_data_dir/'</span>;</span><br><span class="line">fibos.enableJSContract = <span class="literal">true</span>;</span><br><span class="line">fibos.start();</span><br></pre></td></tr></table></figure>
+<p>Run the FIBOS development environment:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos$ fibos start_fibos/node.js</span><br></pre></td></tr></table></figure>
+<p>Run results log (part):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line">2018-07-30T03:29:01.004 thread-1   producer_plugin.cpp:1194      produce_block        ] Produced block 00000002e091c956... #2 @ 2018-07-30T03:29:01.000 signed by eosio [trxs: 0, lib: 0, confirmed: 0]</span><br></pre></td></tr></table></figure>
+<p>If you see the above message, it means operation is sucessful and <code>fibos</code> has started block production.</p>
+<h2 id="JavaScript-Contract-Code"><a href="#JavaScript-Contract-Code" class="headerlink" title="JavaScript Contract Code"></a>JavaScript Contract Code</h2><blockquote>
+<p>Note: A new window is required to ensure that node,js is operating normally.</p>
+</blockquote>
+<p>Create folder <code>fibos_client</code>，and save the following code to <code>hello/hello.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.hi = <span class="function"><span class="params">user</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'in contract:'</span>, user);</span><br></pre></td></tr></table></figure>
+<h2 id="Contract-ABI-file"><a href="#Contract-ABI-file" class="headerlink" title="Contract ABI file"></a>Contract ABI file</h2><p>Save the following code to <code>hello/hello.abi</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;eosio::abi/1.0&quot;,</span><br><span class="line">    &quot;structs&quot;: [&#123;</span><br><span class="line">        &quot;name&quot;: &quot;player&quot;,</span><br><span class="line">        &quot;base&quot;: &quot;&quot;,</span><br><span class="line">        &quot;fields&quot;: [&#123;</span><br><span class="line">            &quot;name&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;string&quot;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            &quot;name&quot;: &quot;age&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;int64&quot;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">        &quot;base&quot;: &quot;&quot;,</span><br><span class="line">        &quot;fields&quot;: [&#123;</span><br><span class="line">            &quot;name&quot;: &quot;user&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;name&quot;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;],</span><br><span class="line">    &quot;actions&quot;: [&#123;</span><br><span class="line">        &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">        &quot;type&quot;: &quot;hi&quot;,</span><br><span class="line">        &quot;ricardian_contract&quot;: &quot;&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Connect-to-FIBOS-node"><a href="#Connect-to-FIBOS-node" class="headerlink" title="Connect to FIBOS node"></a>Connect to FIBOS node</h2><p>Create a new <code>initClient.js</code> under the folder of <code>fibos_client</code>, and save the following code: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initClient</span>(<span class="params">_keyProvider</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> FIBOS(&#123;</span><br><span class="line">        chainId: <span class="string">'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'</span>,</span><br><span class="line">        keyProvider: _keyProvider, </span><br><span class="line">        httpEndpoint: <span class="string">'http://127.0.0.1:8888'</span>,</span><br><span class="line">        logger: &#123;</span><br><span class="line">            log: <span class="literal">null</span>,</span><br><span class="line">            error: <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = initClient;</span><br></pre></td></tr></table></figure>
+<h2 id="Load-and-publish-contract-scripts"><a href="#Load-and-publish-contract-scripts" class="headerlink" title="Load and publish contract scripts"></a>Load and publish contract scripts</h2><p>Create <code>deploy.js</code> under the folder of <code>fibos_client</code>, and save the following code: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'./initClient.js'</span>)</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    <span class="string">'public-key'</span>: <span class="string">'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV'</span>,</span><br><span class="line">    <span class="string">'private-key'</span>: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span>,</span><br><span class="line">    <span class="string">'contractName'</span>: <span class="string">'hello'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new FIBOS client</span></span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(config[<span class="string">'private-key'</span>]);</span><br><span class="line"><span class="comment">// create account hello</span></span><br><span class="line">fibos.newaccountSync(&#123;</span><br><span class="line">    creator: <span class="string">'eosio'</span>,</span><br><span class="line">    name: <span class="string">'hello'</span>,</span><br><span class="line">    owner: config[<span class="string">'public-key'</span>],</span><br><span class="line">    active: config[<span class="string">'public-key'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//setcode</span></span><br><span class="line"><span class="keyword">var</span> js_code = fs.readTextFile(<span class="string">'./hello/hello.js'</span>);</span><br><span class="line">fibos.setcodeSync(config[<span class="string">'contractName'</span>], <span class="number">0</span>, <span class="number">0</span>, fibos.compileCode(js_code));</span><br><span class="line"></span><br><span class="line"><span class="comment">//getcode</span></span><br><span class="line"><span class="keyword">var</span> code = fibos.getCodeSync(config[<span class="string">'contractName'</span>], <span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'code:'</span>, code);</span><br><span class="line"></span><br><span class="line"><span class="comment">//setabi</span></span><br><span class="line"><span class="keyword">var</span> abi = <span class="built_in">JSON</span>.parse(fs.readTextFile(<span class="string">'./hello/hello.abi'</span>));</span><br><span class="line">fibos.setabiSync(config[<span class="string">'contractName'</span>], abi);</span><br></pre></td></tr></table></figure>
+<p>Run the script：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos$ fibos fibos_client/deploy.js</span><br></pre></td></tr></table></figure>
+<p>Output the results (part)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">code: &#123;</span><br><span class="line">  &quot;account_name&quot;: &quot;hello&quot;,</span><br><span class="line">  &quot;code_hash&quot;: &quot;383a12daacaf124eea9afc529822d990853b5b99570401b8394534b746ea3977&quot;,</span><br><span class="line">  &quot;wast&quot;: &quot;&quot;,</span><br><span class="line">  &quot;wasm&quot;: &quot;504b03042d00000008002cadfe4c6a9400a2360000003900000008001400696e6465782e6a7301001000000000000000000000000000000000004bad28c82f2a29d6cbc854b055282d4e2d52b0b55348cecf2bcecf49d54b2d2aca2fd250cfcc0389941425269758a9eb8055695a0300504b010200001400000008002cadfe4c6a9400a23600000039000000080000000000000001000000000000000000696e6465782e6a73504b0506000000000100010036000000700000000000&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Notes: <code>wasm</code> is a kind of low-level and easy bytecode that is designed to achieve near-native execution speed.</p>
+<h2 id="Call-the-contract"><a href="#Call-the-contract" class="headerlink" title="Call the contract"></a>Call the contract</h2><p>Use the API in fibos.js to call the contract. </p>
+<p>Create <code>call.js</code> under the folder of <code>fibos_client</code>, and save the following code: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'./initClient.js'</span>)</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    <span class="string">'public-key'</span>: <span class="string">'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV'</span>,</span><br><span class="line">    <span class="string">'private-key'</span>: <span class="string">'5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'</span>,</span><br><span class="line">    <span class="string">'contractName'</span>: <span class="string">'hello'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new FIBOS client</span></span><br><span class="line"><span class="keyword">var</span> fibos = FIBOS(config[<span class="string">'private-key'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//call abi</span></span><br><span class="line"><span class="keyword">var</span> ctx = fibos.contractSync(config[<span class="string">'contractName'</span>]);</span><br><span class="line"><span class="keyword">let</span> i = ctx.hiSync(<span class="string">'hello'</span>, &#123;</span><br><span class="line">    authorization: config[<span class="string">'contractName'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br></pre></td></tr></table></figure>
+<p>Execute the scripts:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello_fibos$ fibos fibos_client/call.js</span><br></pre></td></tr></table></figure>
+<p>Printed results by Console are as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;broadcast&quot;: true,</span><br><span class="line">  &quot;transaction&quot;: &#123;</span><br><span class="line">    &quot;compression&quot;: &quot;none&quot;,</span><br><span class="line">    &quot;transaction&quot;: &#123;</span><br><span class="line">      &quot;expiration&quot;: &quot;2018-10-29T09:54:38&quot;,</span><br><span class="line">      &quot;ref_block_num&quot;: 45,</span><br><span class="line">      &quot;ref_block_prefix&quot;: 552314262,</span><br><span class="line">      &quot;max_net_usage_words&quot;: 0,</span><br><span class="line">      &quot;max_cpu_usage_ms&quot;: 0,</span><br><span class="line">      &quot;delay_sec&quot;: 0,</span><br><span class="line">      &quot;context_free_actions&quot;: [],</span><br><span class="line">      &quot;actions&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;account&quot;: &quot;hello&quot;,</span><br><span class="line">          &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;authorization&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;actor&quot;: &quot;hello&quot;,</span><br><span class="line">              &quot;permission&quot;: &quot;active&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          &quot;data&quot;: &quot;00000000001aa36a&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      &quot;transaction_extensions&quot;: []</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;signatures&quot;: [</span><br><span class="line">      &quot;SIG_K1_JxKj8whii1gosSY6S5b3JcNxZ7x7xTUFkWg3fsjpiQ3K8eTfY6N8van5PqoUFYGJVRGNzdxapWLc6NAcieJgPCh8e8hkDA&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;transaction_id&quot;: &quot;5d7262907ab645168f6a1fdd1e17988ca7f50a07d2ef6bb90f5891a6c2cb8bb9&quot;,</span><br><span class="line">  &quot;processed&quot;: &#123;</span><br><span class="line">    &quot;id&quot;: &quot;5d7262907ab645168f6a1fdd1e17988ca7f50a07d2ef6bb90f5891a6c2cb8bb9&quot;,</span><br><span class="line">    &quot;block_num&quot;: 47,</span><br><span class="line">    &quot;block_time&quot;: &quot;2018-10-29T09:53:39.000&quot;,</span><br><span class="line">    &quot;producer_block_id&quot;: null,</span><br><span class="line">    &quot;receipt&quot;: &#123;</span><br><span class="line">      &quot;status&quot;: &quot;executed&quot;,</span><br><span class="line">      &quot;cpu_usage_us&quot;: 3510,</span><br><span class="line">      &quot;net_usage_words&quot;: 13</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;elapsed&quot;: 7273,</span><br><span class="line">    &quot;net_usage&quot;: 104,</span><br><span class="line">    &quot;scheduled&quot;: false,</span><br><span class="line">    &quot;action_traces&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;receipt&quot;: &#123;</span><br><span class="line">          &quot;receiver&quot;: &quot;hello&quot;,</span><br><span class="line">          &quot;act_digest&quot;: &quot;35c685a9391997dfe62291f39ead19cde36bbfb29f411deb9019592ed6be5b4f&quot;,</span><br><span class="line">          &quot;global_sequence&quot;: 50,</span><br><span class="line">          &quot;recv_sequence&quot;: 1,</span><br><span class="line">          &quot;auth_sequence&quot;: [</span><br><span class="line">            [</span><br><span class="line">              &quot;hello&quot;,</span><br><span class="line">              3</span><br><span class="line">            ]</span><br><span class="line">          ],</span><br><span class="line">          &quot;code_sequence&quot;: 1,</span><br><span class="line">          &quot;abi_sequence&quot;: 1</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;act&quot;: &#123;</span><br><span class="line">          &quot;account&quot;: &quot;hello&quot;,</span><br><span class="line">          &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;authorization&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;actor&quot;: &quot;hello&quot;,</span><br><span class="line">              &quot;permission&quot;: &quot;active&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          &quot;data&quot;: &#123;</span><br><span class="line">            &quot;user&quot;: &quot;hello&quot;</span><br><span class="line">          &#125;,</span><br><span class="line">          &quot;hex_data&quot;: &quot;00000000001aa36a&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;context_free&quot;: false,</span><br><span class="line">        &quot;elapsed&quot;: 7011,</span><br><span class="line">        &quot;cpu_usage&quot;: 0,</span><br><span class="line">        &quot;console&quot;: &quot;in contract: hello\n&quot;,</span><br><span class="line">        &quot;total_cpu_usage&quot;: 0,</span><br><span class="line">        &quot;trx_id&quot;: &quot;5d7262907ab645168f6a1fdd1e17988ca7f50a07d2ef6bb90f5891a6c2cb8bb9&quot;,</span><br><span class="line">        &quot;block_num&quot;: 47,</span><br><span class="line">        &quot;block_time&quot;: &quot;2018-10-29T09:53:39.000&quot;,</span><br><span class="line">        &quot;producer_block_id&quot;: null,</span><br><span class="line">        &quot;account_ram_deltas&quot;: [],</span><br><span class="line">        &quot;inline_traces&quot;: []</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;except&quot;: null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>At the same time, the FIBOS node service console displays the <code>trxs:1</code>, and the displayed results are as follows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018-8-30T14:28:22.005 thread-1   producer_plugin.cpp:1196      produce_block        ] Produced block 00000e57c573a33b... #3671 @ 2018-07-30T14:28:22.000 signed by eosio [trxs: 1, lib: 3670, confirmed: 0]</span><br></pre></td></tr></table></figure></p>
+<p>This chapter gives you a quick understanding of JavaScript contract and a simple JavaScript contract. There is an example for you in the 【<a href="./tutorials-instructions.html">Instructions</a>】.</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

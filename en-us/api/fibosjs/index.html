@@ -1,0 +1,729 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "fibosjs"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link current">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/fibosjs/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/fibosjs/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link current">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/fibosjs/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/fibosjs/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            FIBOS.JS
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/fibosjs/index.html" class="sidebar-link current"></a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content fibosjs with-sidebar ">
+  
+    
+  
+  
+  
+    <h1 id="FIBOS-JS"><a href="#FIBOS-JS" class="headerlink" title="FIBOS.JS"></a>FIBOS.JS</h1><p>FIBOS and EOSIO blockchain common library.</p>
+<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><p>Various ways to manipulate user account information in a blockchain</p>
+<h3 id="Get-client-example"><a href="#Get-client-example" class="headerlink" title="Get client example"></a>Get client example</h3><p>the example of linking to a test network</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> fibos_clinet = FIBOS(&#123;</span><br><span class="line">	chainId: <span class="string">"68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a"</span>,</span><br><span class="line">	keyProvider: <span class="string">"KeyProvider"</span>,</span><br><span class="line">	httpEndpoint: <span class="string">"http://testnet.fibos.fo"</span>,</span><br><span class="line">	logger: &#123;</span><br><span class="line">		log: <span class="literal">null</span>,</span><br><span class="line">		error: <span class="literal">null</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="getInfo"><a href="#getInfo" class="headerlink" title="getInfo"></a>getInfo</h3><p>Get block info</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getInfo();</span><br></pre></td></tr></table></figure>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getInfo = fibos_client.getInfoSync();</span><br><span class="line"><span class="built_in">console</span>.log(getInfo);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getInfo().then(<span class="function"><span class="params">getInfo</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(getInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Return"><a href="#Return" class="headerlink" title="Return"></a>Return</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"server_version"</span>: <span class="string">"8f0f54cf"</span>,</span><br><span class="line">  <span class="string">"chain_id"</span>: <span class="string">"68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a"</span>,</span><br><span class="line">  <span class="string">"head_block_num"</span>: <span class="number">6586065</span>,</span><br><span class="line">  <span class="string">"last_irreversible_block_num"</span>: <span class="number">6585732</span>,</span><br><span class="line">  <span class="string">"last_irreversible_block_id"</span>: <span class="string">"00647d84b68cc555f7a55e6416445b03de866c3db71b4d734a5ff7383adb848c"</span>,</span><br><span class="line">  <span class="string">"head_block_id"</span>: <span class="string">"00647ed1bb1917864bd530fd805cd6b448ea496b8e5e8b0282fd25b8908271e8"</span>,</span><br><span class="line">  <span class="string">"head_block_time"</span>: <span class="string">"2018-11-23T07:56:10.000"</span>,</span><br><span class="line">  <span class="string">"head_block_producer"</span>: <span class="string">"testnetbppa1"</span>,</span><br><span class="line">  <span class="string">"virtual_block_cpu_limit"</span>: <span class="number">200000000</span>,</span><br><span class="line">  <span class="string">"virtual_block_net_limit"</span>: <span class="number">1048576000</span>,</span><br><span class="line">  <span class="string">"block_cpu_limit"</span>: <span class="number">199900</span>,</span><br><span class="line">  <span class="string">"block_net_limit"</span>: <span class="number">1048576</span>,</span><br><span class="line">  <span class="string">"server_version_string"</span>: <span class="string">"v1.3.1.5-10-gaf50e5e"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Return-value-parameter"><a href="#Return-value-parameter" class="headerlink" title="Return value parameter"></a>Return value parameter</h4><ul>
+<li><p><strong>server_version:</strong> text server-end version</p>
+</li>
+<li><p><strong>chain_id:</strong>string blockchain id</p>
+</li>
+<li><p><strong>head_block_num: </strong>number current block hight</p>
+</li>
+<li><p><strong>last_irreversible_block_num: </strong>number Irreversible block hight</p>
+</li>
+<li><p><strong>last_irreversible_block_id: </strong>string Irreversible block id</p>
+</li>
+<li><p><strong>head_block_id: </strong>string Current block id</p>
+</li>
+<li><p><strong>head_block_time: </strong>date Current block time</p>
+</li>
+<li><p><strong>head_block_producer: </strong>string Current block producer</p>
+</li>
+<li><p><strong>virtual_block_cpu_limit: </strong>number virtual block cpu limit</p>
+</li>
+<li><p><strong>virtual_block_net_limit: </strong>number Virtual block NET limit</p>
+</li>
+<li><p><strong>block_cpu_limit: </strong>number Block cpu limit</p>
+</li>
+<li><p><strong>block_net_limit: </strong>number Block NET limit</p>
+</li>
+<li><p><strong>server_version_string: </strong>string Server-end version string</p>
+</li>
+</ul>
+<h3 id="getBlock"><a href="#getBlock" class="headerlink" title="getBlock"></a>getBlock</h3><p>Get block info</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getBlock(block_number);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter"><a href="#Parameter" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>block_number:</strong> int  Block hright</li>
+</ul>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getBlock = fibos_client.getBlockSync(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(getBlock);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getBlock(<span class="number">1</span>).then(<span class="function"><span class="params">getInfo</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(getInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Return-1"><a href="#Return-1" class="headerlink" title="Return"></a>Return</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"timestamp"</span>: <span class="string">"2018-08-01T00:00:00.000"</span>,</span><br><span class="line">  <span class="string">"producer"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"confirmed"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">"previous"</span>: <span class="string">"0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="string">"transaction_mroot"</span>: <span class="string">"0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="string">"action_mroot"</span>: <span class="string">"68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a"</span>,</span><br><span class="line">  <span class="string">"schedule_version"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="string">"new_producers"</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="string">"header_extensions"</span>: [],</span><br><span class="line">  <span class="string">"producer_signature"</span>: <span class="string">"SIG_K1_111111111111111111111111111111111111111111111111111111111111111116uk5ne"</span>,</span><br><span class="line">  <span class="string">"transactions"</span>: [],</span><br><span class="line">  <span class="string">"block_extensions"</span>: [],</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">"00000001269a989da17ee0bf745abdcdb62d5440e0e7bf1a37837ba5016f5156"</span>,</span><br><span class="line">  <span class="string">"block_num"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">"ref_block_prefix"</span>: <span class="number">3219160737</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="getTableRows"><a href="#getTableRows" class="headerlink" title="getTableRows"></a>getTableRows</h3><p>Returns the data in the specified table</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getTableRows(json, code, scope, table);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-1"><a href="#Parameter-1" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>json:</strong> boolean Wether show in clear text</li>
+<li><strong>code:</strong>string contract name</li>
+<li><strong>scope:</strong> string FIBOS account name</li>
+<li><strong>table: </strong>string table name</li>
+</ul>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'contract name'</span>, <span class="string">'Your FIBOS account name'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getTableRows(<span class="literal">true</span>, <span class="string">'contract name'</span>, <span class="string">'Your FIBOS account name'</span>, <span class="string">'accounts'</span>).then(<span class="function"><span class="params">rs</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(rs);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="contract"><a href="#contract" class="headerlink" title="contract"></a>contract</h3><p>call contract</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.contract(contract_name);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-2"><a href="#Parameter-2" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>contract_name: </strong>string contract name</li>
+</ul>
+<h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contractSync(<span class="string">'Contract Name'</span>); <span class="comment">//contract name</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos.contract(<span class="string">'Contract Name'</span>);  <span class="comment">//contract name</span></span><br></pre></td></tr></table></figure>
+<h2 id="ecc-module"><a href="#ecc-module" class="headerlink" title="ecc module"></a>ecc module</h2><p>Elliptic curve encryption function,Multiple methods are built in to generate the secret keys we need</p>
+<h3 id="unsafeRandomKey"><a href="#unsafeRandomKey" class="headerlink" title="unsafeRandomKey()"></a>unsafeRandomKey()</h3><p>Generate unsafe test key</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.unsafeRandomKey();</span><br></pre></td></tr></table></figure>
+<h4 id="Renturn-value"><a href="#Renturn-value" class="headerlink" title="Renturn value"></a>Renturn value</h4><ul>
+<li>Synchronous: <strong>String</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>return a testing private key</p>
+<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> privateKey = fibos.modules.ecc.unsafeRandomKeySync();</span><br><span class="line"><span class="built_in">console</span>.log(privateKey);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">5HvSKet1FQBoGitZ7qoN7pWycC6MRF44zQVG7yNPMmGX3wzuSej</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.unsafeRandomKey().then(<span class="function"><span class="params">unsaferandomkey</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(unsagerandomkey);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">5Hqd2wRRUYc4zvDBkuQsWFGS9DjrLfgt4BP4wgtHLmiw2N5h1Ar</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="randomKey"><a href="#randomKey" class="headerlink" title="randomKey()"></a>randomKey()</h3><p>generate random private key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.randomKey();</span><br></pre></td></tr></table></figure>
+<h4 id="return-value"><a href="#return-value" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>String</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>return an random key</p>
+<h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> randomKey=fibos.modules.ecc.randomKeySync();</span><br><span class="line"><span class="built_in">console</span>.log(randomKey);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">5Hx3XoKxrytPnJZxwpwAWz1ySf3dZFLqAsv92ZpTQf5fnSy6BEy</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.randomKey().then(<span class="function"><span class="params">randomKey</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(randomKey);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">5KSYGQW1BhpJnJFF1i5kkyDTvifeCQWZEcXF4if9FafJmAbHgRd</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="seedPrivate"><a href="#seedPrivate" class="headerlink" title="seedPrivate()"></a>seedPrivate()</h3><p>The same seed produces the same private key each time, using at least 128 random bits to produce a secure private key.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ecc.seedPrivate(seed);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-3"><a href="#Parameter-3" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>seed:</strong> string   String of arbitrary length</li>
+</ul>
+<h4 id="return-value-1"><a href="#return-value-1" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>String</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>return private key</p>
+<h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> seedPrivate=fibos.modules.ecc.seedPrivateSync(seed);<span class="comment">//arbitrary string</span></span><br><span class="line"><span class="built_in">console</span>.log(seedPrivate);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">5J9YKiVU3AWNkCa2zfQpj1f2NAeMQhLsYU51N8NM28J1bMnmrEQ</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.seedPrivate(seed).then(<span class="function"><span class="params">seedprivate</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(seedprivate);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">5J9YKiVU3AWNkCa2zfQpj1f2NAeMQhLsYU51N8NM28J1bMnmrEQ</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="privateToPublic"><a href="#privateToPublic" class="headerlink" title="privateToPublic()"></a>privateToPublic()</h3><p>use private key info to calculate the info of public key</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.privateToPublic(PrivateKey);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-4"><a href="#Parameter-4" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>PrivateKey :</strong>PrivateKey   private key </li>
+<li><strong>pubkey_prefix:</strong> string  public key prefix（optional, default<code>&#39;EOS&#39;</code>）</li>
+</ul>
+<h4 id="return-value-2"><a href="#return-value-2" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>String</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>return public key</p>
+<h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> privateToPublic=fibos.modules.ecc.privateToPublicSync(PrivateKey);<span class="comment">//private key</span></span><br><span class="line"><span class="built_in">console</span>.log(privateToPublic);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">FO83msFTj6yv5U91KkiRxHcDZUXJkR6xwC9EjbqqwFqhFa1nxMYx</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.privateToPublic(PrivateKey).then(privatetopublic=&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(privatetopublic);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">FO83msFTj6yv5U91KkiRxHcDZUXJkR6xwC9EjbqqwFqhFa1nxMYx</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="isValidPublic"><a href="#isValidPublic" class="headerlink" title="isValidPublic()"></a>isValidPublic()</h3><p>Determines whether the public key is valid</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.isValidPublic(pubkey);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-5"><a href="#Parameter-5" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>pubkey:</strong> pubkey public key</li>
+<li><strong>pubkey_prefix:</strong> string public key prefix（optional，default<code>&#39;EOS&#39;</code>）</li>
+</ul>
+<h4 id="return-value-3"><a href="#return-value-3" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>boolean</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>Determines whether the public key is valid<br>Determines whether the public key is valid</p>
+<h4 id="Example-8"><a href="#Example-8" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValidPublic =fibos.modules.ecc.isValidPublicSync(pubkey);<span class="comment">//public key </span></span><br><span class="line"><span class="built_in">console</span>.log(isValidPublic);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:true</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.isValidPublic(pubkey).then(<span class="function"><span class="params">isvalidpublic</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(isvalidpublic);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:true</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="isValidPrivate"><a href="#isValidPrivate" class="headerlink" title="isValidPrivate()"></a>isValidPrivate()</h3><p>Determines whether the private key is valid</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.isValidPrivate(wif);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-6"><a href="#Parameter-6" class="headerlink" title="Parameter"></a>Parameter</h4><p><strong>wif:</strong> PrivateKey private key</p>
+<h4 id="return-value-4"><a href="#return-value-4" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>boolean</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>Determines validation</p>
+<h4 id="Example-9"><a href="#Example-9" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValidPrivate=fibos.modules.ecc.isValidPrivateSync(wif);<span class="comment">//private key</span></span><br><span class="line"><span class="built_in">console</span>.log(isValidPrivate);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:true</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.isValidPrivate(wif).then(<span class="function"><span class="params">isvalidprivate</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(isvalidprivate);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:true</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="sign"><a href="#sign" class="headerlink" title="sign()"></a>sign()</h3><p>Use the data information or hash to create the signature</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.sign(data,PrivateKey);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-7"><a href="#Parameter-7" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>data:</strong> String buffer</li>
+<li><strong>PrivateKey:</strong> PrivateKey  private key</li>
+<li><strong>encoding: </strong> string  data encoding（optional，default<code>&#39;utf8&#39;</code>）</li>
+</ul>
+<h4 id="return-value-5"><a href="#return-value-5" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>string</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>string signature</p>
+<h4 id="Example-10"><a href="#Example-10" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sign = fibos.modules.ecc.signSync(data,PrivateKey);<span class="comment">//string和private key</span></span><br><span class="line"><span class="built_in">console</span>.log(sign);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">SIG_K1_KBZepHvGX8Vuxycd6LhP3NmEztJ3VBnQh42XQgLjH1LGacVzs8jgyoSegTgDPc7SXUXNcHKNACy4Y2c5gpVBntdzQHeSR8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.sign(data,PrivateKey).then(<span class="function"><span class="params">sign</span>=&gt;</span>&#123;<span class="comment">//string和private key</span></span><br><span class="line">    <span class="built_in">console</span>.log(sign);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">SIG_K1_KBZepHvGX8Vuxycd6LhP3NmEztJ3VBnQh42XQgLjH1LGacVzs8jgyoSegTgDPc7SXUXNcHKNACy4Y2c5gpVBntdzQHeSR8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="signHash"><a href="#signHash" class="headerlink" title="signHash()"></a>signHash()</h3><p>The signature is created using the data information hashed and private key</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.signHash(dataSha256,PrivateKe);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-8"><a href="#Parameter-8" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>dataSha256:</strong> string | buffer  sha256 hash 32 Byte buffers or strings</li>
+<li><strong>privateKey:</strong> PrivateKey  private key</li>
+<li><strong>encoding:</strong> string dataSha256 encoding（If it’s a string）（optional，default<code>&#39;hex&#39;</code>）</li>
+</ul>
+<h4 id="return-value-6"><a href="#return-value-6" class="headerlink" title="return value"></a>return value</h4><ul>
+<li><p>Synchronous: <strong>string</strong></p>
+</li>
+<li><p>Asynchronous: <strong>Promise</strong></p>
+</li>
+</ul>
+<p>String signature with hash encryption</p>
+<h4 id="Example-11"><a href="#Example-11" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> signHash = fibos.modules.ecc.signHashSync(dataSha256,PrivateKe);<span class="comment">//hash encryption string and private key</span></span><br><span class="line"><span class="built_in">console</span>.log(signHash);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">SIG_K1_KBZepHvGX8Vuxycd6LhP3NmEztJ3VBnQh42XQgLjH1LGacVzs8jgyoSegTgDPc7SXUXNcHKNACy4Y2c5gpVBntdzQHeSR8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.signHash(dataSha256,PrivateKe).then(<span class="function"><span class="params">signhash</span>=&gt;</span>&#123;<span class="comment">//hash encryption string and private key</span></span><br><span class="line">    <span class="built_in">console</span>.log(signhash);</span><br><span class="line">&#125;))</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:SIG_K1_KBZepHvGX8Vuxycd6LhP3NmEztJ3VBnQh42XQgLjH1LGacVzs8jgyoSegTgDPc7SXUXNcHKNACy4Y2c5gpVBntdzQHeSR8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="verify"><a href="#verify" class="headerlink" title="verify()"></a>verify()</h3><p>validate signature data</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.verify(signature,data,pubkey);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-9"><a href="#Parameter-9" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>signature:</strong> string | buffer  Buffer or hexadecimal string</li>
+<li><strong>data:</strong> string | buffer  string buffer</li>
+<li><strong>pubkey:</strong> pubkey | PublicKey public key</li>
+</ul>
+<h4 id="return-value-7"><a href="#return-value-7" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>boolean</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>Determine whether the signature data is valid</p>
+<h4 id="Example-12"><a href="#Example-12" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> verify = fibos.modules.ecc.verifySync(signature, data, pubkey);<span class="comment">//signature,string,public key</span></span><br><span class="line"><span class="built_in">console</span>.log(verify);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:false</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.verify(signature, data, pubkey).then(<span class="function"><span class="params">verify</span>=&gt;</span>&#123;<span class="comment">//signature,string,public key</span></span><br><span class="line">    <span class="built_in">console</span>.log(verify);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:false</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="verifyHash"><a href="#verifyHash" class="headerlink" title="verifyHash()"></a>verifyHash()</h3><p>validate signature hash data</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.verifyHash(signature, hashData, pubkey);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-10"><a href="#Parameter-10" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>signature:</strong> string | buffer Buffer or hexadecimal string</li>
+<li><strong>hashData:</strong>  boolean|sha256  Hash data（optional，default<code>true</code>）</li>
+<li><strong>pubkey:</strong> pubkey | PublicKey public key</li>
+<li><strong>encoding:</strong> string encoding（optional，default<code>&#39;utf8&#39;</code>）</li>
+</ul>
+<h4 id="return-value-8"><a href="#return-value-8" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>boolean</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>Validation</p>
+<h4 id="Example-13"><a href="#Example-13" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.verifyHash(signature, sha256, pubkey);<span class="comment">//signature, hash string,public key</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:false</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.verifyHash(signature, sha256, pubkey).then(<span class="function"><span class="params">verifyhash</span>=&gt;</span>&#123;<span class="comment">//signature, hash string,public key</span></span><br><span class="line">    <span class="built_in">console</span>.log(verifyhash);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:false</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="recover"><a href="#recover" class="headerlink" title="recover()"></a>recover()</h3><p>revocery public key used for create signature</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.recover(signature, data);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-11"><a href="#Parameter-11" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>signature:</strong> string | buffer（EOSbase58sig ..，Hex，Buffer）</li>
+<li><strong>data:</strong> string | buffer full data</li>
+<li><strong>encoding:</strong> string  data encoding（if data is a string）（optional, default<code>&#39;utf8&#39;</code>）</li>
+</ul>
+<h4 id="return-value-9"><a href="#return-value-9" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>string</strong></li>
+<li><p>Asynchronous: <strong>Promise</strong></p>
+<p>return public key</p>
+</li>
+</ul>
+<h4 id="Example-14"><a href="#Example-14" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> recover = fibos.modules.ecc.recoverSync(signature, data);<span class="comment">//signature,数据</span></span><br><span class="line"><span class="built_in">console</span>.log(recover);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">FO4zLK8u81GnVQXZRc1GdoR1PKdLpFmfb9yjA6HcPrMo89j4Bimn</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.recover(signature, <span class="string">'I am alive'</span>).then(<span class="function"><span class="params">recover</span>=&gt;</span>&#123;<span class="comment">//signature,数据</span></span><br><span class="line">    <span class="built_in">console</span>.log(recover);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">FO4zLK8u81GnVQXZRc1GdoR1PKdLpFmfb9yjA6HcPrMo89j4Bimn</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="recoverHash"><a href="#recoverHash" class="headerlink" title="recoverHash()"></a>recoverHash()</h3><p>恢复用于创建 hash signature的public key</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.recoverHash(signature,dataSha256);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-12"><a href="#Parameter-12" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>signature: </strong> string | buffer（EOSbase58sig ..，Hex，Buffer）</li>
+<li><strong>dataSha256:</strong> string | buffer  sha256 string 32 byte buffer or hexadecimal string</li>
+<li><strong>encoding:</strong> string |dataSha256 encoding（if dataSha256 is a string）（optional, default<code>&#39;hex&#39;</code>）</li>
+</ul>
+<h4 id="return-value-10"><a href="#return-value-10" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>string</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>reture an public key</p>
+<h4 id="Example-15"><a href="#Example-15" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> recoverHash = fibos.modules.ecc.recoverHash(signature,dataSha256 );<span class="comment">//signature, hash string</span></span><br><span class="line"><span class="built_in">console</span>.log(recoverHash);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">FO4zLK8u81GnVQXZRc1GdoR1PKdLpFmfb9yjA6HcPrMo89j4Bimn</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.recoverHash(signature, dataSha256).then(<span class="function"><span class="params">recover_hash</span> =&gt;</span> &#123;<span class="comment">//signature, hash string</span></span><br><span class="line">      <span class="built_in">console</span>.log(recover_hash);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">FO4zLK8u81GnVQXZRc1GdoR1PKdLpFmfb9yjA6HcPrMo89j4Bimn</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="sha256"><a href="#sha256" class="headerlink" title="sha256()"></a>sha256()</h3><p>sha256 encryption</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.sha256(data);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-13"><a href="#Parameter-13" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>data:</strong> string | buffer binary data,requiring Buffer.from（data，’hex’）</li>
+<li><strong>resultEncoding:</strong> string （optional, default<code>&#39;hex&#39;</code>）</li>
+<li><strong>encoding: </strong> string  result encoding to ‘hex’，’binary’ or ‘base64’（optional, default<code>&#39;hex&#39;</code>）</li>
+</ul>
+<h4 id="return-value-11"><a href="#return-value-11" class="headerlink" title="return value"></a>return value</h4><ul>
+<li>Synchronous: <strong>string | buffer</strong></li>
+<li>Asynchronous: <strong>Promise</strong></li>
+</ul>
+<p>Encrypted data used by hash.sha256</p>
+<h4 id="Example-16"><a href="#Example-16" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sha256 = fibos.modules.ecc.sha256(data);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(sha256);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">8a72914b5c615a7d1f23298c7efa9d404d69f79e580de122cf0685bc0e9b45ab</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos.modules.ecc.sha256(data).then(<span class="function"><span class="params">recover_hash</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(recover_hash);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">result:</span></span><br><span class="line"><span class="comment">8a72914b5c615a7d1f23298c7efa9d404d69f79e580de122cf0685bc0e9b45ab</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="System-Contract"><a href="#System-Contract" class="headerlink" title="System Contract"></a>System Contract</h2><h3 id="newaccount"><a href="#newaccount" class="headerlink" title="newaccount"></a>newaccount</h3><p>Create a new FIBOS account</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.newaccount(&#123;</span><br><span class="line">    creator: <span class="string">"eosio"</span>, </span><br><span class="line">    name: <span class="string">"Account Name"</span>, </span><br><span class="line">    owner: <span class="string">"Owner Key"</span>, </span><br><span class="line">    active: <span class="string">"Active Key"</span> </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-14"><a href="#Parameter-14" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>creator:</strong> string rreceiver account name</li>
+<li><strong>name:</strong> string  rreceiver account name</li>
+<li><strong>owner:</strong> string rreceiver owner permission public key</li>
+<li><strong>active:</strong> string rreceiver active permission public key  </li>
+</ul>
+<h4 id="Example-17"><a href="#Example-17" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.newaccountSync(&#123;</span><br><span class="line">    creator: <span class="string">"Creator Name"</span>, <span class="comment">//creator account name</span></span><br><span class="line">    name: <span class="string">"Account Name"</span>, <span class="comment">//rreceiver account name</span></span><br><span class="line">    owner: <span class="string">"Owner Key"</span>, <span class="comment">//rreceiver account owner permission public key</span></span><br><span class="line">    active: <span class="string">"Active Key"</span> <span class="comment">//rreceiver active permission public key</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.newaccount(&#123;</span><br><span class="line">    creator: <span class="string">"Creator name"</span>, <span class="comment">//creator account name</span></span><br><span class="line">    name: <span class="string">"Account Name"</span>, <span class="comment">//rreceiver account name</span></span><br><span class="line">    owner: <span class="string">"Owner Key"</span>, <span class="comment">//rreceiver account owner permission public key</span></span><br><span class="line">    active: <span class="string">"Active Key"</span> <span class="comment">//rreceiver active permission public key</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">newaccount</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(newaccount);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="getAccount"><a href="#getAccount" class="headerlink" title="getAccount"></a>getAccount</h3><p>get account info</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getAccount(account_name);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-15"><a href="#Parameter-15" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>account_name:</strong> string  account name that need to be get</li>
+</ul>
+<h4 id="Example-18"><a href="#Example-18" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getAccount = fibos.getAccountSync(<span class="string">"Account Name"</span>);<span class="comment">//account name</span></span><br><span class="line"><span class="built_in">console</span>.log(getAccount);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.getAccount(<span class="string">"Account Name"</span>).then(<span class="function"><span class="params">getAccount</span> =&gt;</span> &#123;<span class="comment">//account name</span></span><br><span class="line">      <span class="built_in">console</span>.log(getAccount);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="return-value-12"><a href="#return-value-12" class="headerlink" title="return value"></a>return value</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"account_name"</span>: <span class="string">"hellomongodb"</span>,</span><br><span class="line">  <span class="string">"head_block_num"</span>: <span class="number">7056896</span>,</span><br><span class="line">  <span class="string">"head_block_time"</span>: <span class="string">"2018-11-26T01:44:42.000"</span>,</span><br><span class="line">  <span class="string">"privileged"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"last_code_update"</span>: <span class="string">"1970-01-01T00:00:00.000"</span>,</span><br><span class="line">  <span class="string">"created"</span>: <span class="string">"2018-11-26T01:44:01.000"</span>,</span><br><span class="line">  <span class="string">"ram_quota"</span>: <span class="number">510873</span>,</span><br><span class="line">  <span class="string">"net_weight"</span>: <span class="number">10000</span>,</span><br><span class="line">  <span class="string">"cpu_weight"</span>: <span class="number">10000</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="buyrambytes"><a href="#buyrambytes" class="headerlink" title="buyrambytes"></a>buyrambytes</h3><p>The creator calls this method to buy memory for the creator to store information about the new account</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.buyrambytes(&#123;</span><br><span class="line">    payer: <span class="string">'eosio.token'</span>,</span><br><span class="line">    receiver: <span class="string">'Receiver Account'</span>,</span><br><span class="line">    bytes: <span class="number">4096</span> </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-16"><a href="#Parameter-16" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><p><strong>payer:</strong>string  creator account name</p>
+</li>
+<li><p><strong>receiver:</strong> string receiver account name</p>
+</li>
+<li><p><strong>bytes:</strong> number Memory size consumed (bytes)</p>
+</li>
+</ul>
+<h4 id="Example-19"><a href="#Example-19" class="headerlink" title="Example"></a>Example</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.buyrambytes(&#123;</span><br><span class="line">    payer: <span class="string">'eosio.token'</span>,<span class="comment">//creator account name</span></span><br><span class="line">    receiver: <span class="string">'Receiver Account'</span>,<span class="comment">//reciever account name</span></span><br><span class="line">    bytes: <span class="number">4096</span> <span class="comment">//The amount of memory consumed</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="delegatebw"><a href="#delegatebw" class="headerlink" title="delegatebw"></a>delegatebw</h3><p>抵押代币获取 cpu 和带宽资源</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.delegatebw(&#123;</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'From Account'</span>,</span><br><span class="line">    receiver: <span class="string">'Receiver Account'</span>,</span><br><span class="line">    stake_net_quantity: <span class="string">'0.1000 FO'</span>,</span><br><span class="line">    stake_cpu_quantity: <span class="string">'0.1000 FO'</span>,</span><br><span class="line">    transfer: <span class="number">1</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-17"><a href="#Parameter-17" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><p><strong>from:</strong> string The name of the mortgagor’s account</p>
+</li>
+<li><p><strong>receiver:</strong> string The account name of the resource recipient</p>
+</li>
+<li><p><strong>stake_net_quantity:</strong> string The creator mortgages FO to get NET for the creator</p>
+</li>
+<li><p><strong>stake_cpu_quantity:</strong> string The creator mortgages FO to the creator to get the CPU</p>
+</li>
+<li><p><strong>transfer: </strong> number usually use 1 to get resources for someone else to mortgage FO, and if you want to get resources for yourself you need to change it to 0</p>
+<h4 id="Example-20"><a href="#Example-20" class="headerlink" title="Example"></a>Example</h4></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fibos_client.delegatebw(&#123;</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'from'</span>,<span class="comment">//creator account name</span></span><br><span class="line">    receiver: <span class="string">'Your_Account'</span>,<span class="comment">//reciever account name</span></span><br><span class="line">    stake_net_quantity: <span class="string">'0.1000 FO'</span>,<span class="comment">//The creator mortgages FO to get NET for the creator</span></span><br><span class="line">    stake_cpu_quantity: <span class="string">'0.1000 FO'</span>,<span class="comment">//The creator mortgages FO to get CPU for the creator</span></span><br><span class="line">    transfer: <span class="number">1</span><span class="comment">// Using 1 represents mortgaging FO for someone else to get resources</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Token-Contract"><a href="#Token-Contract" class="headerlink" title="Token Contract"></a>Token Contract</h2><p>There are two types of token in FIBOS: classic token and intelligent token</p>
+<h3 id="transfer"><a href="#transfer" class="headerlink" title="transfer"></a>transfer</h3><p>Configured EOS MainNet and EOS RPC address and EOS private key and then initialize a EOS, client by calling a <code>transferSync</code> method, realize the transfer operation</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.transfer(<span class="keyword">from</span>, to, quantity, memo, &#123;</span><br><span class="line">    authorization: <span class="string">'author_name'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-18"><a href="#Parameter-18" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>form:</strong> string  The transferor                  </li>
+<li><strong>to:</strong> string The transferee                  </li>
+<li><strong>quantity:</strong> number amount 1.0000 EOS         </li>
+<li><strong>memo:</strong> string note</li>
+<li><strong>authorization:</strong> string authorization</li>
+</ul>
+<h4 id="Example-21"><a href="#Example-21" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> r = ctx.transferSync(<span class="string">'FROM Account Name'</span>, <span class="string">'fiboscouncil'</span>, <span class="string">'11 FO'</span>, <span class="string">'transfer 11 FO FROM xxx to xxx'</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'fibosaccount'</span><span class="comment">//permission</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.transfer(<span class="string">'FROM Account Name'</span>, <span class="string">'fiboscouncil'</span>, <span class="string">'11 FO'</span>, <span class="string">'transfer 11 FO FROM xxx to xxx'</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'fibosaccount'</span><span class="comment">//permission</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(r);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="exchange"><a href="#exchange" class="headerlink" title="exchange"></a>exchange</h3><p>Use Bancor for token conversion in FIBOS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.exchange(owner, quantity, tosym, memo, &#123;</span><br><span class="line">    authorization: <span class="string">'author_name'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-19"><a href="#Parameter-19" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>owner:</strong> string exchange account name         </li>
+<li><strong>quantity:</strong> number exchange token amount     </li>
+<li><strong>tosym:</strong> string exchange token type</li>
+<li><strong>memo:</strong> string note</li>
+<li><strong>authorization:</strong> string authorization    </li>
+</ul>
+<h4 id="Example-22"><a href="#Example-22" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = ctx.exchangeSync(<span class="string">'Owner Account'</span>, <span class="string">'1.0000 VO@fibostest123'</span>, <span class="string">'0.0000 FO@eosio'</span>, memo, &#123;</span><br><span class="line">    authorization: owner<span class="comment">//authorization</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.exchange(<span class="string">'Owner Account'</span>, <span class="string">'1.0000 VO@fibostest123'</span>, <span class="string">'0.0000 FO@eosio'</span>, memo, &#123;</span><br><span class="line">    authorization: owner<span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">result</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="excreate"><a href="#excreate" class="headerlink" title="excreate"></a>excreate</h3><p>Call the token contract <code>excreate</code> interface to access token issue</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee,sell_fee,connector_balance_issuer,&#123;</span><br><span class="line">  authorization: <span class="string">'author_name'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Method-Parameter"><a href="#Method-Parameter" class="headerlink" title="Method Parameter"></a>Method Parameter</h4><ul>
+<li><strong>issue:</strong> string  Token issue account</li>
+<li><strong>maximum_supply:</strong> assert  Maximum number of token issued</li>
+<li><strong>connector_weight:</strong> number  Connector weight</li>
+<li><strong>maximum_exchange:</strong> assert  Maximum number of echange(circulation) tokens</li>
+<li><strong>reserve_supply:</strong> assert  Not circulation token amount</li>
+<li><strong>reserve_connector_balance:</strong> assert  Amount of outstanding token security deposit</li>
+<li><strong>expiration:</strong>   time_point_sec Project lock period preset by the project side</li>
+<li><strong>buy_fee:</strong> double  transaction fee of token presets by project party</li>
+<li><strong>sell_fee:</strong> double  Cashing fee presets by project party</li>
+<li><strong>connector_balance_issuer:</strong> string Reserve publisher</li>
+<li><strong>authorization:</strong> string  permission</li>
+</ul>
+<h4 id="Example-23"><a href="#Example-23" class="headerlink" title="Example"></a>Example</h4><p>Issuing common token</p>
+<p>Synchronous:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(issuer, <span class="string">'90000000000.0000 DDD'</span>, <span class="number">0</span>, <span class="string">'10000000000.0000 DDD'</span>, <span class="string">'3000000000.0000 DDD'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="number">0</span>,<span class="number">0</span>, <span class="string">'eosio'</span>,&#123; <span class="comment">//Custom fee, Greater than 0 is less than or equal to 1, the reserve here is FO, so reserve publisher to fill in eosio</span></span><br><span class="line">  authorization: name  <span class="comment">//authorization</span></span><br><span class="line">&#125;); <span class="comment">//expiration needs to larger or equal to current time</span></span><br><span class="line"><span class="built_in">console</span>.log(r)</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/init fibos client</span><br><span class="line">...</span><br><span class="line">ctx.excreate(issuer, <span class="string">'90000000000.0000 DDD'</span>, <span class="number">0</span>, <span class="string">'10000000000.0000 DDD'</span>, <span class="string">'3000000000.0000 DDD'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>,<span class="number">0</span>,<span class="number">0</span> , <span class="string">'eosio'</span>,&#123;<span class="comment">//Custom fee, Greater than 0 is less than or equal to 1, the reserve here is FO, so reserve publisher to fill in eosio</span></span><br><span class="line">  authorization: name  <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(r);</span><br><span class="line">&#125;); <span class="comment">//expiration needs to larger or equal to current time</span></span><br></pre></td></tr></table></figure>
+<p>Issuing smart token</p>
+<p>Synchronous:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.excreateSync(issuer, <span class="string">'100000000000.0000 AAA'</span>,  <span class="number">0.15</span>,<span class="string">'10000000000.0000 AAA'</span>, <span class="string">'3000000000.0000 AAA'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>,<span class="number">0</span>,<span class="number">0</span> , <span class="string">'eosio'</span>,&#123;<span class="comment">//Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio</span></span><br><span class="line">    authorization: name <span class="comment">//authorization</span></span><br><span class="line">&#125;);  <span class="comment">//expiration needs to larger or equal to current time</span></span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.excreateSync(issuer, <span class="string">'100000000000.0000 AAA'</span>,  <span class="number">0.15</span>,<span class="string">'10000000000.0000 AAA'</span>, <span class="string">'3000000000.0000 AAA'</span>, <span class="string">'90000.0000 FO'</span>, <span class="string">'2018-10-29T18:54:00'</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="string">'eosio'</span>,&#123;<span class="comment">//Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio</span></span><br><span class="line">    authorization: name <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(r);</span><br><span class="line">&#125;);  <span class="comment">//expiration needs to larger or equal to current time</span></span><br></pre></td></tr></table></figure>
+<h3 id="exissue"><a href="#exissue" class="headerlink" title="exissue"></a>exissue</h3><p>additional token issuing</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.exissue(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, &#123;</span><br><span class="line">  authorization: <span class="string">'author_name'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-20"><a href="#Parameter-20" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>issuer:</strong> string  token issuer account</li>
+<li><strong>maximum_supply:</strong> assert  Maximum number of token issued</li>
+<li><strong>connector_weight:</strong> number  connector weight</li>
+<li><strong>maximum_exchange:</strong> assert  Maximum number of echange(circulation) tokens</li>
+<li><strong>reserve_supply:</strong> assert  Not circulation token amount</li>
+<li><strong>reserve_connector_balance:</strong> assert  Amount of outstanding token security deposit</li>
+<li><strong>expiration:</strong>   time_point_sec Project lock period preset by the project side</li>
+<li><strong>authorization:</strong> string  permission<h4 id="Example-24"><a href="#Example-24" class="headerlink" title="Example"></a>Example</h4></li>
+</ul>
+<p>Synchronous:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.exissueSync(name, <span class="string">'1000000.0000 ABC@fibostest123'</span>, <span class="string">'issue to fibostest123'</span>, &#123;</span><br><span class="line">  authorization: name <span class="comment">//authorization</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.exissue(name, <span class="string">'1000000.0000 ABC@fibostest123'</span>, <span class="string">'issue to fibostest123'</span>, &#123;</span><br><span class="line">  authorization: name  <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(r);  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="exdestroy"><a href="#exdestroy" class="headerlink" title="exdestroy"></a>exdestroy</h3><p>destroy token(the token can be destroyed only by the number of circulation is 0)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.exdestroy(symbol, &#123;<span class="attr">authorization</span>: <span class="string">'author_name'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-21"><a href="#Parameter-21" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>symbol: </strong>string  Token exchange data</li>
+<li><strong>authorization:</strong>  string  authorization</li>
+</ul>
+<h4 id="Example-25"><a href="#Example-25" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.exdestroySync(<span class="string">`0.0000 AAA@fibostest123`</span>, &#123;<span class="attr">authorization</span>: <span class="string">'fibostest123'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.exdestroy(<span class="string">`0.0000 AAA@fibostest123`</span>, &#123;<span class="attr">authorization</span>: <span class="string">'fibostest123'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="exlocktrans"><a href="#exlocktrans" class="headerlink" title="exlocktrans"></a>exlocktrans</h3><p>锁仓(项目方发行智能通证时，填写的 reserve_supply 这个参数的值，锁仓量会随着销毁和解锁通证的操作而变化。)</p>
+<p>locked position(When the project party issues the smart token, the value of the parameter reserve_supply filled in by the project party will vary with the operation of destroying and unlocking the token.)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.exlocktrans(<span class="keyword">from</span>, to, quantityt, expiration, expiration_to,memo, &#123;</span><br><span class="line">    authorization: <span class="string">'author_name'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="method-parameters"><a href="#method-parameters" class="headerlink" title="method parameters"></a>method parameters</h4><ul>
+<li><strong>from:</strong> string  token transferor</li>
+<li><strong>to:</strong> string  token transferee</li>
+<li><strong>quantity:</strong> number token amount</li>
+<li><strong>expiration:</strong> time_point_sec lockout time of rolling out</li>
+<li><strong>expiration_to:</strong>  time_point_sec lockout time of rolling in</li>
+<li><strong>memo:</strong> string  note</li>
+<li><strong>authorization:</strong> string  authorization</li>
+</ul>
+<h4 id="Example-26"><a href="#Example-26" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.exlocktransSync(<span class="string">'nmslwsndhjyz'</span>, <span class="string">'fibostest123'</span>, <span class="string">`10000.0000 BBB@5hzuyqumr3l5`</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="string">`transfer 1000  ABC@uepgdzfhucin`</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'nmslwsndhjyz'</span>  <span class="comment">//authorization</span></span><br><span class="line">&#125;); <span class="comment">//expiration_to must larger or equal to expiration</span></span><br><span class="line"><span class="built_in">console</span>.notice(r)</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.exlocktrans(<span class="string">'nmslwsndhjyz'</span>, <span class="string">'fibostest123'</span>, <span class="string">`10000.0000 BBB@5hzuyqumr3l5`</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="string">'2018-10-29T18:54:00'</span>, <span class="string">`transfer 1000  ABC@uepgdzfhucin`</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'nmslwsndhjyz'</span>  <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(r);</span><br><span class="line">&#125;) </span><br><span class="line"><span class="comment">//expiration_to must larger or equal to expiration</span></span><br></pre></td></tr></table></figure>
+<h3 id="exunlock"><a href="#exunlock" class="headerlink" title="exunlock"></a>exunlock</h3><p>Unlock (the user can change the token in the lock warehouse into the token in circulation through unlock operation)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.exunlock(owner, quantity, expiration, memo, &#123;</span><br><span class="line">    authorization: <span class="string">'author_name'</span><span class="comment">//authorization</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="method-and-parameters"><a href="#method-and-parameters" class="headerlink" title="method and parameters"></a>method and parameters</h4><ul>
+<li><strong>owner:</strong> owner token owner</li>
+<li><strong>quantity:</strong> number unlock amount</li>
+<li><strong>expiration:</strong> time_point_sec lock period</li>
+<li><strong>memo:</strong> string note</li>
+<li><strong>authorization:</strong> string  authorization</li>
+</ul>
+<h4 id="Example-27"><a href="#Example-27" class="headerlink" title="Example"></a>Example</h4><p>Synchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.exunlockSync(<span class="string">'fibostest123'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="number">1537960501</span>, <span class="string">'unlock 100.0000 ADC'</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'hujzwsndnmsl'</span> <span class="comment">//authorization</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.exunlock(<span class="string">'fibostest123'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="number">1537960501</span>, <span class="string">'unlock 100.0000 ADC'</span>, &#123;</span><br><span class="line">    authorization: <span class="string">'hujzwsndnmsl'</span> <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(r);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="ctxrecharge"><a href="#ctxrecharge" class="headerlink" title="ctxrecharge"></a>ctxrecharge</h3><p>contract sub-wallet top up</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.ctxrecharge(owner, quantity, memo, &#123;</span><br><span class="line">    authorization: <span class="string">'author_name'</span><span class="comment">//authorization</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="methods-and-parameters"><a href="#methods-and-parameters" class="headerlink" title="methods and parameters"></a>methods and parameters</h4><ul>
+<li><strong>owner:</strong> string  account owner</li>
+<li><strong>quantity:</strong> number  top up token amount</li>
+<li><strong>memo:</strong> string  note</li>
+<li><strong>authorization:</strong> string  authorization</li>
+</ul>
+<h4 id="Example-28"><a href="#Example-28" class="headerlink" title="Example"></a>Example</h4><p>Synchronous top up:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxrechargeSync(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxrecharge'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous top up:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.ctxrecharge(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxrecharge'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span> <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(r);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="ctxextract"><a href="#ctxextract" class="headerlink" title="ctxextract"></a>ctxextract</h3><p>contract sub-wallet withdrawal</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.ctxextract(owner, quantity, memo, &#123;</span><br><span class="line">    authorization: <span class="string">'author_name'</span><span class="comment">//authorization</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="method-and-operation"><a href="#method-and-operation" class="headerlink" title="method and operation"></a>method and operation</h4><ul>
+<li><strong>owner:</strong> string  account owner</li>
+<li><strong>quantity:</strong> number  top up amount</li>
+<li><strong>memo:</strong> string  note</li>
+<li><strong>authorization:</strong> string  authorization<h4 id="Example-29"><a href="#Example-29" class="headerlink" title="Example"></a>Example</h4></li>
+</ul>
+<p>Synchronous withdrawal:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxextractSync(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxextract'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span><span class="comment">//authorization</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous withdrawal:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.ctxextract(<span class="string">'tteesstt1122'</span>, <span class="string">'100.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxextract'</span>, &#123;</span><br><span class="line">			authorization: <span class="string">'tteesstt1122'</span>  <span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(r);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="ctxtransfer"><a href="#ctxtransfer" class="headerlink" title="ctxtransfer"></a>ctxtransfer</h3><p>Contract sub-wallet transfer</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.ctxtransfer(<span class="keyword">from</span>, to, quantity, memo, &#123;		</span><br><span class="line">authorization: <span class="string">'author_name'</span><span class="comment">//authorization</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Parameter-22"><a href="#Parameter-22" class="headerlink" title="Parameter"></a>Parameter</h4><ul>
+<li><strong>from:</strong> string  token transferor</li>
+<li><strong>to:</strong> string  token transferee</li>
+<li><strong>quantity:</strong> number  token amount</li>
+<li><strong>memo:</strong> string  note</li>
+<li><strong>authorization:</strong> string  authorization</li>
+</ul>
+<h4 id="Example-30"><a href="#Example-30" class="headerlink" title="Example"></a>Example</h4><p>Synchronous transfer:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> r = ctx.ctxtransferSync(<span class="string">'tteesstt1122'</span>, <span class="string">'tteesstt2222'</span>, <span class="string">'50.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxtransfer'</span>, &#123;		</span><br><span class="line">authorization: <span class="string">'nmslwsndhjyz'</span>  <span class="comment">//authorization	</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.notice(r);</span><br></pre></td></tr></table></figure>
+<p>Asynchronous transfer:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init fibos client</span></span><br><span class="line">...</span><br><span class="line">ctx.ctxtransfer(<span class="string">'tteesstt1122'</span>, <span class="string">'tteesstt2222'</span>, <span class="string">'50.0000 ADC@nmslwsndhjyz'</span>, <span class="string">'ctxtransfer'</span>, &#123;		</span><br><span class="line">authorization: <span class="string">'nmslwsndhjyz'</span><span class="comment">//authorization</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.notice(r);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,957 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "rpc"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link current">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/rpc/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/rpc/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link current">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/rpc/index.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/rpc/index.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            RPC API
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/rpc/index.html" class="sidebar-link current"></a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content rpc with-sidebar ">
+  
+    
+  
+  
+  
+    <h1 id="RPC-API"><a href="#RPC-API" class="headerlink" title="RPC API"></a>RPC API</h1><h2 id="CHAIN"><a href="#CHAIN" class="headerlink" title="CHAIN"></a>CHAIN</h2><h3 id="get-info"><a href="#get-info" class="headerlink" title="get_info"></a>get_info</h3><p>return the object includes each detail info of blockchain</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_info</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_info</span><br></pre></td></tr></table></figure>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;server_version&quot;:&quot;8f0f54cf&quot;,</span><br><span class="line">  &quot;chain_id&quot;:&quot;6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a&quot;,</span><br><span class="line">  &quot;head_block_num&quot;:14880710,</span><br><span class="line">  &quot;last_irreversible_block_num&quot;:14880380,</span><br><span class="line">  &quot;last_irreversible_block_id&quot;:&quot;00e30e7c94815385d5edb134f88a1a40bf6c9342a01763cdad44b250641bf0a8&quot;,</span><br><span class="line">  &quot;head_block_id&quot;:&quot;00e30fc6c584a6c2090a91fc34eaa05d8e3a392f910c757c6c22376b68b9bd84&quot;,</span><br><span class="line">  &quot;head_block_time&quot;:&quot;2018-11-23T03:42:20.500&quot;,</span><br><span class="line">  &quot;head_block_producer&quot;:&quot;eosteaeostea&quot;,</span><br><span class="line">  &quot;virtual_block_cpu_limit&quot;:200000000,</span><br><span class="line">  &quot;virtual_block_net_limit&quot;:1048576000,</span><br><span class="line">  &quot;block_cpu_limit&quot;:199900,</span><br><span class="line">  &quot;block_net_limit&quot;:1048576,</span><br><span class="line">  &quot;server_version_string&quot;:&quot;v1.3.1.6&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-block"><a href="#get-block" class="headerlink" title="get_block"></a>get_block</h3><p>Return an object includes each specific detail info of blockchain</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_block</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_block \</span><br><span class="line">  --data &apos;&#123;&quot;block_num_or_id&quot;: &quot;5&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>block_num_or_id</strong></td>
+<td>string</td>
+<td>Provide a <code>block number</code> or a <code>block id</code></td>
+<td>REQUIRED</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;timestamp&quot;:&quot;2018-08-28T00:00:02.000&quot;,</span><br><span class="line">  &quot;producer&quot;:&quot;eosio&quot;,</span><br><span class="line">  &quot;confirmed&quot;:0,</span><br><span class="line">  &quot;previous&quot;:&quot;000000046fedbd93f736747cd5c5f1de844d1fb9b1076dc967b6344016e5fa16&quot;,</span><br><span class="line">  &quot;transaction_mroot&quot;:&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</span><br><span class="line">  &quot;action_mroot&quot;:&quot;d0f15919364427f0f51e6b421929815bcafa0081bb3a1825fa7c2e16818931c6&quot;,</span><br><span class="line">  &quot;schedule_version&quot;:0,</span><br><span class="line">  &quot;new_producers&quot;:null,</span><br><span class="line">  &quot;header_extensions&quot;:[],</span><br><span class="line">  &quot;producer_signature&quot;:&quot;SIG_K1_Ki4tfnaYVYdfT7Lh9iffU7zNw3qusUPMtEMbpxqrNYwQcHtmfdFc35jicervubFQN3R37bbGt5k6zZojzU77Ya2KneUBxg&quot;,</span><br><span class="line">  &quot;transactions&quot;:[],</span><br><span class="line">  &quot;block_extensions&quot;:[],</span><br><span class="line">  &quot;id&quot;:&quot;00000005ebf9997c1924f5f79d63e699da5db5ebdc72c4df4b7c213602cd11e1&quot;,</span><br><span class="line">  &quot;block_num&quot;:5,</span><br><span class="line">  &quot;ref_block_prefix&quot;:4160037913</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-block-header-state"><a href="#get-block-header-state" class="headerlink" title="get_block_header_state"></a>get_block_header_state</h3><p>Return reversible block head status.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_block_header_state</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_block_header_state \</span><br><span class="line">  --data &apos;&#123;&quot;block_num_or_id&quot;:&quot;118&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>block_num_or_id</strong></td>
+<td>string</td>
+<td>Provide a <code>block number</code> or a <code>block id</code></td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-account"><a href="#get-account" class="headerlink" title="get_account"></a>get_account</h3><p>Return an object includes each detail info of specific account.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_account</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_account \</span><br><span class="line">  --data &apos;&#123;&quot;account_name&quot;: &quot;eosio&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account_name</strong></td>
+<td>string</td>
+<td>Provide an account name</td>
+<td>REQUIRED</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;account_name&quot;:&quot;eosio&quot;,</span><br><span class="line">  &quot;head_block_num&quot;:14882625,</span><br><span class="line">  &quot;head_block_time&quot;:&quot;2018-11-23T03:58:18.500&quot;,</span><br><span class="line">  &quot;privileged&quot;:true,</span><br><span class="line">  &quot;last_code_update&quot;:&quot;2018-09-15T17:48:36.000&quot;,</span><br><span class="line">  &quot;created&quot;:&quot;2018-08-28T00:00:00.000&quot;,</span><br><span class="line">  &quot;ram_quota&quot;:-1,</span><br><span class="line">  &quot;net_weight&quot;:-1,</span><br><span class="line">  &quot;cpu_weight&quot;:-1,</span><br><span class="line">  &quot;net_limit&quot;:&#123;</span><br><span class="line">    &quot;used&quot;:-1,</span><br><span class="line">    &quot;available&quot;:-1,</span><br><span class="line">    &quot;max&quot;:-1</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;cpu_limit&quot;:&#123;</span><br><span class="line">    &quot;used&quot;:-1,</span><br><span class="line">    &quot;available&quot;:-1,</span><br><span class="line">    &quot;max&quot;:-1</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;ram_usage&quot;:1229057,</span><br><span class="line">  &quot;permissions&quot;:[</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;perm_name&quot;:&quot;active&quot;,</span><br><span class="line">      &quot;parent&quot;:&quot;owner&quot;,</span><br><span class="line">      &quot;required_auth&quot;:&#123;</span><br><span class="line">        &quot;threshold&quot;:1,</span><br><span class="line">        &quot;keys&quot;:[],</span><br><span class="line">        &quot;accounts&quot;:[</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;permission&quot;:&#123;</span><br><span class="line">              &quot;actor&quot;:&quot;eosio.prods&quot;,</span><br><span class="line">              &quot;permission&quot;:&quot;active&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;weight&quot;:1</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;waits&quot;:[]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;perm_name&quot;:&quot;owner&quot;,</span><br><span class="line">      &quot;parent&quot;:&quot;&quot;,</span><br><span class="line">      &quot;required_auth&quot;:&#123;</span><br><span class="line">        &quot;threshold&quot;:1,</span><br><span class="line">        &quot;keys&quot;:[],</span><br><span class="line">        &quot;accounts&quot;:[</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;permission&quot;:&#123;</span><br><span class="line">              &quot;actor&quot;:&quot;eosio.prods&quot;,</span><br><span class="line">              &quot;permission&quot;:&quot;active&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;weight&quot;:1</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;waits&quot;:[]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;total_resources&quot;:null,</span><br><span class="line">  &quot;self_delegated_bandwidth&quot;:null,</span><br><span class="line">  &quot;refund_request&quot;:null,</span><br><span class="line">  &quot;voter_info&quot;:null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-abi"><a href="#get-abi" class="headerlink" title="get_abi"></a>get_abi</h3><p>Get account abi data </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_abi</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_abi \</span><br><span class="line">  --data &apos;&#123;&quot;account_name&quot;: &quot;hello&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account_name</strong></td>
+<td>string</td>
+<td>name of account to retrieve ABI for</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;account_name&quot;:&quot;hello&quot;,</span><br><span class="line">  &quot;abi&quot;:&#123;</span><br><span class="line">    &quot;version&quot;:&quot;eosio::abi/1.0&quot;,</span><br><span class="line">    &quot;types&quot;:[],</span><br><span class="line">    &quot;structs&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;:&quot;player&quot;,</span><br><span class="line">        &quot;base&quot;:&quot;&quot;,</span><br><span class="line">        &quot;fields&quot;:[</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;:&quot;title&quot;,</span><br><span class="line">            &quot;type&quot;:&quot;string&quot;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;:&quot;age&quot;,</span><br><span class="line">            &quot;type&quot;:&quot;int64&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;:&quot;hi&quot;,</span><br><span class="line">        &quot;base&quot;:&quot;&quot;,</span><br><span class="line">        &quot;fields&quot;:[</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;:&quot;user&quot;,</span><br><span class="line">            &quot;type&quot;:&quot;name&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;actions&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;:&quot;hi&quot;,</span><br><span class="line">        &quot;type&quot;:&quot;hi&quot;,</span><br><span class="line">        &quot;ricardian_contract&quot;:&quot;&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;tables&quot;:[],</span><br><span class="line">    &quot;ricardian_clauses&quot;:[],</span><br><span class="line">    &quot;error_messages&quot;:[],</span><br><span class="line">    &quot;abi_extensions&quot;:[],</span><br><span class="line">    &quot;variants&quot;:[]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-raw-code-and-abi"><a href="#get-raw-code-and-abi" class="headerlink" title="get_raw_code_and_abi"></a>get_raw_code_and_abi</h3><p>Get account original code and abi data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_raw_code_and_abi</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_raw_code_and_abi \</span><br><span class="line">  --data &apos;&#123;&quot;account_name&quot;:&quot;hello&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>account_name</strong></td>
+<td>string</td>
+<td>Account name to get code and abi for</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;account_name&quot;:&quot;hello&quot;</span><br><span class="line">  &quot;wasm&quot;:&quot;UEsDBC0AAAAIAPCEd01qlACiNgAAADkAAAAIABQAaW5kZXguanMBABAAAAAAAAAAAAAAAAAAAAAAAEutKMgvKinWy8hUsFUoLU4tUrC1U0jOzyvOz0nVSy0qyi/SUM/MA4mUFCUml1ip64BVaVoDAFBLAQIAABQAAAAIAPCEd01qlACiNgAAADkAAAAIAAAAAAAAAAEAAAAAAAAAAABpbmRleC5qc1BLBQYAAAAAAQABADYAAABwAAAAAAA==&quot;</span><br><span class="line">  &quot;abi&quot;:&quot;DmVvc2lvOjphYmkvMS4wAAIGcGxheWVyAAIFdGl0bGUGc3RyaW5nA2FnZQVpbnQ2NAJoaQABBHVzZXIEbmFtZQEAAAAAAACAawJoaQAAAAAA=&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-table-rows"><a href="#get-table-rows" class="headerlink" title="get_table_rows"></a>get_table_rows</h3><p>Return an object includes specific rows of table.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_table_rows</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_table_rows \</span><br><span class="line">  --data &apos;&#123;&quot;scope&quot;:&quot;dabingguozi&quot;,&quot;code&quot;:&quot;eosio.token&quot;,&quot;table&quot;:&quot;accounts&quot;,&quot;json&quot;:true&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>scope</strong></td>
+<td>string</td>
+<td>Provide the account name</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td>Provide the smart contract name</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>table</strong></td>
+<td>string</td>
+<td>Provide the table name</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>json</strong></td>
+<td>boolean</td>
+<td>return result in JSON format</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>lower_bound</strong></td>
+<td>int32</td>
+<td>Provide the lower bound</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>upper_bound</strong></td>
+<td>int32</td>
+<td>Provide the upper bound</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>int32</td>
+<td>Provide the limit</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;rows&quot;: [&#123;</span><br><span class="line">    &quot;balance&quot;: &quot;554.0000 SYS&quot;</span><br><span class="line">    &#125;],</span><br><span class="line">  &quot;more&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="abi-json-to-bin"><a href="#abi-json-to-bin" class="headerlink" title="abi_json_to_bin"></a>abi_json_to_bin</h3><p>Serialize json to binary or hexadecimal. Generated binary or hexadecimal </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/abi_json_to_bin</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/abi_json_to_bin \</span><br><span class="line">  --data &apos;&#123;&quot;code&quot;:&quot;eosio.token&quot;,&quot;action&quot;:&quot;transfer&quot;,&quot;args&quot;:&#123;&quot;from&quot;:&quot;testnetyy111&quot;,&quot;to&quot;:&quot;testneths111&quot;,&quot;quantity&quot;:&quot;100.0000 EOS&quot;, &quot;memo&quot;:&quot;hi there&quot;&#125;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td>Provide the account name</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>action</strong></td>
+<td>string</td>
+<td>Provide the action arguments</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>args</strong></td>
+<td>json</td>
+<td>Provide the json arguments</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;binargs&quot;: &quot;1042f03eab99b1ca1042c02dab99b1ca40420f000000000004454f5300000000086869207468657265&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="abi-bin-to-json"><a href="#abi-bin-to-json" class="headerlink" title="abi_bin_to_json"></a>abi_bin_to_json</h3><p>Serialize binary or hexadecimal to json.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/abi_bin_to_json</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/abi_bin_to_json \</span><br><span class="line">  --data &apos;&#123;&quot;code&quot;:&quot;eosio.token&quot;,&quot;action&quot;:&quot;transfer&quot;,&quot;binargs&quot;:&quot;1042f03eab99b1ca1042c02dab99b1ca40420f000000000004454f5300000000086869207468657265&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td>Provide the smart contract account name</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>action</strong></td>
+<td>string</td>
+<td>Provide the action name</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>binargs</strong></td>
+<td>string</td>
+<td>Provide the binary arguments</td>
+<td>REQUIRED</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;args&quot;: &#123;</span><br><span class="line">    &quot;from&quot;: &quot;testnetyy111&quot;,</span><br><span class="line">    &quot;to&quot;: &quot;testneths111&quot;,</span><br><span class="line">    &quot;quantity&quot;: &quot;100.0000 EOS&quot;,</span><br><span class="line">    &quot;meno&quot;: &quot;hi there&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-required-keys"><a href="#get-required-keys" class="headerlink" title="get_required_keys"></a>get_required_keys</h3><p>Return requiring key of registration.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_required_keys</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_required_keys \</span><br><span class="line">  --data &apos;&#123;&quot;transaction&quot;:transaction_object,&quot;action&quot;:available_keys&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>transaction</strong></td>
+<td>json</td>
+<td>Provide the transaction object</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td><strong>available_keys</strong></td>
+<td>array of strings</td>
+<td>Provide the available keys</td>
+<td>REQUIRED</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;required_keys&quot;: [</span><br><span class="line">    &quot;EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p><code>transaction</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"ref_block_num"</span>: <span class="string">"100"</span>,</span><br><span class="line">  <span class="attr">"ref_block_prefix"</span>: <span class="string">"137469861"</span>,</span><br><span class="line">  <span class="attr">"expiration"</span>: <span class="string">"2017-09-25T06:28:49"</span>,</span><br><span class="line">  <span class="attr">"scope"</span>: [<span class="string">"initb"</span>, <span class="string">"initc"</span>],</span><br><span class="line">  <span class="attr">"actions"</span>: [&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="string">"currency"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"transfer"</span>,</span><br><span class="line">    <span class="attr">"recipients"</span>: [<span class="string">"initb"</span>, <span class="string">"initc"</span>],</span><br><span class="line">    <span class="attr">"authorization"</span>: [&#123;</span><br><span class="line">      <span class="attr">"account"</span>: <span class="string">"initb"</span>,</span><br><span class="line">      <span class="attr">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="attr">"data"</span>: <span class="string">"000000000041934b000000008041934be803000000000000"</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="attr">"signatures"</span>: [],</span><br><span class="line">  <span class="attr">"authorizations"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>available_keys</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"EOS4toFS3YXEQCkuuw1aqDLrtHim86Gz9u3hBdcBw5KNPZcursVHq"</span>,</span><br><span class="line"> <span class="string">"EOS7d9A3uLe6As66jzN8j44TXJUqJSK3bFjjEEqR4oTvNAB3iM9SA"</span>,</span><br><span class="line"> <span class="string">"EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="get-currency-stats"><a href="#get-currency-stats" class="headerlink" title="get_currency_stats"></a>get_currency_stats</h3><p>Get details about some assets</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_currency_stats</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_currency_stats \</span><br><span class="line">  --data &apos;&#123;&quot;code&quot;:&quot;eosio.token&quot;,&quot;symbol&quot;:&quot;EOS&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>symbol</strong></td>
+<td>string</td>
+<td>currency symbol to get the stats for</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-producers"><a href="#get-producers" class="headerlink" title="get_producers"></a>get_producers</h3><p>Get the producer info</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/get_producers</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/get_producers</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>limit</strong></td>
+<td>string</td>
+<td>total number of producers to retrieve</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>lower_bound</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>json</strong></td>
+<td>boolean</td>
+<td>return result in JSON format?</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="push-block"><a href="#push-block" class="headerlink" title="push_block"></a>push_block</h3><p>Push block.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/push_block</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/push_block</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>date-time</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>producer</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>confirmed</strong></td>
+<td>int32</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>previous</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>transaction_mroot</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>action_mroot</strong></td>
+<td>int32</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>version</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>new_producers</strong></td>
+<td>array of strings</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>header_extensions</strong></td>
+<td>array of strings</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>producer_signature</strong></td>
+<td>string</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>transactions</strong></td>
+<td>array</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>block_extensions</strong></td>
+<td>array of strings</td>
+<td></td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="push-transaction"><a href="#push-transaction" class="headerlink" title="push_transaction"></a>push_transaction</h3><p>This method requires JSON format, and try to use it in blockchain.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/push_transaction</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/push_transaction</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>signatures</strong></td>
+<td>array of strings</td>
+<td>array of signatures required to authorize transaction</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>compression</strong></td>
+<td>string</td>
+<td>compression used, usually false</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>packed_context_free_data</strong></td>
+<td>string</td>
+<td>json to hex</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>packed_trx</strong></td>
+<td>string</td>
+<td>json to hex</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&apos;transaction_id&apos; = &quot;1...&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><strong>Note</strong></p>
+<p>The <code>ref_block_num</code>和<code>ref_block_prefix</code> here is the result of <code>last_irreversible_block</code>and<code>/v1/chain/get_block</code>。 You can use<code>/v1/chain/get_info</code>to find<code>last_irreversible_block</code>。 You also need to use<code>/v1/wallet/sign_transaction</code>to get the right signature.</p>
+<h3 id="push-transactions"><a href="#push-transactions" class="headerlink" title="push_transactions"></a>push_transactions</h3><p>This method requires json format object and try to use it in blockchain. This method will push multiple objects per time.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/push_transaction</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/chain/push_transaction \</span><br><span class="line">  --data &apos;&#123;&quot;body&quot;:transaction&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>body</strong></td>
+<td>json</td>
+<td>Provide the authorizations for the transaction</td>
+<td>REQUIRED</td>
+</tr>
+</tbody>
+</table>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&apos;transaction_id&apos; = &quot;1...&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p><strong>Note</strong></p>
+<p>The<code>ref_block_num</code>和<code>ref_block_prefix</code> here is the result of <code>last_irreversible_block</code>and<code>/v1/chain/get_block</code> You can use<code>/v1/chain/get_info</code>to find<code>last_irreversible_block</code>。 You also need to use <code>/v1/wallet/sign_transaction</code> to get the right signature.</p>
+<h2 id="HISTORY"><a href="#HISTORY" class="headerlink" title="HISTORY"></a>HISTORY</h2><blockquote>
+<p>Note: history-api plugin needs to be started.</p>
+</blockquote>
+<h3 id="get-key-accounts"><a href="#get-key-accounts" class="headerlink" title="get_key_accounts"></a>get_key_accounts</h3><p>Check account according to the public key.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/history/get_key_accounts</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/history/get_key_accounts</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>public_key</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h2 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h2><blockquote>
+<p>Note: net plugin is required.</p>
+</blockquote>
+<h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/net/connect</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/net/connect</span><br></pre></td></tr></table></figure>
+<p><strong>Parameters</strong></p>
+<p>string</p>
+<h3 id="disconnect"><a href="#disconnect" class="headerlink" title="disconnect"></a>disconnect</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/net/disconnect</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/net/disconnect \</span><br><span class="line">  --data &apos;&quot;&quot;&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>Parameters</strong></p>
+<p>string</p>
+<h3 id="connections"><a href="#connections" class="headerlink" title="connections"></a>connections</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/net/connections</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/net/connections</span><br></pre></td></tr></table></figure>
+<h3 id="status"><a href="#status" class="headerlink" title="status"></a>status</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/net/status</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/net/status</span><br></pre></td></tr></table></figure>
+<h2 id="PRODUCER"><a href="#PRODUCER" class="headerlink" title="PRODUCER"></a>PRODUCER</h2><blockquote>
+<p>producer plugin is required.</p>
+</blockquote>
+<h3 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/pause</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/pause</span><br></pre></td></tr></table></figure>
+<h3 id="resume"><a href="#resume" class="headerlink" title="resume"></a>resume</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/resume</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/resume</span><br></pre></td></tr></table></figure>
+<h3 id="paused"><a href="#paused" class="headerlink" title="paused"></a>paused</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/paused</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/resume</span><br></pre></td></tr></table></figure>
+<h3 id="get-runtime-options"><a href="#get-runtime-options" class="headerlink" title="get_runtime_options"></a>get_runtime_options</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/get_runtime_options</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/get_runtime_options</span><br></pre></td></tr></table></figure>
+<h3 id="update-runtime-options"><a href="#update-runtime-options" class="headerlink" title="update_runtime_options"></a>update_runtime_options</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/update_runtime_options</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/update_runtime_options</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>max_transaction_time</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>max_irreversible_block_age</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>produce_time_offset_us</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>last_block_time_offset_us</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>incoming_defer_ratio</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+<tr>
+<td><strong>subjective_cpu_leeway_us</strong></td>
+<td>int32</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-greylist"><a href="#get-greylist" class="headerlink" title="get_greylist"></a>get_greylist</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/get_greylist</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/get_greylist</span><br></pre></td></tr></table></figure>
+<p>Results：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;accounts&quot;:[&quot;a11111111111&quot;,&quot;aaa&quot;,&quot;bbb&quot;]&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="add-greylist-accounts"><a href="#add-greylist-accounts" class="headerlink" title="add_greylist_accounts"></a>add_greylist_accounts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/add_greylist_accounts</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/add_greylist_accounts</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>accounts</strong></td>
+<td>array of strings</td>
+<td>Accounts to add to greylist</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="remove-greylist-accounts"><a href="#remove-greylist-accounts" class="headerlink" title="remove_greylist_accounts"></a>remove_greylist_accounts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/remove_greylist_accounts</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/remove_greylist_accounts</span><br></pre></td></tr></table></figure>
+<p><strong>Main Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>accounts</strong></td>
+<td>array of strings</td>
+<td>Accounts to add to greylist</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-whitelist-blacklist"><a href="#get-whitelist-blacklist" class="headerlink" title="get_whitelist_blacklist"></a>get_whitelist_blacklist</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/get_whitelist_blacklist</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/get_whitelist_blacklist</span><br></pre></td></tr></table></figure>
+<h3 id="set-whitelist-blacklist"><a href="#set-whitelist-blacklist" class="headerlink" title="set_whitelist_blacklist"></a>set_whitelist_blacklist</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/producer/set_whitelist_blacklist</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/producer/set_whitelist_blacklist</span><br></pre></td></tr></table></figure>
+<h2 id="DBSIZE"><a href="#DBSIZE" class="headerlink" title="DBSIZE"></a>DBSIZE</h2><h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/db_size/get</span><br></pre></td></tr></table></figure>
+<p>Example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">  --url http://127.0.0.1:8888/v1/db_size/get</span><br></pre></td></tr></table></figure>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

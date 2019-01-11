@@ -1,0 +1,413 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    db — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="db — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="db — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "manual"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/smartcontract/db.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/smartcontract/db.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link">Node Guide</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link current">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link current">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/api/smartcontract/db.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/api/smartcontract/db.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            JS Contract
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/index.html" class="sidebar-link">action</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/assert.html" class="sidebar-link">assert</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/buffer.html" class="sidebar-link">buffer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/console.html" class="sidebar-link">console</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/crypto.html" class="sidebar-link">crypto</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/db.html" class="sidebar-link current">db</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/dbiterator.html" class="sidebar-link">DBIterator</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/Table.html" class="sidebar-link">table</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+        <li>
+          <a href="/en-us/api/smartcontract/trans.html" class="sidebar-link">trans</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content manual with-sidebar ">
+  
+    
+  
+  
+    <h1>db</h1>
+  
+  
+    <h1 id="db-module"><a href="#db-module" class="headerlink" title="db module"></a>db module</h1><p>db object</p>
+<p>Database accessing object</p>
+<p>JS smart contract operation chain database is a common application scenario in FIBOS，one <a href="index.html">action</a> context variables appear during execution，Including transaction mechanism processing，This content applies the allocated memory resources，and if there is not persistence technique，This context data is lost when the scope is exceeded. So the persistence technique is required to record the key content into chain database. It will not be affected at anytime you use it. The usage of db module is to record data persistently into database, and provide the query capabilities and service for data.</p>
+<h2 id="static-function"><a href="#static-function" class="headerlink" title="static function"></a>static function</h2><h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p><strong>Access specific data table</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.table(scope,code,indexes);</span><br></pre></td></tr></table></figure>
+<p>Parameter Usage:</p>
+<ul>
+<li>scope: String, Point to contract issuer name</li>
+<li>code: String, the account_name belongs to table</li>
+<li>indexes: object, index</li>
+</ul>
+<p>First we need to define the information of data table such as table name, table structure and the primary key in abi file while using db module as shown below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">var db_abi = &#123;</span><br><span class="line">      &quot;version&quot;: &quot;eosio::abi/1.0&quot;,</span><br><span class="line">      &quot;types&quot;: [&#123;</span><br><span class="line">          &quot;new_type_name&quot;: &quot;my_account_name&quot;,</span><br><span class="line">          &quot;type&quot;: &quot;name&quot;</span><br><span class="line">      &#125;],</span><br><span class="line">      &quot;structs&quot;: [&#123;</span><br><span class="line">          &quot;name&quot;: &quot;player2&quot;,</span><br><span class="line">          &quot;base&quot;: &quot;&quot;,</span><br><span class="line">          &quot;fields&quot;: [&#123;</span><br><span class="line">              &quot;name&quot;: &quot;title&quot;,</span><br><span class="line">              &quot;type&quot;: &quot;string&quot;</span><br><span class="line">          &#125;, &#123;</span><br><span class="line">              &quot;name&quot;: &quot;age&quot;,</span><br><span class="line">              &quot;type&quot;: &quot;int32&quot;</span><br><span class="line">          &#125;, &#123;</span><br><span class="line">              &quot;name&quot;: &quot;weight&quot;,</span><br><span class="line">              &quot;type&quot;: &quot;int32&quot;</span><br><span class="line">          &#125;, &#123;</span><br><span class="line">              &quot;name&quot;: &quot;length&quot;,</span><br><span class="line">              &quot;type&quot;: &quot;int32&quot;</span><br><span class="line">          &#125;, &#123;</span><br><span class="line">              &quot;name&quot;: &quot;width&quot;,</span><br><span class="line">              &quot;type&quot;: &quot;int32&quot;</span><br><span class="line">          &#125;]</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">          &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;base&quot;: &quot;&quot;,</span><br><span class="line">          &quot;fields&quot;: [&#123;</span><br><span class="line">              &quot;name&quot;: &quot;user&quot;,</span><br><span class="line">              &quot;type&quot;: &quot;name&quot;</span><br><span class="line">          &#125;]</span><br><span class="line">      &#125;],</span><br><span class="line">      &quot;actions&quot;: [&#123;</span><br><span class="line">          &quot;name&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;type&quot;: &quot;hi&quot;,</span><br><span class="line">          &quot;ricardian_contract&quot;: &quot;&quot;</span><br><span class="line">      &#125;],</span><br><span class="line">      &quot;tables&quot;: [&#123;</span><br><span class="line">          &quot;name&quot;: &quot;players&quot;,</span><br><span class="line">          &quot;type&quot;: &quot;player2&quot;,</span><br><span class="line">          &quot;index_type&quot;: &quot;i64&quot;,</span><br><span class="line">          &quot;key_names&quot;: [&quot;id&quot;],</span><br><span class="line">          &quot;key_types&quot;: [&quot;int64&quot;]</span><br><span class="line">      &#125;]</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>We defined a players table in db_abi, the type of the table is player2, and the primary key is id.</p>
+<p>So how do we access some specific table in js contract? Take example of accessing players table, we only need:<br><code>db.players(scope,code)</code> .</p>
+<p>同样给表建立索引也很简单，以 players 表为例，在 js 合约中作如下定义:<br>As the same, this very easy to build index to a table, take the example of players table, Make the following definition in the js contract: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const indexes = &#123;</span><br><span class="line">     age: [64, o =&gt; [o.age]]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">exports.hi = v =&gt; &#123;</span><br><span class="line">     var players = db.players(action.account, action.account, indexes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The code above defines an index called age and adds the indexes parameter when accessing the table, so that it can be used when operating on the table.</p>
+<p>DB module also supports multi-index, only need to add other index in indexes as below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const indexes = &#123;</span><br><span class="line">   age:[64, o=&gt;[o.age]],</span><br><span class="line">   detail1:[128, o =&gt; [o.age,o.weight]],</span><br><span class="line">   detail2:[192, o =&gt; [o.age,o.weight,o.length]],</span><br><span class="line">   detail3:[256, o =&gt; [o.age,o.weight,o.length,o.width]]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>The details about how to do CRUD operation, please check <a href="dbiterator.html">DBIterator</a> and <a href="Table.html">Table</a></p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>
