@@ -42,10 +42,10 @@ Enough RAM,CPU and NET are required if a user wants to release a contract.
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  // fibos text net chainId
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'your private key',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio');
@@ -68,10 +68,10 @@ By calling `buyram` method. The parameters and explanation:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos amin net chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  // fibos text net chainId
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'your private key',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio');
@@ -98,10 +98,10 @@ By calling `delegatebw` method,  the parameters and explain are as below:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  // fibos text net chainId
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'your private key',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio');
@@ -130,10 +130,10 @@ By calling `updelegatebw` method, the parameters and explain are as below:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  // fibos text net chainId
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'your private key',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio');
@@ -160,10 +160,10 @@ const FIBOS = require('fibos.js');
 require('ssl').loadRootCerts();
 
 const client = FIBOS({
-  // fibos main net chainId
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  // fibos text net chainId
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'your private key',
-  httpEndpoint: "http://ca-rpc.fibos.io:8870",
+  httpEndpoint: "http://testnet.fibos.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio');

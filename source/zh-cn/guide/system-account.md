@@ -41,9 +41,9 @@ console.log('公钥: %s\n私钥: %s',pubkey,prikey);
 ```javascript
 var FIBOS = require('fibos.js');
 var fibos_client = FIBOS({
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'creator_priKey',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
   logger: {
     log: null,
     error: null
@@ -67,9 +67,9 @@ fibos_client.newaccount({
 ```javascript
 var FIBOS = require('fibos.js');
 var fibos_client = FIBOS({
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'creator_priKey',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
   logger: {
     log: null,
     error: null
@@ -92,9 +92,9 @@ fibos_client.buyrambytes({
 ```javascript
 var FIBOS = require('fibos.js');
 var fibos_client = FIBOS({
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'creator_priKey',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
   logger: {
     log: null,
     error: null
@@ -115,9 +115,9 @@ fibos_client.delegatebw({
 ```javascript
 var FIBOS = require('fibos.js');
 var fibos_client = FIBOS({
-  chainId: '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a',
+  chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'creator_priKey',
-  httpEndpoint: 'http://ca-rpc.fibos.io:8870',
+  httpEndpoint: 'http://testnet.fibos.fo',
   logger: {
     log: null,
     error: null

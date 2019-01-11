@@ -57,8 +57,8 @@ fibosClient.newaccountSync({
 
 
 
-## Packaged JS contract
-We read the js contract file through the fs module and compress the contract package via the `compileCode()` method.
+## Compress JS contract
+We read the js contract file through the fs module and package the contract with the `compileCode()` method.
 
 Save the following code to `scripts/deploy.js` ：
 
@@ -68,7 +68,7 @@ const wasm = fibosClient.compileCode(jsCode);
 ```
 
 ## Upload JS contract
-The packaged contract content is uploaded to the node by calling the `setcodeSync()` method.
+Call the `setcodeSync()` method to upload the compressed content to the node.
 
 Save the following code to `scripts/deploy.js` ：
 
@@ -87,7 +87,7 @@ const code = fibosClient.getCodeSync(config.contract.name, true);
 console.log(code);
 ```
 
-## Upload an ABI file
+## Upload ABI file
 
 Obtain the ABI file using the fs module and deploy the ABI file to the node via  
 `setabiSync()` 

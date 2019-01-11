@@ -6,7 +6,6 @@ menu:
   guidelines: 开发指南
   api: 技术手册
   community: 社区
-  language: 简体中文
 
 submenu:
   introduction: 简介
@@ -40,6 +39,7 @@ content:
   token: Token 合约
   fibos: FIBOS.JS
   rpc: RPC API
+  msig: Msig 合约
 
 footer:
   contact: 联系我们

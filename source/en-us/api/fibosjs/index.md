@@ -1042,7 +1042,7 @@ ctx.exchange('Owner Account', '1.0000 VO@fibostest123', '0.0000 FO@eosio', memo,
 Call the token contract ` excreate ` interface to access token issue
 
 ```js
-ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee,sell_fee,{
+ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve_supply, reserve_connector_balance, expiration, buy_fee,sell_fee,connector_balance_issuer,{
   authorization: 'author_name'
 }); 
 ```
@@ -1058,7 +1058,7 @@ ctx.excreate(issuer, maximum_supply, connector_weight, maximum_exchange, reserve
 * **expiration:**   time_point_sec Project lock period preset by the project side
 * **buy_fee:** double  transaction fee of token presets by project party
 * **sell_fee:** double  Cashing fee presets by project party
-* **connector_balance_issuer:** string Reserve issuer
+* **connector_balance_issuer:** string Reserve publisher
 * **authorization:** string  permission
 
 #### Example
@@ -1070,7 +1070,7 @@ Synchronous:
 ```javascript
 //init fibos client
 ...
-let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0, 'eosio',{ //Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
+let r = ctx.excreateSync(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0,0, 'eosio',{ //Custom fee, Greater than 0 is less than or equal to 1, the reserve here is FO, so reserve publisher to fill in eosio
   authorization: name  //authorization
 }); //expiration needs to larger or equal to current time
 console.log(r)
@@ -1081,7 +1081,7 @@ Asynchronous:
 ```js
 /init fibos client
 ...
-ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 , 'eosio',{//Custom service fee,current is 0,The reserve here is FO, so the issuer of the reserve fills in the eosio
+ctx.excreate(issuer, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00',0,0 , 'eosio',{//Custom fee, Greater than 0 is less than or equal to 1, the reserve here is FO, so reserve publisher to fill in eosio
   authorization: name  //authorization
 }).then(r=>{
     console.log(r);

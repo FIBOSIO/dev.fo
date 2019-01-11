@@ -20,7 +20,7 @@ void token::excreate(
   time_point_sec expiration, // lock period preset by the project party
   double buy_fee, // Project team preset token exchange fee (in going)
   double sell_fee // Project team preset token cash out fee (out going)  
-  string connector_balance_issuer //Prepare blondes
+  account_name connector_balance_issuer //Prepare blondes
 )
 ```
 
@@ -33,9 +33,9 @@ There are two types of token you can issue on FIBOS，one is the traditional tok
 ...
 let name = 'fibostest123';
 let ctx = fibos.contractSync('eosio.token');
-let r = ctx.excreateSync(name, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, {
+let r = ctx.excreateSync(name, '90000000000.0000 DDD', 0, '10000000000.0000 DDD', '3000000000.0000 DDD', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio', {
   authorization: name
-}); //expiration has to be greater than or equal to the current time
+}); //Custom fee, Greater than 0 is less than or equal to 1, the reserve here is FO, so reserve publisher to fill in eosio
 console.log(r)
 ```
 
@@ -46,9 +46,9 @@ console.log(r)
 ...
 let name = 'fibostest123';
 let ctx = fibos.contractSync('eosio.token');
-let r = ctx.excreateSync(name, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, {
+let r = ctx.excreateSync(name, '100000000000.0000 AAA',  0.15,'10000000000.0000 AAA', '3000000000.0000 AAA', '90000.0000 FO', '2018-10-29T18:54:00', 0, 0, 'eosio',{
     authorization: name
-});  //expiration has to be greater than or equal to the current time
+});  //Custom fee, Greater than 0 is less than or equal to 1, the reserve here is FO, so reserve publisher to fill in eosio
 console.log(r);
 ```
 
