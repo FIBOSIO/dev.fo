@@ -6,15 +6,15 @@
     <div class="list">
       <% if (type !== 'search') { %>
         <h2>
-            <% titles = {
-              tutorials: '开发指南',
+            <% titles = { 
+              tutorials: page.lang == 'zh-cn'?'开发指南':'Guidelines',
               manual:'JS Contract',
               fibos: 'FIBOS Node', 
               contract: 'System Contract',
               token: 'Token Contract',
               fibosjs: 'FIBOS.JS',
               rpc:'RPC API',
-              msig:'Msig Contract'
+              msig: 'Msig Contract'
             } %>
             <%- titles[type] %>
           </h2>

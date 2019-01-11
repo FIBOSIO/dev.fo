@@ -1,11 +1,12 @@
 <% var isIndex = page.path === 'index.html' %>
+<% var newisIndex = page.path === page.lang+'/index.html'%>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
   <title>
-    <%- page.title ? page.title + ' — ' : '' %>FIBOS 开发者社区</title>
+    <%- page.title ? page.title + ' — ' : '' %><%= __('main.title') %></title>
   <meta charset="utf-8">
   <meta name="description" content="<%- theme.site_description %>">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -34,7 +35,7 @@
   <link rel="manifest" href="/manifest.json">
 
   <!-- main page styles -->
-  <%- css(isIndex ? 'css/index' : 'css/page') %>
+  <%- css(isIndex||newisIndex ? 'css/index' : 'css/page') %>
 
   <script>
     window.PAGE_TYPE = "<%- page.type %>"
