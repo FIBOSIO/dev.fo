@@ -59,12 +59,17 @@ Installation package
 $ fibos --install fibos.js 或者 npm install fibos.js
 ```
 
-## Compilation under UNIX operating systems
+## Upgrade
 
-FIBOS is temporarily still not open source. The compiling course will be provided after we are!
+Re-executing the installation command will automatically overwrite the original `fibos` executable file, then restart the `fibos` service to complete the upgrade level.
 
-## Start compiling
+## Uninstall
 
-Now you have an executable version of fibos, and you can start to enjoy the experience of developing on Fibos!
+Simply delete the `fibos` executable file under `/usr/local/bin/`.
+
+```javascript
+  $ sudo rm /usr/local/bin/fibos
+```
+
 
 👉 【[Quick Start](./start.html)】

@@ -95,7 +95,7 @@ Obtain the ABI file using the fs module and deploy the ABI file to the node via
 Save the following code to `scripts/deploy.js` ：
 
 ```js
-const abi = JSON.parse(fs.readTextFile(`${__dirname}/../contracts/todo.js`));
+const abi = JSON.parse(fs.readTextFile(`${__dirname}/../contracts/todo.abi`));
 fibosClient.setabiSync(config.contract.name, abi);
 ```
 
