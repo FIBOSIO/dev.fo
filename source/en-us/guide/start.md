@@ -324,4 +324,4 @@ At the same time, the FIBOS node service console displays the `trxs:1`, and the 
 2018-8-30T14:28:22.005 thread-1   producer_plugin.cpp:1196      produce_block        ] Produced block 00000e57c573a33b... #3671 @ 2018-07-30T14:28:22.000 signed by eosio [trxs: 1, lib: 3670, confirmed: 0]
 ```
 
-This chapter gives you a quick understanding of JavaScript contract and a simple JavaScript contract. There is an example for you in the 【[Instructions](../tutorials/instructions.html)】000000000000000
+This chapter gives you a quick understanding of JavaScript contract and a simple JavaScript contract. There is an example for you in the 【[Instructions](./tutorials-instructions.html)】.

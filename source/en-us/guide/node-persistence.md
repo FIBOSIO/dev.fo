@@ -595,7 +595,7 @@ If it returns the following, it means startup of mongod service is successful.
 
 #### Start FIBOS Runtime
 
-If you have not installed FIBOS, please refer to [Install runtime environment](../installation/installation.html). 
+If you have not installed FIBOS, please refer to [Install runtime environment](./installation.html). 
 
 To sync data to mongoDB, all thats needed is to add `fibos.load('mongo_db')` to the code in the getting started tutorial, loading the mongo_db module into FIBOS. Only with three lines, FIBOS will sync block data automatically to mongoDB. Its very convieniant. 
 

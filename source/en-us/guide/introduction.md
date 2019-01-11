@@ -71,7 +71,6 @@ Developers can discuss and study FIBOS in the following ways:
 - website: [https://fibos.io](https://fibos.io/)
 - telegram: <https://t.me/FIBOSIO>
 - twitter: <https://twitter.com/fibos_io>
-- medium: <https://medium.com/@fibosio>
 - issue: <https://github.com/fibosio/fibos/issues>
 
 ## Start the experience

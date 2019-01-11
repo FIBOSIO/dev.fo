@@ -145,7 +145,7 @@ todos# 1n  removed
   √ 5 tests completed (3709ms)
 ```
 
-The GitHub source code of this article: in the `test` folder under <https://github.com/fengluo/ﬁbos-todomvc>
+The GitHub source code of this article: in the `test` folder under <https://github.com/fengluo/fibos-todomvc>
 
 Next chapter 
 👉 【[Develop the DApp client](./tutorials-usecontract.html)】

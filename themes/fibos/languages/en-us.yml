@@ -10,7 +10,7 @@ menu:
 submenu:
   introduction: Introduction
   installation: Installation
-  start: Starting Up
+  start: Quick Start
   tutorials: Guides
   node: Node Guide
   system: System Contracts

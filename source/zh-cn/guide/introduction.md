@@ -61,7 +61,6 @@ FIBOS 的合约使用 JavaScript 编写并且全部开源，方便社区审计�
 - website: [https://fibos.io](https://fibos.io/)
 - telegram: <https://t.me/FIBOSIO>
 - twitter: <https://twitter.com/fibos_io>
-- medium: <https://medium.com/@fibosio>
 - issue: <https://github.com/fibosio/fibos/issues>
 
 ## 开始体验
