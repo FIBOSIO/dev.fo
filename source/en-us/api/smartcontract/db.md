@@ -79,7 +79,6 @@ We defined a players table in db_abi, the type of the table is player2, and the 
 So how do we access some specific table in js contract? Take example of accessing players table, we only need:
 `db.players(scope,code)` .
 
-同样给表建立索引也很简单，以 players 表为例，在 js 合约中作如下定义:
 As the same, this very easy to build index to a table, take the example of players table, Make the following definition in the js contract: 
 
 ```

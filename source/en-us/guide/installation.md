@@ -50,13 +50,13 @@ Create a folder called `hello_fibos` so as to generate the configuration initial
 
 ```
 $ cd  hello_fibos
-$ fibos --init 或者 npm init
+$ fibos --init or npm init
 ```
 
 Installation package
 
 ```
-$ fibos --install fibos.js 或者 npm install fibos.js
+$ fibos --install fibos.js or npm install fibos.js
 ```
 
 ## Upgrade

@@ -619,7 +619,7 @@ Results：
 
 **Note**
 
-The `ref_block_num`和`ref_block_prefix` here is the result of `last_irreversible_block`and`/v1/chain/get_block`。 You can use`/v1/chain/get_info`to find`last_irreversible_block`。 You also need to use`/v1/wallet/sign_transaction`to get the right signature.
+The `ref_block_num`and`ref_block_prefix` here is the result of `last_irreversible_block`and`/v1/chain/get_block`. You can use`/v1/chain/get_info`to find`last_irreversible_block`. You also need to use`/v1/wallet/sign_transaction`to get the right signature.
 
 
 
@@ -657,7 +657,7 @@ Results：
 
 **Note**
 
-The`ref_block_num`和`ref_block_prefix` here is the result of `last_irreversible_block`and`/v1/chain/get_block` You can use`/v1/chain/get_info`to find`last_irreversible_block`。 You also need to use `/v1/wallet/sign_transaction` to get the right signature.
+The`ref_block_num` and `ref_block_prefix` here is the result of `last_irreversible_block`and`/v1/chain/get_block` You can use`/v1/chain/get_info`to find`last_irreversible_block`. You also need to use `/v1/wallet/sign_transaction` to get the right signature.
 
 
 

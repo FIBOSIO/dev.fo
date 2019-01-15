@@ -705,7 +705,7 @@ FO4zLK8u81GnVQXZRc1GdoR1PKdLpFmfb9yjA6HcPrMo89j4Bimn
 
 ### recoverHash()
 
-恢复用于创建 hash signature的public key
+Recover public key used to create hash signature
 
 ```js
 fibos.modules.ecc.recoverHash(signature,dataSha256);
@@ -920,7 +920,7 @@ fibos_client.buyrambytes({
 ```
 ### delegatebw
 
-抵押代币获取 cpu 和带宽资源
+Mortgage tokens to obtain CPU and NET resources
 
 ```js
 fibos_client.delegatebw({
@@ -1191,9 +1191,7 @@ ctx.exdestroy(`0.0000 AAA@fibostest123`, {authorization: 'fibostest123'})
 
 ### exlocktrans
 
-锁仓(项目方发行智能通证时，填写的 reserve_supply 这个参数的值，锁仓量会随着销毁和解锁通证的操作而变化。)
-
-locked position(When the project party issues the smart token, the value of the parameter reserve_supply filled in by the project party will vary with the operation of destroying and unlocking the token.)
+Locked position(When the project party issues the smart token, the value of the parameter reserve_supply filled in by the project party will vary with the operation of destroying and unlocking the token.)
 
 ```js
 ctx.exlocktrans(from, to, quantityt, expiration, expiration_to,memo, {

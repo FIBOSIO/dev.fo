@@ -483,7 +483,7 @@ assert.typeOf(actual,type,msg);
 
 Parameter Usage:
 * actual: Value, The value needs to be tested
-* type: String, 指定的类型
+* type: String, The assigned type
 * msg: String, Prompt message when assertion fails
 
 
