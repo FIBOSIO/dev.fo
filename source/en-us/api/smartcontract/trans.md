@@ -28,7 +28,7 @@ Parameter Usage:
 ```JavaScript
 // hi acction
 exports.hi = (user, friend) => {
-  // 触发hi2 action
+  //  Trigger hi2 action
   trans.send_inline(
     'test', 
     'hi2', 
