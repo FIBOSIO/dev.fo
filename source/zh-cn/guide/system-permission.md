@@ -23,7 +23,7 @@ var FIBOS = require('fibos.js');
 
 var fibos = FIBOS({
   chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
+  keyProvider: 'your keyProvider',
   httpEndpoint: 'http://127.0.0.1:8888',
   logger: {
     log: null,
@@ -32,8 +32,8 @@ var fibos = FIBOS({
 });
 
 //账户 hellofibos01的公私钥对
-let pubkey = 'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR';
-let prikey = '5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW';
+let pubkey = 'your public key';
+let prikey = 'your private key';
 
 var name = 'hellofibos01';
 fibos.newaccountSync({
@@ -147,12 +147,12 @@ fibos.newaccountSync({
 var FIBOS = require('fibos.js');
 
 //账户 hellofibos01 的公私钥对
-let pubkey = 'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR';
-let prikey = '5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW';
+let pubkey = 'your public key';
+let prikey = 'your private key';
 
 //账户 hellofibos02 的公私钥对
-let pubkey2 = 'FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D';
-let prikey2 = '5JhJaiRmvpR8MmvrxGFYGoC7tG9icYkooLFUdVMDJ5cAsLTbsob';
+let pubkey2 = 'your public key2';
+let prikey2 = 'your private key2';
 
 var name = 'hellofibos01';
 var name2 = 'hellofibos02';
@@ -161,7 +161,7 @@ var name2 = 'hellofibos02';
 
 var fibos = FIBOS({
   chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
+  keyProvider: 'your keyProvider',
   httpEndpoint: 'http://127.0.0.1:8888',
   logger: {
     log: null,
@@ -179,7 +179,7 @@ fibos.newaccountSync({
 //修改hellofibos01 的active权限,客户端 需要更改为 hellofibos01 的私钥
 fibos = FIBOS({
   chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW',
+  keyProvider: 'your private key',
   httpEndpoint: 'http://127.0.0.1:8888',
   logger: {
     log: null,

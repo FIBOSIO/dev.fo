@@ -141,8 +141,8 @@ module.exports = initClient;
 var FIBOS = require('./initClient.js')
 var fs = require('fs');
 var config = {
-    'public-key': 'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
-    'private-key': '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
+    'public-key': 'your public key',
+    'private-key': 'your private key',
     'contractName': 'hello'
 };
 
@@ -195,8 +195,8 @@ code: {
 ```js
 var FIBOS = require('./initClient.js')
 var config = {
-    'public-key': 'FO6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
-    'private-key': '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
+    'public-key': 'your public key',
+    'private-key': 'your private key',
     'contractName': 'hello'
 };
 

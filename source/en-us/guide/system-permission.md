@@ -26,7 +26,7 @@ var FIBOS = require('fibos.js');
 
 var fibos = FIBOS({
   chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
+  keyProvider: 'keyProvider',
   httpEndpoint: 'http://127.0.0.1:8888',
   logger: {
     log: null,
@@ -35,8 +35,8 @@ var fibos = FIBOS({
 });
 
 //Account hellofibos01 public key to
-let pubkey = 'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR';
-let prikey = '5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW';
+let pubkey = 'your public key';
+let prikey = 'your private key';
 
 var name = 'hellofibos01';
 fibos.newaccountSync({
@@ -150,12 +150,12 @@ Change the active permission of account hellofibos01.
 var FIBOS = require('fibos.js');
 
 //Public and private key pair of hellofibos01
-let pubkey = 'FO5dZut9MG9ZdqrT1WYdPkp1Txxi6JLRYEgYCtAUDWH6ymNqdJpR';
-let prikey = '5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW';
+let pubkey = 'your public key';
+let prikey = 'your private key';
 
 //Public and private key pair of hellofibos02 
-let pubkey2 = 'FO5UFAzxUsbjQCijL5LtS6TaTtkJgPJACZ8qwDpXyLaW3sE9Ed2D';
-let prikey2 = '5JhJaiRmvpR8MmvrxGFYGoC7tG9icYkooLFUdVMDJ5cAsLTbsob';
+let pubkey2 = 'your public key2';
+let prikey2 = 'your private key2';
 
 var name = 'hellofibos01';
 var name2 = 'hellofibos02';
@@ -164,7 +164,7 @@ var name2 = 'hellofibos02';
 
 var fibos = FIBOS({
   chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
+  keyProvider: 'your keyProvider',
   httpEndpoint: 'http://127.0.0.1:8888',
   logger: {
     log: null,
@@ -182,7 +182,7 @@ fibos.newaccountSync({
 //Change the active permission of hellofibos01, Client needs to change to the private key of hellofibos01.
 fibos = FIBOS({
   chainId: 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
-  keyProvider: '5KMx2vJR1L2rsrKuND4N6YM1gu26jwUjn5ZLorBeWnK15DfraQW',
+  keyProvider: 'your private key',
   httpEndpoint: 'http://127.0.0.1:8888',
   logger: {
     log: null,
