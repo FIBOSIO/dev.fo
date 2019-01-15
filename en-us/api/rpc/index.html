@@ -740,7 +740,7 @@
 <p>Results：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&apos;transaction_id&apos; = &quot;1...&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><strong>Note</strong></p>
-<p>The <code>ref_block_num</code>和<code>ref_block_prefix</code> here is the result of <code>last_irreversible_block</code>and<code>/v1/chain/get_block</code>。 You can use<code>/v1/chain/get_info</code>to find<code>last_irreversible_block</code>。 You also need to use<code>/v1/wallet/sign_transaction</code>to get the right signature.</p>
+<p>The <code>ref_block_num</code>and<code>ref_block_prefix</code> here is the result of <code>last_irreversible_block</code>and<code>/v1/chain/get_block</code>. You can use<code>/v1/chain/get_info</code>to find<code>last_irreversible_block</code>. You also need to use<code>/v1/wallet/sign_transaction</code>to get the right signature.</p>
 <h3 id="push-transactions"><a href="#push-transactions" class="headerlink" title="push_transactions"></a>push_transactions</h3><p>This method requires json format object and try to use it in blockchain. This method will push multiple objects per time.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://127.0.0.1:8888/v1/chain/push_transaction</span><br></pre></td></tr></table></figure>
 <p>Example：</p>
@@ -767,7 +767,7 @@
 <p>Results：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&apos;transaction_id&apos; = &quot;1...&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p><strong>Note</strong></p>
-<p>The<code>ref_block_num</code>和<code>ref_block_prefix</code> here is the result of <code>last_irreversible_block</code>and<code>/v1/chain/get_block</code> You can use<code>/v1/chain/get_info</code>to find<code>last_irreversible_block</code>。 You also need to use <code>/v1/wallet/sign_transaction</code> to get the right signature.</p>
+<p>The<code>ref_block_num</code> and <code>ref_block_prefix</code> here is the result of <code>last_irreversible_block</code>and<code>/v1/chain/get_block</code> You can use<code>/v1/chain/get_info</code>to find<code>last_irreversible_block</code>. You also need to use <code>/v1/wallet/sign_transaction</code> to get the right signature.</p>
 <h2 id="HISTORY"><a href="#HISTORY" class="headerlink" title="HISTORY"></a>HISTORY</h2><blockquote>
 <p>Note: history-api plugin needs to be started.</p>
 </blockquote>
