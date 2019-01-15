@@ -102,9 +102,6 @@ chainId : '6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a'
 
 #### Block data synch target node information 
 
-区块数据同步必须先从已经在运行的超级节点中同步数据。
-
-
 Block data synch must first synch data from current running BP nodes. 
 
 Currently, the TestNet BP node will be provided by the FIBOS foundation, the p2p address is p2p-testnet.fibos.fo:9870 and p2p-testnet-02.fibos.fo:9870
@@ -473,7 +470,6 @@ Specific account data requires developer to write in according to actual situati
 
 **Example Clarification：**
 
-上述代码的含义为 `fibostest123` 这个用户给 `fibosbpnodea, fibosbpnodeb, fibosbpnodec`  投票，投票节点列表需要由开发者自己按照字母序排序，一次性最多可以给30个 BP 投票。中间空着的参数为代理，不填表示直接给 BP 投票，填入则是通过代理给 BP 投票。
 
 In the codes above, the user `fibostest123` votes for `fibosbpnodea, fibosbpnodeb, fibosbpnodec`, the node vote list requires the developer to organize alphabetically, and the one time max is voting for 30 BP. The empty parameter represents an agent. If left empty it means voting for BP directly, if filled in represents voting through an agent to BP.  
 

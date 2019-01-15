@@ -161,7 +161,7 @@ Framework defaultly saves block, transaction and actions base data
 | createdAt         | Date   | Record creation time   |
 | updatedAt         | Date   | Record update time     |
 
-#### transactions 表数据
+#### transactions table data
 
 | Field      | Type  | Note                            |
 | --------- | ------ | ------------------------------- |
@@ -172,7 +172,7 @@ Framework defaultly saves block, transaction and actions base data
 | createdAt | Date   | Record creation time            |
 | updatedAt | Date   | record update time              |
 
-#### actions 表数据
+#### actions table data
 
 | Field          | Type   | Note                                           |
 | -------------- | ------ | ---------------------------------------------- |
@@ -312,7 +312,7 @@ tracker.use Parameter Definitions：
 | ------ | ------ | --------------------------------------------- |
 | model  | Object | Custom data object, includes defines and hook |
 
-`model` 内部参数定义：
+`model` Parameter Definitions
 
 | key     | type     | desc                                                    | params                                                        |
 | ------- | -------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
