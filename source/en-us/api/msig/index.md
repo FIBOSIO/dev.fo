@@ -31,10 +31,10 @@ In fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.msig');
@@ -56,10 +56,10 @@ In the browser:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.msig').then((contract)=>{
@@ -96,10 +96,10 @@ In fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.msig');
@@ -120,10 +120,10 @@ In the browser:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.msig').then((contract)=>{
@@ -159,10 +159,10 @@ In fibos：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.msig');
@@ -183,10 +183,10 @@ In the browser:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.msig').then((contract)=>{
@@ -222,10 +222,10 @@ In fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.msig');
@@ -246,10 +246,10 @@ In the browser:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.msig').then((contract)=>{
@@ -285,10 +285,10 @@ In fibos.js:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.msig');
@@ -309,10 +309,10 @@ In browser：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main network chainId
+  // fibos test network chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.msig').then((contract)=>{

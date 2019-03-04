@@ -46,11 +46,11 @@ FIBOS TestNet 是一个通过 FIBOS 节点 P2P 互联的测试链，它可以方
 根 BP 连接信息: 
 
 ```
-IP : 'http://testnet.fibos.fo'
+IP : 'http://api.testnet.fo'
 chainID : '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'
 ```
 
-支持 FIBOS TestNet 账户注册: <http://testnet.fibos.fo/>
+支持 FIBOS TestNet 账户注册: <http://api.testnet.fo/>
 
 (默认账户送 10 EOS 通证)
 
@@ -58,17 +58,15 @@ HTTP 列表
 
 |              URL              | HTTP port |
 | :-----------------------------: | :-------: |
-|     http://testnet.fibos.fo     |   8870    |
-|    http://testnet2.fibos.fo     |   8870    |
-|     http://testnet.fibos.fo     |    80     |
-| http://history-testnet.fibos.fo |    80     |
+|     http://api.testnet.fo     |   80    |
+
 
 P2P 列表
 
 |          URL          | P2P port |
 | :---------------------: | :------: |
-|  p2p-testnet.fibos.fo   |   9870   |
-| p2p-testnet-02.fibos.fo |   9870   |
+|  p2p.testnet.fo   |   9870   |
+
 
 ### FIBOS 主网
 
