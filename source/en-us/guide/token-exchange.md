@@ -16,7 +16,7 @@ var FIBOS = require('fibos.js');
 var config = {
     chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
     priKey: 'your FIBOS main web private key',
-    httpEndpoint: 'http://testnet.fibos.fo',
+    httpEndpoint: 'http://api.testnet.fo',
     verbose: false,
 }
 var fibos_client = FIBOS({

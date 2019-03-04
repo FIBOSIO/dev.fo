@@ -29,10 +29,10 @@ under fibos.js:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -51,10 +51,10 @@ In the browser environment:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -92,10 +92,10 @@ under fibos.js:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -112,10 +112,10 @@ In the browser environment:
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -153,10 +153,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -173,10 +173,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -212,10 +212,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -232,10 +232,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 client.contract('eosio.token').then((contract)=>{
@@ -271,10 +271,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos.contractSync('eosio.token');
@@ -289,10 +289,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -335,10 +335,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -354,10 +354,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -400,10 +400,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 
@@ -421,10 +421,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -457,10 +457,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -477,10 +477,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -515,10 +515,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -535,10 +535,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -575,10 +575,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -595,10 +595,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -634,10 +634,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -654,10 +654,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -694,10 +694,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -714,10 +714,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -757,10 +757,10 @@ const FIBOS = require('fibos.js');
 require('ssl').loadRootCerts();
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: 'http://testnet.fibos.fo',
+  httpEndpoint: 'http://api.testnet.fo',
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -777,10 +777,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
@@ -820,10 +820,10 @@ under fibos.js：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 let ctx = fibos_client.contractSync('eosio.token');
@@ -840,10 +840,10 @@ In the browser environment：
 const FIBOS = require('fibos.js');
 
 const fibos_client = FIBOS({
-  // fibos main net chainId
+  // fibos testnet chainId
   chainId: '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a',
   keyProvider: 'Your private key',
-  httpEndpoint: "http://testnet.fibos.fo",
+  httpEndpoint: "http://api.testnet.fo",
 });
 
 fibos_client.contract('eosio.token').then((contract)=>{
