@@ -57,7 +57,7 @@ describe('todo', () => {
      // setabi
      const abi = JSON.parse(fs.readTextFile('../contracts/todo.abi'));
      fibosClient.setabiSync(config.testContract.name, abi);
-    })；
+    });
 })
 ```
 
