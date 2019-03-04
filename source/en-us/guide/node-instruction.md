@@ -46,11 +46,11 @@ FIBOS TestNet is a p2p-connected testing chain with FIBOS nodes, which is conven
 Root BP connection information:
 
 ```
-IP : 'http://testnet.fibos.fo'
+IP : 'http://api.testnet.fo'
 chainID : '68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'
 ```
 
-Support FIBOS TestNet, account registration: <http://testnet.fibos.fo/>
+Support FIBOS TestNet, account registration: <http://api.testnet.fo/>
 
 (Default account sends 10 EOS to pass-through)
 
@@ -58,17 +58,13 @@ HTTP List
 
 |              URL                | HTTP port |
 | :-----------------------------: | :-------: |
-|     http://testnet.fibos.fo     |   8870    |
-|    http://testnet2.fibos.fo     |   8870    |
-|     http://testnet.fibos.fo     |    80     |
-| http://history-testnet.fibos.fo |    80     |
+|     http://api.testnet.fo     |   80    |
 
 P2P List
 
 |          URL            s| P2P port |
 | :---------------------: | :------: |
-|  p2p-testnet.fibos.fo   |   9870   |
-| p2p-testnet-02.fibos.fo |   9870   |
+|  p2p.testnet.fo   |   9870   |
 
 ### FIBOS Main Net
 
