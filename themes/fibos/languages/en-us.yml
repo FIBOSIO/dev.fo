@@ -16,6 +16,7 @@ submenu:
   system: System Contracts
   contract: Smart Contracts
   economic: Token Contracts
+  security: 安全指南
 
 main:
   title: FIBOS Developer Community
