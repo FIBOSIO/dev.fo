@@ -292,6 +292,7 @@ a.button.gray {
 }
 .highlight .gutter {
   width: 1.5em;
+  user-select: none;
 }
 .highlight .code pre {
   padding: 1.2em 1.4em;
