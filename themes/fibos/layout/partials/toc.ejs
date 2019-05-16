@@ -18,6 +18,9 @@
           <% if (fileName === 'node-instruction') { %>
             <li><h3><%= __('submenu.node') %></h3></li>
           <% } %>
+          <% if (fileName === 'safety-guide') { %>
+            <li><h3>安全指南</h3></li>
+          <% } %>
         <% } %>
         <li>
           <a href="<%- url_for_lang(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
@@ -40,6 +43,9 @@
           <% } %>
           <% if (fileName === 'node-instruction') { %>
             <li><h3><%= __('submenu.node') %></h3></li>
+          <% } %>
+          <% if (fileName === 'safety-guide') { %>
+            <li><h3>安全指南</h3></li>
           <% } %>
         <% } %>
         <li>
