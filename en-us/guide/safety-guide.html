@@ -1,0 +1,972 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>
+    FO 接入安全指南 — FIBOS Developer Community</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="FO 接入安全指南 — Dev.fo">
+  <meta property="og:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta property="og:image" content="https://dev.fo//images/downlogo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FO 接入安全指南 — Dev.fo">
+  <meta name="twitter:description" content="FIBOS 是一个结合 FIBJS 以及 EOS 的 JavaScript 的运行平台">
+  <meta name="twitter:image" content="https://dev.fo/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="apple-touch-icon" sizes="64x64" href="/images/icon/64*64.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/icon/32*32.ico">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="/images/icon/64*64.ico">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+
+   <!-- HTTP 1.1 -->
+  <meta http-equiv="pragma" content="no-cache">
+  <!-- HTTP 1.0 -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <!-- Prevent caching at the proxy server -->
+  <meta http-equiv="expires" content="0">
+
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <link rel="stylesheet" href="/css/page.css">
+
+  <script>
+    window.PAGE_TYPE = "tutorials"
+  </script>
+</head>
+
+<body class="docs">
+  <div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <div id="header">
+  <a id="logo" href="/en-us/">
+    <img src="/images/Group.svg" alt="Developer logo">
+    <!-- <span>Developer</span> -->
+  </a>
+  <ul id="nav">
+    <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link tutorials ">Node Guide</a></li>
+
+      <li><a href="/en-us/guide/safety-guide.html" class="nav-link current">安全指南</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/safety-guide.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/safety-guide.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+  </ul>
+</div>
+
+  
+  <div id="main" class="fix-sidebar">
+    
+    
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <!-- <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li> -->
+<li>
+  <a href="/en-us/" class="nav-link contribute">Home</a>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Guides</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/en-us/guide/introduction.html" class="nav-link">Introduction</a></li>
+      <li><a href="/en-us/guide/installation.html" class="nav-link">Installation</a></li>
+      <li><a href="/en-us/guide/start.html" class="nav-link">Quick Start</a></li>
+      <li><a href="/en-us/guide/tutorials-instructions.html" class="nav-link tutorials">Guides</a></li>
+
+      <li><a href="/en-us/guide/smart-contract-instructions.html" class="nav-link">Smart Contracts</a></li>
+      <li><a href="/en-us/guide/system-resources.html" class="nav-link">System Contracts</a></li>
+      <li><a href="/en-us/guide/token-transfer.html" class="nav-link">Token Contracts</a></li>
+      <li><a href="/en-us/guide/node-instruction.html" class="nav-link tutorials ">Node Guide</a></li>
+
+      <li><a href="/en-us/guide/safety-guide.html" class="nav-link current">安全指南</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+<li class="nav-dropdown-container learn">
+    <a class="nav-link">Manual</a><span class="arrow"></span>
+    <ul class="nav-dropdown">
+      <li><ul>
+        <li><a href="/en-us/api/smartcontract/index.html" class="nav-link">JS Contract</a></li>
+        <li><a href="/en-us/api/fibos/index.html" class="nav-link">FIBOS Node</a></li>
+        <li><a href="/en-us/api/eosiocontract/index.html" class="nav-link">System Contract</a></li>
+        <li><a href="/en-us/api/token/index.html" class="nav-link">Token Contract</a></li>
+        <li><a href="/en-us/api/fibosjs/index.html" class="nav-link">FIBOS.JS</a></li>
+        <li><a href="/en-us/api/rpc/index.html" class="nav-link">RPC API</a></li>
+        <li><a href="/en-us/api/msig/index.html" class="nav-link">Msig Contract</a></li>
+      </ul></li>
+    </ul>
+  </li>
+<!-- <li>
+  <a href="/api/technology/index.html" class="nav-link team">技术手册</a>
+</li> -->
+<li>
+  <a href="http://forum.fo/" class="nav-link contribute " target="_blank">Community</a>
+</li>
+<li>
+  <a href="https://fibos.io/" class="nav-link contribute" target="_blank">FIBOS</a>
+</li>
+<li class="nav-dropdown-container language">
+  
+  
+    <a class="nav-link"><img src="/images/en.png"></a><span class="arrow"></span>
+  
+<ul class="nav-dropdown">
+    <li>
+        <a href="/zh-cn/guide/safety-guide.html"><img src="/images/zh.png">
+        <span class="lang">简体中文</span>
+        </a>
+    </li>
+    <li>
+        <a href="/en-us/guide/safety-guide.html"><img src="/images/en.png">
+        <span class="lang">English</span>
+        </a>
+    </li>
+</ul>
+</li>
+
+    </ul>
+    <div class="list">
+      
+        <h2>
+            
+            Guidelines
+          </h2>
+        <ul class="menu-root">
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/introduction.html" class="sidebar-link">Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/installation.html" class="sidebar-link">Installation</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/start.html" class="sidebar-link">Quick Start</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+            <li><h3>Guides</h3></li>
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-instructions.html" class="sidebar-link">Introductions</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-setnode.html" class="sidebar-link">Build local test node</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-abi.html" class="sidebar-link">Smart Contract - ABI Files</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-js.html" class="sidebar-link">Smart Contract——JS Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-deploy.html" class="sidebar-link">Deploy Contracts</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-testcase.html" class="sidebar-link">Test Contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/tutorials-usecontract.html" class="sidebar-link">Develop DApp Client</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+            <li><h3>Smart Contracts</h3></li>
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-instructions.html" class="sidebar-link">Contract Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-ABI.html" class="sidebar-link">ABI File</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-database.html" class="sidebar-link">Database</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-auth.html" class="sidebar-link">Account Authority</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-inlinecall.html" class="sidebar-link">Call In-contract</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/smart-contract-recipient.html" class="sidebar-link">Notification</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+            <li><h3>System Contracts</h3></li>
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-resources.html" class="sidebar-link">Resources</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-account.html" class="sidebar-link">Account</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/system-permission.html" class="sidebar-link">Permission</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+            <li><h3>Token Contracts</h3></li>
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-transfer.html" class="sidebar-link">Transfer</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-card.html" class="sidebar-link">Token</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-exchange.html" class="sidebar-link">Token Exchange</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/token-wallet.html" class="sidebar-link">Contract Sub-Wallet</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+            <li><h3>Node Guide</h3></li>
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-instruction.html" class="sidebar-link">Node Introduction</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-nodesNet.html" class="sidebar-link">Add to nodes network</a>
+        </li>
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
+          <a href="/en-us/guide/node-persistence.html" class="sidebar-link">Node Data Persistence</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+      
+      
+        
+          
+          
+          
+          
+          
+          
+            <li><h3>安全指南</h3></li>
+          
+        
+        <li>
+          <a href="/en-us/guide/safety-guide.html" class="sidebar-link current">FO 接入安全指南</a>
+        </li>
+      
+  
+      
+    
+      
+      
+  
+      
+    
+  </ul>
+  
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="content tutorials with-sidebar ">
+  
+    
+  
+  
+    <h1>FO 接入安全指南</h1>
+  
+  
+    <p>该指南旨在帮助各项目方完成与 FO 通证的安全对接，保障各项目方 FO 充提业务的安全稳定以及 FIBOS 节点的安全。</p>
+<h2 id="交易所充值提现接入方案"><a href="#交易所充值提现接入方案" class="headerlink" title="交易所充值提现接入方案"></a>交易所充值提现接入方案</h2><h3 id="基本逻辑"><a href="#基本逻辑" class="headerlink" title="基本逻辑"></a>基本逻辑</h3><p><strong>充值：</strong> 交易所需要给交易所中充值的账户生成平台内唯一的可识别标识，用户充值至交易所账户时需在转账操作的 memo 字段中填入交易所平台为该用户生成的唯一标识。</p>
+<p><strong>提现：</strong> 用户提现时填入自己的 FIBOS 账户，交易所通过转账方式将用户所提现 FO 的数量转给用户所填账户名，从而完成提币。在此过程中，memo 字段可能也是必要的，因为用户有可能从一交易所提现至另一交易所。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
+<p>FIBOS 上 FO 的充提币逻辑与 EOS 主网基本一致，但其中的不同之处需要各大交易所提起注意：</p>
+</blockquote>
+<h4 id="FIBOS-的转账类型："><a href="#FIBOS-的转账类型：" class="headerlink" title="FIBOS 的转账类型："></a>FIBOS 的转账类型：</h4><p>FIBOS 网络中的转账函数分为两种：<code>transfer</code> 和 <code>extransfer</code></p>
+<p><strong>transfer</strong></p>
+<p>其中  <code>transfer</code> 函数表示的是与 EOS 主网兼容的转账方法，函数原型为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> transfer(account_name <span class="keyword">from</span>, account_name to, asset quantity, string memo)</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transfer(<span class="string">'accountfrom'</span>, <span class="string">'accountto'</span>, <span class="string">'1.0000 FO'</span>, <span class="string">'memo field'</span>)</span><br></pre></td></tr></table></figure>
+<p>在链上获取到的 action 示例为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"timestamp"</span>: <span class="string">"2019-03-20T02:20:05.000"</span>,</span><br><span class="line">  <span class="string">"producer"</span>: <span class="string">"lijialintest"</span>,</span><br><span class="line">  <span class="string">"confirmed"</span>: 0,</span><br><span class="line">  <span class="string">"previous"</span>: <span class="string">"021472cd66b01c2ee4b43d2980713df90b4c6f67b025b32556e7177c1a130e64"</span>,</span><br><span class="line">  <span class="string">"transaction_mroot"</span>: <span class="string">"a321fade674c1e0d0dbe0dadf003c38768356ce608874b79dde7ca4174330436"</span>,</span><br><span class="line">  <span class="string">"action_mroot"</span>: <span class="string">"32e5ac06a722acad9d89ae068957e3e8aa83a114b739d7e728f8d04d57d267fe"</span>,</span><br><span class="line">  <span class="string">"schedule_version"</span>: 334,</span><br><span class="line">  <span class="string">"new_producers"</span>: null,</span><br><span class="line">  <span class="string">"header_extensions"</span>: [],</span><br><span class="line">  <span class="string">"producer_signature"</span>: <span class="string">"SIG_K1_KWgntpfkMjR52MC8NTJ4o6rE9pe3ZUEG7Q1ioFFRYfUBTcPYPDgucKVzZiCe293aU3yJhJMRR7pBBGwMasaQ4AbbK5KTjK"</span>,</span><br><span class="line">  <span class="string">"transactions"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"status"</span>: <span class="string">"executed"</span>,</span><br><span class="line">      <span class="string">"cpu_usage_us"</span>: 568,</span><br><span class="line">      <span class="string">"net_usage_words"</span>: 18,</span><br><span class="line">      <span class="string">"trx"</span>: &#123;</span><br><span class="line">        <span class="string">"id"</span>: <span class="string">"183416881a4eb8e45da548d429eff1566d5416d6fb53cf5a5ec2f56e942a95e0"</span>,</span><br><span class="line">        <span class="string">"signatures"</span>: [</span><br><span class="line">          <span class="string">"SIG_K1_K7Qc7GbKyhpwaGKB8ZgtXKkk8ei2RJhBZ6vRTXrycSXYtNneyDpTes87vGGDP12EXkCBJjcXiVKfjBgig4neQinQkr7hqp"</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">"compression"</span>: <span class="string">"none"</span>,</span><br><span class="line">        <span class="string">"packed_context_free_data"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="string">"context_free_data"</span>: [],</span><br><span class="line">        <span class="string">"packed_trx"</span>: <span class="string">"8fa3915c81712c0f4f49000000000100a6823403ea3055000000572d3ccdcd01504f520a514c8f5b00000000a8ed323233504f520a514c8f5b204408d3683f8dee817fcf000000000004464f0000000000125468616e6b7320666f7220737570706f727400"</span>,</span><br><span class="line">        <span class="string">"transaction"</span>: &#123;</span><br><span class="line">          <span class="string">"expiration"</span>: <span class="string">"2019-03-20T02:21:03"</span>,</span><br><span class="line">          <span class="string">"ref_block_num"</span>: 29057,</span><br><span class="line">          <span class="string">"ref_block_prefix"</span>: 1229917996,</span><br><span class="line">          <span class="string">"max_net_usage_words"</span>: 0,</span><br><span class="line">          <span class="string">"max_cpu_usage_ms"</span>: 0,</span><br><span class="line">          <span class="string">"delay_sec"</span>: 0,</span><br><span class="line">          <span class="string">"context_free_actions"</span>: [],</span><br><span class="line">          <span class="string">"actions"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="string">"account"</span>: <span class="string">"eosio.token"</span>,</span><br><span class="line">              <span class="string">"name"</span>: <span class="string">"transfer"</span>,</span><br><span class="line">              <span class="string">"authorization"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                  <span class="string">"actor"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">                  <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">                &#125;</span><br><span class="line">              ],</span><br><span class="line">              <span class="string">"data"</span>: &#123;</span><br><span class="line">                <span class="string">"from"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">                <span class="string">"to"</span>: <span class="string">"accountto"</span>,</span><br><span class="line">                <span class="string">"quantity"</span>: <span class="string">"1.0000 FO"</span>,</span><br><span class="line">                <span class="string">"memo"</span>: <span class="string">"memo field"</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="string">"hex_data"</span>: <span class="string">"504f520a514c8f5b204408d3683f8dee817fcf000000000004464f0000000000125468616e6b7320666f7220737570706f7274"</span></span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          <span class="string">"transaction_extensions"</span>: []</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"block_extensions"</span>: [],</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">"021472cefdf8687fcf4b21560c5d4b0d660eb499e40722bbaeea28b7c5d74c71"</span>,</span><br><span class="line">  <span class="string">"block_num"</span>: 34894542,</span><br><span class="line">  <span class="string">"ref_block_prefix"</span>: 1445022671</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>extransfer：</strong></p>
+<p>其中 <code>extransfer</code> 函数表示的是与 FIBOS 主网扩展的转账方法，该方法支持在 FIBOS 上发行的所有通证的转账，函数原型为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> extransfer(account_name <span class="keyword">from</span>, account_name to, extended_asset quantity, string memo)</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extransfer(<span class="string">'accountfrom'</span>, <span class="string">'accountto'</span>, <span class="string">'1.0000 FO@eosio'</span>, <span class="string">'memo field'</span>)</span><br></pre></td></tr></table></figure>
+<p>其中，@ 字符后表示的是该通证的发行方，系统通证 FO 为 FO@eosio，eosio 表示的是该通证是系统原生发行的通证。</p>
+<p>在链上获取到的 action 示例为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"timestamp"</span>: <span class="string">"2019-03-20T01:09:45.000"</span>,</span><br><span class="line">  <span class="string">"producer"</span>: <span class="string">"fibos123comm"</span>,</span><br><span class="line">  <span class="string">"confirmed"</span>: 0,</span><br><span class="line">  <span class="string">"previous"</span>: <span class="string">"021451fbb65c4e1e657eeea22de95dd3b78fc2c1a5dcd82e0eef87e594b63e43"</span>,</span><br><span class="line">  <span class="string">"transaction_mroot"</span>: <span class="string">"803bd6b19aa480d78195fd950c336a60d2a6d03d6c9639b29b2023dea65cec7c"</span>,</span><br><span class="line">  <span class="string">"action_mroot"</span>: <span class="string">"c5c7cf621fa707e37ef2cb4fe26f40217056583e92a6340b210708a365b0700b"</span>,</span><br><span class="line">  <span class="string">"schedule_version"</span>: 334,</span><br><span class="line">  <span class="string">"new_producers"</span>: null,</span><br><span class="line">  <span class="string">"header_extensions"</span>: [],</span><br><span class="line">  <span class="string">"producer_signature"</span>: <span class="string">"SIG_K1_KWgbyfa68s7XisFW37xA8RobkA9NZAVcdSqWRNmcyfkv1NdoZdg4Ux3phnLn713kYwLk8sAM2a8TFzJCyCvjyfy7HEA6yz"</span>,</span><br><span class="line">  <span class="string">"transactions"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"status"</span>: <span class="string">"executed"</span>,</span><br><span class="line">      <span class="string">"cpu_usage_us"</span>: 524,</span><br><span class="line">      <span class="string">"net_usage_words"</span>: 17,</span><br><span class="line">      <span class="string">"trx"</span>: &#123;</span><br><span class="line">        <span class="string">"id"</span>: <span class="string">"7a3fcf6b41a314139004c523e051105761baa410727b7daf811c9a66d15d73d8"</span>,</span><br><span class="line">        <span class="string">"signatures"</span>: [</span><br><span class="line">          <span class="string">"SIG_K1_KAcz3Z2Yd7NCAdW4TA3RFLPESz6RJoNzjbF8SSpXtXxFWeDsYFb5AHob3TRDqNPM6NCUTzq3hT7FHNJ2VyaXwLYcEF42ek"</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">"compression"</span>: <span class="string">"none"</span>,</span><br><span class="line">        <span class="string">"packed_context_free_data"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="string">"context_free_data"</span>: [],</span><br><span class="line">        <span class="string">"packed_trx"</span>: <span class="string">"0a93915c9a501d9a32be000000000100a6823403ea305500c0550b4f7373570130c455d85c95318d00000000a8ed32322930c455d85c95318d20c255d85c95318d102700000000000004464f00000000000000000000ea30550000"</span>,</span><br><span class="line">        <span class="string">"transaction"</span>: &#123;</span><br><span class="line">          <span class="string">"expiration"</span>: <span class="string">"2019-03-20T01:10:34"</span>,</span><br><span class="line">          <span class="string">"ref_block_num"</span>: 20634,</span><br><span class="line">          <span class="string">"ref_block_prefix"</span>: 3190987293,</span><br><span class="line">          <span class="string">"max_net_usage_words"</span>: 0,</span><br><span class="line">          <span class="string">"max_cpu_usage_ms"</span>: 0,</span><br><span class="line">          <span class="string">"delay_sec"</span>: 0,</span><br><span class="line">          <span class="string">"context_free_actions"</span>: [],</span><br><span class="line">          <span class="string">"actions"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="string">"account"</span>: <span class="string">"eosio.token"</span>,</span><br><span class="line">              <span class="string">"name"</span>: <span class="string">"extransfer"</span>,</span><br><span class="line">              <span class="string">"authorization"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                  <span class="string">"actor"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">                  <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">                &#125;</span><br><span class="line">              ],</span><br><span class="line">              <span class="string">"data"</span>: &#123;</span><br><span class="line">                <span class="string">"from"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">                <span class="string">"to"</span>: <span class="string">"accountto"</span>,</span><br><span class="line">                <span class="string">"quantity"</span>: &#123;</span><br><span class="line">                  <span class="string">"quantity"</span>: <span class="string">"1.0000 FO"</span>,</span><br><span class="line">                  <span class="string">"contract"</span>: <span class="string">"eosio"</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">"memo"</span>: <span class="string">"memo field"</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="string">"hex_data"</span>: <span class="string">"30c455d85c95318d20c255d85c95318d102700000000000004464f00000000000000000000ea305500"</span></span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          <span class="string">"transaction_extensions"</span>: []</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"block_extensions"</span>: [],</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">"021451fcb2c4621ffd29f10205e88e7d815f7e0952af0b1acbe2231cde4043bd"</span>,</span><br><span class="line">  <span class="string">"block_num"</span>: 34886140,</span><br><span class="line">  <span class="string">"ref_block_prefix"</span>: 49359357</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong><br> <strong>FO 通证的转账支持上述两种转账方法，因此为防止用户充值记录的丢失，交易所需要对上述两种转账方法提供支持。</strong></p>
+</blockquote>
+<h2 id="交易所充提业务安全指南"><a href="#交易所充提业务安全指南" class="headerlink" title="交易所充提业务安全指南"></a>交易所充提业务安全指南</h2><p>该部分内容总结了在交易所对接 FO 业务时可能遭受的一系列攻击，并且给出了对应的安全解决方案。</p>
+<h3 id="不可逆高度判断"><a href="#不可逆高度判断" class="headerlink" title="不可逆高度判断"></a>不可逆高度判断</h3><p>由于 FIBOS 公链的使用了 DPOS 的共识机制，在判断一笔转账（一笔 Transaction）是否可信需要对当前转账动作所在的块高度进行判断。在 FIBOS 网络中，一笔交易所在的高度如果在不可逆高度之内，我们就可以认定该交易已经被 FIBOS 网络中的 BP（Block Producer）节点所确认，进入了不可逆状态，不可被回滚。</p>
+<p>因此交易所在判断一笔用户充值交易是否有效时，需要判断该转账所在高度小于当前 FIBOS 的不可逆高度，获取 FIBOS 的不可逆高度可以通过 fibos.js 客户端或者 RPC 获取链上基本信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"server_version"</span>: <span class="string">"a09083c8"</span>,</span><br><span class="line">  <span class="string">"chain_id"</span>: <span class="string">"6aa7bd33b6b45192465afa3553dedb531acaaff8928cf64b70bd4c5e49b7ec6a"</span>,</span><br><span class="line">  <span class="string">"head_block_num"</span>: 34904892,</span><br><span class="line">  <span class="string">"last_irreversible_block_num"</span>: 34904564,</span><br><span class="line">  <span class="string">"last_irreversible_block_id"</span>: <span class="string">"021499f464cdb1a97f3ec896cda2ddb889b1aaba256b5f4d6d0e6c0e9c72ef4e"</span>,</span><br><span class="line">  <span class="string">"head_block_id"</span>: <span class="string">"02149b3c233fc770517a8a9afc49496b28d883bc57f1f2757fd65156c18e0fbe"</span>,</span><br><span class="line">  <span class="string">"head_block_time"</span>: <span class="string">"2019-03-20T03:47:14.500"</span>,</span><br><span class="line">  <span class="string">"head_block_producer"</span>: <span class="string">"fibos123comm"</span>,</span><br><span class="line">  <span class="string">"virtual_block_cpu_limit"</span>: 200000000,</span><br><span class="line">  <span class="string">"virtual_block_net_limit"</span>: 1048576000,</span><br><span class="line">  <span class="string">"block_cpu_limit"</span>: 199900,</span><br><span class="line">  <span class="string">"block_net_limit"</span>: 1048576,</span><br><span class="line">  <span class="string">"server_version_string"</span>: <span class="string">"v1.5.4.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中的 <code>last_irreversible_block_num</code> 字段表示的即为 FIBOS 网络当前的最新不可逆高度。</p>
+<p>一笔交易从被打包进某区块的状态变为不可逆状态大概需要耗费 164 秒，因此该时间即为用户充值到账的延迟时间。</p>
+<h3 id="“假币”充值"><a href="#“假币”充值" class="headerlink" title="“假币”充值"></a>“假币”充值</h3><p>因为 FIBOS 公链上有众多用户都发行了自己的通证，如果交易所的业务处理不慎，会导致有用户自行发行的通证充值进入交易所参与交易，我们称这种攻击为“假币充值”，对于这种假币充值行为，交易所需要在充值业务中做好防范。</p>
+<p>对于 <code>transfer</code> 转账（ action.name 为 transfer ）来说，示例如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"actions"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"account"</span>: <span class="string">"eosio.token"</span>,</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"transfer"</span>,</span><br><span class="line">      <span class="string">"authorization"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"actor"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">          <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"data"</span>: &#123;</span><br><span class="line">        <span class="string">"from"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">        <span class="string">"to"</span>: <span class="string">"accountto"</span>,</span><br><span class="line">        <span class="string">"quantity"</span>: <span class="string">"1.0000 FO"</span>,</span><br><span class="line">        <span class="string">"memo"</span>: <span class="string">"memo field"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"hex_data"</span>: <span class="string">"504f520a514c8f5b204408d3683f8dee817fcf000000000004464f0000000000125468616e6b7320666f7220737570706f7274"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+<p>需要判断：</p>
+<ul>
+<li><code>action.account</code> 必须为 ‘eosio.token’</li>
+<li><code>actions.data.to</code> 必须为交易所充值账户名</li>
+<li><code>actions.data.quantity</code> 必须为 ‘xxx.xxxx FO’</li>
+</ul>
+<p>对于 <code>extransfer</code> 转账（ action.name 为 extransfer）来说，示例如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"actions"</span>: [</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="string">"account"</span>: <span class="string">"eosio.token"</span>,</span><br><span class="line">     <span class="string">"name"</span>: <span class="string">"extransfer"</span>,</span><br><span class="line">     <span class="string">"authorization"</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="string">"actor"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">         <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">       &#125;</span><br><span class="line">     ],</span><br><span class="line">     <span class="string">"data"</span>: &#123;</span><br><span class="line">       <span class="string">"from"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">       <span class="string">"to"</span>: <span class="string">"accountto"</span>,</span><br><span class="line">       <span class="string">"quantity"</span>: &#123;</span><br><span class="line">         <span class="string">"quantity"</span>: <span class="string">"1.0000 FO"</span>,</span><br><span class="line">         <span class="string">"contract"</span>: <span class="string">"eosio"</span></span><br><span class="line">       &#125;,</span><br><span class="line">       <span class="string">"memo"</span>: <span class="string">"memo field"</span></span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="string">"hex_data"</span>: <span class="string">"30c455d85c95318d20c255d85c95318d102700000000000004464f00000000000000000000ea305500"</span></span><br><span class="line">   &#125;</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+<p>需要判断：</p>
+<ul>
+<li><code>action.account</code> 必须为 ‘eosio.token’</li>
+<li><code>actions.data.to</code> 必须为交易所充值账户名</li>
+<li><code>actions.data.quantity</code> 必须为 ‘xxx.xxxx FO’</li>
+<li><code>actions.data.quantity.contract</code> 必须为 ‘eosio’</li>
+</ul>
+<h3 id="Hard-failed-状态攻击"><a href="#Hard-failed-状态攻击" class="headerlink" title="Hard - failed 状态攻击"></a>Hard - failed 状态攻击</h3><p>FIBOS 链上交易的执行状态存在多种，其中有一种状态为 hard-failed，处于这种状态下的交易的特点是，没有被成功执行，但是依旧在链上留下了记录，攻击者可以利用 FIBOS 的这一交易特性对交易所造成威胁，从而进行虚假充值。对这一安全威胁的防范办法是，在不可逆高度的基础上，对交易的状态进行判断，如果发现充值交易的状态是 <code>hard-failed</code> 则认定为是假充值。对于以下的示例交易来说，交易所应当判断：<strong>transactions.status</strong> 为 <strong>executed</strong>。只有处于 <code>executed</code> 状态并且已经在不可逆高度下的交易才能认定是真实、不可篡改的充值记录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"timestamp"</span>: <span class="string">"2019-03-20T01:09:45.000"</span>,</span><br><span class="line">  <span class="string">"producer"</span>: <span class="string">"fibos123comm"</span>,</span><br><span class="line">  <span class="string">"confirmed"</span>: 0,</span><br><span class="line">  <span class="string">"previous"</span>: <span class="string">"021451fbb65c4e1e657eeea22de95dd3b78fc2c1a5dcd82e0eef87e594b63e43"</span>,</span><br><span class="line">  <span class="string">"transaction_mroot"</span>: <span class="string">"803bd6b19aa480d78195fd950c336a60d2a6d03d6c9639b29b2023dea65cec7c"</span>,</span><br><span class="line">  <span class="string">"action_mroot"</span>: <span class="string">"c5c7cf621fa707e37ef2cb4fe26f40217056583e92a6340b210708a365b0700b"</span>,</span><br><span class="line">  <span class="string">"schedule_version"</span>: 334,</span><br><span class="line">  <span class="string">"new_producers"</span>: null,</span><br><span class="line">  <span class="string">"header_extensions"</span>: [],</span><br><span class="line">  <span class="string">"producer_signature"</span>: <span class="string">"SIG_K1_KWgbyfa68s7XisFW37xA8RobkA9NZAVcdSqWRNmcyfkv1NdoZdg4Ux3phnLn713kYwLk8sAM2a8TFzJCyCvjyfy7HEA6yz"</span>,</span><br><span class="line">  <span class="string">"transactions"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"status"</span>: <span class="string">"executed"</span>,</span><br><span class="line">      <span class="string">"cpu_usage_us"</span>: 524,</span><br><span class="line">      <span class="string">"net_usage_words"</span>: 17,</span><br><span class="line">      <span class="string">"trx"</span>: &#123;</span><br><span class="line">        <span class="string">"id"</span>: <span class="string">"7a3fcf6b41a314139004c523e051105761baa410727b7daf811c9a66d15d73d8"</span>,</span><br><span class="line">        <span class="string">"signatures"</span>: [</span><br><span class="line">          <span class="string">"SIG_K1_KAcz3Z2Yd7NCAdW4TA3RFLPESz6RJoNzjbF8SSpXtXxFWeDsYFb5AHob3TRDqNPM6NCUTzq3hT7FHNJ2VyaXwLYcEF42ek"</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">"compression"</span>: <span class="string">"none"</span>,</span><br><span class="line">        <span class="string">"packed_context_free_data"</span>: <span class="string">""</span>,</span><br><span class="line">        <span class="string">"context_free_data"</span>: [],</span><br><span class="line">        <span class="string">"packed_trx"</span>: <span class="string">"0a93915c9a501d9a32be000000000100a6823403ea305500c0550b4f7373570130c455d85c95318d00000000a8ed32322930c455d85c95318d20c255d85c95318d102700000000000004464f00000000000000000000ea30550000"</span>,</span><br><span class="line">        <span class="string">"transaction"</span>: &#123;</span><br><span class="line">          <span class="string">"expiration"</span>: <span class="string">"2019-03-20T01:10:34"</span>,</span><br><span class="line">          <span class="string">"ref_block_num"</span>: 20634,</span><br><span class="line">          <span class="string">"ref_block_prefix"</span>: 3190987293,</span><br><span class="line">          <span class="string">"max_net_usage_words"</span>: 0,</span><br><span class="line">          <span class="string">"max_cpu_usage_ms"</span>: 0,</span><br><span class="line">          <span class="string">"delay_sec"</span>: 0,</span><br><span class="line">          <span class="string">"context_free_actions"</span>: [],</span><br><span class="line">          <span class="string">"actions"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="string">"account"</span>: <span class="string">"eosio.token"</span>,</span><br><span class="line">              <span class="string">"name"</span>: <span class="string">"extransfer"</span>,</span><br><span class="line">              <span class="string">"authorization"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                  <span class="string">"actor"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">                  <span class="string">"permission"</span>: <span class="string">"active"</span></span><br><span class="line">                &#125;</span><br><span class="line">              ],</span><br><span class="line">              <span class="string">"data"</span>: &#123;</span><br><span class="line">                <span class="string">"from"</span>: <span class="string">"accountfrom"</span>,</span><br><span class="line">                <span class="string">"to"</span>: <span class="string">"accountto"</span>,</span><br><span class="line">                <span class="string">"quantity"</span>: &#123;</span><br><span class="line">                  <span class="string">"quantity"</span>: <span class="string">"1.0000 FO"</span>,</span><br><span class="line">                  <span class="string">"contract"</span>: <span class="string">"eosio"</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">"memo"</span>: <span class="string">"memo field"</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="string">"hex_data"</span>: <span class="string">"30c455d85c95318d20c255d85c95318d102700000000000004464f00000000000000000000ea305500"</span></span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          <span class="string">"transaction_extensions"</span>: []</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"block_extensions"</span>: [],</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">"021451fcb2c4621ffd29f10205e88e7d815f7e0952af0b1acbe2231cde4043bd"</span>,</span><br><span class="line">  <span class="string">"block_num"</span>: 34886140,</span><br><span class="line">  <span class="string">"ref_block_prefix"</span>: 49359357</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="交易所-FIBOS-节点安全配置"><a href="#交易所-FIBOS-节点安全配置" class="headerlink" title="交易所 FIBOS 节点安全配置"></a>交易所 FIBOS 节点安全配置</h2><p>对于交易所来说，搭建的 FIBOS 节点的安全也是不容忽视的，在交易所中 FIBOS API 节点承载着充币记录以及提币操作的功能，一旦出现安全问题，所带来的损失可能是不可估量的。这一部分内容为交易所搭建安全可靠的 FIBOS 网络节点提供了部分指导。</p>
+<h3 id="节点配置"><a href="#节点配置" class="headerlink" title="节点配置"></a>节点配置</h3><p>为了满足交易所充提币业务，推荐搭建 FIBOS 节点机器的物理配置如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>推荐配置</th>
+<th>最低配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统类型</td>
+<td>Ubuntu Server 16.04+,X64</td>
+<td>Ubuntu Server 16.04+,X64</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>4核</td>
+<td>2核</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>8GB</td>
+<td>4GB</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>300GB + （SSD）</td>
+<td>100GB + （SSD）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="RPC-安全"><a href="#RPC-安全" class="headerlink" title="RPC 安全"></a>RPC 安全</h3><p>交易所 API 节点建议禁用外网 RPC，如果节点需要 RPC 访问，建议使用内网 HTTP，对应配置示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibos.load(<span class="string">"http"</span>, &#123;</span><br><span class="line">  <span class="string">"http-server-address"</span>: <span class="string">"127.0.0.1:8870"</span>, <span class="comment">//内网RPC地址和端口 </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="P2P-安全"><a href="#P2P-安全" class="headerlink" title="P2P 安全"></a>P2P 安全</h3><p>为了保证 API 节点的稳定可靠，节点的 P2P 广播网络需要尽可能保证可靠，FIBOS 维护了目前主网稳定可用的 P2P 节点地址列表，地址为：<a href="https://github.com/FIBOS-Community/fibos-p2p/blob/master/p2p.json" target="_blank" rel="noopener">https://github.com/FIBOS-Community/fibos-p2p/blob/master/p2p.json</a>，请节点按照最新的 P2P 节点列表进行节点启动，同时建议各大交易所节点应该定期对该文件进行更新，重新启动节点。</p>
+<p>示例 P2P 列表如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">"p2p.eosays.com:37106"</span>,</span><br><span class="line">  <span class="string">"p2p.otclook.com:9870"</span>,</span><br><span class="line">  <span class="string">"seed.bitze.site:9870"</span>,</span><br><span class="line">  <span class="string">"47.74.181.212:27672"</span>,</span><br><span class="line">  <span class="string">"api.xxq.pub:8888"</span>,</span><br><span class="line">  <span class="string">"fibos.eosforum.one"</span>,</span><br><span class="line">  <span class="string">"p2p.fibos.pw:59898"</span>,</span><br><span class="line">  <span class="string">"p2p.fometa.io:59877"</span>,</span><br><span class="line">  <span class="string">"p2p-mainnet.fibos123.com:9977"</span>,</span><br><span class="line">  <span class="string">"p2p.eosas.io:37717"</span>,</span><br><span class="line">  <span class="string">"p2p.fibos.fi:59595"</span>,</span><br><span class="line">  <span class="string">"p2p-mainnet.fobp.pro:9873"</span>,</span><br><span class="line">  <span class="string">"104.243.24.188:9870"</span>,</span><br><span class="line">  <span class="string">"va-p2p.fibos.io:9870"</span>,</span><br><span class="line">  <span class="string">"ca-p2p.fibos.io:9870"</span>,</span><br><span class="line">  <span class="string">"sl-p2p.fibos.io:9870"</span>,</span><br><span class="line">  <span class="string">"api.fibosgenesis.com:9870"</span>,</span><br><span class="line">  <span class="string">"p2p-mainnet.fibosironman.io:9999"</span>,</span><br><span class="line">  <span class="string">"fibosiseos.xyz:9870"</span>,</span><br><span class="line">  <span class="string">"47.92.122.2:9870"</span>,</span><br><span class="line">  <span class="string">"se-p2p.fibos.io:9870"</span>,</span><br><span class="line">  <span class="string">"p2p.fophoenix.com:37398"</span>,</span><br><span class="line">  <span class="string">"seed.fopool.xyz:9870"</span>,</span><br><span class="line">  <span class="string">"p2p.fibospubg.top:9870"</span>,</span><br><span class="line">  <span class="string">"seed.fibos.rocks:10100"</span>,</span><br><span class="line">  <span class="string">"47.96.101.244:9898"</span>,</span><br><span class="line">  <span class="string">"p2p.fospider.com:9933"</span>,</span><br><span class="line">  <span class="string">"47.100.103.213:9870"</span>,</span><br><span class="line">  <span class="string">"fibos.tokenasst.com:9870"</span>,</span><br><span class="line">  <span class="string">"seed-mainnet.fibscan.io:9103"</span>,</span><br><span class="line">  <span class="string">"p2p.mainnet.fibos.me:9870"</span>,</span><br><span class="line">  <span class="string">"40.115.179.182:9870"</span>,</span><br><span class="line">  <span class="string">"p2p.foshenzhenbp.com:9877"</span>,</span><br><span class="line">  <span class="string">"p2p.xm.fo:10300"</span>,</span><br><span class="line">  <span class="string">"34.73.46.1:9870"</span>,</span><br><span class="line">  <span class="string">"p2p.mainnet.hellofibos.com:9876"</span>,</span><br><span class="line">  <span class="string">"p2p-mainnet.ilovefibos.com:9876"</span>,</span><br><span class="line">  <span class="string">"fibos.koalakoala.club:9870"</span>,</span><br><span class="line">  <span class="string">"p2p-mainnet.loveyy.xyz:9870"</span>,</span><br><span class="line">  <span class="string">"linyuezhan.com:9870"</span>,</span><br><span class="line">  <span class="string">"p2p.fibos.team:9876"</span>,</span><br><span class="line">  <span class="string">"ln-p2p.fibos.io:9870"</span>,</span><br><span class="line">  <span class="string">"seed.fomaya.club:9870"</span>,</span><br><span class="line">  <span class="string">"seed.fiboso.com:9965"</span>,</span><br><span class="line">  <span class="string">"185.243.57.158:9870"</span>,</span><br><span class="line">  <span class="string">"fibos.smr123.com:7890"</span>,</span><br><span class="line">  <span class="string">"fibos-p2p.slowmist.io:9870"</span>,</span><br><span class="line">  <span class="string">"superfibos.com:9870"</span>,</span><br><span class="line">  <span class="string">"to-p2p.fibos.io:9870"</span>,</span><br><span class="line">  <span class="string">"p2p.touch-me.club:9870"</span>,</span><br><span class="line">  <span class="string">"ppray.com:9870"</span>,</span><br><span class="line">  <span class="string">"p2p-mainnet.qingah.com:9870"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注：</strong>对于如何启动 FIBOS 的节点，参考 <a href="https://github.com/FIBOS-Community/fibos-nodes/" target="_blank" rel="noopener">https://github.com/FIBOS-Community/fibos-nodes/</a></p>
+</blockquote>
+<p>如有其他相关技术疑问，请前往  <a href="https://dev.fo/zh-cn/index.html">https://dev.fo/zh-cn/index.html</a>  或 <a href="https://github.com/fibosio" target="_blank" rel="noopener">https://github.com/fibosio</a>  了解更多。也可以直接微信搜索  FIBOSio 添加 FIBSO 社区小助理，加入开发者群与我们交流。</p>
+
+  
+  
+</div>
+
+    
+  </div>
+  <script src="/js/smooth-scroll.min.js">"</script>
+  
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="/js/css.escape.js">"</script>
+  <script src="/js/common.js">"</script>
+
+  <!-- fastclick -->
+  <script src="/js/fastclick.js">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>
