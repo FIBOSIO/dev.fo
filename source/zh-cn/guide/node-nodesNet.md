@@ -556,7 +556,7 @@ v1.7.1.4 +
 fibos.load("ethash");
 ```
 
-**bp 节点：**
+**bp 节点：**     
 
 ```
 //v1.7.1.4 + for eth fox
