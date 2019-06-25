@@ -1,0 +1,95 @@
+<% var isIndex = page.path === 'index.html' %>
+<% var newisIndex = page.path === page.lang+'/index.html'%>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>
+    <%- page.title ? page.title + ' — ' : '' %><%= __('main.title') %></title>
+  <meta charset="utf-8">
+  <meta name="description" content="<%- theme.site_description %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="<%- page.title ? page.title + ' — ' : '' %>Dev.fo">
+  <meta property="og:description" content="<%- theme.site_description %>">
+  <meta property="og:image" content="https://<%- theme.root_domain %>/<%- url_for("/images/downlogo.png") %>">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<%- page.title ? page.title + ' — ' : '' %>Dev.fo">
+  <meta name="twitter:description" content="<%- theme.site_description %>">
+  <meta name="twitter:image" content="https://<%- theme.root_domain %>/images/downlogo.png">
+
+  <link rel="apple-touch-icon" sizes="32x32" href="<%- url_for("/images/icon/32*32.ico") %>">
+  <link rel="apple-touch-icon" sizes="64x64" href="<%- url_for("/images/icon/64*64.ico") %>">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="<%- url_for("/images/icon/32*32.ico") %>">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="<%- url_for("/images/icon/64*64.ico") %>">
+
+
+  <meta name="msapplication-TileColor" content="#4fc08d">
+  <meta name="theme-color" content="#4fc08d">
+
+  <meta name="msapplication-config" content="browserconfig.xml">
+
+   <!-- HTTP 1.1 -->
+  <meta http-equiv="pragma" content="no-cache">
+  <!-- HTTP 1.0 -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <!-- Prevent caching at the proxy server -->
+  <meta http-equiv="expires" content="0">
+
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- main page styles -->
+  <%- css(isIndex||newisIndex ? 'css/index' : 'css/page') %>
+
+  <script>
+    window.PAGE_TYPE = "<%- page.type %>"
+  </script>
+</head>
+
+<body class="<%- isIndex ? '' : 'docs' -%>">
+  <div id="mobile-bar" <%- isIndex ? 'class="top"' : '' %>>
+    <a class="menu-button"></a>
+    <a class="logo" href="/"></a>
+  </div>
+  <%- partial('partials/header') %>
+  <% if (!isIndex) { %>
+  <div id="main" class="fix-sidebar">
+    <% if (page.blog_index) { %>
+    <%- partial('partials/blog') %>
+    <% } else { %>
+    <%- body %>
+    <% } %>
+  </div>
+  <script src="<%- url_for("/js/smooth-scroll.min.js") %>">"</script>
+  <% } else { %>
+  <%- body %>
+  <% } %>
+
+  <!-- main custom script for sidebars, version selects etc. -->
+  <script src="<%- url_for("/js/css.escape.js") %>">"</script>
+  <script src="<%- url_for("/js/common.js") %>">"</script>
+
+  <!-- fastclick -->
+  <script src="<%- url_for("/js/fastclick.js") %>">"</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125332104-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-125332104-3');
+  </script>
+</body>
+
+</html>

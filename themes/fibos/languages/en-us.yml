@@ -1,0 +1,42 @@
+index:
+  title: FIBOS Developer Community 
+
+menu:
+  home: Home
+  guidelines: Guides
+  api: Manual
+  community: Community
+
+submenu:
+  introduction: Introduction
+  installation: Installation
+  start: Quick Start
+  tutorials: Guides
+  node: Node Guide
+  system: System Contracts
+  contract: Smart Contracts
+  economic: Token Contracts
+  security: Access Guide
+
+main:
+  title: FIBOS Developer Community
+  text: FIBOS is a platform for creating and developing blockchain application ecosystems. Easily create your own value network. Helping developers and entrepreneurs everywhere step into the Blockchain world.
+  button: Quick Start
+
+active:
+  start: Getting Started
+  advanced: Advanced Guide
+  api: Technical Manual
+
+content:
+  js: JS Contract
+  node: FIBOS Node
+  system: System Contract
+  token: Token Contract
+  fibos: FIBOS.JS
+  rpc: RPC API
+  msig: Msig Contract
+
+footer:
+  contact: Contact Us
+  text: FIBOS Developer Community

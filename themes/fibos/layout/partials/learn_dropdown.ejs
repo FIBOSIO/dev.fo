@@ -1,0 +1,19 @@
+<li class="nav-dropdown-container learn">
+  <a class="nav-link<%- page.path.match(/\/(introduction.html|installation.html|start.html|tutorials-instructions.html|smart-contract-instructions.html|system-resources.html|token-transfer.html|node-instruction.html|safety-guide.html)(\/|$)/) ? ' current' : '' %>"><%= __('menu.guidelines') %></a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="<%- url_for_lang("/guide/introduction.html") %>" class="nav-link<%- page.path.match(/\/introduction.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.introduction') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/installation.html") %>" class="nav-link<%- page.path.match(/\/installation.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.installation') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/start.html") %>" class="nav-link<%- page.path.match(/\/start.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.start') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/tutorials-instructions.html") %>" class="nav-link<%- page.path.match(/\/tutorials-instructions.html(\/|$)/) ? ' current' : '' %> tutorials"><%= __('submenu.tutorials') %></a></li>
+
+      <li><a href="<%- url_for_lang("/guide/smart-contract-instructions.html") %>" class="nav-link<%- page.path.match(/\/smart-contract-instructions.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.contract') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/system-resources.html") %>" class="nav-link<%- page.path.match(/\/system-resources.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.system') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/token-transfer.html") %>" class="nav-link<%- page.path.match(/\/token-transfer.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.economic') %></a></li>
+      <li><a href="<%- url_for_lang("/guide/node-instruction.html") %>" class="nav-link<%- page.path.match(/\/node-instruction.html(\/|$)/) ? ' current' : '' %> tutorials "><%= __('submenu.node') %></a></li>
+
+      <li><a href="<%- url_for_lang("/guide/access-guide.html") %>" class="nav-link<%- page.path.match(/\/safety-guide.html(\/|$)/) ? ' current' : '' %>"><%= __('submenu.security') %></a></li>
+    </ul></li>
+  </ul>
+</li>
+
