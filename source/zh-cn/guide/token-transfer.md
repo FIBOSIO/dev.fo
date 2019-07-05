@@ -16,15 +16,15 @@ order: 250
 | from     | 通证转入方 |
 | to       | 通证转出方 |
 | quantity | 通证数量   |
-| meno     | 附言       |
+| memo     | 附言       |
 
 ```javascript
 //初始化 fibos 客户端
 ...
 let ctx = fibos.contractSync('eosio.token');
 var r = ctx.extransferSync(
-    'fibostest123',  //通证转入方
-    'fibostest321',   //通证转出方
+    'fibostest123',  //通证转出方
+    'fibostest321',   //通证转入方
     '10.0000 ADC@fibostest123',  //通证数量
     'trasnfer to fibostest321',  //附言
     {
