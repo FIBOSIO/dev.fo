@@ -35,12 +35,14 @@ var fibos_client = FIBOS({
 
 ```javascript
 let ctx = fibos_client.contractSync('eosio.token');
-let result = ctx.exchangeSync(owner, quantity, tosymbol, memo);
+let result = ctx.exchangeSync(owner, quantity, to, price, id, memo);
 ```
 
 **方法说明:**
 
-使用 `exchangeSync()` 方法，在 FIBOS 使用 Bancor 进行通证之间兑换
+使用 `exchangeSync()` 方法，在 FIBOS 使用 Bancor / uniswap 进行通证之间兑换
+
+该接口既支持 Bancor 协议，也支持 uniswap 协议。
 
 **参数说明:**
 
@@ -48,8 +50,12 @@ let result = ctx.exchangeSync(owner, quantity, tosymbol, memo);
 | -------- | ---------------- |
 | owner    | 兑换账号         |
 | quantity | 兑换通证数量     |
-| tosymbol | 兑换通证目标类型 |
+| to| 兑换通证目标数量 |
+| price| 价格(仅在 uniswap 限价交易中填值) |
+| id | 渠道商 id (仅在 uniswap 交易中使用) |
 | memo | 兑换备注信息 |
+
+**需要说明的是，在 Bancor 兑换中，`to` 填入目标通证为0的值，假设我需要兑换 FO，则填入`0.0000 FO@eosio`；`price`填`0.0`；`id`填`owner`即可。**
 
 假设用户 `fibostest123` 发行了一个智能通证叫做 `VAYNE` ，用户 `fibostest321` 发行了一个叫做了 `HASAKI` 的智能通证。那么用户 `fibostest123` 想要用 `VAYNE` 兑换得到一定数量的 `HASAKI` 是怎么实现的呢？调用接口 `exchangeSync` 接口进行兑换。
 
@@ -61,6 +67,8 @@ let result = ctx.exchangeSync(
     'fibostest123',
     '1.0000 VAYNE@fibostest123',
     '0.0000 HASAKI@fibostest321',
+    '0.0',
+    'fibostest123',
     'exchenge VAYNE to HASAKI',
     {
         authorization: 'fibostest123'
@@ -69,56 +77,9 @@ let result = ctx.exchangeSync(
 
 如果想要兑换成 `FIBOS` 中的 `EOS` 通证，那么只需将 `0.0000 HASAKI@fibostst321` 换成 `0.0000 EOS@eosio` 即可。
 
+## uniswap 交易
 
-
-##  EOS 通证兑换 FO 通证
-
-### 发起 EOS 兑换 FO
-
-```javascript
-let ctx = fibos_client.contractSync('eosio.token');
-let owner = '你的 FIBOS 账户名';
-let eos2fo_quantity = '10.0000 EOS@eosio';
-let memo = 'exchange EOS to FO';
-
-var result = ctx.exchangeSync(owner, eos2fo_quantity ,'0.0000 FO@eosio', memo, {
-    authorization: owner
-});
-console.log(result);
-```
-
-### 查询兑换的 FO 通证
-
-```javascript
-var rs = fibos_client.getTableRowsSync(true, 'eosio.token', '你的 FIBOS 账户名', 'accounts');
-console.log(rs);
-```
-
-
-
-## FO 通证兑换 EOS 通证
-
-### 发起 FO 兑换 EOS
-
-```javascript
-let ctx = fibos_client.contractSync('eosio.token');
-let owner = '你的 FIBOS 账户名';
-let fo2eos_quantity = '10.0000 FO@eosio';
-let memo = 'exchange FO to EOS';
-
-var result = ctx.exchangeSync(owner, fo2eos_quantity, `0.0000 EOS@eosio`, memo, {
-    authorization: owner
-});
-console.log(result);
-```
-
-### 查询兑换的 EOS 通证
-
-```javascript
-var rs = fibos_client.getTableRowsSync(true, 'eosio.token', '你的 FIBOS 账户名', 'accounts');
-console.log(rs);
-```
-
+👉 见【[ uniswap 交易](token-uniswap.html)】部分
 
 
 ## 钱包一键兑换
