@@ -509,11 +509,6 @@
       
   
       
-    
-      
-      
-  
-      
         
           
           
@@ -547,6 +542,11 @@
         <li>
           <a href="/zh-cn/guide/smart-contract-inlinecall.html" class="sidebar-link">合约内调用</a>
         </li>
+      
+    
+      
+      
+  
       
     
       
@@ -648,11 +648,6 @@
       
   
       
-    
-      
-      
-  
-      
         
           
           
@@ -681,8 +676,35 @@
           
         
         <li>
+          <a href="/zh-cn/guide/token-uniswap.html" class="sidebar-link">uniswap</a>
+        </li>
+      
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
+        
+          
+          
+          
+          
+          
+          
+        
+        <li>
           <a href="/zh-cn/guide/token-exchange.html" class="sidebar-link current">兑换</a>
         </li>
+      
+    
+      
+      
+  
       
     
       
@@ -700,16 +722,6 @@
         <li>
           <a href="/zh-cn/guide/token-card.html" class="sidebar-link">通证</a>
         </li>
-      
-    
-      
-      
-  
-      
-    
-      
-      
-  
       
     
       
@@ -738,6 +750,16 @@
       
   
       
+    
+      
+      
+  
+      
+    
+      
+      
+  
+      
         
           
           
@@ -751,11 +773,6 @@
         <li>
           <a href="/zh-cn/guide/node-instruction.html" class="sidebar-link">节点介绍</a>
         </li>
-      
-    
-      
-      
-  
       
     
       
@@ -849,9 +866,10 @@
 <h2 id="通证互兑"><a href="#通证互兑" class="headerlink" title="通证互兑"></a>通证互兑</h2><p>整个兑换过程是在 FIBOS 主网执行，所以使用的是执行过程中使用的是 FIBOS 主网的私钥以及账户信息。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FIBOS = <span class="built_in">require</span>(<span class="string">'fibos.js'</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    chainId: <span class="string">'68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a'</span>,</span><br><span class="line">    priKey: <span class="string">'你的 FIBOS 主网私钥'</span>,</span><br><span class="line">    httpEndpoint: <span class="string">'http://api.testnet.fo'</span>,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fibos_client = FIBOS(&#123;</span><br><span class="line">    chainId: config.chainId,</span><br><span class="line">    keyProvider: config.priKey,</span><br><span class="line">    httpEndpoint: config.httpEndpoint,</span><br><span class="line">    verbose: <span class="literal">false</span>,</span><br><span class="line">    logger: &#123;</span><br><span class="line">        log: <span class="literal">null</span>,</span><br><span class="line">        error: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p><strong>调用方法:</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> result = ctx.exchangeSync(owner, quantity, tosymbol, memo);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> result = ctx.exchangeSync(owner, quantity, to, price, id, memo);</span><br></pre></td></tr></table></figure>
 <p><strong>方法说明:</strong></p>
-<p>使用 <code>exchangeSync()</code> 方法，在 FIBOS 使用 Bancor 进行通证之间兑换</p>
+<p>使用 <code>exchangeSync()</code> 方法，在 FIBOS 使用 Bancor / uniswap 进行通证之间兑换</p>
+<p>该接口既支持 Bancor 协议，也支持 uniswap 协议。</p>
 <p><strong>参数说明:</strong></p>
 <table>
 <thead>
@@ -870,8 +888,16 @@
 <td>兑换通证数量</td>
 </tr>
 <tr>
-<td>tosymbol</td>
-<td>兑换通证目标类型</td>
+<td>to</td>
+<td>兑换通证目标数量</td>
+</tr>
+<tr>
+<td>price</td>
+<td>价格(仅在 uniswap 限价交易中填值)</td>
+</tr>
+<tr>
+<td>id</td>
+<td>渠道商 id (仅在 uniswap 交易中使用)</td>
 </tr>
 <tr>
 <td>memo</td>
@@ -879,13 +905,11 @@
 </tr>
 </tbody>
 </table>
+<p><strong>需要说明的是，在 Bancor 兑换中，<code>to</code> 填入目标通证为0的值，假设我需要兑换 FO，则填入<code>0.0000 FO@eosio</code>；<code>price</code>填<code>0.0</code>；<code>id</code>填<code>owner</code>即可。</strong></p>
 <p>假设用户 <code>fibostest123</code> 发行了一个智能通证叫做 <code>VAYNE</code> ，用户 <code>fibostest321</code> 发行了一个叫做了 <code>HASAKI</code> 的智能通证。那么用户 <code>fibostest123</code> 想要用 <code>VAYNE</code> 兑换得到一定数量的 <code>HASAKI</code> 是怎么实现的呢？调用接口 <code>exchangeSync</code> 接口进行兑换。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 FIBOS 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> result = ctx.exchangeSync(</span><br><span class="line">    <span class="string">'fibostest123'</span>,</span><br><span class="line">    <span class="string">'1.0000 VAYNE@fibostest123'</span>,</span><br><span class="line">    <span class="string">'0.0000 HASAKI@fibostest321'</span>,</span><br><span class="line">    <span class="string">'exchenge VAYNE to HASAKI'</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        authorization: <span class="string">'fibostest123'</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 FIBOS 客户端</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> result = ctx.exchangeSync(</span><br><span class="line">    <span class="string">'fibostest123'</span>,</span><br><span class="line">    <span class="string">'1.0000 VAYNE@fibostest123'</span>,</span><br><span class="line">    <span class="string">'0.0000 HASAKI@fibostest321'</span>,</span><br><span class="line">    <span class="string">'0.0'</span>,</span><br><span class="line">    <span class="string">'fibostest123'</span>,</span><br><span class="line">    <span class="string">'exchenge VAYNE to HASAKI'</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        authorization: <span class="string">'fibostest123'</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <p>如果想要兑换成 <code>FIBOS</code> 中的 <code>EOS</code> 通证，那么只需将 <code>0.0000 HASAKI@fibostst321</code> 换成 <code>0.0000 EOS@eosio</code> 即可。</p>
-<h2 id="EOS-通证兑换-FO-通证"><a href="#EOS-通证兑换-FO-通证" class="headerlink" title="EOS 通证兑换 FO 通证"></a>EOS 通证兑换 FO 通证</h2><h3 id="发起-EOS-兑换-FO"><a href="#发起-EOS-兑换-FO" class="headerlink" title="发起 EOS 兑换 FO"></a>发起 EOS 兑换 FO</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> owner = <span class="string">'你的 FIBOS 账户名'</span>;</span><br><span class="line"><span class="keyword">let</span> eos2fo_quantity = <span class="string">'10.0000 EOS@eosio'</span>;</span><br><span class="line"><span class="keyword">let</span> memo = <span class="string">'exchange EOS to FO'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = ctx.exchangeSync(owner, eos2fo_quantity ,<span class="string">'0.0000 FO@eosio'</span>, memo, &#123;</span><br><span class="line">    authorization: owner</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
-<h3 id="查询兑换的-FO-通证"><a href="#查询兑换的-FO-通证" class="headerlink" title="查询兑换的 FO 通证"></a>查询兑换的 FO 通证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'你的 FIBOS 账户名'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
-<h2 id="FO-通证兑换-EOS-通证"><a href="#FO-通证兑换-EOS-通证" class="headerlink" title="FO 通证兑换 EOS 通证"></a>FO 通证兑换 EOS 通证</h2><h3 id="发起-FO-兑换-EOS"><a href="#发起-FO-兑换-EOS" class="headerlink" title="发起 FO 兑换 EOS"></a>发起 FO 兑换 EOS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = fibos_client.contractSync(<span class="string">'eosio.token'</span>);</span><br><span class="line"><span class="keyword">let</span> owner = <span class="string">'你的 FIBOS 账户名'</span>;</span><br><span class="line"><span class="keyword">let</span> fo2eos_quantity = <span class="string">'10.0000 FO@eosio'</span>;</span><br><span class="line"><span class="keyword">let</span> memo = <span class="string">'exchange FO to EOS'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = ctx.exchangeSync(owner, fo2eos_quantity, <span class="string">`0.0000 EOS@eosio`</span>, memo, &#123;</span><br><span class="line">    authorization: owner</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
-<h3 id="查询兑换的-EOS-通证"><a href="#查询兑换的-EOS-通证" class="headerlink" title="查询兑换的 EOS 通证"></a>查询兑换的 EOS 通证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rs = fibos_client.getTableRowsSync(<span class="literal">true</span>, <span class="string">'eosio.token'</span>, <span class="string">'你的 FIBOS 账户名'</span>, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(rs);</span><br></pre></td></tr></table></figure>
+<h2 id="uniswap-交易"><a href="#uniswap-交易" class="headerlink" title="uniswap 交易"></a>uniswap 交易</h2><p>👉 见【<a href="token-uniswap.html"> uniswap 交易</a>】部分</p>
 <h2 id="钱包一键兑换"><a href="#钱包一键兑换" class="headerlink" title="钱包一键兑换"></a>钱包一键兑换</h2><p><a href="http://wallet.fo/" target="_blank" rel="noopener">下载 FO 钱包</a> ，先选择你要兑换的源智能通证，输入要兑换的数量，再选择你要兑换的目标通证，点击兑换，稍等片刻即可兑换成功。</p>
 
   
