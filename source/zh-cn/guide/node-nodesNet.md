@@ -528,14 +528,15 @@ v1.7.1.4 +
 
 **开启 p2p 自发现实例**
 
-```net ```插件配置 ```p2p-max-nodes-per-host ```
+`net `插件配置 `p2p-discoverable`
+
 
 ```
 fibos.load("net", {
 	"p2p-peer-address": [],
 	"max-clients": 0,    //允许链接数量无限
 	"p2p-listen-endpoint": "0.0.0.0:9870",
-	"p2p-max-nodes-per-host": 100,  //允许p2p发现
+	"p2p-discoverable": true,  //允许p2p发现
 	"agent-name": "FIBOS node"
 }
 ```
