@@ -108,8 +108,8 @@ let result = ctx.outreservesSync(
 | -------- | ---------------- |
 | owner    | 兑换账号         |
 | quantity | 兑换通证数量     |
-| to| 兑换通证目标数量 |
-| price| 价格(仅在 uniswap 限价交易中填值) |
+| to | 兑换通证目标数量 |
+| price | 价格(仅在 uniswap 限价交易中填值) |
 | id | 渠道商 id (仅在 uniswap 交易中使用) |
 | memo | 兑换备注信息 |
 在市价交易的时候，`quantity的`值必须不为0，`to`和`price`的值必须为0。
@@ -125,7 +125,8 @@ ctx.exchangeSync(
     "fibos", 
     "200.0000 EOS@eosio", 
     "0.0000 FO@eosio", 
-    0, 
+    0,
+    'fibos',
     "test", {
     authorization: "fibos"
 });
