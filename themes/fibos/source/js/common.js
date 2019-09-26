@@ -1,4 +1,5 @@
 (function () {
+  changeLang()
   initMobileMenu()
   initVideoModal()
   if (PAGE_TYPE) {
@@ -17,6 +18,17 @@
   // For these cases where a section on one page has
   // moved to a perhaps differently-named section on
   // another page, we need this.
+  function changeLang(){
+    var languages = ['zh-cn', 'en-us']
+    var re = new RegExp(languages.join('|'))
+    if (!re.test(window.location.href)){
+      var lang_code = navigator.language.toLowerCase();
+      if(!lang_code in languages){
+        lang_code = 'en-us'
+      }
+      window.location.href = `/${lang_code}${window.location.pathname}`
+    }
+  }
 
 
   function initApiSpecLinks () {
