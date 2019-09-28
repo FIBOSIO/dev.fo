@@ -49,7 +49,7 @@
     window.PAGE_TYPE = "<%- page.type %>"
 
     function changeLang(){
-      var languages = ['zh-cn', 'en-us']
+      var languages = "<%- get_langs() %>".split(',')
       var re = new RegExp(languages.join('|'))
       if (!re.test(window.location.href)){
         var lang_code = navigator.language.toLowerCase();
