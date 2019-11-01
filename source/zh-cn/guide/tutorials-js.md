@@ -67,7 +67,7 @@ DBIterator Table.find(Value id);
 
 在 ABI 文件中定义了 updatetodo 的 action 方法，用来修改 todo 表数据，其中包含字段 id(int64)，text(string)，completed(bool)。
 
-**代码：。编写 JS 合约实现 updatetodo 方法**
+**代码：编写 JS 合约实现 updatetodo 方法**
 
 ```javascript
 exports.updatetodo = (id, text, completed) => {
