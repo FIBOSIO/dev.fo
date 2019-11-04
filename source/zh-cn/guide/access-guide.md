@@ -26,7 +26,7 @@ FIBOS 网络中的转账函数分为两种：`transfer` 和 `extransfer`
 
 **transfer**
 
-其中  `transfer` 函数表示的是与 EOS 主网兼容的转账方法，函数原型为：
+其中  `transfer` 函数表示的是转账方法，函数原型为：
 
 ```javascript
 void transfer(account_name from, account_name to, asset quantity, string memo)
