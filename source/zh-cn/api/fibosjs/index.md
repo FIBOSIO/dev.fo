@@ -253,7 +253,7 @@ console.log(privateKey);
 
 ```js
 fibos.modules.ecc.unsafeRandomKey().then(unsaferandomkey=>{
-    console.log(unsagerandomkey);
+    console.log(unsaferandomkey);
 })
 /*
 运行结果:
