@@ -550,7 +550,7 @@ String signature with hash encryption
 Synchronous:
 
 ```js
-var signHash = fibos.modules.ecc.signHashSync(dataSha256,PrivateKe);//hash encryption string and private key
+var signHash = fibos.modules.ecc.signHashSync(dataSha256,PrivateKey);//hash encryption string and private key
 console.log(signHash);
 /*
 result:
