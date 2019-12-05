@@ -178,6 +178,6 @@ exports.settle = (user, minutes) => {
 
 关于 JavaScript 合约如何发布，请参考 [快速入门](./start.html)。
 
-通过上面的 JavaScript 合约，我们可以看到，`assert.isTrue(minutes > 0, 'minutes must be positive');`用于判断骑行时间的正确性。然后我们根据骑行时长计算出用户所需支付的通证数量，构造了一个`extended_asset`对象，作为参数，使用`send_inline`的方式调用`eosio.token`合约的`ctxtransfer`，将用户的子钱包资产转账至合约的发布者（fobikeissuer）的子钱包资产中。（关于合约之间的调用，下一期的文档我们会详细介绍，敬请期待！）
+通过上面的 JavaScript 合约，我们可以看到，`assert.isTrue(minutes > 0, 'minutes must be positive');`用于判断骑行时间的正确性。然后我们根据骑行时长计算出用户所需支付的通证数量，构造了一个`extended_asset`对象，作为参数，使用`send_inline`的方式调用`eosio.token`合约的`ctxtransfer`，将用户的子钱包资产转账至合约的发布者（fobikeissuer）的子钱包资产中。
 
 这样，一个最简单的用于扣费的 JavaScript 合约就完成了。关于合约子钱包，还有很多有趣的玩法，欢迎大家踊跃发言，让我们共同进步！
