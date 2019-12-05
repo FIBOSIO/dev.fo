@@ -53,7 +53,7 @@ console.log(getInfo);
 ```js
 fibos_client.getInfo().then(getInfo => {
       console.log(getInfo);
-}
+}）
 ```
 
 #### 返回值
@@ -130,7 +130,7 @@ console.log(getBlock);
 ```js
 fibos_client.getBlock(1).then(getInfo => {
       console.log(getInfo);
-}
+}）
 ```
 
 #### 返回值
