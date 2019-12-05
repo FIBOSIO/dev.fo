@@ -381,7 +381,7 @@ FO83msFTj6yv5U91KkiRxHcDZUXJkR6xwC9EjbqqwFqhFa1nxMYx
 异步:
 
 ```js
-fibos.modules.ecc.privateToPublic(PrivateKey).then(privatetopublic={
+fibos.modules.ecc.privateToPublic(PrivateKey).then(privatetopublic=>{
     console.log(privatetopublic);
 })
 /*
@@ -786,7 +786,7 @@ console.log(sha256);
 ```js
 fibos.modules.ecc.sha256(data).then(recover_hash => {
       console.log(recover_hash);
-}
+})
 /*
 运行结果:
 8a72914b5c615a7d1f23298c7efa9d404d69f79e580de122cf0685bc0e9b45ab
@@ -858,7 +858,7 @@ fibos_client.getAccount(account_name);
 同步:
 
 ```js
-var getAccount = fibos.getAccountSync("Account Name");//账户名
+var getAccount = fibos_client.getAccountSync("Account Name");//账户名
 console.log(getAccount);
 ```
 
@@ -867,7 +867,7 @@ console.log(getAccount);
 ```js
 fibos_client.getAccount("Account Name").then(getAccount => {//账户名
       console.log(getAccount);
-}
+})
 ```
 
 #### 返回值
