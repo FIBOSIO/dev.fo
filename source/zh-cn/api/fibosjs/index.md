@@ -20,7 +20,7 @@ FIBOS 和 EOSIO 区块链的通用库。
 
 ```js
 var FIBOS = require('fibos.js');
-var fibos_clinet = FIBOS({
+var fibos_client = FIBOS({
 	chainId: "68cee14f598d88d340b50940b6ddfba28c444b46cd5f33201ace82c78896793a",
 	keyProvider: "KeyProvider",
 	httpEndpoint: "http://api.testnet.fo",
