@@ -166,6 +166,7 @@ let result = ctx.outreservesSync(
 
 在 `uniswap`市场中，用户所拥有的`token`份额以权重的形式展示。在减仓的时候**不能**设置提取某一个数额的`token`出来，只能设置提取的比例，按照对应的比例获得对应的币币对。详细公式见下：
 
+{% raw %}
 $$
 \begin{gather}
 a\times{b}=S\\
@@ -175,6 +176,7 @@ a\times{b}=S\\
 减仓提取：(a_{new}\times{r})\quad(b_{new}\times{r})
 \end{gather}
 $$
+{% endraw %}
 
 ### 市价交易\限价交易
 
