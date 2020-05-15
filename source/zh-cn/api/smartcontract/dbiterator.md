@@ -23,7 +23,7 @@ exports.hi1 = v => {
     var players = db.players(action.account, action.account);
     var itr = players.find(v);
     console.log(itr.data);
-}；
+};
 ```
 
 ## 成员函数
@@ -44,7 +44,7 @@ exports.hi1 = v => {
     var players = db.players(action.account, action.account);
     var itr = players.find(v);
     console.log(itr.is_begin());
-}；
+};
 ```
 
 
@@ -64,7 +64,7 @@ exports.hi1 = v => {
     var players = db.players(action.account, action.account);
     var itr = players.find(v);
     console.log(itr.is_end());
-}；
+};
 ```
 
 
@@ -83,7 +83,7 @@ exports.hi1 = v => {
     var itr = players.find(v);
     var itr1 = itr.next();
     console.log(itr1.toJSON());
-}；
+};
 ```
 
 
@@ -103,7 +103,7 @@ exports.hi1 = v => {
     var itr1 = itr.next();
     var itr2 = itr1.previous();
     console.log(itr2.toJSON());
-}；
+};
 ```
 
 
@@ -121,7 +121,7 @@ exports.hi1 = v => {
     var players = db.players(action.account, action.account);
     var itr = players.find(v);
     itr.remove();
-}；
+};
 ```
 
 
@@ -143,7 +143,7 @@ exports.hi1 = v => {
     var itr = players.find(v);
     itr.data.age = 18;
     itr.update(action.account);
-}；
+};
 ```
 
 

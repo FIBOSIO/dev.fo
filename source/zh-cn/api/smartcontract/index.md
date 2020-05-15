@@ -104,7 +104,7 @@ action.has_auth(name);
 
 ```JavaScript
 exports.hi = v => {
-    if (action.has_auth(account));
+    if (action.has_auth(account))
     console.notice("action be authed");
 };
 ```

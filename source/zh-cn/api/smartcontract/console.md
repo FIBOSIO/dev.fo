@@ -235,7 +235,7 @@ console.error(...args);
 
 ```JavaScript
 exports.hi = v => {
-    console.warn('hello FIBOS')
+    console.error('hello FIBOS')
 };
 ```
 

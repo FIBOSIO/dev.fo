@@ -27,7 +27,7 @@ exports.hi = account => {
 
 ```javascript
 exports.hi = account => {
-  if (action.has_auth(account)){
+  ){
     console.notice("action be authed");
   }
 };

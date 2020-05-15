@@ -137,7 +137,7 @@ todos# 1n  removed
 [(todolistdapp,destory)->todolistdapp]: CONSOLE OUTPUT END   =====================
     √ user delete record (211ms)
 
-  √ 5 tests completed (3709ms)
+  √ 4 tests completed (3709ms)
 ```
 
 本文 GitHub 源码：<https://github.com/fengluo/fibos-todomvc> 下的 `test` 文件夹。

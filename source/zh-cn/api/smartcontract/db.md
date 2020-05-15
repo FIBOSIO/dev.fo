@@ -28,7 +28,7 @@ db.table(scope,code,indexes);
 
 使用 db 模块首先我们需要在 abi 文件中定义数据表的表名、表结构和主键等信息，如下所示：
 ```
-var db_abi = {
+ {
       "version": "eosio::abi/1.0",
       "types": [{
           "new_type_name": "my_account_name",

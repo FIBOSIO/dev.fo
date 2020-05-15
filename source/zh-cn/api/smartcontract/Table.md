@@ -168,7 +168,7 @@ Table.lowerbound(id);
 
 ```JavaScript
 exports.hi1 = v => {
-    var players = db.players1(action.account, action.account);
+    var players = db.players(action.account, action.account);
     var data = players.lowerbound(123);
     console.log(data.data, data1.data);
 };
@@ -194,7 +194,7 @@ Table.upperbound(id);
 
 ```JavaScript
 exports.hi1 = v => {
-    var players = db.players1(action.account, action.account);
+    var players = db.players(action.account, action.account);
     var data1 = players.upperbound(123);
     console.log(data.data, data1.data);
 };
@@ -217,7 +217,7 @@ Table.toString();
 
 ```javascript
 exports.hi1 = v => {
-    var players = db.players1(action.account, action.account);
+    var players = db.players(action.account, action.account);
     console.log(players.toString());
 };
 ```
@@ -244,7 +244,7 @@ Table.toJSON(key);
 
 ```javascript
 exports.hi1 = key => {
-    var players = db.players1(action.account, action.account);
+    var players = db.players(action.account, action.account);
     console.log(players.toJSON(key));
 };
 ```
