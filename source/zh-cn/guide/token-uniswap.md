@@ -144,7 +144,7 @@ let result = ctx.outreservesSync(owner, symbolx, symboly, rate);
 - 该`uniswap`必须存在。否则报错。
 - 该用户在该`uniswap`市场中必须拥有份额。否则报错。
 - 用户提取出来的`token`数必须大于该币种的最小精度。否则报错。
-- 用户提取结束后剩余的权重必须大于总权重部分的0.1%。否则报错。
+- 用户提取结束后剩余的权重必须大于总权重部分的0.01%。否则报错。
 
 该行为会对 X-Y 的 uniswap 通证市场进行提仓，通过`rate`比例提出我们自己的通证份额。
 ```javascript
